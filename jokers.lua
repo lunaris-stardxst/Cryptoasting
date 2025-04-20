@@ -110,5 +110,24 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "dead_joker",
+	config = { extra = {  } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 0 },
+	cost = 8,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = 107
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
