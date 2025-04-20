@@ -45,6 +45,12 @@ return {
 					"{C:chips}+#1#{} Chips",
 				},
 			},
+			j_crp_joker_3 = {
+				name = "Joker 3",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult",
+				},
+			},
 		},
 	},
 }
