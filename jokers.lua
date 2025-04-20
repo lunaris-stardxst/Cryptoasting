@@ -148,5 +148,24 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "joker_3",
+	config = { extra = { x_mult = 4 } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 0 },
+	cost = 10,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.x_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				x_mult = card.ability.extra.x_mult
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
