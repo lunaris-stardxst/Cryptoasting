@@ -56,5 +56,32 @@ SMODS.Joker {
 	end,
 }
 
+SMODS.Joker {
+	key = 'sprinter',
+	config = { extra = { a_chips = 0, a_chips_mod = 75 } },
+	rarity = 1,
+	atlas = 'crp_jokers',
+	pos = { x = 4, y = 0 },
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_chips_mod } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = card.ability.extra.a_chips,
+			}
+		end
+		if context.before and next(context.poker_hands['Straight Flush']) and not context.blueprint then
+			card.ability.extra.a_chips = card.ability.extra.a_chips + card.ability.extra.a_chips_mod
+			return {
+				message = 'Upgraded!',
+				colour = G.C.CHIPS,
+				card = card
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
