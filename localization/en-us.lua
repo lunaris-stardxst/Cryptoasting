@@ -13,6 +13,15 @@ return {
 					"{X:dark_edition,C:white}^#1#{} Chips and Mult"
 				},
 			},
+			j_crp_sprinter = {
+				name = "Sprinter",
+				text = {
+					"Gains {C:chips}+#2#{} Chips",
+					"if played hand",
+					"contains a {C:attention}Straight Flush",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+				},
+			},
 		},
 	},
 }
