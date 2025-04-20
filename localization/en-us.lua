@@ -39,6 +39,12 @@ return {
 					"(Currently {C:mult}+107{} Mult)",
 				},
 			},
+			j_crp_joker_2 = {
+				name = "Joker 2",
+				text = {
+					"{C:chips}+#1#{} Chips",
+				},
+			},
 		},
 	},
 }
