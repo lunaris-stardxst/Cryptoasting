@@ -4,13 +4,13 @@ return {
 			j_crp_bulgoe = {
 				name = "Bulgoe",
 				text = {
-					"{C:chips}+#1#{} Chips"
+					"{C:chips}+#1#{} Chips",
 				},
 			},
 			j_crp_normalis = {
 				name = "Normalis",
 				text = {
-					"{X:dark_edition,C:white}^#1#{} Chips and Mult"
+					"{X:dark_edition,C:white}^#1#{} Chips and Mult",
 				},
 			},
 			j_crp_sprinter = {
@@ -19,7 +19,7 @@ return {
 					"Gains {C:chips}+#2#{} Chips",
 					"if played hand",
 					"contains a {C:attention}Straight Flush",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
 			j_crp_jogger = {
@@ -28,7 +28,15 @@ return {
 					"Gains {C:chips}+#2#{} Chips",
 					"if played hand",
 					"contains a {C:attention}High Card",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+				},
+			},
+			j_crp_dead_joker = {
+				name = "Dead Joker",
+				text = {
+					"{C:mult}+1{} Mult for every {C:attention}Graveyarded{}",
+					"submission in the {C:attention}CSL{}",
+					"(Currently {C:mult}+107{} Mult)",
 				},
 			},
 		},
