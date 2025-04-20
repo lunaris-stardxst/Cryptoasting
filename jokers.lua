@@ -167,5 +167,32 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "joker_4",
+	config = { extra = { e_mult = 4 } },
+	rarity = "cry_exotic",
+	atlas = "crp_jokers",
+	pos = { x = 0, y = 1 },
+	cost = 50,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.e_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(card.ability.extra.e_mult),
+					},
+				}),
+				Emult_mod = card.ability.extra.e_mult,
+				colour = G.C.DARK_EDITION,
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
