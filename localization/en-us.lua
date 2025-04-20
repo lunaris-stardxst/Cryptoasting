@@ -51,6 +51,12 @@ return {
 					"{X:mult,C:white}X#1#{} Mult",
 				},
 			},
+			j_crp_joker_4 = {
+				name = "Joker 4",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult",
+				},
+			},
 		},
 	},
 }
