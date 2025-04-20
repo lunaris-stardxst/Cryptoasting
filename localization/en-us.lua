@@ -22,6 +22,15 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
 				},
 			},
+			j_crp_jogger = {
+				name = "Jogger",
+				text = {
+					"Gains {C:chips}+#2#{} Chips",
+					"if played hand",
+					"contains a {C:attention}High Card",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+				},
+			},
 		},
 	},
 }
