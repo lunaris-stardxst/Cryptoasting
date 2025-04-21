@@ -254,5 +254,27 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "millipede",
+	config = { extra = { a_chips = 1000 } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 1 },
+	cost = 10,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if #context.full_hand == 1 then
+				return {
+					chips = card.ability.extra.a_chips
+				}
+			end
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
