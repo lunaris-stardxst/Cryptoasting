@@ -16,6 +16,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	pos = { x = 0, y = 0 },
 	cost = 1,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips } }
 	end,
@@ -37,6 +38,7 @@ SMODS.Joker {
 	pos = { x = 1, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 3, y = 0 } },
 	cost = 50,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.e_chips, card.ability.extra.e_mult } }
 	end,
@@ -63,6 +65,7 @@ SMODS.Joker {
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 0 },
 	cost = 5,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_chips_mod } }
 	end,
@@ -90,6 +93,7 @@ SMODS.Joker {
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 0 },
 	cost = 5,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_chips_mod } }
 	end,
@@ -117,6 +121,7 @@ SMODS.Joker {
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 0 },
 	cost = 8,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -130,12 +135,39 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "joker_of_all_trades",
+	config = { extra = { a_chips = 150, a_mult = 15, a_dollars = 5 } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 3, y = 1 },
+	cost = 9,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_mult, card.ability.extra.a_dollars } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = card.ability.extra.a_chips,
+				mult = card.ability.extra.a_mult
+			}
+		end
+	end,
+	calc_dollar_bonus = function(self, card)
+		if to_big(card.ability.extra.a_dollars) > to_big(0) and not context.blueprint then
+			return card.ability.extra.a_dollars
+		end
+	end,
+}
+
+SMODS.Joker {
 	key = "joker_2",
 	config = { extra = { a_chips = 4 } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 7, y = 0 },
 	cost = 1,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips } }
 	end,
@@ -155,6 +187,7 @@ SMODS.Joker {
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 0 },
 	cost = 10,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.x_mult } }
 	end,
@@ -173,7 +206,9 @@ SMODS.Joker {
 	rarity = "cry_exotic",
 	atlas = "crp_jokers",
 	pos = { x = 0, y = 1 },
+	soul_pos = { x = 1, y = 1, extra = { x = 2, y = 1 } },
 	cost = 50,
+	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.e_mult } }
 	end,
