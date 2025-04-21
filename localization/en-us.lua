@@ -71,6 +71,12 @@ return {
 					"{C:money}$#1#{}",
 				},
 			},
+			j_crp_joker_8 = {
+				name = "Joker 8",
+				text = {
+					"{X:chips,C:white}X#1#{} Chips",
+				},
+			},
 			j_crp_playerrkillerr = {
 				name = "playerrKillerr",
 				text = {
