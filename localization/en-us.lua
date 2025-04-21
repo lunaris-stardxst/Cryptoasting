@@ -34,7 +34,7 @@ return {
 			j_crp_tetration_timmy = {
 				name = "tetration timmy",
 				text = {
-					"{X:edition,C:white}^^#1#{}",
+					"{X:edition,C:white}^^#1#{} Mult",
 				},
 			},
 			j_crp_dead_joker = {
