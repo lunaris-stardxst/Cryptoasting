@@ -13,5 +13,6 @@
 	"dependencies": [
 		"Talisman",
 		"Steamodded",
+		"Cryptid",
 	],
 }

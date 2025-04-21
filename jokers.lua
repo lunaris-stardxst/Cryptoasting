@@ -229,5 +229,30 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "playerrkillerr",
+	config = { extra = {  } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 0 },
+	cost = 434,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_cry_googol_play
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_tarot_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_planet_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
+		return { vars = { card.ability.extra.a_mult, '{', '}' } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = 284
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
