@@ -70,7 +70,12 @@ return {
 					"{X:dark_edition,C:white}^#1#{} Mult",
 				},
 			},
-
+			j_crp_joker_5 = {
+				name = "Joker 5",
+				text = {
+					"{X:edition,C:white}^^#1#{} Mult",
+				},
+			},
 			j_crp_joker_6 = {
 				name = "Joker 6",
 				text = {
