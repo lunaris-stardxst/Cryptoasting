@@ -60,7 +60,7 @@ return {
 		},
 		Tag = {
 			tag_crp_common_tag = {
-				name = "Legendary Tag",
+				name = "Common Tag",
 				text = {
 					"The next shop will have",
 					"a free {C:common}Common{} Joker",
