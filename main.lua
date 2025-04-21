@@ -1,7 +1,7 @@
 -- a file specificlaly to load all other lua files in the mod (and for config stuff)
 
 local files = {
-	"rarities,"
+	"rarities",
 	"jokers",
 	"tags",
 }
