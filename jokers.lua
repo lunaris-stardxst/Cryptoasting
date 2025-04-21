@@ -154,9 +154,7 @@ SMODS.Joker {
 		end
 	end,
 	calc_dollar_bonus = function(self, card)
-		if not context.blueprint then
-			return card.ability.extra.a_dollars
-		end
+		return card.ability.extra.a_dollars
 	end,
 }
 
