@@ -353,7 +353,26 @@ SMODS.Joker {
 	end
 }
 
-
+SMODS.Joker {
+	key = "big_joker",
+	config = { extra = { a_mult = 15 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 0 },
+	display_size = { w = 2.5 * 71, h = 2.5 * 95 },
+	cost = 6,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.a_mult
+			}
+		end
+	end
+}
 
 ----------------------------------------------
 ------------MOD CODE END----------------------
