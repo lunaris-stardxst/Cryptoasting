@@ -80,6 +80,13 @@ return {
 					"Lastly, divides this description by {C:attention,s:2}0{}, then adds the total number of approved suggestions to {C:mult}Mult{}."
 				}
 			},
+			j_crp_millipede = {
+				name = "Millipede",
+				text = {
+					"{C:chips}+#1#{} Chips if played",
+					"hand has only {C:attention}1{} card",
+				},
+			},
 
 		},
 		Tag = {
