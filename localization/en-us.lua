@@ -94,14 +94,14 @@ return {
 				name = "Legendary Tag",
 				text = {
 					"The next shop will have",
-					"a free {C:legendary}Legendary{} Joker",
+					"a full-price {C:legendary}Legendary{} Joker",
 				},
 			},
 			tag_crp_exotic_tag = {
 				name = "Exotic Tag",
 				text = {
-					"The next shop will have",
-					"a free {C:cry_exotic}Exotic{} Joker",
+					"The next shop will have an",
+					"{C:cry_exotic}Exotic{} Joker at double the price",
 				},
 			},
 		},
