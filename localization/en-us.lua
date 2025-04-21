@@ -31,6 +31,12 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
+			j_crp_tetration_timmy = {
+				name = "Tetration Timmy",
+				text = {
+					"{X:edition,C:white}^^#1#{}",
+				},
+			},
 			j_crp_dead_joker = {
 				name = "Dead Joker",
 				text = {
