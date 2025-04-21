@@ -39,6 +39,13 @@ return {
 					"(Currently {C:mult}+107{} Mult)",
 				},
 			},
+			j_crp_joker_of_all_trades = {
+				name = "Joker of all Trades",
+				text = {
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					"Earn {C:money}$#3#{} at end of round",
+				},
+			},
 			j_crp_joker_2 = {
 				name = "Joker 2",
 				text = {
