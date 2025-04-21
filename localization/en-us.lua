@@ -126,4 +126,20 @@ return {
 			},
 		},
 	},
+	misc = {
+		dictionary = {
+			k_crp_trash = "Trash",
+			k_crp_m = "M",
+			k_crp_uncommon2 = "Uncommon2",
+			k_crp_rare2 = "Rare 2",
+			k_crp_awesome = "Awesome",
+			k_crp_cipe = "Cipe",
+			k_crp_mythic = "Mythic",
+			k_crp_exotic_2 = "Exotic 2",
+			k_crp_exomythic = "ExoMythic",
+			["k_crp_:3"] = ":3",
+			k_crp_cryptastic = "Cryptastic",
+			k_crp_exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic 22ExoMythic4meCipe",
+		}
+	}
 }
