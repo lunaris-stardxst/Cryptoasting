@@ -239,12 +239,31 @@ SMODS.Joker {
 	cost = 4,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.x_mult } }
+		return { vars = { card.ability.extra.a_dollars } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			ease_dollars(card.ability.extra.a_dollars)
 			return { message = "$" .. number_format(card.ability.extra.a_dollars), colour = G.C.MONEY }
+		end
+	end
+}
+
+SMODS.Joker {
+	key = "joker_8",
+	config = { extra = { x_chips = 4 } },
+	rarity = 2,
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 1 },
+	cost = 7,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.x_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				x_chips = 
 		end
 	end
 }
