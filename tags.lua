@@ -24,7 +24,7 @@ SMODS.Tag {
 			end
 			local card
 			if #G.P_JOKER_RARITY_POOLS[1] > rares_in_posession[1] then
-				card = create_card("Joker", context.area, true, 1, nil, nil, nil, "cry_eta")
+				card = create_card('Joker', _context.area, nil, 0.8, nil, nil, nil, 'uta')
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Common, function()
@@ -59,12 +59,12 @@ SMODS.Tag {
 			end
 			local card
 			if #G.P_JOKER_RARITY_POOLS[4] > rares_in_posession[1] then
-				card = create_card("Joker", context.area, true, 4, nil, nil, nil, "cry_eta")
+				card = create_card("Joker", context.area, true, 4, nil, nil, nil, "uta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Legendary, function()
 					card:start_materialize()
-					card.misprint_cost_fac = 0
+					card.misprint_cost_fac = 1
 					card:set_cost()
 					return true
 				end)
@@ -99,7 +99,7 @@ SMODS.Tag {
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.cry_exotic, function()
 					card:start_materialize()
-					card.misprint_cost_fac = 0
+					card.misprint_cost_fac = 2
 					card:set_cost()
 					return true
 				end)
