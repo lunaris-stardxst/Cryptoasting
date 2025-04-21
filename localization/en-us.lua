@@ -111,7 +111,12 @@ return {
 					"hand has only {C:attention}1{} card",
 				},
 			},
-
+			j_crp_big_joker = {
+				name = "Big Joker",
+				text = {
+					"{C:mult}+#1#{} Mult",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
