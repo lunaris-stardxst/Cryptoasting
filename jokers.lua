@@ -240,8 +240,8 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
 		info_queue[#info_queue + 1] = G.P_CENTERS.j_cry_googol_play
-		info_queue[#info_queue + 1] = G.P_CENTERS.p_tarot_normal_1
-		info_queue[#info_queue + 1] = G.P_CENTERS.p_planet_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_celestial_normal_1
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
 		return { vars = { card.ability.extra.a_mult, '{', '}' } }
 	end,
