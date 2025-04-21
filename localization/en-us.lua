@@ -73,7 +73,7 @@ return {
 			j_crp_joker_5 = {
 				name = "Joker 5",
 				text = {
-					"{X:edition,C:white}^^#1#{} Mult",
+					"{X:edition,C:dark_edition}^^#1#{} Mult",
 				},
 			},
 			j_crp_joker_6 = {
