@@ -58,5 +58,28 @@ return {
 				},
 			},
 		},
+		Tag = {
+			tag_crp_common_tag = {
+				name = "Legendary Tag",
+				text = {
+					"The next shop will have",
+					"a free {C:common}Common{} Joker",
+				},
+			},
+			tag_crp_legendary_tag = {
+				name = "Legendary Tag",
+				text = {
+					"The next shop will have",
+					"a free {C:legendary}Legendary{} Joker",
+				},
+			},
+			tag_crp_exotic_tag = {
+				name = "Exotic Tag",
+				text = {
+					"The next shop will have",
+					"a free {C:cry_exotic}Exotic{} Joker",
+				},
+			},
+		},
 	},
 }
