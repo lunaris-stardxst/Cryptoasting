@@ -24,7 +24,7 @@ SMODS.Tag {
 			end
 			local card
 			if #G.P_JOKER_RARITY_POOLS[1] > rares_in_posession[1] then
-				card = create_card('Joker', _context.area, nil, 0.8, nil, nil, nil, 'uta')
+				card = create_card('Joker', context.area, nil, 0, nil, nil, nil, 'uta')
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Common, function()
