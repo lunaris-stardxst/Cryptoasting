@@ -231,10 +231,10 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_6",
 	config = { extra = { a_dollars = 4 } },
-	rarity = 1,
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 1 },
-	cost = 4,
+	cost = 8,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_dollars } }
