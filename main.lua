@@ -6,7 +6,7 @@ local files = {
 	"tags",
 }
 for i, v in pairs(files) do
-	assert(SMODS.load_file(v..lua))()
+	assert(SMODS.load_file(v..".lua"))()
 end
 
 local oldfunc = Game.main_menu
