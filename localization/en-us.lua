@@ -64,6 +64,13 @@ return {
 					"{X:dark_edition,C:white}^#1#{} Mult",
 				},
 			},
+
+			j_crp_joker_6 = {
+				name = "Joker 6",
+				text = {
+					"{C:money}$#1#{}",
+				},
+			},
 			j_crp_playerrkillerr = {
 				name = "playerrKillerr",
 				text = {
