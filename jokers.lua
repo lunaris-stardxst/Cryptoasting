@@ -229,6 +229,26 @@ SMODS.Joker {
 	end
 }
 
+
+SMODS.Joker {
+	key = "joker_6",
+	config = { extra = { a_dollars = 4 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 1 },
+	cost = 4,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.x_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			ease_dollars(card.ability.extra.a_dollars)
+			return { message = "$" .. number_format(card.ability.extra.a_dollars), colour = G.C.MONEY }
+		end
+	end
+}
+
 SMODS.Joker {
 	key = "playerrkillerr",
 	config = { extra = {  } },
@@ -275,6 +295,8 @@ SMODS.Joker {
 		end
 	end
 }
+
+
 
 ----------------------------------------------
 ------------MOD CODE END----------------------
