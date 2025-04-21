@@ -130,6 +130,34 @@ return {
 					"{C:cry_exotic}Exotic{} Joker at double the price",
 				},
 			},
+			tag_crp_uncommon2_tag = {
+				name = "Uncommon2 Tag",
+				text = {
+					"The next shop will have a",
+					"free {C:uncommon}Uncommon2{} Joker",
+				},
+			},
+			tag_crp_rare2_tag = {
+				name = "Rare 2 Tag",
+				text = {
+					"The next shop will have a",
+					"free {C:rare}Rare 2{} Joker",
+				},
+			},
+			tag_crp_m_tag = {
+				name = "M Tag",
+				text = {
+					"The next shop will have a",
+					"free {C:cry_exotic}M{} Joker",
+				},
+			},
+			tag_crp_awesome_tag = {
+				name = "Awesome Tag",
+				text = {
+					"The next shop will have a",
+					"a half-price {C:crp_awesome}Awesome{} Joker",
+				},
+			},
 		},
 	},
 	misc = {
