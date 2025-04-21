@@ -32,7 +32,7 @@ return {
 				},
 			},
 			j_crp_tetration_timmy = {
-				name = "Tetration Timmy",
+				name = "tetration timmy",
 				text = {
 					"{X:edition,C:white}^^#1#{}",
 				},
