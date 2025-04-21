@@ -1,7 +1,13 @@
 -- a file specificlaly to load all other lua files in the mod (and for config stuff)
 
-assert(SMODS.load_file('jokers.lua'))()
-assert(SMODS.load_file('tags.lua'))()
+local files = {
+	"rarities,"
+	"jokers",
+	"tags",
+}
+for i, v in pairs(files) do
+	assert(SMODS.load_file(v..lua))()
+end
 
 local oldfunc = Game.main_menu
 Game.main_menu = function(change_context)
