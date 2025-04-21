@@ -247,6 +247,25 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "joker_5",
+	config = { extra = { ee_mult = 4 } },
+	rarity = "crp_mythic",
+	atlas = "crp_jokers",
+	pos = { x = 0, y = 2 },
+	cost = 100,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.ee_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				eemult = card.ability.extra.ee_mult
+			}
+		end
+	end
+}
 
 SMODS.Joker {
 	key = "joker_6",
