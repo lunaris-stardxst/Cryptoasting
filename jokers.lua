@@ -252,7 +252,8 @@ SMODS.Joker {
 	config = { extra = { ee_mult = 4 } },
 	rarity = "crp_mythic",
 	atlas = "crp_jokers",
-	pos = { x = 0, y = 2 },
+	pos = { x = 1, y = 2 },
+	soul_pos = { x = 2, y = 2, extra = { x = 3, y = 2 } },
 	cost = 100,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -358,7 +359,7 @@ SMODS.Joker {
 	config = { extra = { a_mult = 15 } },
 	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 7, y = 0 },
+	pos = { x = 7, y = 2 },
 	display_size = { w = 2.5 * 71, h = 2.5 * 95 },
 	cost = 6,
 	blueprint_compat = true,
