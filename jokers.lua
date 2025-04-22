@@ -199,7 +199,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "joker_2.5",
+	key = "joker_2_5",
 	config = { extra = { a_chips = 40 } },
 	rarity = 1,
 	atlas = "crp_jokers",

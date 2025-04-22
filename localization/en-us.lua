@@ -58,7 +58,7 @@ return {
 					"{C:chips}+#1#{} Chips",
 				},
 			},
-			j_crp_joker_2.5 = {
+			j_crp_joker_2_5 = {
 				name = "Joker 2.5",
 				text = {
 					"{C:chips}+#1#{} Chips",
