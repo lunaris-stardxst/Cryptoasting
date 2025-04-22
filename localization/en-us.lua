@@ -98,7 +98,7 @@ return {
 					"Does NOT give {X:mult,C:white}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
 					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker’s values.",
 					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
-					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:dark_edition,C:edition}#2#69#3#{}2 Chips and {X:dark_edition,C:edition}#2#69#3#{}2 Mult.",
+					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#2#69#3#{}2 Chips and {X:edition,C:dark_edition}#2#69#3#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
 					"Lastly, divides this description by {C:attention,s:2}0{}, then adds the total number of approved suggestions to {C:mult}Mult{}."
