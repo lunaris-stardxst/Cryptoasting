@@ -168,6 +168,13 @@ return {
 					"a half-price {C:crp_awesome}Awesome{} Joker",
 				},
 			},
+			tag_crp_mythic_tag = {
+				name = "Mythic Tag",
+				text = {
+					"The next shop will have a",
+					"a {C:crp_mythic}Mythic{} Joker at double the price",
+				},
+			},
 		},
 	},
 	misc = {
