@@ -199,6 +199,26 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "joker_2.5",
+	config = { extra = { a_chips = 40 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 2 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = card.ability.extra.a_chips
+			}
+		end
+	end
+}
+
+SMODS.Joker {
 	key = "joker_3",
 	config = { extra = { x_mult = 4 } },
 	rarity = 3,

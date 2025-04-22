@@ -58,6 +58,12 @@ return {
 					"{C:chips}+#1#{} Chips",
 				},
 			},
+			j_crp_joker_2.5 = {
+				name = "Joker 2.5",
+				text = {
+					"{C:chips}+#1#{} Chips",
+				},
+			},
 			j_crp_joker_3 = {
 				name = "Joker 3",
 				text = {
