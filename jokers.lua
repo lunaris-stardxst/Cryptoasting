@@ -116,11 +116,11 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "tetration_timmy",
-	config = { extra = { ee_mult = 2 } },
-	rarity = "crp_mythic",
+	config = { extra = { ee_mult = 1.1 } },
+	rarity = "cry_exotic",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 1 },
-	cost = 100,
+	cost = 50,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.ee_mult } }
