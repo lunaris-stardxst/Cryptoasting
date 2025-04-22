@@ -128,7 +128,15 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				eemult = card.ability.extra.ee_mult
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(card.ability.extra.ee_mult),
+					},
+				}),
+				ee_mult = card.ability.extra.ee_mult,
+				colour = G.C.DARK_EDITION,
 			}
 		end
 	end
@@ -282,7 +290,16 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				eemult = card.ability.extra.ee_mult
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(card.ability.extra.ee_mult),
+					},
+				}),
+				ee_mult = card.ability.extra.ee_mult,
+				colour = G.C.DARK_EDITION,
+				
 			}
 		end
 	end
@@ -375,12 +392,33 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "pi_joker",
+	config = { extra = {  } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 3 },
+	cost = 10,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.x_chips, card.ability.extra.x_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				x_chips = 3.14159265358979323846264338327950,
+				x_mult = 3.14159265358979323846264338327950,
+			}
+		end
+	end
+}
+
+SMODS.Joker {
 	key = "big_joker",
 	config = { extra = { a_mult = 15 } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 7, y = 2 },
-	display_size = { w = 2.5 * 71, h = 2.5 * 95 },
+	display_size = { w = 2 * 71, h = 2 * 95 },
 	cost = 6,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
