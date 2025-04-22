@@ -204,7 +204,7 @@ SMODS.Joker {
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 2 },
-	cost = 2,
+	cost = 1,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips } }
@@ -312,7 +312,7 @@ SMODS.Joker {
 	config = { extra = { x_chips = 4 } },
 	rarity = 3,
 	atlas = "crp_jokers",
-	pos = { x = 7, y = 1 },
+	pos = { x = 0, y = 3 },
 	cost = 10,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
