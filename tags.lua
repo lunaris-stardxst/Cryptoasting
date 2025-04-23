@@ -255,7 +255,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "mythic_tag",
 	atlas = "crp_tags",
-	pos = { x = 2, y = 0 },
+	pos = { x = 7, y = 0 },
 	min_ante = 5,
 	config = { type = "store_joker_create" },
 	apply = function(self, tag, context)
