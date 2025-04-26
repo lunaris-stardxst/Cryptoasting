@@ -433,5 +433,49 @@ SMODS.Joker {
 	end
 }
 
+SMODS.Joker {
+	key = "water_bottle",
+	config =
+		{ extra = { splash = 5 } },
+		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
+	rarity = 2,
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 4 },
+	cost = 7,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.splash } }
+	end,
+	calculate = function(self, card, context)
+		if context.selling_self then
+			for i = 1, math.floor(card.ability.extra.splash) do
+				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_splash")
+				card:add_to_deck()
+				G.jokers:emplace(card)
+			end
+		end
+	end
+}
+
+SMODS.Joker {
+	key = "chip",
+	config = { extra = {  } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 0, y = 4 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = 1
+			}
+		end
+	end
+}
+
 ----------------------------------------------
 ------------MOD CODE END----------------------

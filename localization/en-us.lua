@@ -130,6 +130,20 @@ return {
 					"{C:mult}+#1#{} Mult",
 				},
 			},
+			j_crp_chip = {
+				name = "chip",
+				text = {
+					"You get {C:chips}one{}",
+				},
+			},
+			j_crp_water_bottle = {
+				name = "Water Bottle",
+				text = {
+					"Creates {C:attention}#1# Splashes{}",
+					"when sold",
+					"{C:inactive}(Does not require room){}",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
