@@ -484,27 +484,17 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "big_joker",
-	config = { extra = { a_mult = 15 } },
-	rarity = 1,
+	key = "colon_3",
+	rarity = "crp_:3",
 	atlas = "crp_jokers",
-	pos = { x = 7, y = 2 },
-	display_size = { w = 2 * 71, h = 2 * 95 },
-	cost = 6,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.a_mult } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				mult = card.ability.extra.a_mult
-			}
-		end
-	end,
+	pos = { x = 6, y = 3 },
+	cost = 0,
+	blueprint_compat = false,
 	crp_credits = {
-		idea = { "N/A" },
-		code = { "Glitchkat10" }
+		idea = { "Poker The Poker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" },
+		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
 	}
 }
 
@@ -537,26 +527,26 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "chip",
-	config = { extra = {  } },
+	key = "big_joker",
+	config = { extra = { a_mult = 15 } },
 	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 0, y = 4 },
-	cost = 1,
+	pos = { x = 7, y = 2 },
+	display_size = { w = 2 * 71, h = 2 * 95 },
+	cost = 6,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = {  } }
+		return { vars = { card.ability.extra.a_mult } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				chips = 1
+				mult = card.ability.extra.a_mult
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "N/A" },
-		art = { "Lexi","Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -587,17 +577,27 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "colon_3",
-	rarity = "crp_:3",
+	key = "chip",
+	config = { extra = {  } },
+	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 6, y = 3 },
-	cost = 0,
-	blueprint_compat = false,
+	pos = { x = 0, y = 4 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = 1
+			}
+		end
+	end,
 	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" },
-		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
+		idea = { "N/A" },
+		art = { "Lexi","Glitchkat10" },
+		code = { "Glitchkat10" }
 	}
 }
 ----------------------------------------------
