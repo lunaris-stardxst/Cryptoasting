@@ -28,10 +28,15 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
-		art = { "pokerthepoker" },
-		code = { "Glitchkat10" }
+		idea = { "Poker The Poker" },
+		art = { "Poker The Poker" },
+		code = { "Glitchkat10" },
+		custom = { key = "everything",text = "Bulgoe" }
 	}
+}
+
+v_dictionary = {
+	everything = "Everything: #1#"
 }
 
 SMODS.Joker {
@@ -62,7 +67,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -94,7 +99,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -126,7 +131,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -151,7 +156,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker","Glitchkat10" },
+		idea = { "poker the poker","Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -175,7 +180,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -203,7 +208,7 @@ SMODS.Joker {
 		return card.ability.extra.a_dollars
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -228,7 +233,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "N/A" },
-		art = { "pokerthepoker","Glitchkat10" },
+		art = { "Poker The Poker","Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -252,7 +257,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -277,7 +282,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -346,7 +351,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -395,7 +400,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -451,7 +456,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "pokerthepoker" },
+		idea = { "Poker The Poker" },
 		code = { "Glitchkat10" }
 	}
 }
