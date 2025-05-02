@@ -476,14 +476,14 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "colon_3",
+	key = ":3",
 	rarity = "crp_:3",
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 3 },
 	cost = 0,
 	blueprint_compat = false,
 	crp_credits = {
-		idea = { "Poker The Poker" },
+		idea = { "lord.ruby" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" },
 		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
@@ -589,6 +589,58 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "N/A" },
 		art = { "Lexi","Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "centipede",
+	config = { extra = { a_chips = 100 } },
+	rarity = 2,
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 3 },
+	cost = 6,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if #context.full_hand == 1 then
+				return {
+					chips = card.ability.extra.a_chips
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "decipede",
+	config = { extra = { a_chips = 10 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 3 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if #context.full_hand == 1 then
+				return {
+					chips = card.ability.extra.a_chips
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }

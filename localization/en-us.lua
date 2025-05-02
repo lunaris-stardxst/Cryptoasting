@@ -107,7 +107,7 @@ return {
 					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#2#69#3#{}2 Chips and {X:edition,C:dark_edition}#2#69#3#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
-					"Lastly, divides this description by {C:attention,s:2.1}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
+					"Lastly, divides this description by {C:attention,s:2.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
 			j_crp_millipede = {
@@ -124,10 +124,10 @@ return {
 					"{X:mult,C:white}Xpi{} Mult",
 				},
 			},
-			j_crp_big_joker = {
-				name = "Big Joker",
+			["j_crp_:3"] = {
+				name = ":3",
 				text = {
-					"{C:mult}+#1#{} Mult",
+					":3",
 				},
 			},
 			j_crp_water_bottle = {
@@ -138,10 +138,10 @@ return {
 					"{C:inactive}(Does not require room){}",
 				},
 			},
-			j_crp_chip = {
-				name = "chip",
+			j_crp_big_joker = {
+				name = "Big Joker",
 				text = {
-					"You get {C:chips}one{}",
+					"{C:mult}+#1#{} Mult",
 				},
 			},
 			j_crp_purist_jolly_joker = {
@@ -152,10 +152,24 @@ return {
 					"a {C:attention}Pair",
 				},
 			},
-			j_crp_colon_3 = {
-				name = ":3",
+			j_crp_chip = {
+				name = "chip",
 				text = {
-					":3",
+					"You get {C:chips}one{}",
+				},
+			},
+			j_crp_centipede = {
+				name = "Centipede",
+				text = {
+					"{C:chips}+#1#{} Chips if played",
+					"hand has only {C:attention}1{} card",
+				},
+			},
+			j_crp_decipede = {
+				name = "Decipede",
+				text = {
+					"{C:chips}+#1#{} Chips if played",
+					"hand has only {C:attention}1{} card",
 				},
 			},
 		},
