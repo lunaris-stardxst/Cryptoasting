@@ -128,15 +128,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_powmult",
-					vars = {
-						number_format(card.ability.extra.ee_mult),
-					},
-				}),
 				ee_mult = card.ability.extra.ee_mult,
-				colour = G.C.DARK_EDITION,
 			}
 		end
 	end
