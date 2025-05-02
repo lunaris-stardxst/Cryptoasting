@@ -152,6 +152,12 @@ return {
 					"a {C:attention}Pair",
 				},
 			},
+			j_crp_colon_3 = {
+				name = ":3",
+				text = {
+					":3",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -228,7 +234,8 @@ return {
 			k_crp_exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic 22ExoMythic4meCipeCryptasticRare 2",
 		},
 		v_dictionary = {
-			everything = "Everything: #1#"
+			everything = "Everything: #1#",
+			colon_3 = ":3",
 		}
 	}
 }

@@ -585,5 +585,20 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "colon_3",
+	rarity = "crp_:3",
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 3 },
+	cost = 0,
+	blueprint_compat = false,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" },
+		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
+	}
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------
