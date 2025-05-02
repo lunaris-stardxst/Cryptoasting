@@ -27,6 +27,11 @@ SMODS.Joker {
 			}
 		end
 	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		art = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -56,6 +61,10 @@ SMODS.Joker {
 			}
 		end
 	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -83,7 +92,11 @@ SMODS.Joker {
 				card = card
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -111,7 +124,11 @@ SMODS.Joker {
 				card = card
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -132,7 +149,11 @@ SMODS.Joker {
 				ee_mult = card.ability.extra.ee_mult,
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker","Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -152,7 +173,11 @@ SMODS.Joker {
 				mult = 107
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -177,6 +202,10 @@ SMODS.Joker {
 	calc_dollar_bonus = function(self, card)
 		return card.ability.extra.a_dollars
 	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -196,7 +225,12 @@ SMODS.Joker {
 				chips = card.ability.extra.a_chips
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "pokerthepoker","Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -216,7 +250,12 @@ SMODS.Joker {
 				chips = card.ability.extra.a_chips
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -236,7 +275,12 @@ SMODS.Joker {
 				x_mult = card.ability.extra.x_mult
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -265,7 +309,12 @@ SMODS.Joker {
 				colour = G.C.DARK_EDITION,
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -295,7 +344,12 @@ SMODS.Joker {
 				
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -314,7 +368,12 @@ SMODS.Joker {
 			ease_dollars(card.ability.extra.a_dollars)
 			return { message = "$" .. number_format(card.ability.extra.a_dollars), colour = G.C.MONEY }
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -334,7 +393,12 @@ SMODS.Joker {
 				x_chips = card.ability.extra.x_chips
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -359,7 +423,11 @@ SMODS.Joker {
 				mult = 284
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -381,7 +449,11 @@ SMODS.Joker {
 				}
 			end
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "pokerthepoker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -402,7 +474,12 @@ SMODS.Joker {
 				x_mult = 3.14159265358979323846264338327950,
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -423,7 +500,11 @@ SMODS.Joker {
 				mult = card.ability.extra.a_mult
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -447,7 +528,11 @@ SMODS.Joker {
 				G.jokers:emplace(card)
 			end
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Joker {
@@ -467,7 +552,12 @@ SMODS.Joker {
 				chips = 1
 			}
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Lexi","Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 ----------------------------------------------
