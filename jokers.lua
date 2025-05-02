@@ -119,7 +119,8 @@ SMODS.Joker {
 	config = { extra = { ee_mult = 1.1 } },
 	rarity = "cry_exotic",
 	atlas = "crp_jokers",
-	pos = { x = 8, y = 1 },
+	pos = { x = 2, y = 3 },
+	soul_pos = { x = 3, y = 3, extra = { x = 4, y = 3 } },
 	cost = 50,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
