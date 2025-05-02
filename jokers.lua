@@ -35,10 +35,6 @@ SMODS.Joker {
 	}
 }
 
-v_dictionary = {
-	everything = "Everything: #1#"
-}
-
 SMODS.Joker {
 	key = "normalis",
 	config = { extra = { e_chips = 2.7, e_mult = 2.7 } },
@@ -565,5 +561,29 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "purist_jolly_joker",
+	config = { extra = { a_mult = 15 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 3 },
+	cost = 4,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main and context.scoring_name == "Pair" then
+			return {
+				mult = card.ability.extra.a_mult
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------
