@@ -2,7 +2,7 @@ return {
 	descriptions = {
 		Joker = {
 			j_crp_bulgoe = {
-				name = "Bulgoe",
+				name = "{C:edition}Bulgoe",
 				text = {
 					"{C:chips}+#1#{} Chips",
 				},

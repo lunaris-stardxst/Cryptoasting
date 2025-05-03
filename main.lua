@@ -9,6 +9,16 @@ for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
 end
 
+local badge_gradient = SMODS.Gradient{
+	key = "badge_gradient",
+	colours = {
+		HEX('00d1ff'),
+		HEX('42c5e2')
+	},
+	cycle = 1
+}
+
+
 local oldfunc = Game.main_menu
 Game.main_menu = function(change_context)
 	local ret = oldfunc(change_context)
@@ -102,7 +112,7 @@ function SMODS.create_mod_badges(obj, badges)
 						n = G.UIT.R,
 						config = {
 							align = "cm",
-							colour = HEX("11badf"),
+							colour = badge_gradient,
 							r = 0.1,
 							minw = 2 / min_scale_fac,
 							minh = 0.36,
