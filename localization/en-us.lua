@@ -179,6 +179,14 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_bulgoe_prize = {
+				name = "{C:edition}Bulgoe{} Prize",
+				text = {
+					"whenever a pack is skipped",
+					"gain a {C:edition}bulgoe{} Joker",
+					"{C:inactive}(Does not require room){}",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -254,6 +262,7 @@ return {
 			k_crp_cryptastic = "Cryptastic",
 			k_crp_exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic 22ExoMythic4meCipeCryptasticRare 2",
 			k_eaten = "Munch",
+			k_bulgoe_spawn = "+1 Bulgoe",
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",

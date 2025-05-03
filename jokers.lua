@@ -694,7 +694,7 @@ SMODS.Joker {
 	config = { extra = { mult = 1, rounds_remaining = 10} },
 	rarity = 1,
 	atlas =  "crp_jokers",
-	pos = { x = 0, y = 0 },
+	pos = { x = 3, y = 4 },
 	cost = 1,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -744,6 +744,38 @@ SMODS.Joker {
 					colour = G.C.FILTER,
 				}
 			end
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Lexi" },
+		code = { "Lexi" }
+	}
+}
+
+SMODS.Joker {
+	key = "bulgoe_prize",
+	config = {},
+	rarity = 1,
+	atlas =  "crp_jokers",
+	pos = { x = 4, y = 4 },
+	cost = 3,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, center)
+		return { vars = {} }
+	end,
+	calculate = function(self, card, context)
+		if context.skipping_booster or context.forcetrigger then
+			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_bulgoe") -- creates the card in question but puts it in the middle of the screen where it does nothing
+			card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
+			card:start_materialize() -- plays the particle animation when jokers spawn in
+			G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
+			card:juice_up(0.3, 0.4) -- plays the particle animation when jokers spawn in
+			return {
+				message = localize("k_bulgoe_spawn"),
+				colour = G.C.CHIPS,
+			}
 		end
 	end,
 	crp_credits = {
