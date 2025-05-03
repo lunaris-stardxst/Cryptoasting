@@ -15,6 +15,13 @@ SMODS.Sound {
 	volume = 0.5,
 }
 
+SMODS.Sound {
+	key = "eat",
+	path = "eat.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
 SMODS.Joker {
 	key = "bulgoe",
 	config = { extra = { a_chips = 2.7 } },
@@ -679,6 +686,70 @@ SMODS.Joker {
 		idea = { "lord.ruby" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "apple",
+	config = { extra = { mult = 1, rounds_remaining = 10} },
+	rarity = 1,
+	atlas =  "crp_jokers",
+	pos = { x = 0, y = 0 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.mult, card.ability.extra.rounds_remaining } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult
+			}
+		end
+		if
+			context.end_of_round
+			and not context.blueprint
+			and not context.individual
+			and not context.repetition
+			and not context.retrigger_joker
+		then
+			card.ability.extra.rounds_remaining = lenient_bignum(to_big(card.ability.extra.rounds_remaining) - 1)
+			if
+				to_big(card.ability.extra.rounds_remaining) <= to_big(0)
+			then
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound("crp_eat")
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({
+							trigger = "after",
+							delay = 0.3,
+							blockable = false,
+							func = function()
+								G.jokers:remove_card(card)
+								card:remove()
+								card = nil
+								return true
+							end,
+						}))
+						return true
+					end,
+				}))
+				return {
+					message = localize("k_eaten"),
+					colour = G.C.FILTER,
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Lexi" },
+		code = { "Lexi" }
 	}
 }
 ----------------------------------------------

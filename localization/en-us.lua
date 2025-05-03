@@ -172,6 +172,13 @@ return {
 					"hand has only {C:attention}1{} card",
 				},
 			},
+			j_crp_apple = {
+				name = "Apple",
+				text = {
+					"{C:mult}+#1#{} mult",
+					"Expires in {C:attention}#2#{} rounds",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -246,6 +253,7 @@ return {
 			["k_crp_:3"] = ":3",
 			k_crp_cryptastic = "Cryptastic",
 			k_crp_exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic 22ExoMythic4meCipeCryptasticRare 2",
+			k_eaten = "Munch",
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",
