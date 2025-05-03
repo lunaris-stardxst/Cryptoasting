@@ -30,7 +30,6 @@ SMODS.Joker {
 	blueprint_compat = true,
 	pos = { x = 0, y = 0 },
 	cost = 1,
-	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips } }
 	end,
@@ -58,7 +57,6 @@ SMODS.Joker {
 	pos = { x = 1, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 3, y = 0 } },
 	cost = 50,
-	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.e_chips, card.ability.extra.e_mult } }
 	end,
@@ -224,6 +222,32 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "millipede",
+	config = { extra = { a_chips = 1000 } },
+	rarity = 3,
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 1 },
+	cost = 10,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_chips } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if #context.full_hand == 1 then
+				return {
+					chips = card.ability.extra.a_chips
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "joker_2",
 	config = { extra = { a_chips = 4 } },
 	rarity = 1,
@@ -244,31 +268,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "N/A" },
 		art = { "Poker The Poker","Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "joker_2_5",
-	config = { extra = { a_chips = 40 } },
-	rarity = 1,
-	atlas = "crp_jokers",
-	pos = { x = 8, y = 2 },
-	cost = 1,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.a_chips } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				chips = card.ability.extra.a_chips
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -409,56 +408,60 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "playerrkillerr",
-	config = { extra = {  } },
-	rarity = 3,
+	key = "joker?",
+	config = { extra = { mult = 4 } },
+	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 4, y = 1 },
-	cost = 434,
+	pos = { x = 5, y = 4 },
+	cost = 444,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
-		info_queue[#info_queue + 1] = G.P_CENTERS.j_cry_googol_play
-		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
-		info_queue[#info_queue + 1] = G.P_CENTERS.p_celestial_normal_1
-		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
-		return { vars = { card.ability.extra.a_mult, '{', '}' } }
+		return { vars = { card.ability.extra.mult } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			return {
-				mult = 284
-			}
+			if next(SMODS.find_card('j_joker')) and next(SMODS.find_card('j_crp_joker_2')) and next(SMODS.find_card('j_crp_joker_2.5')) and next(SMODS.find_card('j_crp_joker_3')) and next(SMODS.find_card('j_crp_joker_4')) and next(SMODS.find_card('j_crp_joker_5')) and next(SMODS.find_card('j_crp_joker_6')) and next(SMODS.find_card('j_crp_joker_8')) then
+				return {
+					message = '^^^' .. card.ability.extra.mult .. ' Mult',
+					EEEmult_mod = card.ability.extra.mult,
+					colour = G.C.EDITION,
+					card = card
+				}
+			else
+				return {
+					mult = card.ability.extra.mult
+				}
+			end
 		end
 	end,
 	crp_credits = {
-		idea = { "Glitchkat10" },
+		idea = { "Glitchkat10", "N/A" },
+		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
 
 SMODS.Joker {
-	key = "millipede",
-	config = { extra = { a_chips = 1000 } },
-	rarity = 3,
+	key = "joker_2.5",
+	config = { extra = { a_chips = 40 } },
+	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 5, y = 1 },
-	cost = 10,
+	pos = { x = 8, y = 2 },
+	cost = 1,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_chips } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #context.full_hand == 1 then
-				return {
-					chips = card.ability.extra.a_chips
-				}
-			end
+			return {
+				chips = card.ability.extra.a_chips
+			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -490,6 +493,36 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "semicolon",
+	config = { extra = {  } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 4 },
+	cost = 2,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			card_eval_status_text(card, "extra", nil, nil, nil, { message = "plz", colour = { 0.8, 0.45, 0.85, 1 }, delay = 5 } )
+			return {
+				message = "Nope!",
+				delay = 1,
+				colour = G.C.PURPLE,
+				card = card
+			}
+		end
+		return nil
+	end,
+	crp_credits = {
+		idea = { "lord.ruby" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = ":3",
 	rarity = "crp_:3",
 	atlas = "crp_jokers",
@@ -501,6 +534,70 @@ SMODS.Joker {
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" },
 		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
+	}
+}
+
+SMODS.Joker {
+	key = "apple",
+	config = { extra = { mult = 1, rounds_remaining = 10} },
+	rarity = 1,
+	atlas =  "crp_jokers",
+	pos = { x = 3, y = 4 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.mult, card.ability.extra.rounds_remaining } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult
+			}
+		end
+		if
+			context.end_of_round
+			and not context.blueprint
+			and not context.individual
+			and not context.repetition
+			and not context.retrigger_joker
+		then
+			card.ability.extra.rounds_remaining = lenient_bignum(to_big(card.ability.extra.rounds_remaining) - 1)
+			if
+				to_big(card.ability.extra.rounds_remaining) <= to_big(0)
+			then
+
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound("crp_eat")
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({
+							trigger = "after",
+							delay = 0.3,
+							blockable = false,
+							func = function()
+								G.jokers:remove_card(card)
+								card:remove()
+								card = nil
+								return true
+							end,
+						}))
+						return true
+					end,
+				}))
+				return {
+					message = localize("k_eaten"),
+					colour = G.C.FILTER,
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Lexi" },
+		code = { "Lexi" }
 	}
 }
 
@@ -533,26 +630,30 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "big_joker",
-	config = { extra = { a_mult = 15 } },
-	rarity = 1,
+	key = "playerrkillerr",
+	config = { extra = {  } },
+	rarity = 3,
 	atlas = "crp_jokers",
-	pos = { x = 7, y = 2 },
-	display_size = { w = 2 * 71, h = 2 * 95 },
-	cost = 6,
+	pos = { x = 4, y = 1 },
+	cost = 434,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.a_mult } }
+		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_cry_googol_play
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_celestial_normal_1
+		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
+		return { vars = { card.ability.extra.a_mult, '{', '}' } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				mult = card.ability.extra.a_mult
+				mult = 284
 			}
 		end
 	end,
 	crp_credits = {
-		idea = { "N/A" },
+		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -579,6 +680,63 @@ SMODS.Joker {
 		idea = { "Poker The Poker" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "big_joker",
+	config = { extra = { a_mult = 15 } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 2 },
+	display_size = { w = 2 * 71, h = 2 * 95 },
+	cost = 6,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.a_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.a_mult
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "bulgoe_prize",
+	config = {},
+	rarity = 1,
+	atlas =  "crp_jokers",
+	pos = { x = 4, y = 4 },
+	cost = 3,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, center)
+		return { vars = {} }
+	end,
+	calculate = function(self, card, context)
+		if context.skipping_booster or context.forcetrigger then
+			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_bulgoe") -- creates the card in question but puts it in the middle of the screen where it does nothing
+			card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
+			card:start_materialize() -- plays the particle animation when jokers spawn in
+			G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
+			card:juice_up(0.3, 0.4) -- plays the particle animation when jokers spawn in
+			return {
+				message = localize("k_bulgoe_spawn"),
+				colour = G.C.CHIPS,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Lexi" },
+		code = { "Lexi" }
 	}
 }
 
@@ -656,132 +814,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "semicolon",
-	config = { extra = {  } },
-	rarity = 1,
-	atlas = "crp_jokers",
-	pos = { x = 1, y = 4 },
-	cost = 2,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = {  } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main then
-			card_eval_status_text(card, "extra", nil, nil, nil, { message = "plz", colour = { 0.8, 0.45, 0.85, 1 }, delay = 10 } )
-			return {
-				message = "Nope!",
-				delay = 0.3,  -- 0.3 second delay (adjust as needed)
-				colour = G.C.PURPLE,
-				card = card
-			}
-		end
-		return nil
-	end,
-	crp_credits = {
-		idea = { "lord.ruby" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "apple",
-	config = { extra = { mult = 1, rounds_remaining = 10} },
-	rarity = 1,
-	atlas =  "crp_jokers",
-	pos = { x = 3, y = 4 },
-	cost = 1,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult, card.ability.extra.rounds_remaining } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				mult = card.ability.extra.mult
-			}
-		end
-		if
-			context.end_of_round
-			and not context.blueprint
-			and not context.individual
-			and not context.repetition
-			and not context.retrigger_joker
-		then
-			card.ability.extra.rounds_remaining = lenient_bignum(to_big(card.ability.extra.rounds_remaining) - 1)
-			if
-				to_big(card.ability.extra.rounds_remaining) <= to_big(0)
-			then
-
-				G.E_MANAGER:add_event(Event({
-					func = function()
-						play_sound("crp_eat")
-						card.T.r = -0.2
-						card:juice_up(0.3, 0.4)
-						card.states.drag.is = true
-						card.children.center.pinch.x = true
-						G.E_MANAGER:add_event(Event({
-							trigger = "after",
-							delay = 0.3,
-							blockable = false,
-							func = function()
-								G.jokers:remove_card(card)
-								card:remove()
-								card = nil
-								return true
-							end,
-						}))
-						return true
-					end,
-				}))
-				return {
-					message = localize("k_eaten"),
-					colour = G.C.FILTER,
-				}
-			end
-		end
-	end,
-	crp_credits = {
-		idea = { "N/A" },
-		art = { "Lexi" },
-		code = { "Lexi" }
-	}
-}
-
-SMODS.Joker {
-	key = "bulgoe_prize",
-	config = {},
-	rarity = 1,
-	atlas =  "crp_jokers",
-	pos = { x = 4, y = 4 },
-	cost = 3,
-	blueprint_compat = true,
-	demicoloncompat = true,
-	loc_vars = function(self, info_queue, center)
-		return { vars = {} }
-	end,
-	calculate = function(self, card, context)
-		if context.skipping_booster or context.forcetrigger then
-			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_bulgoe") -- creates the card in question but puts it in the middle of the screen where it does nothing
-			card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
-			card:start_materialize() -- plays the particle animation when jokers spawn in
-			G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
-			card:juice_up(0.3, 0.4) -- plays the particle animation when jokers spawn in
-			return {
-				message = localize("k_bulgoe_spawn"),
-				colour = G.C.CHIPS,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "N/A" },
-		art = { "Lexi" },
-		code = { "Lexi" }
 	}
 }
 ----------------------------------------------

@@ -58,7 +58,7 @@ return {
 					"{C:chips}+#1#{} Chips",
 				},
 			},
-			j_crp_joker_2_5 = {
+			["j_crp_joker_2.5"] = {
 				name = "Joker 2.5",
 				text = {
 					"{C:chips}+#1#{} Chips",
@@ -92,6 +92,12 @@ return {
 				name = "Joker 8",
 				text = {
 					"{X:chips,C:white}X#1#{} Chips",
+				},
+			},
+			["j_crp_joker?"] = {
+				name = "Joker?",
+				text = {
+					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
 			j_crp_playerrkillerr = {
@@ -172,6 +178,13 @@ return {
 					"hand has only {C:attention}1{} card",
 				},
 			},
+			j_crp_semicolon = {
+				name = "Semicolon",
+				text = {
+					"Asks {C:attention}really{} nicely for the",
+					"joker to the right to trigger",
+				},
+			},
 			j_crp_apple = {
 				name = "Apple",
 				text = {
@@ -182,8 +195,8 @@ return {
 			j_crp_bulgoe_prize = {
 				name = "{C:edition}Bulgoe{} Prize",
 				text = {
-					"whenever a pack is skipped",
-					"gain a {C:edition}bulgoe{} Joker",
+					"Whenever a Booster Pack is",
+					"skipped create a {C:edition,X:grey}Bulgoe{}",
 					"{C:inactive}(Does not require room){}",
 				},
 			},
