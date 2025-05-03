@@ -338,7 +338,7 @@ SMODS.Joker {
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 2 },
 	soul_pos = { x = 2, y = 2, extra = { x = 3, y = 2 } },
-	cost = (4^4)/(sqrt(4)),
+	cost = (4^4)/(math.sqrt(4)),
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.ee_mult } }
