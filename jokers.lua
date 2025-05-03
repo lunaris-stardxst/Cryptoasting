@@ -505,13 +505,19 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			card_eval_status_text(card, "extra", nil, nil, nil, { message = "plz", colour = { 0.8, 0.45, 0.85, 1 }, delay = 5 } )
-			return {
-				message = "Nope!",
-				delay = 1,
-				colour = G.C.PURPLE,
-				card = card
-			}
+			local ind = nil
+			for i, v in pairs(G.jokers.cards) do
+				if v == card then ind = i+1 end
+			end
+			if ind and G.jokers.cards[ind] then
+				card_eval_status_text(card, "extra", nil, nil, nil, { message = "plz", colour = { 0.8, 0.45, 0.85, 1 }, delay = 5 } )
+				return {
+					message = "Nope!",
+					delay = 1,
+					colour = G.C.PURPLE,
+					card = G.jokers.cards[ind]
+				}
+			end
 		end
 		return nil
 	end,
