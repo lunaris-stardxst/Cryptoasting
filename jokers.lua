@@ -8,6 +8,13 @@ SMODS.Atlas {
 	py = 95
 }
 
+SMODS.Sound {
+	key = "pop",
+	path = "pop.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
 SMODS.Joker {
 	key = "bulgoe",
 	config = { extra = { a_chips = 2.7 } },
@@ -514,7 +521,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
-		code = { "Glitchkat10" }
+		code = { "Glitchkat10", "Lexi" }
 	}
 }
 
