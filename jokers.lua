@@ -521,7 +521,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
-		code = { "Glitchkat10", "Lexi" }
+		code = { "Lexi" }
 	}
 }
 
@@ -596,7 +596,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "N/A" },
 		art = { "Lexi","Glitchkat10" },
-		code = { "Glitchkat10" }
+		code = { "Lexi" }
 	}
 }
 
@@ -648,6 +648,36 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "semicolon",
+	config = { extra = {  } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 4 },
+	cost = 2,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			card_eval_status_text(card, "extra", nil, nil, nil, { message = "plz", colour = { 0.8, 0.45, 0.85, 1 }, delay = 10 } )
+			return {
+				message = "Nope!",
+				delay = 0.3,  -- 0.3 second delay (adjust as needed)
+				colour = G.C.PURPLE,
+				card = card
+			}
+		end
+		return nil
+	end,
+	crp_credits = {
+		idea = { "lord.ruby" },
+		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
