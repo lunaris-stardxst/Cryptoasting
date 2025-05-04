@@ -52,14 +52,15 @@ return {
 					"Earn {C:money}$#3#{} at end of round",
 				},
 			},
-			j_crp_joker_2 = {
-				name = "Joker 2",
+			j_crp_millipede = {
+				name = "Millipede",
 				text = {
-					"{C:chips}+#1#{} Chips",
+					"{C:chips}+#1#{} Chips if played",
+					"hand has only {C:attention}1{} card",
 				},
 			},
-			["j_crp_joker_2.5"] = {
-				name = "Joker 2.5",
+			j_crp_joker_2 = {
+				name = "Joker 2",
 				text = {
 					"{C:chips}+#1#{} Chips",
 				},
@@ -100,6 +101,66 @@ return {
 					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
+			j_crp_evil_joker = {
+				name = "EVIL Joker",
+				text = {
+					"{C:mult}-#1#{} Mult",
+				},
+			},
+			j_crp_joker_0 = {
+				name = "Joker 0",
+				text = {
+					"{C:attention}+#1#{} Jokers",
+					"{C:inactive}(Does not require room)",
+				},
+			},
+			["j_crp_joker_2.5"] = {
+				name = "Joker 2.5",
+				text = {
+					"{C:chips}+#1#{} Chips",
+				},
+			},
+			j_crp_pi_joker = {
+				name = "Pi Joker",
+				text = {
+					"{X:chips,C:white}Xpi{} Chips",
+					"{X:mult,C:white}Xpi{} Mult",
+				},
+			},
+			j_crp_semicolon = {
+				name = "Semicolon",
+				text = {
+					"Asks {C:attention}really{} nicely for the",
+					"joker to the right to trigger",
+				},
+			},
+			["j_crp_:3"] = {
+				name = ":3",
+				text = {
+					":3",
+				},
+			},
+			j_crp_sigma_man = {
+				name = "Sigma-Man",
+				text = {
+					"Are you sure?",
+				},
+			},
+			j_crp_apple = {
+				name = "Apple",
+				text = {
+					"{C:mult}+#1#{} mult",
+					"Expires in {C:attention}#2#{} rounds",
+				},
+			},
+			j_crp_water_bottle = {
+				name = "Water Bottle",
+				text = {
+					"Creates {C:attention}#1# Splashes{}",
+					"when sold",
+					"{C:inactive}(Does not require room){}",
+				},
+			},
 			j_crp_playerrkillerr = {
 				name = "playerrKillerr",
 				text = {
@@ -116,32 +177,12 @@ return {
 					"Lastly, divides this description by {C:attention,s:2.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
-			j_crp_millipede = {
-				name = "Millipede",
+			j_crp_purist_jolly_joker = {
+				name = "Purist Jolly Joker",
 				text = {
-					"{C:chips}+#1#{} Chips if played",
-					"hand has only {C:attention}1{} card",
-				},
-			},
-			j_crp_pi_joker = {
-				name = "Pi Joker",
-				text = {
-					"{X:chips,C:white}Xpi{} Chips",
-					"{X:mult,C:white}Xpi{} Mult",
-				},
-			},
-			["j_crp_:3"] = {
-				name = ":3",
-				text = {
-					":3",
-				},
-			},
-			j_crp_water_bottle = {
-				name = "Water Bottle",
-				text = {
-					"Creates {C:attention}#1# Splashes{}",
-					"when sold",
-					"{C:inactive}(Does not require room){}",
+					"{C:mult}+#1#{} Mult if",
+					"played hand is",
+					"a {C:attention}Pair",
 				},
 			},
 			j_crp_big_joker = {
@@ -150,12 +191,12 @@ return {
 					"{C:mult}+#1#{} Mult",
 				},
 			},
-			j_crp_purist_jolly_joker = {
-				name = "Purist Jolly Joker",
+			j_crp_bulgoe_prize = {
+				name = "{C:edition}Bulgoe{} Prize",
 				text = {
-					"{C:mult}+#1#{} Mult if",
-					"played hand is",
-					"a {C:attention}Pair",
+					"Whenever a Booster Pack is",
+					"skipped create a {C:edition,X:grey}Bulgoe{}",
+					"{C:inactive}(Does not require room)",
 				},
 			},
 			j_crp_chip = {
@@ -178,45 +219,10 @@ return {
 					"hand has only {C:attention}1{} card",
 				},
 			},
-			j_crp_semicolon = {
-				name = "Semicolon",
-				text = {
-					"Asks {C:attention}really{} nicely for the",
-					"joker to the right to trigger",
-				},
-			},
-			j_crp_apple = {
-				name = "Apple",
-				text = {
-					"{C:mult}+#1#{} mult",
-					"Expires in {C:attention}#2#{} rounds",
-				},
-			},
-			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{} Prize",
-				text = {
-					"Whenever a Booster Pack is",
-					"skipped create a {C:edition,X:grey}Bulgoe{}",
-					"{C:inactive}(Does not require room)",
-				},
-			},
-			j_crp_joker_0 = {
-				name = "Joker 0",
-				text = {
-					"{C:attention}+#1#{} Jokers",
-					"{C:inactive}(Does not require room)",
-				},
-			},
 			j_crp_pentation_peter = {
 				name = "pentation peter",
 				text = {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
-				},
-			},
-			j_crp_sigma_man = {
-				name = "Sigma-Man",
-				text = {
-					"Are you sure?",
 				},
 			},
 		},
