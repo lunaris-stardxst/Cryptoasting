@@ -889,7 +889,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "N/A" },
+		idea = { "UTnerd24" },
 		art = { "Lexi","Glitchkat10" },
 		code = { "Lexi" }
 	}
