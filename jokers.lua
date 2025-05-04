@@ -159,7 +159,10 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				ee_mult = card.ability.extra.ee_mult,
+				message = '^^' .. card.ability.extra.ee_mult .. ' Mult',
+				EEmult_mod = card.ability.extra.ee_mult,
+				colour = G.C.DARK_EDITION,
+				card = card
 			}
 		end
 	end,
@@ -346,8 +349,10 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				ee_mult = card.ability.extra.ee_mult,
-				
+				message = '^^' .. card.ability.extra.ee_mult .. ' Mult',
+				EEmult_mod = card.ability.extra.ee_mult,
+				colour = G.C.DARK_EDITION,
+				card = card
 			}
 		end
 	end,
