@@ -200,6 +200,12 @@ return {
 					"{C:inactive}(Does not require room){}",
 				},
 			},
+			j_crp_sigma_man = {
+				name = "Sigma-Man",
+				text = {
+					"Are you sure?",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -267,7 +273,7 @@ return {
 			k_crp_uncommon2 = "Uncommon2",
 			k_crp_rare2 = "Rare 2",
 			k_crp_awesome = "Awesome",
-			k_crp_cipe = "Cipe",
+			k_crp_cipe = "cipE",
 			k_crp_mythic = "Mythic",
 			k_crp_exotic_2 = "Exotic 2",
 			k_crp_exomythic = "ExoMythic",
