@@ -269,7 +269,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "N/A" },
+		idea = { "borb43" },
 		art = { "Poker The Poker","Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -501,7 +501,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "N/A" },
+		idea = { "lord.ruby" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
