@@ -199,7 +199,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_of_all_trades",
 	config = { extra = { a_chips = 150, a_mult = 15, a_dollars = 5 } },
-	rarity = 3,
+	rarity = "crp_rare2",
 	atlas = "crp_jokers",
 	pos = { x = 3, y = 1 },
 	cost = 9,
@@ -366,10 +366,10 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_6",
 	config = { extra = { a_dollars = 4 } },
-	rarity = 2,
+	rarity = "crp_uncommon2",
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 1 },
-	cost = 8,
+	cost = 9,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.a_dollars } }
@@ -447,6 +447,36 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "joker_0",
+	config = { extra = { create = 4 } },
+	rarity = "crp_rare2",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 4 },
+	cost = 9,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.create } }
+	end,
+	calculate = function(self, card, context)
+		local jokers_to_create = card.ability.extra.create
+      		G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
+		for i = 1, jokers_to_create do
+			if context.joker_main then
+				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker") -- creates the card in question but puts it in the middle of the screen where it does nothing
+				card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
+				card:start_materialize() -- plays the particle animation when jokers spawn in
+				G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "joker_2.5",
 	config = { extra = { a_chips = 40 } },
 	rarity = 1,
@@ -474,7 +504,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "pi_joker",
 	config = { extra = {  } },
-	rarity = 3,
+	rarity = "crp_rare2",
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 3 },
 	cost = 10,
@@ -502,7 +532,7 @@ SMODS.Joker {
 	config = { extra = {  } },
 	rarity = 1,
 	atlas = "crp_jokers",
-	pos = { x = 6, y = 4 },
+	pos = { x = 0, y = 5 },
 	cost = 2,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -820,6 +850,34 @@ SMODS.Joker {
 					chips = card.ability.extra.a_chips
 				}
 			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "pentation_peter",
+	config = { extra = { eee_mult = 1.1 } },
+	rarity = "crp_mythic",
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 5 },
+	soul_pos = { x = 3, y = 5, extra = { x = 2, y = 5 } },
+	cost = 100,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.eee_mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				message = '^^^' .. card.ability.extra.eee_mult .. ' Mult',
+				EEEmult_mod = card.ability.extra.eee_mult,
+				colour = G.C.EDITION,
+				card = card
+			}
 		end
 	end,
 	crp_credits = {

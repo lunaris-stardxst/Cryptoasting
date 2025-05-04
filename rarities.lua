@@ -36,12 +36,12 @@ SMODS.Rarity({
 
 SMODS.Rarity({
 	key = "uncommon2",
-	badge_colour = G.C.RARITY.Uncommon,
+	badge_colour = HEX("4bc292"),
 })
 
 SMODS.Rarity({
 	key = "rare2",
-	badge_colour = G.C.RARITY.Rare,
+	badge_colour = G.C.RARITY[3],
 })
 
 SMODS.Rarity({

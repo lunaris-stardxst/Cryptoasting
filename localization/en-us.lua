@@ -161,7 +161,7 @@ return {
 			j_crp_chip = {
 				name = "chip",
 				text = {
-					"You get {C:chips}one{}",
+					"You get {C:chips}one{}.",
 				},
 			},
 			j_crp_centipede = {
@@ -197,7 +197,20 @@ return {
 				text = {
 					"Whenever a Booster Pack is",
 					"skipped create a {C:edition,X:grey}Bulgoe{}",
-					"{C:inactive}(Does not require room){}",
+					"{C:inactive}(Does not require room)",
+				},
+			},
+			j_crp_joker_0 = {
+				name = "Joker 0",
+				text = {
+					"{C:attention}+#1#{} Jokers",
+					"{C:inactive}(Does not require room)",
+				},
+			},
+			j_crp_pentation_peter = {
+				name = "pentation peter",
+				text = {
+					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
 		},
@@ -264,7 +277,7 @@ return {
 		dictionary = {
 			k_crp_trash = "Trash",
 			k_crp_m = "M",
-			k_crp_uncommon2 = "Uncommon2",
+			k_crp_uncommon2 = "Uncommon 2",
 			k_crp_rare2 = "Rare 2",
 			k_crp_awesome = "Awesome",
 			k_crp_cipe = "Cipe",
