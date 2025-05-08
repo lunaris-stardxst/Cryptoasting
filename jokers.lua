@@ -1024,9 +1024,15 @@ SMODS.Joker {
 		elseif context.individual then
 			if context.cardarea == G.play then
 				return {
-					e_mult = card.ability.extra.e_mult,
+					message = localize({
+						type = "variable",
+						key = "a_powmult",
+						vars = {
+							number_format(card.ability.extra.e_mult),
+						},
+					}),
+					Emult_mod = card.ability.extra.e_mult,
 					colour = G.C.DARK_EDITION,
-					card = card,
 				}
 			end
 		end
