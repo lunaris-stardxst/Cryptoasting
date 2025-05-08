@@ -174,7 +174,7 @@ return {
 					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#2#69#3#{}2 Chips and {X:edition,C:dark_edition}#2#69#3#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
-					"Lastly, divides this description by {C:attention,s:2.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
+					"Lastly, divides this description by {C:attention,s:2.5}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
 			j_crp_purist_jolly_joker = {
@@ -223,6 +223,16 @@ return {
 				name = "pentation peter",
 				text = {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
+				},
+			},
+			j_crp_iterum_2 = {
+				name = "Iterum 2",
+				text = {
+					"Retrigger all cards played",
+					"{C:attention}#2#{} time#<s>2#,",
+					"each played card gives",
+					"{X:dark_edition,C:white} ^#1# {} Mult when scored",
+					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} repetitions)",
 				},
 			},
 		},

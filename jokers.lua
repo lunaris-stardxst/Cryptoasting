@@ -34,7 +34,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips
 			}
@@ -61,7 +61,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.e_chips, card.ability.extra.e_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				Echip_mod = card.ability.extra.e_chips,
 				Emult_mod = card.ability.extra.e_mult,
@@ -92,7 +92,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_chips_mod } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips,
 			}
@@ -124,7 +124,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_chips_mod } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips,
 			}
@@ -157,7 +157,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.ee_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_mainor or context.forcetrigger then
 			return {
 				message = '^^' .. card.ability.extra.ee_mult .. ' Mult',
 				EEmult_mod = card.ability.extra.ee_mult,
@@ -184,7 +184,7 @@ SMODS.Joker {
 		return { vars = {  } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_mainor or context.forcetrigger then
 			return {
 				mult = 107
 			}
@@ -208,11 +208,15 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips, card.ability.extra.a_mult, card.ability.extra.a_dollars } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips,
 				mult = card.ability.extra.a_mult
 			}
+		end
+		if context.forcetrigger then
+			ease_dollars(card.ability.extra.a_dollars)
+			return { message = "$" .. number_format(card.ability.extra.a_dollars), colour = G.C.MONEY }
 		end
 	end,
 	calc_dollar_bonus = function(self, card)
@@ -243,6 +247,11 @@ SMODS.Joker {
 				}
 			end
 		end
+		if context.forcetrigger then
+			return {
+				chips = card.ability.extra.a_chips
+			}
+		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
@@ -262,7 +271,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips
 			}
@@ -287,7 +296,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.x_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				x_mult = card.ability.extra.x_mult
 			}
@@ -313,7 +322,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.e_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
@@ -347,7 +356,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.ee_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				message = '^^' .. card.ability.extra.ee_mult .. ' Mult',
 				EEmult_mod = card.ability.extra.ee_mult,
@@ -375,7 +384,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_dollars } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			ease_dollars(card.ability.extra.a_dollars)
 			return { message = "$" .. number_format(card.ability.extra.a_dollars), colour = G.C.MONEY }
 		end
@@ -399,7 +408,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.x_chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				x_chips = card.ability.extra.x_chips
 			}
@@ -424,8 +433,8 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
-			if next(SMODS.find_card('j_joker')) and next(SMODS.find_card('j_crp_joker_2')) and next(SMODS.find_card('j_crp_joker_2.5')) and next(SMODS.find_card('j_crp_joker_3')) and next(SMODS.find_card('j_crp_joker_4')) and next(SMODS.find_card('j_crp_joker_5')) and next(SMODS.find_card('j_crp_joker_6')) and next(SMODS.find_card('j_crp_joker_8')) then
+		if context.joker_main or context.forcetrigger then
+			if next(SMODS.find_card('j_joker')) and next(SMODS.find_card('j_crp_joker_2')) and next(SMODS.find_card('j_crp_joker_2.5')) and next(SMODS.find_card('j_crp_joker_3')) and next(SMODS.find_card('j_crp_joker_4')) and next(SMODS.find_card('j_crp_joker_5')) and next(SMODS.find_card('j_crp_joker_6')) and next(SMODS.find_card('j_crp_joker_8')) and next(SMODS.find_card('j_crp_evil_joker')) and next(SMODS.find_card('j_crp_joker_0')) then
 				return {
 					message = '^^^' .. card.ability.extra.mult .. ' Mult',
 					EEEmult_mod = card.ability.extra.mult,
@@ -458,7 +467,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.s_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
@@ -492,7 +501,7 @@ SMODS.Joker {
 		local jokers_to_create = card.ability.extra.create
       		G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
 		for i = 1, jokers_to_create do
-			if context.joker_main then
+			if context.joker_main or context.forcetrigger then
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker") -- creates the card in question but puts it in the middle of the screen where it does nothing
 				card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
 				card:start_materialize() -- plays the particle animation when jokers spawn in
@@ -519,7 +528,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = card.ability.extra.a_chips
 			}
@@ -544,7 +553,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.x_chips, card.ability.extra.x_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				x_chips = 3.14159265358979323846264338327950,
 				x_mult = 3.14159265358979323846264338327950,
@@ -570,7 +579,7 @@ SMODS.Joker {
 		return { vars = {  } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			local ind = nil
 			for i, v in pairs(G.jokers.cards) do
 				if v == card then ind = i+1 end
@@ -589,7 +598,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "lord.ruby" },
-		art = { "Glitchkat10" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10", "lord.ruby" }
 	}
 }
@@ -605,7 +614,7 @@ SMODS.Joker {
 		idea = { "lord.ruby" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" },
-		custom = { key = "colon_3",text = "why are you here; this joker literally does nothing" }
+		custom = { key = "colon_3", text = "why are you here; this joker literally does nothing" }
 	}
 }
 
@@ -638,6 +647,7 @@ SMODS.Joker {
 				or context.setting_blind
 				or context.skipping_booster
 				or context.open_booster
+				or context.forcetrigger
 			)
 			and #G.jokers.cards + G.GAME.joker_buffer < (context.selling_self and (G.jokers.config.card_limit + 1) or G.jokers.config.card_limit)
 			and not context.retrigger_joker
@@ -679,7 +689,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.mult, card.ability.extra.rounds_remaining } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				mult = card.ability.extra.mult
 			}
@@ -745,7 +755,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.splash } }
 	end,
 	calculate = function(self, card, context)
-		if context.selling_self then
+		if context.selling_self or context.forcetrigger then
 			for i = 1, math.floor(card.ability.extra.splash) do
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_splash")
 				card:add_to_deck()
@@ -776,7 +786,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_mult, '{', '}' } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				mult = 284
 			}
@@ -805,6 +815,11 @@ SMODS.Joker {
 				mult = card.ability.extra.a_mult
 			}
 		end
+		if context.forcetrigger then
+			return {
+				mult = card.ability.extra.a_mult
+			}
+		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
@@ -826,7 +841,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.a_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				mult = card.ability.extra.a_mult
 			}
@@ -882,7 +897,7 @@ SMODS.Joker {
 		return { vars = {  } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				chips = 1
 			}
@@ -908,7 +923,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #context.full_hand == 1 then
+			if #context.full_hand == 1 or context.forcetrigger then
 				return {
 					chips = card.ability.extra.a_chips
 				}
@@ -934,7 +949,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #context.full_hand == 1 then
+			if #context.full_hand == 1 or context.forcetrigger then
 				return {
 					chips = card.ability.extra.a_chips
 				}
@@ -960,7 +975,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.eee_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.joker_main or context.forcetrigger then
 			return {
 				message = '^^^' .. card.ability.extra.eee_mult .. ' Mult',
 				EEEmult_mod = card.ability.extra.eee_mult,
@@ -971,6 +986,60 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "iterum_2",
+	config = {
+		extra = {
+			e_mult = 2,
+			repetitions = 10
+		},
+		immutable = {
+			max_repetitions = 400
+		},
+	},
+	rarity = "crp_mythic",
+	atlas = "crp_jokers",
+	pos = { x = 4, y = 5 },
+	soul_pos = { x = 6, y = 5, extra = { x = 5, y = 5 } },
+	cost = 100,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { number_format(card.ability.extra.e_mult), math.min(card.ability.immutable.max_repetitions, card.ability.extra.repetitions), card.ability.immutable.max_repetitions } }
+	end,
+	calculate = function(self, card, context)
+		if context.repetition then
+			if context.cardarea == G.play then
+				return {
+					message = localize("k_again_ex"),
+					repetitions = to_number(
+						math.min(card.ability.immutable.max_repetitions, card.ability.extra.repetitions)
+					),
+					card = card,
+				}
+			end
+		elseif context.individual then
+			if context.cardarea == G.play then
+				return {
+					e_mult = card.ability.extra.e_mult,
+					colour = G.C.DARK_EDITION,
+					card = card,
+				}
+			end
+		end
+		if context.forcetrigger then
+			return {
+				e_mult = card.ability.extra.e_mult,
+				colour = G.C.DARK_EDITION,
+				card = card,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "MarioFan597" },
 		code = { "Glitchkat10" }
 	}
 }
