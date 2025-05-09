@@ -131,7 +131,7 @@ return {
 				name = "Semicolon",
 				text = {
 					"Asks {C:attention}really{} nicely for the",
-					"joker to the right to trigger",
+					"Joker to the right to trigger",
 				},
 			},
 			["j_crp_:3"] = {
