@@ -159,3 +159,5 @@ function SMODS.create_mod_badges(obj, badges)
 		end
 	end
 end
+
+Cryptid.mod_whitelist["Cryptposting"] = true

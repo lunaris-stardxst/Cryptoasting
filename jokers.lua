@@ -423,33 +423,46 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker?",
-	config = { extra = { mult = 4 } },
+	config = { extra = { mult = lenient_bignum(4) } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 4 },
-	cost = 444,
+	cost = 44,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult } }
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
-			if next(SMODS.find_card('j_joker')) and next(SMODS.find_card('j_crp_joker_2')) and next(SMODS.find_card('j_crp_joker_2.5')) and next(SMODS.find_card('j_crp_joker_3')) and next(SMODS.find_card('j_crp_joker_4')) and next(SMODS.find_card('j_crp_joker_5')) and next(SMODS.find_card('j_crp_joker_6')) and next(SMODS.find_card('j_crp_joker_8')) and next(SMODS.find_card('j_crp_evil_joker')) and next(SMODS.find_card('j_crp_joker_0')) then
+			if
+				next(SMODS.find_card('j_joker'))
+				and next(SMODS.find_card('j_crp_joker_2'))
+				and next(SMODS.find_card('j_crp_joker_2.5'))
+				and next(SMODS.find_card('j_crp_joker_3'))
+				and next(SMODS.find_card('j_crp_joker_4'))
+				and next(SMODS.find_card('j_crp_joker_5'))
+				and next(SMODS.find_card('j_crp_joker_6'))
+				and next(SMODS.find_card('j_crp_joker_8'))
+				and next(SMODS.find_card('j_crp_evil_joker'))
+				and next(SMODS.find_card('j_crp_joker_0')) 
+			then
 				return {
-					message = '^^^' .. card.ability.extra.mult .. ' Mult',
-					EEEmult_mod = card.ability.extra.mult,
+					hypermult_mod = {
+						4,
+						lenient_bignum(card.ability.extra.mult)
+					},
+					message = "{4}" .. lenient_bignum(card.ability.extra.mult) .. ' Mult',
 					colour = G.C.EDITION,
-					card = card
 				}
 			else
 				return {
-					mult = card.ability.extra.mult
+					mult = lenient_bignum(card.ability.extra.mult)
 				}
 			end
 		end
 	end,
 	crp_credits = {
-		idea = { "Glitchkat10", "N/A" },
+		idea = { "N/A", "Glitchkat10" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
@@ -457,14 +470,14 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_joker",
-	config = { extra = { s_mult = 4 } },
+	config = { extra = { s_mult = lenient_bignum(4) } },
 	rarity = "cry_cursed",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 1 },
 	cost = 0,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.s_mult } }
+		return { vars = { lenient_bignum(card.ability.extra.s_mult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
@@ -474,7 +487,7 @@ SMODS.Joker {
 					key = "a_mult_minus",
 					vars = { number_format(card.ability.extra.s_mult) },
 				}),
-				mult_mod = card.ability.extra.s_mult * -1,
+				mult_mod = lenient_bignum(card.ability.extra.s_mult) * -1,
 				colour = G.C.MULT,
 			}
 		end
@@ -488,17 +501,17 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_0",
-	config = { extra = { create = 4 } },
+	config = { extra = { create = lenient_bignum(4) } },
 	rarity = "crp_rare2",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 4 },
 	cost = 9,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.create } }
+		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
 	calculate = function(self, card, context)
-		local jokers_to_create = card.ability.extra.create
+		local jokers_to_create = lenient_bignum(card.ability.extra.create)
       		G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
 		for i = 1, jokers_to_create do
 			if context.joker_main or context.forcetrigger then
@@ -518,14 +531,14 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_2.5",
-	config = { extra = { a_chips = 40 } },
+	config = { extra = { a_chips = lenient_bignum(40) } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 2 },
 	cost = 1,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.a_chips } }
+		return { vars = { lenient_bignum(card.ability.extra.a_chips) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
@@ -550,7 +563,7 @@ SMODS.Joker {
 	cost = 10,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.x_chips, card.ability.extra.x_mult } }
+		return { vars = {  } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
@@ -679,7 +692,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "apple",
-	config = { extra = { mult = 1, rounds_remaining = 10 } },
+	config = { extra = { mult = lenient_bignum(1), rounds_remaining = lenient_bignum(10) } },
 	rarity = 1,
 	atlas =  "crp_jokers",
 	pos = { x = 3, y = 4 },
@@ -691,7 +704,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
 			return {
-				mult = card.ability.extra.mult
+				mult = lenient_bignum(card.ability.extra.mult)
 			}
 		end
 		if
@@ -744,19 +757,19 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "water_bottle",
 	config =
-		{ extra = { splash = 5 } },
-		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
+		{ extra = { splash = lenient_bignum(5) } },
+		{ immutable = { max_spawn = lenient_bignum(100) } }, -- idk how to fix it lol
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 4 },
 	cost = 7,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.splash } }
+		return { vars = { lenient_bignum(card.ability.extra.splash) } }
 	end,
 	calculate = function(self, card, context)
 		if context.selling_self or context.forcetrigger then
-			for i = 1, math.floor(card.ability.extra.splash) do
+			for i = 1, math.floor(lenient_bignum(card.ability.extra.splash)) do
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_splash")
 				card:add_to_deck()
 				G.jokers:emplace(card)
@@ -775,7 +788,7 @@ SMODS.Joker {
 	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 1 },
-	cost = 434,
+	cost = 9,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
@@ -799,33 +812,33 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "purist_jolly_joker",
-	config = { extra = { a_mult = 15 } },
-	rarity = 1,
-	atlas = "crp_jokers",
-	pos = { x = 5, y = 3 },
-	cost = 4,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.a_mult } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main and context.scoring_name == "Pair" then
-			return {
-				mult = card.ability.extra.a_mult
-			}
-		end
-		if context.forcetrigger then
-			return {
-				mult = card.ability.extra.a_mult
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
+    key = "purist_jolly_joker",
+    config = { extra = { a_mult = 15 } },
+    rarity = 1,
+    atlas = "crp_jokers",
+    pos = { x = 5, y = 3 },
+    cost = 4,
+    blueprint_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { lenient_bignum(card.ability.extra.a_mult) } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main and context.scoring_name == "Pair" then
+            return {
+                mult = lenient_bignum(card.ability.extra.a_mult)
+            }
+        end
+        if context.forcetrigger then
+            return {
+                mult = lenient_bignum(card.ability.extra.a_mult)
+            }
+        end
+    end,
+    crp_credits = {
+        idea = { "Poker The Poker" },
+        art = { "Glitchkat10" },
+        code = { "Glitchkat10" }
+    }
 }
 
 SMODS.Joker {
@@ -1046,6 +1059,39 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "MarioFan597" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "underflow",
+	config = { extra = { a_mult = 1, mult_mod = 1 } },
+	rarity = "crp_mythic",
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 5 },
+	soul_pos = { x = 0, y = 6, extra = { x = 8, y = 5 } },
+	cost = 100,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.a_mult), lenient_bignum(card.ability.extra.mult_mod) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main or context.forcetrigger) and card.ability.extra.a_mult ~= 0 then
+			return {
+				mult = card.ability.extra.a_mult
+			}
+		end
+		if context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker and not context.forcetrigger then
+			if card.ability.extra.a_mult > -1 then
+				card.ability.extra.a_mult = lenient_bignum(card.ability.extra.a_mult) - card.ability.extra.mult_mod
+			end
+			if card.ability.extra.a_mult <= -1 then
+				card.ability.extra.a_mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
+			end -- the number above is the max value of a double in lua, which is ~1.7976931348623157e308. this number is usually referred to as "naneinf" in balatro. attempting to use the operation (2^1024) - 1 momentarily results in a number too big for lua to process, so i have to use this long-winded integer instead.
+		end
+	end,
+	crp_credits = {
+		idea = { "MarioFan597", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }

@@ -235,6 +235,13 @@ return {
 					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} repetitions)",
 				},
 			},
+			j_crp_underflow = {
+				name = "Underflow",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"{C:mult}-#2#{} Mult at end of round",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
