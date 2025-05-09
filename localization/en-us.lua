@@ -301,6 +301,14 @@ return {
 				},
 			},
 		},
+		Edition = {
+			e_crp_trifecta = {
+				name = "Trifecta",
+				text = {
+					"{C:dark_edition,X:edition}^^^#1#{} Chips",
+				},
+			},
+		}
 	},
 	misc = {
 		dictionary = {
@@ -318,6 +326,9 @@ return {
 			k_crp_exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic 22ExoMythic4meCipeCryptasticRare 2",
 			k_eaten = "Munch",
 			k_bulgoe_spawn = "+1 Bulgoe",
+		},
+		labels = {
+			crp_trifecta = "Trifecta",
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",

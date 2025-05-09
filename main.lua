@@ -4,6 +4,7 @@ local files = {
 	"rarities",
 	"jokers",
 	"tags",
+	"edition",
 }
 for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
