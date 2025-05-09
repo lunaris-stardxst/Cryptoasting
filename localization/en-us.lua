@@ -143,7 +143,7 @@ return {
 			j_crp_sigma_man = {
 				name = "Sigma-Man",
 				text = {
-					"Are you sure?",
+					"are you sure",
 				},
 			},
 			j_crp_apple = {
