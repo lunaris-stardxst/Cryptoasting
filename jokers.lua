@@ -470,7 +470,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_joker",
-	config = { extra = { s_mult = lenient_bignum(4) } },
+	config = { extra = { s_mult = 4 } },
 	rarity = "cry_cursed",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 1 },
@@ -501,7 +501,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_0",
-	config = { extra = { create = lenient_bignum(4) } },
+	config = { extra = { create = 4 } },
 	rarity = "crp_rare2",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 4 },
@@ -531,7 +531,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_2.5",
-	config = { extra = { a_chips = lenient_bignum(40) } },
+	config = { extra = { a_chips = 40 } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 2 },
@@ -692,7 +692,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "apple",
-	config = { extra = { mult = lenient_bignum(1), rounds_remaining = lenient_bignum(10) } },
+	config = { extra = { mult = 1, rounds_remaining = 10 } },
 	rarity = 1,
 	atlas =  "crp_jokers",
 	pos = { x = 3, y = 4 },
@@ -757,8 +757,8 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "water_bottle",
 	config =
-		{ extra = { splash = lenient_bignum(5) } },
-		{ immutable = { max_spawn = lenient_bignum(100) } }, -- idk how to fix it lol
+		{ extra = { splash = 5 } },
+		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 4 },
