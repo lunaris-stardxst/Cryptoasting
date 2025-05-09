@@ -2,7 +2,7 @@
 	"id": "cryptposting",
 	"name": "Cryptposting",
 	"display_name": "Cryptposting",
-	"author": ["Glitchkat10 and pokerthepoker"],
+	"author": ["Glitchkat10 and Poker The Poker"],
 	"description": "A collection of the Cryptid community's unfunniest shitposts.",
 	"prefix": "crp",
 	"main_file": "main.lua",
@@ -14,5 +14,10 @@
 		"Talisman",
 		"Steamodded",
 		"Cryptid"
+	],
+	"conflicts": [
+		"Almanac",
+		"Jen",
+		"POLTERWORX"
 	]
 }

@@ -19,7 +19,6 @@ local badge_gradient = SMODS.Gradient{
 	cycle = 1
 }
 
-
 local oldfunc = Game.main_menu
 Game.main_menu = function(change_context)
 	local ret = oldfunc(change_context)
@@ -162,3 +161,10 @@ function SMODS.create_mod_badges(obj, badges)
 end
 
 Cryptid.mod_whitelist["Cryptposting"] = true
+
+SMODS.Atlas({
+	key = "modicon",
+	path = "crp_icon.png",
+	px = 34,
+	py = 34,
+})

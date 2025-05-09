@@ -167,7 +167,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "poker the poker","Glitchkat10" },
+		idea = { "Poker The Poker","Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -279,7 +279,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "borb43" },
-		art = { "Poker The Poker","Glitchkat10" },
+		art = { "Poker The Poker", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -1092,6 +1092,39 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "MarioFan597", "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "statically_charged",
+	config = { extra = {  } },
+	rarity = "crp_exomythic",
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 7 },
+	soul_pos = { x = 3, y = 7, extra = { x = 2, y = 7 } },
+	cost = 200,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_crp_overloaded
+		return { vars = {  } }
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		if G.GAME.modifiers.cry_force_edition and not G.GAME.modifiers.cry_force_edition_from_deck then
+			G.GAME.modifiers.cry_force_edition_from_deck = G.GAME.modifiers.cry_force_edition
+		elseif not G.GAME.modifiers.cry_force_edition_from_deck then
+			G.GAME.modifiers.cry_force_edition = "crp_overloaded"
+		end
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		if G.GAME.modifiers.cry_force_edition_from_deck ~= "Nope!" then
+			G.GAME.modifiers.cry_force_edition = G.GAME.modifiers.cry_force_edition_from_deck
+		else
+			G.GAME.modifiers.cry_force_edition = nil
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }

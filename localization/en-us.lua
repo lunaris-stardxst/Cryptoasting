@@ -242,6 +242,15 @@ return {
 					"{C:mult}-#2#{} Mult at end of round",
 				},
 			},
+			j_crp_statically_charged = {
+				name = "Statically Charged",
+				text = {
+					"All cards are",
+					"{C:dark_edition}Overloaded{}",
+					"{C:dark_edition}Overloaded{} cards do not",
+					"cost extra",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -302,10 +311,11 @@ return {
 			},
 		},
 		Edition = {
-			e_crp_trifecta = {
-				name = "Trifecta",
+			e_crp_overloaded = {
+				name = "Overloaded",
 				text = {
 					"{C:dark_edition,X:edition}^^^#1#{} Chips",
+					"{C:dark_edition,X:edition}^^^#2#{} Mult",
 				},
 			},
 		}
@@ -328,7 +338,7 @@ return {
 			k_bulgoe_spawn = "+1 Bulgoe",
 		},
 		labels = {
-			crp_trifecta = "Trifecta",
+			crp_overloaded = "Overloaded",
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",

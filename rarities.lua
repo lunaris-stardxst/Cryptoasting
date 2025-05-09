@@ -1,9 +1,18 @@
+local trash_gradient = SMODS.Gradient({
+    key="trash",
+    colours = {
+        HEX("989898"),
+        HEX("272727")
+    },
+	cycle = 15
+})
+
 local mythic_gradient = SMODS.Gradient({
     key="mythic",
     colours = {
         HEX("ff6600"),
         HEX("ffff00")
-    }
+    },
 })
 
 local exomythic_gradient = SMODS.Gradient({
@@ -26,7 +35,7 @@ local m = SMODS.Gradient({
 
 SMODS.Rarity({
 	key = "trash",
-	badge_colour = HEX("414141"),
+	badge_colour = trash_gradient,
 })
 
 SMODS.Rarity({
