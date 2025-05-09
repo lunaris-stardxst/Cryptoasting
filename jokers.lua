@@ -423,7 +423,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker?",
-	config = { extra = { mult = lenient_bignum(4) } },
+	config = { extra = { mult = 4 } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 4 },
