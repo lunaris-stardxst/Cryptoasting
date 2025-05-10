@@ -1,10 +1,10 @@
 -- a file specificlaly to load all other lua files in the mod (and for config stuff)
 
 local files = {
-	"rarities",
-	"jokers",
-	"tags",
-	"edition",
+	"items/rarity",
+	"items/joker",
+	"items/tag",
+	"items/edition",
 }
 for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
