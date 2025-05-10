@@ -157,7 +157,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.ee_mult } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_mainor or context.forcetrigger then
+		if context.joker_main or context.forcetrigger then
 			return {
 				message = '^^' .. card.ability.extra.ee_mult .. ' Mult',
 				EEmult_mod = card.ability.extra.ee_mult,
