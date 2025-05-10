@@ -168,3 +168,17 @@ SMODS.Atlas({
 	px = 34,
 	py = 34,
 })
+
+
+G.FUNCS.hand_mult_UI_set = function(e)
+    local new_mult_text = number_format(G.GAME.current_round.current_hand.mult)
+    if new_mult_text ~= G.GAME.current_round.current_hand.mult_text then 
+      G.GAME.current_round.current_hand.mult_text = new_mult_text
+      e.config.object.scale = scale_number(G.GAME.current_round.current_hand.mult, 0.9, 1000)
+      if string.len(new_mult_text) > 6 then
+        e.config.object.scale = 0.9 / (string.len(new_mult_text)/6)
+      end
+      e.config.object:update_text()
+      if not G.TAROT_INTERRUPT_PULSE then G.FUNCS.text_super_juice(e, math.max(0,math.floor(math.log10(type(G.GAME.current_round.current_hand.mult) == 'number' and G.GAME.current_round.current_hand.mult or 1)))) end
+    end
+  end

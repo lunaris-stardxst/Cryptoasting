@@ -1128,5 +1128,34 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+    key = "jonkler",
+    config = { extra = {  } },
+    rarity = "crp_trash",
+    atlas = "crp_jokers",
+    pos = { x = 1, y = 2 },
+    cost = 0,
+    blueprint_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {  } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main and G.GAME.current_round.current_hand.mult == 1 then
+            return {
+				EEEmult_mod = 1,
+                message = '{25,000}' .. G.GAME.round .. ' Mult',
+                colour = G.C.EDITION,
+                card = card
+            },
+            print("are you sure")
+        end
+    end,
+    crp_credits = {
+        idea = { "N/A" },
+        art = { "Glitchkat10" },
+        code = { "Glitchkat10" }
+    }
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------

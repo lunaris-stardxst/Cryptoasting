@@ -4,7 +4,7 @@ local trash_gradient = SMODS.Gradient({
         HEX("989898"),
         HEX("272727")
     },
-	cycle = 15
+	cycle = 5
 })
 
 local mythic_gradient = SMODS.Gradient({
