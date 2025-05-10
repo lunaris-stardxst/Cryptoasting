@@ -127,6 +127,6 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "exomythicepicawesomeuncommon2mexotic_22exomythic4mecipe",
+	key = "exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
 	badge_colour = exomythic_gradient,
 })
