@@ -114,6 +114,12 @@ return {
 					"{C:inactive}(Does not require room)",
 				},
 			},
+			j_crp_jonkler = {
+				name = "Jonkler",
+				text = {
+					"{C:edition,X:dark_edition}#1#25000#2#1{} Mult",
+				},
+			},
 			["j_crp_joker_2.5"] = {
 				name = "Joker 2.5",
 				text = {
@@ -210,6 +216,12 @@ return {
 				text = {
 					"{C:chips}+#1#{} Chips if played",
 					"hand has only {C:attention}1{} card",
+				},
+			},
+			j_crp_dorito = {
+				name = "dorito",
+				text = {
+					"You get {C:mult}one{}.",
 				},
 			},
 			j_crp_decipede = {

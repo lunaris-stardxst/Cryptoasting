@@ -36,6 +36,11 @@ local m = SMODS.Gradient({
 SMODS.Rarity({
 	key = "trash",
 	badge_colour = trash_gradient,
+	default_weight = 0.005,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
@@ -46,11 +51,21 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "uncommon2",
 	badge_colour = HEX("4bc292"),
+	default_weight = 0.25,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
 	key = "rare2",
 	badge_colour = G.C.RARITY[3],
+	default_weight = 0.05,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
@@ -61,26 +76,49 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "cipe",
 	badge_colour = HEX("ef0098"),
+	default_weight = 0.003,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
 	key = "mythic",
 	badge_colour = mythic_gradient,
+		default_weight = 0.0005,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
 	key = "exotic_2",
 	badge_colour = m,
+		default_weight = 0.001,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
 	key = "exomythic",
 	badge_colour = exomythic_gradient,
+		default_weight = 0.00001,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
 	key = ":3",
 	badge_colour = HEX("ff00ff"),
+	in_shop = true,
+	default_weight = 0.005,
+	pools = { ["Joker"] = true },
 })
 
 SMODS.Rarity({

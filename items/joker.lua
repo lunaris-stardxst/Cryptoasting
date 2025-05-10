@@ -530,6 +530,33 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+    key = "jonkler",
+    config = { extra = {  } },
+    rarity = "crp_trash",
+    atlas = "crp_jokers",
+    pos = { x = 5, y = 6 },
+    cost = 0,
+    blueprint_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { '{', '}' } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+				EEEmult_mod = 1,
+                message = '{25,000}1 Mult',
+                colour = G.C.EDITION,
+                card = card
+            }
+		end
+    end,
+    crp_credits = {
+        idea = { "N/A", "Glitchkat10" },
+        code = { "Glitchkat10" }
+    }
+}
+
+SMODS.Joker {
 	key = "joker_2.5",
 	config = { extra = { a_chips = 40 } },
 	rarity = 1,
@@ -950,6 +977,31 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "dorito",
+	config = { extra = {  } },
+	rarity = 1,
+	atlas = "crp_jokers",
+	pos = { x = 4, y = 6 },
+	cost = 1,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return {
+				mult = 1
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10", "Lexi" }
+	}
+}
+
+SMODS.Joker {
 	key = "decipede",
 	config = { extra = { a_chips = 10 } },
 	rarity = 1,
@@ -1128,34 +1180,5 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
-
---[[ SMODS.Joker {
-    key = "jonkler",
-    config = { extra = {  } },
-    rarity = "crp_trash",
-    atlas = "crp_jokers",
-    pos = { x = 1, y = 2 },
-    cost = 0,
-    blueprint_compat = true,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {  } }
-    end,
-    calculate = function(self, card, context)
-        if context.joker_main and G.GAME.current_round.current_hand.mult == 1 then
-            return {
-				EEEmult_mod = 1,
-                message = '{25,000}' .. G.GAME.round .. ' Mult',
-                colour = G.C.EDITION,
-                card = card
-            },
-            print("are you sure")
-        end
-    end,
-    crp_credits = {
-        idea = { "N/A" },
-        art = { "Glitchkat10" },
-        code = { "Glitchkat10" }
-    }
-} ]]--
 ----------------------------------------------
 ------------MOD CODE END----------------------
