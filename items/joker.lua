@@ -1129,7 +1129,7 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+--[[ SMODS.Joker {
     key = "jonkler",
     config = { extra = {  } },
     rarity = "crp_trash",
@@ -1156,6 +1156,6 @@ SMODS.Joker {
         art = { "Glitchkat10" },
         code = { "Glitchkat10" }
     }
-}
+} ]]--
 ----------------------------------------------
 ------------MOD CODE END----------------------
