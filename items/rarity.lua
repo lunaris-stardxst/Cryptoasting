@@ -25,6 +25,18 @@ local exomythic_gradient = SMODS.Gradient({
     }
 })
 
+local exomythic4mecipe_gradient = SMODS.Gradient({
+    key="22exomythic4mecipe",
+    colours = {
+        HEX("ff6600"),
+        HEX("708b91"), 
+        HEX("1e9eba"),
+        HEX("ffff00"),
+		HEX("ef0098")
+    },
+	cycle = 3
+})
+
 local m = SMODS.Gradient({
     key="m",
     colours = {
@@ -119,6 +131,9 @@ SMODS.Rarity({
 	in_shop = true,
 	default_weight = 0.005,
 	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
@@ -129,4 +144,14 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
 	badge_colour = exomythic_gradient,
+})
+
+SMODS.Rarity({
+	key = "22exomythic4mecipe",
+	badge_colour = exomythic4mecipe_gradient,
+		default_weight = 0.0000001,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })

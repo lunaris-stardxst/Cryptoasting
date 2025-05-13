@@ -241,7 +241,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #context.full_hand == 1 then
+			if (context.full_hand and #context.full_hand == 1) then
 				return {
 					chips = card.ability.extra.a_chips
 				}
@@ -963,7 +963,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #context.full_hand == 1 or context.forcetrigger then
+			if (context.full_hand and #context.full_hand == 1) or context.forcetrigger then
 				return {
 					chips = card.ability.extra.a_chips
 				}
@@ -1180,5 +1180,104 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "playerrwon",
+	config = { extra = { arrows = 3, mantissa = 9, increase = 1 } },
+	rarity = "crp_22exomythic4mecipe",
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 6 },
+	soul_pos = { x = 8, y = 6, extra = { x = 7, y = 6 } },
+	cost = 800,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { math.round(lenient_bignum(card.ability.extra.arrows)), lenient_bignum(card.ability.extra.mantissa), lenient_bignum(card.ability.extra.increase), "{", "}" } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return {
+				hypermult_mod = {
+					math.round(lenient_bignum(card.ability.extra.arrows)),
+					lenient_bignum(card.ability.extra.mantissa)
+				},
+				message = "{" .. lenient_bignum(card.ability.extra.arrows) .. "}" .. lenient_bignum(card.ability.extra.mantissa) .. ' Mult',
+				colour = G.C.EDITION,
+			}
+		end
+		if context.end_of_round and not context.blueprint and not context.retrigger and not context.individual and not context.repetition then
+			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.increase)
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+--[[ SMODS.Joker {
+	key = "everything_is_fine",
+	config = {
+		extra = {
+			x_chips = 1.27,
+			x_mult = 1.98,
+			e_mult = 1.1,
+			bulgoe = 270,
+		}
+	},
+	rarity = 4,
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 6 },
+	soul_pos = { x = 3, y = 6, extra = { x = 2, y = 6 } },
+	cost = 20,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.x_chips), lenient_bignum(card.ability.extra.x_mult), lenient_bignum(card.ability.extra.e_mult), lenient_bignum(card.ability.extra.bulgoe) } }
+	end,
+	calculate = function(self, card, context)
+		-- Main or forced trigger logic
+		if context.joker_main or context.forcetrigger then
+			return {
+				chips = 1,
+				mult = 1,
+				Xchips = lenient_bignum(card.ability.extra.x_chips),
+				Xmult = lenient_bignum(card.ability.extra.x_mult),
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(card.ability.extra.e_mult),
+					},
+				}),
+				Emult_mod = lenient_bignum(card.ability.extra.e_mult),
+				colour = G.C.DARK_EDITION,
+			}
+		end
+		if context.other_joker and context.other_joker.ability.set == "Joker" then
+			if context.other_joker.config.center.key == "crp_bulgoe" then
+				if not Talisman.config_file.disable_anims then
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							context.other_joker:juice_up(0.5, 0.5)
+							return true
+						end,
+					}))
+				end
+				return {
+					message = localize({
+						type = "variable",
+						key = "a_chips",
+						vars = { number_format(card.ability.extra.bulgoe) },
+					}),
+					chip_mod = lenient_bignum(card.ability.extraa.bulgoe),
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+} --]]
+
 ----------------------------------------------
 ------------MOD CODE END----------------------

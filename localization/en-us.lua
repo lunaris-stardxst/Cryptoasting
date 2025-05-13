@@ -263,6 +263,14 @@ return {
 					"cost extra",
 				},
 			},
+			j_crp_playerrwon = {
+				name = "playerrWon",
+				text = {
+					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
+					"{C:attention}N{} increases by {C:attention}#3#{} at end of round",
+					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive} (rounded)){}",
+				},
+			},
 		},
 		Tag = {
 			tag_crp_common_tag = {
@@ -348,6 +356,7 @@ return {
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipeCryptasticRare2",
 			k_eaten = "Munch",
 			k_bulgoe_spawn = "+1 Bulgoe",
+			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 		},
 		labels = {
 			crp_overloaded = "Overloaded",

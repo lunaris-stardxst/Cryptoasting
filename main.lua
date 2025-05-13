@@ -182,3 +182,7 @@ G.FUNCS.hand_mult_UI_set = function(e)
       if not G.TAROT_INTERRUPT_PULSE then G.FUNCS.text_super_juice(e, math.max(0,math.floor(math.log10(type(G.GAME.current_round.current_hand.mult) == 'number' and G.GAME.current_round.current_hand.mult or 1)))) end
     end
   end
+
+  function math.round(x)
+	return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
+end
