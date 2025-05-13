@@ -786,7 +786,7 @@ SMODS.Joker {
 	config =
 		{ extra = { splash = 5 } },
 		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
-	rarity = 2,
+	rarity = crp_uncommon2,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 4 },
 	cost = 7,
