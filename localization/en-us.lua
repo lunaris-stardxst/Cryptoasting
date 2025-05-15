@@ -89,6 +89,13 @@ return {
 					"{C:money}+$#1#{}",
 				},
 			},
+			j_crp_joker_7 = {
+				name = "Joker 7",
+				text = {
+					"{C:attention}+#1#{} {C:tarot}Tarot{} cards",
+					"{C:inactive}(Does not require room)",
+				},
+			},
 			j_crp_joker_8 = {
 				name = "Joker 8",
 				text = {

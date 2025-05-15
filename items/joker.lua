@@ -397,6 +397,44 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "joker_7",
+	config = { extra = { create = 4 } },
+	rarity = "cry_epic",
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 1 },
+	cost = 17,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.create) } }
+	end,
+	calculate = function(self, card, context)
+		local tarots_to_create = lenient_bignum(card.ability.extra.create)
+      		G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + tarots_to_create
+		for i = 1, tarots_to_create do
+			if context.joker_main or context.forcetrigger then
+        		local card_type = 'Tarot'
+        		G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+        		G.E_MANAGER:add_event(Event({
+          			trigger = 'before',
+         			delay = 0.0,
+          			func = (function()
+              			local n_card = create_card(card_type,G.consumeables, nil, nil, nil, nil, nil, 'jk7')
+              			n_card:add_to_deck()
+              			G.consumeables:emplace(n_card)
+              			G.GAME.consumeable_buffer = 0
+           			return true
+          			end)}))
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "N/A" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "joker_8",
 	config = { extra = { x_chips = 4 } },
 	rarity = 3,
