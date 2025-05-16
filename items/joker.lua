@@ -1155,7 +1155,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "underflow",
-	config = { extra = { a_mult = 1, mult_mod = 1 } },
+	config = { extra = { x_mult = 1, mult_mod = 1 } },
 	rarity = "crp_mythic",
 	atlas = "crp_jokers",
 	pos = { x = 7, y = 5 },
@@ -1163,20 +1163,20 @@ SMODS.Joker {
 	cost = 100,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.a_mult), lenient_bignum(card.ability.extra.mult_mod) } }
+		return { vars = { lenient_bignum(card.ability.extra.x_mult), lenient_bignum(card.ability.extra.mult_mod) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main or context.forcetrigger) and card.ability.extra.a_mult ~= 0 then
+		if (context.joker_main or context.forcetrigger) and card.ability.extra.x_mult ~= 0 then
 			return {
-				mult = card.ability.extra.a_mult
+				Xmult = card.ability.extra.x_mult
 			}
 		end
 		if context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker and not context.forcetrigger then
-			if card.ability.extra.a_mult > -1 then
-				card.ability.extra.a_mult = lenient_bignum(card.ability.extra.a_mult) - card.ability.extra.mult_mod
+			if card.ability.extra.x_mult > -1 then
+				card.ability.extra.x_mult = lenient_bignum(card.ability.extra.x_mult) - card.ability.extra.mult_mod
 			end
-			if card.ability.extra.a_mult <= -1 then
-				card.ability.extra.a_mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
+			if card.ability.extra.x_mult <= -1 then
+				card.ability.extra.x_mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
 			end -- the number above is the max value of a double in lua, which is ~1.7976931348623157e308. this number is usually referred to as "naneinf" in balatro. attempting to use the operation (2^1024) - 1 momentarily results in a number too big for lua to process, so i have to use this long-winded integer instead.
 		end
 	end,

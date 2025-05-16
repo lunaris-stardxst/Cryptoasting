@@ -257,8 +257,8 @@ return {
 			j_crp_underflow = {
 				name = "Underflow",
 				text = {
-					"{C:mult}+#1#{} Mult",
-					"{C:mult}-#2#{} Mult at end of round",
+					"{C:white,X:mult}X#1#{} Mult",
+					"Decreases by {C:white,X:mult}X#2#{} Mult at end of round",
 				},
 			},
 			j_crp_statically_charged = {
@@ -278,6 +278,16 @@ return {
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive} (rounded)){}",
 				},
 			},
+		},
+		Spectral =  {
+			c_crp_prayer = {
+				name = 'Prayer',
+				text = {
+					"Create a {C:crp_mythic}Mythic{} Joker{},",
+					"{C:red}destroy{} all other Jokers,",
+					"including {C:purple}Eternals"				
+				}
+			}
 		},
 		Tag = {
 			tag_crp_common_tag = {
