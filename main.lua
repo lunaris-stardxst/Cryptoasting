@@ -187,3 +187,7 @@ G.FUNCS.hand_mult_UI_set = function(e)
   function math.round(x)
 	return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
 end
+
+Cryptid.pointerblistifytype("rarity", "crp_mythic", nil)
+Cryptid.pointerblistifytype("rarity", "crp_exomythic", nil)
+Cryptid.pointerblistifytype("rarity", "crp_22exomythic4mecipe", nil)
