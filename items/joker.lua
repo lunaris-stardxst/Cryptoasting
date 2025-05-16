@@ -1230,7 +1230,7 @@ SMODS.Joker {
 	cost = 800,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { math.round(lenient_bignum(card.ability.extra.arrows)), lenient_bignum(card.ability.extra.mantissa), lenient_bignum(card.ability.extra.increase), "{", "}" } }
+		return { vars = { lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.extra.mantissa), lenient_bignum(card.ability.extra.increase), "{", "}" } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
