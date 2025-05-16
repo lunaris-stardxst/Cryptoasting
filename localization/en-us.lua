@@ -289,6 +289,14 @@ return {
 					"{C:red}destroy{} all other Jokers,",
 					"including {C:purple}Eternals"				
 				}
+			},
+			c_crp_gate_of_prayers = {
+				name = 'Gate of Prayers',
+				text = {
+					"Create an {C:crp_exomythic}ExoMythic{} Joker{},",
+					"{C:red}destroy{} all other Jokers,",
+					"bypassing all effects"			
+				}
 			}
 		},
 		Tag = {
