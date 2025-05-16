@@ -277,7 +277,7 @@ return {
 				text = {
 					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
 					"{C:attention}N{} increases by {C:attention}#3#{} at end of round",
-					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive} (rounded)){}",
+					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
 			},
 		},

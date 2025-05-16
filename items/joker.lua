@@ -1222,7 +1222,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "playerrwon",
-	config = { extra = { arrows = 3, mantissa = 9, increase = 1 } },
+	config = { extra = { arrows = 1, mantissa = 9, increase = 1 }, immutable = { max = 5000} },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 6 },
@@ -1230,16 +1230,16 @@ SMODS.Joker {
 	cost = 800,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.extra.mantissa), lenient_bignum(card.ability.extra.increase), "{", "}" } }
+		return { vars = { lenient_bignum(math.min(card.ability.extra.arrows, card.ability.immutable.max)), lenient_bignum(card.ability.extra.mantissa), lenient_bignum(card.ability.extra.increase), "{", "}" } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
 			return {
 				hypermult_mod = {
-					math.round(lenient_bignum(card.ability.extra.arrows)),
+					math.round(lenient_bignum(math.min(card.ability.extra.arrows, card.ability.immutable.max))),
 					lenient_bignum(card.ability.extra.mantissa)
 				},
-				message = "{" .. lenient_bignum(card.ability.extra.arrows) .. "}" .. lenient_bignum(card.ability.extra.mantissa) .. ' Mult',
+				message = "{" .. lenient_bignum(math.min(card.ability.extra.arrows, card.ability.immutable.max)) .. "}" .. lenient_bignum(card.ability.extra.mantissa) .. ' Mult',
 				colour = G.C.EDITION,
 			}
 		end
