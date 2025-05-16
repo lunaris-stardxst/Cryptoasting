@@ -702,7 +702,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 4 },
 	pools = { ["Meme"] = true },
 	rarity = "crp_cipe",
-	cost = 10,
+	cost = 15,
 	immutable = true,
 	perishable_compat = true,
 	atlas = "crp_jokers",
