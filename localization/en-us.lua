@@ -179,15 +179,16 @@ return {
 				text = {
 					"Lowers the framerate to {C:attention}1{} FPS, randomizes resolution, disables fullscreen, and causes an instant loss if game speed is above {C:attention}X0.5{}.",
 					"Changes game language every second, all rerolls are free, and redeems {C:attention}50000 unskippable {}{C:tarot}Arcana Packs{} after each {C:attention}Blind{} is revealed.",
-					"Generates {C:attention}50000000 Googol Play Cards{} at the start of each round. All {C:attention}Joker{} except those created by this {C:attention}Joker{} become {C:attention}Authentic{} and {C:attention}Restricted.",
+					"Generates {C:attention}50000000 Googol Play Cards{} at the start of each round. All {C:attention}Jokers{} except those created by this {C:attention}Joker{} become {C:attention}Authentic{} and {C:attention}Restricted.",
 					"Grants {X:chips,C:white}X10{} Chips, {X:chips,C:white}X10{} Chips, and randomizes screen rotation whenever any card is scored.",
 					"Does NOT give {X:mult,C:white}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
 					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker’s values.",
 					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
+					"{C:white,X:chips}X10{} Chips. {C:white,X:chips}X10{} more Chips. If the player forgets about the chips given on this Joker, {C:white,X:chips}X10{} Chips. If the player does not forget about the amount of {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips.",
 					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#2#69#3#{}2 Chips and {X:edition,C:dark_edition}#2#69#3#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
-					"Lastly, divides this description by {C:attention,s:2.5}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
+					"Lastly, divides this description by {C:attention,s:10}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
 			j_crp_purist_jolly_joker = {
