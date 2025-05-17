@@ -365,6 +365,21 @@ return {
 					"{C:dark_edition,X:edition}^^^#2#{} Mult",
 				},
 			},
+			e_crp_fourdimensional = {
+				name = "Four-Dimensional",
+				text = {
+					"{C:green}#1# in #2#{} chance to",
+					"retrigger {C:attention}#3#{} times",
+				},
+			},
+			--[[ e_crp_psychic = {
+				name = "Psychic",
+				text = {
+					"{C:edition,X:dark_edition}#1##2##3##4#{} Chips",
+					"Operator increases by {C:attention}#5#{} for every",
+					"{C:attention}#6# 7{}s played or discarded",
+				},
+			}, ]]--
 		}
 	},
 	misc = {
@@ -387,6 +402,8 @@ return {
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
+			crp_fourdimensional = "Four-Dimensional",
+			--[[ crp_psychic = "Psychic", ]]--
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",
