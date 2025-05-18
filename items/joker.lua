@@ -108,6 +108,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "MarioFan597" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -140,6 +141,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "MarioFan597" },
 		code = { "Glitchkat10" }
 	}
 }
