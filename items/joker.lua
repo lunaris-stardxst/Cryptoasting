@@ -186,7 +186,7 @@ SMODS.Joker {
 		return { vars = {  } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_mainor or context.forcetrigger then
+		if context.joker_main or or context.forcetrigger then
 			return {
 				mult = 107
 			}
