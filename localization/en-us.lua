@@ -408,6 +408,7 @@ return {
 		v_dictionary = {
 			everything = "Everything: #1#",
 			colon_3 = ":3",
+			placeholder = "Placeholder Art: #1#",
 		}
 	}
 }

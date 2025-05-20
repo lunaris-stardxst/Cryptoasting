@@ -50,7 +50,12 @@ SMODS.Consumable {
 			end,
 		}))
 		delay(0.6)
-    end
+    end,
+	crp_credits = {
+		idea = { "Unknown" },
+		custom = { key = "placeholder", text = "MarioFan597" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Consumable {
@@ -96,5 +101,10 @@ SMODS.Consumable {
 			end,
 		}))
 		delay(0.6)
-    end
+    end,
+	crp_credits = {
+		idea = { "Unknown" },
+		custom = { key = "placeholder", text = "MarioFan597" },
+		code = { "Glitchkat10" }
+	}
 }
