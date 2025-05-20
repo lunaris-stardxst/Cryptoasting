@@ -486,7 +486,6 @@ SMODS.Joker {
 				and next(SMODS.find_card('j_crp_joker_6'))
 				and next(SMODS.find_card('j_crp_joker_7'))
 				and next(SMODS.find_card('j_crp_joker_8'))
-				and next(SMODS.find_card('j_crp_evil_joker'))
 				and next(SMODS.find_card('j_crp_joker_0')) 
 			then
 				return {
