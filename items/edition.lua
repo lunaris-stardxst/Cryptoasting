@@ -59,7 +59,7 @@ SMODS.Shader {
 }
 
 SMODS.Sound {
-	key = "e_fourdimensionl",
+	key = "e_fourdimensional",
 	path = "e_fourdimensional.ogg",
 }
 
