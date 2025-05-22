@@ -1226,7 +1226,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "playerrwon",
-	config = { extra = { arrows = 1, mantissa = 9, increase = 1 }, immutable = { max = 5000} },
+	config = { extra = { arrows = 1, mantissa = 9, increase = 1 }, immutable = { max = 500 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 6 },
