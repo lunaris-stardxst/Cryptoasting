@@ -1219,6 +1219,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		custom = { key = "placeholder", text = "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
