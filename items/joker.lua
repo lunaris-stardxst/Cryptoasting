@@ -1260,11 +1260,11 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "bulgoehikingjourney",
 	config = { extra = { perma_x_chips = 0.27 } },
-	rarity = 1,
+	rarity = "cry_epic",
 	atlas =  "crp_jokers",
 	blueprint_compat = true,
 	pos = { x = 0, y = 0 },
-	cost = 1,
+	cost = 13,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.perma_x_chips } }
 	end,
@@ -1281,7 +1281,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Poker The Poker" },
 		art = { "Poker The Poker (soon)" },
-		code = { "Poker The Poer" },
+		code = { "Poker The Poker" },
 	}
 }
 
