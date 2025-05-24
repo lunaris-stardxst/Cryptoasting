@@ -827,6 +827,35 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "bulgoeshikingjourney",
+	config = { extra = { perma_x_chips = 0.27 } },
+	rarity = "cry_epic",
+	atlas =  "crp_jokers",
+	blueprint_compat = true,
+	demicolon_compat = false,
+	pos = { x = 0, y = 7 },
+	cost = 13,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.perma_x_chips) } }
+	end,
+	calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            context.other_card.ability.perma_x_chips = lenient_bignum(context.other_card.ability.perma_x_chips) or 0
+            context.other_card.ability.perma_x_chips = lenient_bignum(context.other_card.ability.perma_x_chips) + lenient_bignum(card.ability.extra.perma_x_chips)
+            return {
+                extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
+                card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		art = { "Glitchkat10" },
+		code = { "Poker The Poker" },
+	}
+}
+
+SMODS.Joker {
 	key = "water_bottle",
 	config =
 		{ extra = { splash = 5 } },
@@ -1266,34 +1295,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "bulgoehikingjourney",
-	config = { extra = { perma_x_chips = 0.27 } },
-	rarity = "cry_epic",
-	atlas =  "crp_jokers",
-	blueprint_compat = true,
-	pos = { x = 0, y = 0 },
-	cost = 13,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.perma_x_chips } }
-	end,
-	calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play then
-                context.other_card.ability.perma_x_chips = context.other_card.ability.perma_x_chips or 0
-                context.other_card.ability.perma_x_chips = context.other_card.ability.perma_x_chips + card.ability.extra.perma_x_chips
-                return {
-                    extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
-                    card = card
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "Poker The Poker (soon)" },
-		code = { "Poker The Poker" },
 	}
 }
 

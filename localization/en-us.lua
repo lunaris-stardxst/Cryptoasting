@@ -166,6 +166,14 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_bulgoeshikingjourney = {
+				name = "Bulgoe's Hiking Journey",
+				text = {
+					"Each {C:attention}card{} played",
+					"permanently gains {X:chips,C:white}X#1#{} Chips",
+					"when scored"
+				},
+			},
 			j_crp_water_bottle = {
 				name = "Water Bottle",
 				text = {
@@ -278,14 +286,6 @@ return {
 					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
 					"{C:attention}N{} increases by {C:attention}#3#{} at end of round",
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
-				},
-			},
-			j_crp_bulgoehikingjourney = {
-				name = "Bulgoe's Hiking Journey",
-				text = {
-					"Each {C:attention}card{} played",
-					"permanently gains {X:chips,C:white}X#1#{} Chips",
-					"when scored"
 				},
 			},
 		},
