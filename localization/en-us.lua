@@ -42,7 +42,7 @@ return {
 				text = {
 					"{C:mult}+1{} Mult for every {C:attention}Graveyarded{}",
 					"submission in the {C:attention}CSL{}",
-					"(Currently {C:mult}+107{} Mult)",
+					"(Currently {C:mult}+#1#{} Mult)",
 				},
 			},
 			j_crp_joker_of_all_trades = {
@@ -124,13 +124,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:edition,X:dark_edition}#1#25000#2#1{} Mult",
-				},
-			},
-			["j_crp_joker_2.5"] = {
-				name = "Joker 2.5",
-				text = {
-					"{C:chips}+#1#{} Chips",
+					"{C:edition,X:dark_edition}#1##2##3##4#{} Mult",
 				},
 			},
 			j_crp_pi_joker = {
@@ -194,10 +188,10 @@ return {
 					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
 					"{C:white,X:chips}X10{} Chips. {C:white,X:chips}X10{} more Chips",
 					"If the player forgets about the {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips. If the player does not forget about the amount of {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips",
-					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#2#69#3#{}2 Chips and {X:edition,C:dark_edition}#2#69#3#{}2 Mult.",
+					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#1#69#2#{}2 Chips and {X:edition,C:dark_edition}#1#69#2#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
-					"Lastly, divides this description by {C:attention,s:5}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
+					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
 			j_crp_purist_jolly_joker = {
