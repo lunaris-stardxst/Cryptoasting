@@ -16,8 +16,7 @@
 		"Cryptid"
 	],
 	"conflicts": [
-		"Almanac",
 		"Jen",
-		"POLTERWORX"
+		"jen"
 	]
 }
