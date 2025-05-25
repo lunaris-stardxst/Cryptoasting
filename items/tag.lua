@@ -40,6 +40,11 @@ SMODS.Tag {
 			return card
 		end
 	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Tag {
@@ -75,6 +80,11 @@ SMODS.Tag {
 			return card
 		end
 	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Tag {
@@ -110,10 +120,15 @@ SMODS.Tag {
 			return card
 		end
 	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Tag {
-	key = "uncommon2_tag",
+	key = "uncommon_2_tag",
 	atlas = "crp_tags",
 	pos = { x = 3, y = 0 },
 	min_ante = 0,
@@ -122,14 +137,14 @@ SMODS.Tag {
 		if context.type == "store_joker_create" then
 			local rares_in_posession = { 0 }
 			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_uncommon2" and not rares_in_posession[v.config.center.key] then
+				if v.config.center.rarity == "crp_uncommon_2" and not rares_in_posession[v.config.center.key] then
 					rares_in_posession[1] = rares_in_posession[1] + 1
 					rares_in_posession[v.config.center.key] = true
 				end
 			end
 			local card
 			if #G.P_JOKER_RARITY_POOLS.crp_uncommon2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_uncommon2", nil, nil, nil, "cry_eta")
+				card = create_card("Joker", context.area, nil, "crp_uncommon_2", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Uncommon, function()
@@ -145,10 +160,15 @@ SMODS.Tag {
 			return card
 		end
 	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "lord.ruby" },
+		code = { "lord.ruby" }
+	}
 }
 
 SMODS.Tag {
-	key = "rare2_tag",
+	key = "rare_2_tag",
 	atlas = "crp_tags",
 	pos = { x = 4, y = 0 },
 	min_ante = 0,
@@ -157,14 +177,14 @@ SMODS.Tag {
 		if context.type == "store_joker_create" then
 			local rares_in_posession = { 0 }
 			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_rare2" and not rares_in_posession[v.config.center.key] then
+				if v.config.center.rarity == "crp_rare_2" and not rares_in_posession[v.config.center.key] then
 					rares_in_posession[1] = rares_in_posession[1] + 1
 					rares_in_posession[v.config.center.key] = true
 				end
 			end
 			local card
 			if #G.P_JOKER_RARITY_POOLS.crp_rare2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_rare2", nil, nil, nil, "cry_eta")
+				card = create_card("Joker", context.area, nil, "crp_rare_2", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Rare, function()
@@ -180,6 +200,11 @@ SMODS.Tag {
 			return card
 		end
 	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "lord.ruby"},
+		code = { "lord.ruby" }
+	}
 }
 
  --[[ SMODS.Tag {

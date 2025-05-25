@@ -827,7 +827,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "bulgoeshikingjourney",
+	key = "bulgoes_hiking_journey",
 	config = { extra = { perma_x_chips = 0.27 } },
 	rarity = "cry_epic",
 	atlas =  "crp_jokers",

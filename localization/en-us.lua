@@ -166,7 +166,7 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
-			j_crp_bulgoeshikingjourney = {
+			j_crp_bulgoes_hiking_journey = {
 				name = "Bulgoe's Hiking Journey",
 				text = {
 					"Each {C:attention}card{} played",
@@ -311,57 +311,57 @@ return {
 			tag_crp_common_tag = {
 				name = "Common Tag",
 				text = {
-					"The next shop will have",
-					"a free {C:common}Common{} Joker",
+					"Shop has a free",
+					"{C:common}Common{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_legendary_tag = {
 				name = "Legendary Tag",
 				text = {
-					"The next shop will have",
-					"a full-price {C:legendary}Legendary{} Joker",
+					"Shop has a full-price",
+					"{C:legendary}Legendary{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_exotic_tag = {
 				name = "Exotic Tag",
 				text = {
-					"The next shop will have an",
-					"{C:cry_exotic}Exotic{} Joker at double the price",
+					"Shop has an {C:cry_exotic}Exotic{}",
+					"{C:attention}Joker{} at double the price",
 				},
 			},
 			tag_crp_uncommon2_tag = {
 				name = "Uncommon2 Tag",
 				text = {
-					"The next shop will have a",
-					"free {C:uncommon}Uncommon2{} Joker",
+					"Shop has a free",
+					"{C:uncommon}Uncommon 2{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_rare2_tag = {
 				name = "Rare 2 Tag",
 				text = {
-					"The next shop will have a",
-					"free {C:rare}Rare 2{} Joker",
+					"Shop has a free",
+					"{C:rare}Rare 2{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_m_tag = {
 				name = "M Tag",
 				text = {
-					"The next shop will have a",
-					"free {C:cry_exotic}M{} Joker",
+					"Shop has a free",
+					"{C:cry_exotic}M{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_awesome_tag = {
 				name = "Awesome Tag",
 				text = {
-					"The next shop will have a",
-					"a half-price {C:crp_awesome}Awesome{} Joker",
+					"Shop has a half-price",
+					"{C:crp_awesome}Awesome{} {C:attention}Joker{}",
 				},
 			},
 			tag_crp_mythic_tag = {
 				name = "Mythic Tag",
 				text = {
-					"The next shop will have a",
-					"a {C:crp_mythic}Mythic{} Joker at double the price",
+					"Shop has a {C:crp_mythic}Mythic{}",
+					"{C:attention}Joker{} at quadruple the price",
 				},
 			},
 		},
@@ -395,7 +395,7 @@ return {
 			k_crp_trash = "Trash",
 			k_crp_m = "M",
 			k_crp_uncommon2 = "Uncommon 2",
-			k_crp_rare2 = "Rare 2",
+			k_crp_rare_2 = "Rare 2",
 			k_crp_awesome = "Awesome",
 			k_crp_cipe = "cipE",
 			k_crp_mythic = "Mythic",
