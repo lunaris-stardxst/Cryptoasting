@@ -31,12 +31,12 @@ SMODS.Joker {
 	pos = { x = 0, y = 0 },
 	cost = 1,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.chips } }
+		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
 			return {
-				chips = lenient_bignum(card.ability.extra.a_chips)
+				chips = lenient_bignum(card.ability.extra.chips)
 			}
 		end
 	end,
