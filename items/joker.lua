@@ -641,7 +641,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "semicolon",
 	config = { extra = {  } },
-	rarity = 1,
+	rarity = "crp_trash",
 	atlas = "crp_jokers",
 	pos = { x = 0, y = 5 },
 	cost = 2,
@@ -669,7 +669,7 @@ SMODS.Joker {
 		return nil
 	end,
 	crp_credits = {
-		idea = { "lord.ruby" },
+		idea = { "lord.ruby", "Glitchkat10" },
 		art = { "Tatteredlurker" },
 		code = { "Glitchkat10", "lord.ruby" }
 	}
@@ -886,7 +886,6 @@ SMODS.Joker {
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
-		info_queue[#info_queue + 1] = G.P_CENTERS.j_cry_googol_play
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_celestial_normal_1
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
