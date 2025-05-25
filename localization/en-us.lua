@@ -248,6 +248,15 @@ return {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
+			j_crp_bulgoeship_card = {
+				name = "Bulgoeship Card",
+				text = {
+					"{X:dark_edition,C:edition}^^#1#{} Mult for each member",
+					"in the {C:attention}Cryptposting Discord{}",
+					"{C:inactive}(Currently {X:dark_edition,C:edition}^^#2#{C:inactive} Mult)",
+					"{C:blue,s:0.7}https://discord.gg/Jk9Q9usrNy{}",
+				},
+			},
 			j_crp_iterum_2 = {
 				name = "Iterum 2",
 				text = {
