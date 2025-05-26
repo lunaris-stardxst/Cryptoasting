@@ -1130,7 +1130,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "bulgoeship_card",
 	config = { extra = { EEmult_mod = 0.1 } },
-	rarity = "crp_exomythic",
+	rarity = "crp_mythic",
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 7 },
 	soul_pos = { x = 2, y = 7, extra = { x = 3, y = 7 } },
@@ -1144,7 +1144,7 @@ SMODS.Joker {
 		if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
 			return {
 				message = '^^' .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. ' Mult',
-				EEEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
+				EEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
 				colour = G.C.DARK_EDITION,
 				card = card
 			}
