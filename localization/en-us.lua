@@ -161,7 +161,7 @@ return {
 				},
 			},
 			j_crp_bulgoes_hiking_journey = {
-				name = "Bulgoe's Hiking Journey",
+				name = "{C:edition}Bulgoe{}'s Hiking Journey",
 				text = {
 					"Each {C:attention}card{} played",
 					"permanently gains {X:chips,C:white}X#1#{} Chips",
@@ -249,7 +249,7 @@ return {
 				},
 			},
 			j_crp_bulgoeship_card = {
-				name = "Bulgoeship Card",
+				name = "{C:edition}Bulgoe{}ship Card",
 				text = {
 					"{X:dark_edition,C:edition}^^#1#{} Mult for each member",
 					"in the {C:attention}Cryptposting Discord{}",
