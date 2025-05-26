@@ -195,7 +195,7 @@ Cryptid.pointerblistifytype("rarity", "crp_22exomythic4mecipe", nil)
 -- Update the cryptposting member count using https
 Cryptposting = Cryptposting or {}
 
-local member_fallback = 13
+local member_fallback = 24 -- Fallback member count in case the request fails or is not available
 local succ, https = pcall(require, "SMODS.https")
 local last_update_time = 0
 local initial = true
