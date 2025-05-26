@@ -1287,7 +1287,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "Tatteredlurker" },
-		code = { "Glitchkat10" }
+		code = { "Glitchkat10", "MathIsFun_" }
 	}
 }
 
