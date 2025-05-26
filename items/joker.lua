@@ -633,7 +633,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xchips = math.pi,
+				x_chips = math.pi, -- i wish it could be "Xchips" but it can't
 				Xmult = math.pi,
 			}
 		end
