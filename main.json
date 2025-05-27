@@ -13,6 +13,6 @@
 	"dependencies": [
 		"Talisman",
 		"Steamodded",
-		"Cryptid"
+		"Cryptid (>= 0.5.6)"
 	]
 }
