@@ -291,6 +291,42 @@ return {
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
 			},
+			j_crp_duplicare_2 = {
+				name = "Duplicare 2",
+				text = {
+					"This Joker gains {X:dark_edition,C:white}^#2#{} Mult when a Joker or playing card is triggered",
+					"Retrigger all Jokers and playing cards #3# additional times",
+					"{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult){}",
+				},
+			},
+			j_crp_jolly_of_joker = {
+				name = "The Jolly of Joker",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult if played hand contains a Pair",
+				},
+			},
+			j_crp_evil_jolly_joker = {
+				name = "EVIL Jolly Joker",
+				text = {
+					"{C:chips}#1#{} Mult if played hand does NOT contain a Pair",
+				},
+			},
+			j_crp_progressum = {
+				name = "Progressum",
+				text = {
+					"{C:mult}+[blind size]{} Mult",
+					"{X:mult}X[round]{} Mult",
+					"{X:dark_edition,C:white}^[ante]{} Mult",
+					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult, {X:mult}X#2#{C:inactive} Mult and {X:dark_edition,C:white}^#3#{C:inactive} Mult{}",
+				},
+			},
+			j_crp_infinitum = {
+				name = "Infinitum",
+				text = {
+					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{}{} Chips & Mult",
+					"Where X is their position in their card area"
+				},
+			},
 		},
 		Spectral =  {
 			c_crp_prayer = {
