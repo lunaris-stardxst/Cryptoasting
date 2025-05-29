@@ -252,8 +252,8 @@ SMODS.Joker {
 	key = "millipede",
 	config = { extra = { chips = 1000 } },
 	rarity = 3,
-	atlas = "crp_placeholders",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 6, y = 2 },
 	cost = 10,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -269,6 +269,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -1305,8 +1306,8 @@ SMODS.Joker {
 	key = "centipede",
 	config = { extra = { chips = 100 } },
 	rarity = 2,
-	atlas = "crp_placeholders",
-	pos = { x = 3, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 2 },
 	cost = 6,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1322,6 +1323,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -1356,8 +1358,8 @@ SMODS.Joker {
 	key = "decipede",
 	config = { extra = { chips = 10 } },
 	rarity = 1,
-	atlas = "crp_placeholders",
-	pos = { x = 2, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 4, y = 2 },
 	cost = 1,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1373,6 +1375,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
