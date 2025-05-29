@@ -649,26 +649,26 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "progressum",
+	key = "progressive",
 	config = {
 		extra = {
-			xmult = 1,
-			emult = 1,
+			mult = 1,
+			Xmult = 1,
 		}
 	},
-	rarity = "cry_exotic",
+	rarity = "cry_epic",
 	atlas = "crp_placeholders",
-	pos = { x = 7, y = 0 },
-	cost = 50,
+	pos = { x = 5, y = 0 },
+	cost = 16,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.emult) } }
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.setting_blind then
-			card.ability.extra.xmult = lenient_bignum(G.GAME.round)
-			card.ability.extra.emult = lenient_bignum(G.GAME.round_resets.ante)
+			card.ability.extra.mult = lenient_bignum(G.GAME.round)
+			card.ability.extra.Xmult = lenient_bignum(G.GAME.round_resets.ante)
 			return {
 				message = 'Updated!',
 				colour = G.C.MULT,
@@ -677,8 +677,8 @@ SMODS.Joker {
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xmult_mod = lenient_bignum(card.ability.extra.xmult),
-				Emult_mod = lenient_bignum(card.ability.extra.emult),
+				Xmult_mod = lenient_bignum(card.ability.extra.mult),
+				Emult_mod = lenient_bignum(card.ability.extra.Xmult),
 				message = 'Progressum!',
 				colour = G.C.MULT,
 				card = card
@@ -686,7 +686,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Poker The Poker" },
+		idea = { "Poker The Poker", "Glitchkat10" },
 		code = { "Rainstar" }
 	}
 }

@@ -314,12 +314,12 @@ return {
 					"contain a {C:attention}Pair{}",
 				},
 			},
-			j_crp_progressum = {
-				name = "Progressum",
+			j_crp_progressive = {
+				name = "Progressive Joker",
 				text = {
-					"{C:white,X:mult}X[round]{} Mult",
-					"{X:dark_edition,C:white}^[ante]{} Mult",
-					"{C:inactive}Currently {C:white,X:mult}X#2#{C:inactive} Mult and {X:dark_edition,C:white}^#3#{C:inactive} Mult{}",
+					"{C:mult}+[round]{} Mult",
+					"{C:white,X:mult}X[ante]{} Mult",
+					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}}X#2#{C:inactive} Mult{}",
 				},
 			},
 			j_crp_infinitum = {
