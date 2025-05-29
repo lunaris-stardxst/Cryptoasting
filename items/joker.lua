@@ -669,11 +669,6 @@ SMODS.Joker {
 		if context.setting_blind then
 			card.ability.extra.mult = lenient_bignum(G.GAME.round)
 			card.ability.extra.Xmult = lenient_bignum(G.GAME.round_resets.ante)
-			return {
-				message = 'Updated!',
-				colour = G.C.MULT,
-				card = card
-			}
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
