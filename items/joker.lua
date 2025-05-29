@@ -613,18 +613,26 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.emult), lenient_bignum(card.ability.extra.emult_gain), lenient_bignum(card.ability.extra.retriggers) } }
 	end,
-	calculate = function(self, card, context)
-		if context.repetition then
-			if context.cardarea == G.play or context.cardarea == G.jokers then
-				card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
-				return {
-					message = localize("k_again_ex"),
-					repetitions = lenient_bignum(card.ability.extra.retriggers),
-					card = card,
-				}
-			end
+	calculate = function(self, card, context) 
+		if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
+			return {
+				message = localize("k_again_ex"),
+				repetitions = lenient_bignum(card.ability.extra.retriggers),
+				card = card,
+			}
 		end
-		if (context.post_trigger and context.other_joker ~= card) or (context.individual and context.cardarea == G.play) then
+		if context.repetition and context.cardarea == G.play then
+			return {
+				message = localize("k_again_ex"),
+				repetitions = lenient_bignum(card.ability.extra.retriggers),
+				card = card,
+			}
+		end
+		if context.post_trigger and context.other_joker ~= card then
+			card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
+			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
+		end
+		if context.individual and context.cardarea == G.play then
 			card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
@@ -704,6 +712,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		-- jokers, doesnt work as of now
+
 	    --if context.other_card ~= self and context.cardarea == G.jokers then
 		--	local arrow_number_jokers = 0
 		--	for i = 1, #G.jokers.cards do
