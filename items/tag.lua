@@ -143,7 +143,7 @@ SMODS.Tag {
 				end
 			end
 			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_uncommon2 > rares_in_posession[1] then
+			if #G.P_JOKER_RARITY_POOLS.crp_uncommon_2 > rares_in_posession[1] then
 				card = create_card("Joker", context.area, nil, "crp_uncommon_2", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
@@ -183,7 +183,7 @@ SMODS.Tag {
 				end
 			end
 			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_rare2 > rares_in_posession[1] then
+			if #G.P_JOKER_RARITY_POOLS.crp_rare_2 > rares_in_posession[1] then
 				card = create_card("Joker", context.area, nil, "crp_rare_2", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
