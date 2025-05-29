@@ -2,7 +2,9 @@
 	"id": "cryptposting",
 	"name": "Cryptposting",
 	"display_name": "Cryptposting",
-	"author": ["Glitchkat10 and Poker The Poker"],
+	"author": [
+		"Glitchkat10 and Poker The Poker"
+	],
 	"description": "A collection of the Cryptid community's unfunniest shitposts. Order of items in the collection is based off of the order that they were created in the Cryptposting Idea Document.",
 	"prefix": "crp",
 	"main_file": "main.lua",
@@ -13,6 +15,6 @@
 	"dependencies": [
 		"Talisman",
 		"Steamodded",
-		"Cryptid (>= 0.5.6)"
+		"Cryptid"
 	]
 }

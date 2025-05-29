@@ -184,7 +184,7 @@ return {
 					"Generates {C:attention}50000000 Googol Play Cards{} at the start of each round. All {C:attention}Jokers{} except those created by this {C:attention}Joker{} become {C:attention}Authentic{} and {C:attention}Restricted.",
 					"Grants {X:chips,C:white}X10{} Chips, {X:chips,C:white}X10{} Chips, and randomizes screen rotation whenever any card is scored.",
 					"Does NOT give {X:mult,C:white}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
-					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker’s values.",
+					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker's values.",
 					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
 					"{C:white,X:chips}X10{} Chips. {C:white,X:chips}X10{} more Chips",
 					"If the player forgets about the {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips. If the player does not forget about the amount of {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips",
@@ -291,22 +291,61 @@ return {
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
 			},
+			j_crp_duplicare_2 = {
+				name = "Duplicare 2",
+				text = {
+					"This {C:attention}Joker{} gains {X:dark_edition,C:white}^#2#{} Mult",
+					"when a {C:attention}Joker{} or {C:attention}playing card{} is triggered",
+					"Retrigger all {C:attention}Jokers{} and {C:attention}playing cards #3#{} additional times",
+					"{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult){}",
+				},
+			},
+			j_crp_jolly_of_joker = {
+				name = "The Jolly of Joker",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
+					"contains a {C:attention}Pair{}",
+				},
+			},
+			j_crp_evil_jolly_joker = {
+				name = "EVIL Jolly Joker",
+				text = {
+					"{C:mult}#1#{} Mult if played hand does not",
+					"contain a {C:attention}Pair{}",
+				},
+			},
+			j_crp_progressum = {
+				name = "Progressum",
+				text = {
+					"{C:mult}+sqrt([blind requirement]){} Mult",
+					"{C:white,X:mult}X[round]{} Mult",
+					"{X:dark_edition,C:white}^[ante]{} Mult",
+					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult, {C:white,X:mult}X#2#{C:inactive} Mult and {X:dark_edition,C:white}^#3#{C:inactive} Mult{}",
+				},
+			},
+			j_crp_infinitum = {
+				name = "Infinitum",
+				text = {
+					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{}{} Chips & Mult,",
+					"where {C:attention}X{} is their position in their {C:attention}card area{}"
+				},
+			},
 		},
 		Spectral =  {
 			c_crp_prayer = {
-				name = 'Prayer',
+				name = "Prayer",
 				text = {
-					"Create a {C:crp_mythic}Mythic{} Joker{},",
-					"{C:red}destroy{} all other Jokers,",
+					"Create a {C:crp_mythic}Mythic{} {C:attention}Joker{},",
+					"{C:red}destroy{} all other {C:attention}Jokers,",
 					"including {C:purple}Eternals"				
 				}
 			},
 			c_crp_gate_of_prayers = {
-				name = 'Gate of Prayers',
+				name = "Gate of Prayers",
 				text = {
-					"Create an {C:crp_exomythic}ExoMythic{} Joker{},",
-					"{C:red}destroy{} all other Jokers,",
-					"bypassing all effects"			
+					"Create an {C:crp_exomythic}ExoMythic{} {C:attention}Joker{},",
+					"{C:red}destroy{} all other {C:attention}Jokers{},",
+					"bypassing {C:red}all effects{}"
 				}
 			}
 		},
@@ -409,6 +448,7 @@ return {
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipeCryptasticRare2",
 			k_eaten = "Munch",
 			k_bulgoe_spawn = "+1 Bulgoe",
+			k_crp_2exomythic4me = "2ExoMythic4me",
 			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 		},
 		labels = {

@@ -528,6 +528,284 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "evil_jolly_joker",
+	config = {
+		extra = {
+			mult = -8
+		}
+	},
+	rarity = "cry_cursed",
+	atlas = "crp_placeholders",
+	pos = { x = 0, y = 0 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main and not next(context.poker_hands['Pair'])) or context.forcetrigger then
+			return {
+				message = lenient_bignum(card.ability.extra.mult) .. 'Mult',
+				mult_mod = lenient_bignum(card.ability.extra.mult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "jolly_of_joker",
+	config = {
+		extra = {
+			emult = 8
+		}
+	},
+	rarity = "cry_exotic",
+	atlas = "crp_placeholders",
+	pos = { x = 7, y = 0 },
+	cost = 50,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.emult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main and next(context.poker_hands['Pair'])) or context.forcetrigger then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(lenient_bignum(card.ability.extra.emult)),
+					},
+				}),
+				Emult_mod = lenient_bignum(card.ability.extra.emult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "duplicare_2",
+	config = {
+		extra = {
+			emult = 1,
+			emult_gain = 1,
+			retriggers = 2
+		}
+	},
+	rarity = "crp_mythic",
+	atlas = "crp_placeholders",
+	pos = { x = 8, y = 0 },
+	cost = 100,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.emult), lenient_bignum(card.ability.extra.emult_gain), lenient_bignum(card.ability.extra.retriggers) } }
+	end,
+	calculate = function(self, card, context)
+		if context.repetition then
+			if context.cardarea == G.play or context.cardarea == G.jokers then
+				card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
+				return {
+					message = localize("k_again_ex"),
+					repetitions = lenient_bignum(card.ability.extra.retriggers),
+					card = card,
+				}
+			end
+		end
+		if (context.post_trigger and context.other_joker ~= card) or (context.individual and context.cardarea == G.play) then
+			card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
+			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
+		end
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = {
+						number_format(lenient_bignum(card.ability.extra.emult)),
+					},
+				}),
+				Emult_mod = lenient_bignum(card.ability.extra.emult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "progressum",
+	config = {
+		extra = {
+			mult = 0,
+			xmult = 1,
+			emult = 1,
+		}
+	},
+	rarity = "cry_exotic",
+	atlas = "crp_placeholders",
+	pos = { x = 7, y = 0 },
+	cost = 50,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.emult) } }
+	end,
+	calculate = function(self, card, context)
+		if context.setting_blind then
+			card.ability.extra.mult = lenient_bignum(math.sqrt(lenient_bignum(G.GAME.blind.chips)))
+			card.ability.extra.xmult = lenient_bignum(G.GAME.round)
+			card.ability.extra.emult = lenient_bignum(G.GAME.round_resets.ante)
+			return {
+				message = 'Upgraded!',
+				colour = G.C.MULT,
+				card = card
+			}
+		end
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				mult_mod = lenient_bignum(card.ability.extra.mult),
+				Xmult_mod = lenient_bignum(card.ability.extra.xmult),
+				Emult_mod = lenient_bignum(card.ability.extra.emult),
+				message = 'Progressum!',
+				colour = G.C.MULT,
+				card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "infinitum",
+	config = {
+		extra = {
+			chipsmult = 2
+		}
+	},
+	rarity = "crp_2exomythic4me",
+	atlas = "crp_placeholders",
+	pos = { x = 11, y = 0 },
+	cost = 400,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.chipsmult), '{', '}' } }
+	end,
+	calculate = function(self, card, context)
+		-- jokers, doesnt work as of now
+	    --if context.other_card ~= self and context.cardarea == G.jokers then
+		--	local arrow_number_jokers = 0
+		--	for i = 1, #G.jokers.cards do
+		--		if context.other_card == G.jokers.cards[i] then
+		--			arrow_number_jokers = i
+		--		end
+		--	end
+		--	if context.post_trigger and context.other_card == G.jokers.cards[arrow_number_jokers] then
+		--		if arrow_number_jokers == 1 then
+		--			return {
+		--				message = localize({
+		--					type = "variable",
+		--					key = "a_powmultchips",
+		--					vars = { number_format(lenient_bignum(card.ability.extra.chipsmult)) },
+		--				}),
+		--				Echip_mod = card.ability.extra.chipsmult,
+		--				Emult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers == 2 then
+		--			return {
+		--				message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				EEchip_mod = card.ability.extra.chipsmult,
+		--				EEmult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers == 3 then
+		--			return {
+		--				message = '^^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				EEEchip_mod = card.ability.extra.chipsmult,
+		--				EEEmult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers >= 4 then
+		--			return {
+		--				message = '{' .. arrow_number_jokers .. '} ' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				hyperchip_mod = {arrow_number_jokers, card.ability.extra.chipsmult},
+		--				hypermult_mod = {arrow_number_jokers, card.ability.extra.chipsmult}
+		--			}
+		--		end
+		--	end
+		--end
+
+		-- playing cards
+		local arrow_number_cards = 0
+		if context.individual and context.cardarea == G.play then
+			local arrow_number_cards = 1
+			for k, v in ipairs(G.play.cards) do
+				if v == context.other_card then
+					arrow_number_cards = k
+					break
+				end
+			end
+			if lenient_bignum(arrow_number_cards) == 1 then
+				return {
+					message = localize({
+						type = "variable",
+						key = "a_powmultchips",
+						vars = { number_format(lenient_bignum(card.ability.extra.chipsmult)) },
+					}),
+					Echip_mod = lenient_bignum(card.ability.extra.chipsmult),
+					Emult_mod = lenient_bignum(card.ability.extra.chipsmult)
+				}
+			elseif lenient_bignum(arrow_number_cards) == 2 then
+				return {
+					message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					colour = G.C.EDITION,
+					EEchip_mod = lenient_bignum(card.ability.extra.chipsmult),
+					EEmult_mod = lenient_bignum(card.ability.extra.chipsmult)
+				}
+			elseif lenient_bignum(arrow_number_cards) == 3 then
+				return {
+					message = '^^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					colour = G.C.EDITION,
+					EEEchip_mod = lenient_bignum(card.ability.extra.chipsmult),
+					EEEmult_mod = lenient_bignum(card.ability.extra.chipsmult)
+				}
+			elseif lenient_bignum(arrow_number_cards) >= 4 then
+				return {
+					message = '{' .. lenient_bignum(arrow_number_cards) .. '} ' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					colour = G.C.EDITION,
+					hyperchip_mod = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)},
+					hypermult_mod = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)}
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
 	key = "evil_joker",
 	config = { extra = { mult = 4 } },
 	rarity = "cry_cursed",
@@ -1401,5 +1679,6 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 } --]]
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
