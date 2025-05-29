@@ -94,6 +94,9 @@ SMODS.Rarity({
 	badge_colour = HEX("ef0098"),
 	default_weight = 0.003,
 	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
