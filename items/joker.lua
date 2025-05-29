@@ -677,8 +677,8 @@ SMODS.Joker {
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xmult_mod = lenient_bignum(card.ability.extra.mult),
-				Emult_mod = lenient_bignum(card.ability.extra.Xmult),
+				mult_mod = lenient_bignum(card.ability.extra.mult),
+				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
 				message = 'Progressum!',
 				colour = G.C.MULT,
 				card = card
