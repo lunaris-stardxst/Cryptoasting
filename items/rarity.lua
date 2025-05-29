@@ -75,21 +75,13 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "uncommon_2",
 	badge_colour = HEX("4bc292"),
-	default_weight = 0.05,
 	pools = { ["Joker"] = true },
-	get_weight = function(self, weight, object_type)
-		return weight
-	end
 })
 
 SMODS.Rarity({
 	key = "rare_2",
 	badge_colour = G.C.RARITY[3],
-	default_weight = 0.05,
 	pools = { ["Joker"] = true },
-	get_weight = function(self, weight, object_type)
-		return weight
-	end
 })
 
 SMODS.Rarity({
@@ -102,9 +94,6 @@ SMODS.Rarity({
 	badge_colour = HEX("ef0098"),
 	default_weight = 0.003,
 	pools = { ["Joker"] = true },
-	get_weight = function(self, weight, object_type)
-		return weight
-	end
 })
 
 SMODS.Rarity({

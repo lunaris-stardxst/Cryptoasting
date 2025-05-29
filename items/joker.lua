@@ -217,7 +217,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_of_all_trades",
 	config = { extra = { chips = 150, mult = 15, dollars = 5 } },
-	rarity = "crp_rare_2",
+	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 3, y = 1 },
 	cost = 9,
@@ -394,7 +394,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_6",
 	config = { extra = { dollars = 4 } },
-	rarity = "crp_uncommon_2",
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 1 },
 	cost = 9,
@@ -842,7 +842,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_0",
 	config = { extra = { create = 4 } },
-	rarity = "crp_rare_2",
+	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 4 },
 	cost = 9,
@@ -901,7 +901,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "pi_joker",
 	config = { extra = {  } },
-	rarity = "crp_rare_2",
+	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 3 },
 	cost = 10,
@@ -1136,7 +1136,7 @@ SMODS.Joker {
 	config =
 		{ extra = { splash = 5 } },
 		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
-	rarity = "crp_uncommon_2",
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 4 },
 	cost = 6,
