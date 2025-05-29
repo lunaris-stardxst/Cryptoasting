@@ -711,6 +711,52 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.chipsmult), '{', '}' } }
 	end,
 	calculate = function(self, card, context)
+		-- jokers, doesnt work as of now
+
+	    --if context.other_card ~= self and context.cardarea == G.jokers then
+		--	local arrow_number_jokers = 0
+		--	for i = 1, #G.jokers.cards do
+		--		if context.other_card == G.jokers.cards[i] then
+		--			arrow_number_jokers = i
+		--		end
+		--	end
+		--	if context.post_trigger and context.other_card == G.jokers.cards[arrow_number_jokers] then
+		--		if arrow_number_jokers == 1 then
+		--			return {
+		--				message = localize({
+		--					type = "variable",
+		--					key = "a_powmultchips",
+		--					vars = { number_format(lenient_bignum(card.ability.extra.chipsmult)) },
+		--				}),
+		--				Echip_mod = card.ability.extra.chipsmult,
+		--				Emult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers == 2 then
+		--			return {
+		--				message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				EEchip_mod = card.ability.extra.chipsmult,
+		--				EEmult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers == 3 then
+		--			return {
+		--				message = '^^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				EEEchip_mod = card.ability.extra.chipsmult,
+		--				EEEmult_mod = card.ability.extra.chipsmult
+		--			}
+		--		elseif arrow_number_jokers >= 4 then
+		--			return {
+		--				message = '{' .. arrow_number_jokers .. '} ' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				colour = G.C.EDITION,
+		--				hyperchip_mod = {arrow_number_jokers, card.ability.extra.chipsmult},
+		--				hypermult_mod = {arrow_number_jokers, card.ability.extra.chipsmult}
+		--			}
+		--		end
+		--	end
+		--end
+
+		-- playing cards
 		local arrow_number_cards = 0
 		if context.individual and context.cardarea == G.play then
 			local arrow_number_cards = 1
