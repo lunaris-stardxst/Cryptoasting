@@ -319,7 +319,7 @@ return {
 				text = {
 					"{C:mult}+[round]{} Mult",
 					"{C:white,X:mult}X[ante]{} Mult",
-					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}}X#2#{C:inactive} Mult{}",
+					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult{}",
 				},
 			},
 			j_crp_infinitum = {
