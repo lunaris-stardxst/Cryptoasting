@@ -652,7 +652,6 @@ SMODS.Joker {
 	key = "progressum",
 	config = {
 		extra = {
-			mult = 0,
 			xmult = 1,
 			emult = 1,
 		}
@@ -664,22 +663,20 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.emult) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.emult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.setting_blind then
-			card.ability.extra.mult = lenient_bignum(math.sqrt(lenient_bignum(G.GAME.blind.chips)))
 			card.ability.extra.xmult = lenient_bignum(G.GAME.round)
 			card.ability.extra.emult = lenient_bignum(G.GAME.round_resets.ante)
 			return {
-				message = 'Upgraded!',
+				message = 'Updated!',
 				colour = G.C.MULT,
 				card = card
 			}
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				mult_mod = lenient_bignum(card.ability.extra.mult),
 				Xmult_mod = lenient_bignum(card.ability.extra.xmult),
 				Emult_mod = lenient_bignum(card.ability.extra.emult),
 				message = 'Progressum!',

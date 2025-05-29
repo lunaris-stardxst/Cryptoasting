@@ -317,10 +317,9 @@ return {
 			j_crp_progressum = {
 				name = "Progressum",
 				text = {
-					"{C:mult}+sqrt([blind requirement]){} Mult",
 					"{C:white,X:mult}X[round]{} Mult",
 					"{X:dark_edition,C:white}^[ante]{} Mult",
-					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult, {C:white,X:mult}X#2#{C:inactive} Mult and {X:dark_edition,C:white}^#3#{C:inactive} Mult{}",
+					"{C:inactive}Currently {C:white,X:mult}X#2#{C:inactive} Mult and {X:dark_edition,C:white}^#3#{C:inactive} Mult{}",
 				},
 			},
 			j_crp_infinitum = {
@@ -371,14 +370,14 @@ return {
 					"{C:attention}Joker{} at double the price",
 				},
 			},
-			tag_crp_uncommon2_tag = {
+			tag_crp_uncommon_2_tag = {
 				name = "Uncommon2 Tag",
 				text = {
 					"Shop has a free",
 					"{C:uncommon}Uncommon 2{} {C:attention}Joker{}",
 				},
 			},
-			tag_crp_rare2_tag = {
+			tag_crp_rare_2_tag = {
 				name = "Rare 2 Tag",
 				text = {
 					"Shop has a free",
