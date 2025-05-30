@@ -335,7 +335,7 @@ return {
 				name = "Prayer",
 				text = {
 					"Create a {C:crp_mythic}Mythic{} {C:attention}Joker{},",
-					"{C:red}destroy{} all other {C:attention}Jokers,",
+					"{C:red}destroy{} all other {C:attention}Jokers{},",
 					"including {C:purple}Eternals"				
 				}
 			},
