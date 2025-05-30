@@ -108,12 +108,6 @@ return {
 					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
-			j_crp_evil_joker = {
-				name = "EVIL Joker",
-				text = {
-					"{C:mult}-#1#{} Mult",
-				},
-			},
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
@@ -334,6 +328,12 @@ return {
 				text = {
 					"Scoring cards give {C:dark_edition,X:edition}#2#x#3##1#{}{} Chips & Mult,",
 					"where {C:attention}x{} is their position in their {C:attention}card area{}"
+				},
+			},
+			j_crp_evil_joker = {
+				name = "EVIL Joker",
+				text = {
+					"{C:white,X:mult}÷#1#{} Mult",
 				},
 			},
 		},

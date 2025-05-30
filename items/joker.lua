@@ -808,38 +808,6 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "evil_joker",
-	config = { extra = { mult = 4 } },
-	rarity = "cry_cursed",
-	atlas = "crp_jokers",
-	pos = { x = 8, y = 1 },
-	cost = 0,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				message = localize({
-					type = "variable",
-					key = "a_mult_minus",
-					vars = { number_format(lenient_bignum(card.ability.extra.mult)) },
-				}),
-				mult_mod = lenient_bignum(card.ability.extra.mult) * -1,
-				colour = G.C.MULT,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Unknown" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
 	key = "joker_0",
 	config = { extra = { create = 4 } },
 	rarity = 3,
@@ -1652,6 +1620,33 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "evil_joker",
+	config = { extra = { mult = 4 } },
+	rarity = "cry_cursed",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 1 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
 
 --[[ SMODS.Joker {
 	key = "everything_is_fine",
