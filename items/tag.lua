@@ -127,7 +127,7 @@ SMODS.Tag {
 	}
 }
 
-SMODS.Tag {
+--[[ SMODS.Tag {
 	key = "uncommon_2_tag",
 	atlas = "crp_tags",
 	pos = { x = 3, y = 0 },
@@ -275,4 +275,4 @@ SMODS.Tag {
 			return card
 		end
 	end,
-} ]]
+} ]]--
