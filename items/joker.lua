@@ -1303,6 +1303,40 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "gamblecore",
+	config = { immutable = { numerator = 1, denominator = 255, mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368 } },
+	rarity = 2,
+	atlas = "crp_placeholders",
+	pos = { x = 3, y = 0 },
+	cost = 5,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.immutable.numerator, card.ability.immutable.denominator, card.ability.immutable.mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			local numerator = card.ability.immutable.numerator or 1
+			local denominator = card.ability.immutable.denominator or 1
+			local mult = card.ability.immutable.mult or 1
+
+			local roll = pseudorandom("gamblecore"..G.GAME.round, card)
+			local chance = numerator / denominator
+
+			if roll <= chance then
+				return {
+					mult = mult
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "centipede",
 	config = { extra = { chips = 100 } },
 	rarity = 2,

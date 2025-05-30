@@ -222,6 +222,13 @@ return {
 					"You get {C:chips}one{}.",
 				},
 			},
+			j_crp_gamblecore = {
+				name = "Gamblecore",
+				text = {
+					"{C:red}Fixed {}{C:green}#1# in #2#{} chance",
+					"for {C:red}+nane0{} mult",
+				},
+			},
 			j_crp_centipede = {
 				name = "Centipede",
 				text = {
