@@ -1071,6 +1071,37 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "heptation_henry",
+	config = { extra = { hypermult = 1.1 } },
+	rarity = "crp_exomythic",
+	atlas = "crp_placeholders",
+	pos = { x = 9, y = 0 },
+	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
+	cost = 200,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { "{", "}", lenient_bignum(card.ability.extra.hypermult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				hypermult_mod = {
+					5, 
+					lenient_bignum(card.ability.extra.hypermult)
+				},
+				message = "{5}" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
+				colour = G.C.EDITION,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "bulgoes_hiking_journey",
 	config = { extra = { perma_x_chips = 0.27 } },
 	rarity = "cry_epic",

@@ -154,6 +154,12 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_heptation_henry = {
+				name = "heptation henry",
+				text = {
+					"{C:dark_edition,X:edition}#1#5#2##3#{} Mult",
+				},
+			},
 			j_crp_bulgoes_hiking_journey = {
 				name = "{C:edition}Bulgoe{}'s Hiking Journey",
 				text = {
