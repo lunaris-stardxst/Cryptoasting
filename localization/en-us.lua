@@ -310,7 +310,7 @@ return {
 			j_crp_evil_jolly_joker = {
 				name = "EVIL Jolly Joker",
 				text = {
-					"{C:mult}#1#{} Mult if played hand does not",
+					"{C:mult}#1#{} Mult if played hand does {C:red}not{}",
 					"contain a {C:attention}Pair{}",
 				},
 			},
@@ -325,8 +325,8 @@ return {
 			j_crp_infinitum = {
 				name = "Infinitum",
 				text = {
-					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{}{} Chips & Mult,",
-					"where {C:attention}X{} is their position in their {C:attention}card area{}"
+					"Scoring cards give {C:dark_edition,X:edition}#2#x#3##1#{}{} Chips & Mult,",
+					"where {C:attention}x{} is their position in their {C:attention}card area{}"
 				},
 			},
 		},

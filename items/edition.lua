@@ -24,7 +24,7 @@ SMODS.Edition {
 	end,
 	config = { eee_chips = 1.03, eee_mult = 1.03, trigger = nil },
 	loc_vars = function(self, info_queue)
-		return { vars = { self.config.eee_chips, self.config.eee_mult } }
+		return { vars = { lenient_bignum(self.config.eee_chips), lenient_bignum(self.config.eee_mult) } }
 	end,
 	calculate = function(self, card, context)
 		if
@@ -37,7 +37,7 @@ SMODS.Edition {
 				and context.cardarea == G.play
 			)
 		then
-			return { eee_chips = self.config.eee_chips, eee_mult = self.config.eee_mult }
+			return { eee_chips = lenient_bignum(self.config.eee_chips), eee_mult = lenient_bignum(self.config.eee_mult) }
 		end
 		if context.joker_main then
 			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jokers)
@@ -81,8 +81,8 @@ SMODS.Edition {
     end,
     config = { retrigger_chance = 4, retriggers = 24 },
     loc_vars = function(self, info_queue, center)
-        local chance = center and center.edition and center.edition.retrigger_chance or self.config.retrigger_chance
-        local retriggers = center and center.edition and center.edition.retriggers or self.config.retriggers
+        local chance = center and center.edition and center.edition.retrigger_chance or lenient_bignum(self.config.retrigger_chance)
+        local retriggers = center and center.edition and center.edition.retriggers or lenient_bignum(self.config.retriggers)
 
         return { vars = { G.GAME.probabilities.normal, chance, retriggers } }
     end,
@@ -94,10 +94,10 @@ SMODS.Edition {
                 or (context.retrigger_joker_check and not context.retrigger_joker)
             )
         then
-            local should_retrigger = pseudorandom("crp_fourdimensional") <= G.GAME.probabilities.normal / self.config.retrigger_chance
+            local should_retrigger = pseudorandom("crp_fourdimensional") <= G.GAME.probabilities.normal / lenient_bignum(self.config.retrigger_chance)
             return {
                 message = localize("k_again_ex"),
-                repetitions = should_retrigger and self.config.retriggers or 0,
+                repetitions = should_retrigger and lenient_bignum(self.config.retriggers) or 0,
                 card = card,
             }
         end
@@ -125,7 +125,7 @@ SMODS.Edition {
     end,
     config = { extra = { arrows = 1, mantissa = 7, increase = 1, amount = 7 }, immutable = { max = 10000 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { "{", self.config.extra.arrows, "}", self.config.extra.mantissa, self.config.extra.increase, self.config.extra.amount } }
+        return { vars = { "{", lenient_bignum(self.config.extra.arrows), "}", lenient_bignum(self.config.extra.mantissa), lenient_bignum(self.config.extra.increase), lenient_bignum(self.config.extra.amount) } }
     end,
     calculate = function(self, card, context)
 		if
@@ -140,10 +140,10 @@ SMODS.Edition {
 		then
 			return {
 				hypermult_mod = {
-					math.round(lenient_bignum(math.min(self.config.extra.arrows, self.config.immutable.max))),
+					math.round(lenient_bignum(math.min(lenient_bignum(self.config.extra.arrows), lenient_bignum(self.config.immutable.max)))),
 					lenient_bignum(self.config.extra.mantissa)
 				},
-				message = "{" .. lenient_bignum(math.min(self.config.extra.arrows, card.ability.immutable.max)) .. "}" .. lenient_bignum(self.config.extra.mantissa) .. ' Mult',
+				message = "{" .. lenient_bignum(math.min(lenient_bignum(self.config.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(self.config.extra.mantissa) .. ' Mult',
 				colour = G.C.EDITION,
 			}
 		end
