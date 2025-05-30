@@ -64,11 +64,6 @@ SMODS.Sound {
 }
 
 SMODS.Edition {
-    crp_credits = {
-        idea = { "Glitchkat10" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" },
-	},
 	disable_base_shader = true,
 	disable_shadow = true,
     key = "fourdimensional",
@@ -107,6 +102,11 @@ SMODS.Edition {
             }
         end
     end,
+    crp_credits = {
+        idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" },
+	},
 }
 
 --[[ SMODS.Shader {
@@ -115,11 +115,6 @@ SMODS.Edition {
 }
 
 SMODS.Edition {
-    crp_credits = {
-        idea = { "Glitchkat10" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" },
-	},
     key = "psychic",
     weight = 0.2,
     shader = "psychic",
@@ -159,4 +154,9 @@ SMODS.Edition {
 			card.config.trigger = nil
 		end
 	end,
+	crp_credits = {
+        idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" },
+	},
 } ]]--
