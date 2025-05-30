@@ -330,8 +330,14 @@ return {
 					"where {C:attention}x{} is their position in their {C:attention}card area{}"
 				},
 			},
+			j_crp_evil_bulgoe = {
+				name = "{C:red}EVIL{}{C:edition}Bulgoe{}",
+				text = {
+					"{C:white,X:chips}÷#1#{} Chips",
+				},
+			},
 			j_crp_evil_joker = {
-				name = "EVIL Joker",
+				name = "{C:red}EVIL{}Joker",
 				text = {
 					"{C:white,X:mult}÷#1#{} Mult",
 				},

@@ -1621,6 +1621,34 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "evil_bulgoe",
+	config = { extra = { chips = 2.7 } },
+	rarity = "cry_cursed",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 2 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.chips) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "÷" .. lenient_bignum(card.ability.extra.chips) .. " Chips",
+				Xchip_mod = 1 / lenient_bignum(card.ability.extra.chips),
+				colour = G.C.CHIPS,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Grahkon", "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "evil_joker",
 	config = { extra = { mult = 4 } },
 	rarity = "cry_cursed",
