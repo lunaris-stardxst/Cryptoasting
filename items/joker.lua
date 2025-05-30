@@ -295,7 +295,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "borb43" },
-		art = { "Poker The Poker", "Glitchkat10" },
+		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }

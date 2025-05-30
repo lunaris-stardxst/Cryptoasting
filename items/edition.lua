@@ -47,7 +47,7 @@ SMODS.Edition {
 		end
 	end,
     crp_credits = {
-        idea = { "Glitchkat10", "Lexi" },
+        idea = { "Glitchkat10" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" },
 	},
