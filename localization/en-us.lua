@@ -121,6 +121,13 @@ return {
 					"{C:white,X:mult}÷#1#{} Mult",
 				},
 			},
+			j_crp_infinitum = {
+				name = "Infinitum",
+				text = {
+					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{}{} Chips & Mult,",
+					"where {C:attention}X{} is their position in their {C:attention}card area{}"
+				},
+			},
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
@@ -333,13 +340,6 @@ return {
 					"{C:mult}+[round]{} Mult",
 					"{C:white,X:mult}X[ante]{} Mult",
 					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult{}",
-				},
-			},
-			j_crp_infinitum = {
-				name = "Infinitum",
-				text = {
-					"Scoring cards give {C:dark_edition,X:edition}#2#x#3##1#{}{} Chips & Mult,",
-					"where {C:attention}x{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_evil_bulgoe = {

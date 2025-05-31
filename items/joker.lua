@@ -793,18 +793,15 @@ SMODS.Joker {
 			end
 			if lenient_bignum(arrow_number_cards) == 1 then
 				return {
-					message = localize({
-						type = "variable",
-						key = "a_powmultchips",
-						vars = { number_format(lenient_bignum(card.ability.extra.chipsmult)) },
-					}),
+					message = '^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					colour = G.C.DARK_EDITION,
 					Echip_mod = lenient_bignum(card.ability.extra.chipsmult),
 					Emult_mod = lenient_bignum(card.ability.extra.chipsmult)
 				}
 			elseif lenient_bignum(arrow_number_cards) == 2 then
 				return {
 					message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
-					colour = G.C.EDITION,
+					colour = G.C.DARK_EDITION,
 					EEchip_mod = lenient_bignum(card.ability.extra.chipsmult),
 					EEmult_mod = lenient_bignum(card.ability.extra.chipsmult)
 				}
