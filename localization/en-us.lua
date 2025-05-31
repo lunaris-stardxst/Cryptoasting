@@ -108,6 +108,19 @@ return {
 					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
+			j_crp_evil_jolly_joker = {
+				name = "EVIL Jolly Joker",
+				text = {
+					"{C:mult}÷#1#{} Mult if played hand does {C:red}not{}",
+					"contain a {C:attention}Pair{}",
+				},
+			},
+			j_crp_evil_joker = {
+				name = "{C:red}EVIL{}Joker",
+				text = {
+					"{C:white,X:mult}÷#1#{} Mult",
+				},
+			},
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
@@ -314,13 +327,6 @@ return {
 					"contains a {C:attention}Pair{}",
 				},
 			},
-			j_crp_evil_jolly_joker = {
-				name = "EVIL Jolly Joker",
-				text = {
-					"{C:mult}#1#{} Mult if played hand does {C:red}not{}",
-					"contain a {C:attention}Pair{}",
-				},
-			},
 			j_crp_progressive = {
 				name = "Progressive Joker",
 				text = {
@@ -342,12 +348,6 @@ return {
 					"{C:white,X:chips}÷#1#{} Chips",
 				},
 			},
-			j_crp_evil_joker = {
-				name = "{C:red}EVIL{}Joker",
-				text = {
-					"{C:white,X:mult}÷#1#{} Mult",
-				},
-			},
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -363,6 +363,14 @@ return {
 				text = {
 					"Create an {C:crp_exomythic}ExoMythic{} {C:attention}Joker{},",
 					"{C:red}destroy{} all other {C:attention}Jokers{},",
+					"bypassing {C:red}all effects{}"
+				}
+			},
+			c_crp_stairway_to_heaven = {
+				name = "Stairway to Heaven",
+				text = {
+					"Create a {C:crp_2exomythic4me}2ExoMythic4me{} {C:attention}Joker{},",
+					"{C:red}destroy{} all other {C:attention}items{},",
 					"bypassing {C:red}all effects{}"
 				}
 			}

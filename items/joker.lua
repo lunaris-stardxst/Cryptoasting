@@ -530,11 +530,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_jolly_joker",
-	config = {
-		extra = {
-			mult = -8
-		}
-	},
+	config = { extra = { mult = 8 } },
 	rarity = "cry_cursed",
 	atlas = "crp_placeholders",
 	pos = { x = 0, y = 0 },
@@ -547,15 +543,43 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main and not next(context.poker_hands['Pair'])) or context.forcetrigger then
 			return {
-				message = lenient_bignum(card.ability.extra.mult) .. 'Mult',
-				mult_mod = lenient_bignum(card.ability.extra.mult),
+				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
 				colour = G.C.MULT,
 			}
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Unknown", "Glitchkat10" },
 		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "evil_joker",
+	config = { extra = { mult = 4 } },
+	rarity = "cry_cursed",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 1 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
 	}
 }
 
@@ -1674,34 +1698,6 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Grahkon", "Glitchkat10" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "evil_joker",
-	config = { extra = { mult = 4 } },
-	rarity = "cry_cursed",
-	atlas = "crp_jokers",
-	pos = { x = 8, y = 1 },
-	cost = 0,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
-				colour = G.C.MULT,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Glitchkat10" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
