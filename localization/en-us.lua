@@ -348,6 +348,13 @@ return {
 					"{C:white,X:chips}÷#1#{} Chips",
 				},
 			},
+			j_crp_dumpster_diver = {
+				name = "Dumpster Diver",
+				text = {
+					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Jokers{} at end of round,",
+					"{C:green}#2# in #3#{} chance to instead create {C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker{}",
+				},
+			},
 		},
 		Spectral =  {
 			c_crp_prayer = {

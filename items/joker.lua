@@ -845,10 +845,10 @@ SMODS.Joker {
       		G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
 		for i = 1, jokers_to_create do
 			if (context.joker_main) or context.forcetrigger then
-				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker") -- creates the card in question but puts it in the middle of the screen where it does nothing
-				card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
-				card:start_materialize() -- plays the particle animation when jokers spawn in
-				G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
+				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker")
+				card:add_to_deck()
+				card:start_materialize()
+				G.jokers:emplace(card)
 			end
 		end
 	end,
@@ -875,12 +875,15 @@ SMODS.Joker {
         if (context.joker_main) or context.force_trigger then
             return {
 				EEEmult_mod = card.ability.immutable.EEEmult,
-                message = '{' .. card.ability.extra.arrows .. '}' .. card.ability.immutable.EEEmult .. ' Mult',
+                message = '{' .. card.ability.immutable.arrows .. '}' .. card.ability.immutable.EEEmult .. ' Mult',
                 colour = G.C.EDITION,
                 card = card
             }
 		end
     end,
+	in_pool = function(self, args)
+		return true, {allow_duplicates = true}
+	end,
     crp_credits = {
         idea = { "Unknown", "Glitchkat10" },
         code = { "Glitchkat10" }
@@ -920,7 +923,7 @@ SMODS.Joker {
 	rarity = "crp_trash",
 	atlas = "crp_jokers",
 	pos = { x = 0, y = 5 },
-	cost = 2,
+	cost = 0,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -943,6 +946,9 @@ SMODS.Joker {
 			end
 		end
 		return nil
+	end,
+	in_pool = function(self, args)
+		return true, {allow_duplicates = true}
 	end,
 	crp_credits = {
 		idea = { "lord.ruby", "Glitchkat10" },
@@ -1699,6 +1705,62 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "dumpster_diver",
+	config = { extra = { create = 2, rare_create = 1, odds = 20 } },
+	rarity = 3,
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.create), cry_prob(card.ability.cry_prob, card.ability.extra.odds, card.ability.cry_rigged), card.ability.extra.odds, lenient_bignum(card.ability.extra.rare_create) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.end_of_round and not context.individual and not context.repetition) or context.forcetrigger then
+			local odds = card.ability.extra.odds or 20
+			local create = lenient_bignum(card.ability.extra.create)
+			local rare_create = lenient_bignum(card.ability.extra.rare_create)
+			local roll = pseudorandom("crp_dumpster_diver")
+			local chance = cry_prob(card.ability.cry_prob, odds, card.ability.cry_rigged) / odds
+			if roll < chance or context.forcetrigger then
+				G.GAME.joker_buffer = G.GAME.joker_buffer + rare_create
+				for i = 1, rare_create do
+					local rare = create_card("Joker", G.jokers, nil, 3, nil, nil, nil, "crp_dumpster_diver")
+					rare:set_edition({ negative = true })
+					rare:add_to_deck()
+					G.jokers:emplace(rare)
+					rare:start_materialize()
+				end
+				return {
+					message = "+" .. lenient_bignum(card.ability.extra.rare_create) .. " Rare Joker",
+					colour = G.C.RARITY[3],
+				}
+			else
+				G.GAME.joker_buffer = G.GAME.joker_buffer + create
+				for i = 1, create do
+					local trash = create_card("Joker", G.jokers, nil, "crp_trash", nil, nil, nil, "crp_dumpster_diver")
+					trash:set_edition({ negative = true })
+					trash:add_to_deck()
+					G.jokers:emplace(trash)
+					trash:start_materialize()
+				end
+				return {
+					message = "+" .. lenient_bignum(card.ability.extra.create) .. " Trash Jokers",
+					colour = HEX("606060"),
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+
+
 
 --[[ SMODS.Joker {
 	key = "everything_is_fine",
