@@ -57,7 +57,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "normalis",
+	key = "normalis", -- hd bulgoe :fire:
 	config = { extra = { Echips = 2.7, Emult = 2.7 } },
 	rarity = "cry_exotic",
 	atlas =  "crp_jokers",
@@ -67,7 +67,7 @@ SMODS.Joker {
 	soul_pos = { x = 2, y = 0, extra = { x = 3, y = 0 } },
 	cost = 50,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Echips), lenient_bignum(card.ability.extra.Emult) } }
+		return { vars = { lenient_bignum(card.ability.extra.Echips), } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -794,7 +794,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Glitchkat10" },
 		code = { "Rainstar" }
 	}
 }

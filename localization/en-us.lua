@@ -11,6 +11,7 @@ return {
 				name = "Normalis",
 				text = {
 					"{X:dark_edition,C:white}^#1#{} Chips and Mult",
+					"{C:inactive}hd bulgoe{}",
 				},
 			},
 			j_crp_sprinter = {
