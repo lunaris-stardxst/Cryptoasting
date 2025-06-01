@@ -22,6 +22,16 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
+			j_crp_scones_bones = {
+				name = "Scones, Bones, Skibidi Stones",
+				text = {
+					"{X:chips}X#3#{} Chips, {X:chips}-X#4#{} Chips when you click",
+					"Prevents death if you score at least {C:attention}#2#%{} of the required score",
+					"(works only once)",
+					"Creates {C:attention}#5# Stone{} Cards if played hand contains a Flush",
+					"{C:inactive} Death prevention active: #1#{}",
+				},
+			},
 			j_crp_jogger = {
 				name = "Jogger",
 				text = {
@@ -155,6 +165,15 @@ return {
 					"Joker to the right to trigger",
 				},
 			},
+			j_crp_weather_machine = {
+				name = "Weather Machine",
+				text = {
+					"Prevents death once",
+					"Gains {C:mult}+#3#{} Mult when it prevents death",
+					"{C:inactive} Death prevention active: #1#{}",
+					"{C:inactive}Currently: {C:mult}+#2#{C:inactive} Mult{}"
+				},
+			},
 			["j_crp_:3"] = {
 				name = ":3",
 				text = {
@@ -178,6 +197,19 @@ return {
 				name = "heptation henry",
 				text = {
 					"{C:dark_edition,X:edition}#1#5#2##3#{} Mult",
+				},
+			},
+			j_crp_room_for_all = {
+				name = "Room For All",
+				text = {
+					"{C:dark_edition,X:edition}Infinite{} Hand size, Joker slots, and Consumable slots"
+				},
+			},
+			j_crp_exponentia_2 = {
+				name = "Exponentia 2",
+				text = {
+					"This Joker gains {C:dark_edition,X:edition}^#2#{} Mult whenever {C:dark_edition,X:edition}^Mult{} is triggered",
+					"{C:inactive}Currently {C:dark_edition,X:edition}^#1#{C:inactive} Mult{}"
 				},
 			},
 			j_crp_bulgoes_hiking_journey = {
@@ -275,6 +307,13 @@ return {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
+			j_crp_tetrationa = {
+				name = "Tetrationa",
+				text = {
+					"This Joker gains {C:dark_edition,X:edition}^^#2#{} Mult whenever {C:dark_edition,X:edition}^Mult{} is triggered",
+					"{C:inactive}Currently {C:dark_edition,X:edition}^^#1#{C:inactive} Mult{}"
+				},
+			},
 			j_crp_bulgoeship_card = {
 				name = "{C:edition}Bulgoe{}ship Card",
 				text = {
@@ -321,10 +360,10 @@ return {
 			j_crp_duplicare_2 = {
 				name = "Duplicare 2",
 				text = {
-					"This {C:attention}Joker{} gains {X:dark_edition,C:white}^#2#{} Mult",
+					"This {C:attention}Joker{} gains {X:mult}X#2#{} Mult",
 					"when a {C:attention}Joker{} or {C:attention}playing card{} is triggered",
 					"Retrigger all {C:attention}Jokers{} and {C:attention}playing cards #3#{} additional times",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult){}",
+					"{C:inactive}(Currently {X:mult}X#1#{C:inactive} Mult){}",
 				},
 			},
 			j_crp_jolly_of_joker = {
