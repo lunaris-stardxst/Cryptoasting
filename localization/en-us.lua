@@ -29,6 +29,7 @@ return {
 					"Prevents death if you score at least {C:attention}#2#%{} of the required score",
 					"(works only once)",
 					"Creates {C:attention}#5# Stone{} Cards if played hand contains a Flush",
+					"{C:inactive} Death prevention active: #1#{}",
 				},
 			},
 			j_crp_jogger = {
@@ -168,7 +169,9 @@ return {
 				name = "Weather Machine",
 				text = {
 					"Prevents death once",
-					"Gains {C:mult}+1e76{} Mult when it prevents death",
+					"Gains {C:mult}+#3#{} Mult when it prevents death",
+					"{C:inactive} Death prevention active: #1#{}",
+					"{C:inactive}Currently: {C:mult}+#2#{C:inactive} Mult{}"
 				},
 			},
 			["j_crp_:3"] = {
@@ -357,10 +360,10 @@ return {
 			j_crp_duplicare_2 = {
 				name = "Duplicare 2",
 				text = {
-					"This {C:attention}Joker{} gains {X:dark_edition,C:white}^#2#{} Mult",
+					"This {C:attention}Joker{} gains {X:mult}X#2#{} Mult",
 					"when a {C:attention}Joker{} or {C:attention}playing card{} is triggered",
 					"Retrigger all {C:attention}Jokers{} and {C:attention}playing cards #3#{} additional times",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult){}",
+					"{C:inactive}(Currently {X:mult}X#1#{C:inactive} Mult){}",
 				},
 			},
 			j_crp_jolly_of_joker = {

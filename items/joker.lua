@@ -126,7 +126,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "scones_bones",
-	config = { extra = { death_prevention_enabled = true, score_percentage = 50, xchips = 3, xchips_mod = 0.01, stone_cards = 2 } },
+	config = { extra = { death_prevention_enabled = true, score_percentage = 50, xchips = 3, xchips_mod = 0.01, stones = 2 } },
 	rarity = 3,
 	atlas = "crp_placeholders",
 	pos = { x = 4, y = 0 },
@@ -165,11 +165,30 @@ SMODS.Joker {
 				colour = G.C.CHIPS,
 			}
 		end
+		-- this is completely stolen from marble joker's code
 		if context.before and next(context.poker_hands['Flush']) or context.forcetrigger then
-			for i = 0, 2 do
-				local stone = create_playing_card(nil, G.hand, nil, nil, G.C.MULT)
-				stone:add_to_deck()
-				G.hand:emplace(stone)
+			local stone_cards = lenient_bignum(card.ability.extra.stones)
+			for i = 1, stone_cards do
+                G.E_MANAGER:add_event(Event({
+                    func = function() 
+                        local front = pseudorandom_element(G.P_CARDS, pseudoseed('marb_fr'))
+                        G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                        local card = Card(G.play.T.x + G.play.T.w/2, G.play.T.y, G.CARD_W, G.CARD_H, front, G.P_CENTERS.m_stone, {playing_card = G.playing_card})
+                        card:start_materialize({G.C.SECONDARY_SET.Enhanced})
+                        G.hand:emplace(card)
+                        table.insert(G.playing_cards, card)
+                        return true
+                    end})
+				)
+                card_eval_status_text(context.blueprint_card or self, 'extra', nil, nil, nil, {message = localize('k_plus_stone'), colour = G.C.SECONDARY_SET.Enhanced})
+                G.E_MANAGER:add_event(Event({
+                    func = function() 
+                        G.deck.config.card_limit = G.deck.config.card_limit + 1
+                        return true
+                    end})
+				)
+                draw_card(G.play,G.deck, 90,'up', nil)
+                playing_card_joker_effects({true})
 			end
 		end
 		if context.cry_press then
@@ -218,7 +237,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
@@ -723,19 +742,19 @@ SMODS.Joker {
 	key = "duplicare_2",
 	config = {
 		extra = {
-			emult = 1,
-			emult_gain = 1,
-			retriggers = 2
+			xmult = 1,
+			xmult_gain = 0.2,
+			retriggers = 1
 		}
 	},
-	rarity = "crp_mythic",
+	rarity = "crp_exotic_2",
 	atlas = "crp_placeholders",
-	pos = { x = 8, y = 0 },
-	cost = 100,
+	pos = { x = 7, y = 0 },
+	cost = 50,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.emult), lenient_bignum(card.ability.extra.emult_gain), lenient_bignum(card.ability.extra.retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
 	end,
 	calculate = function(self, card, context) 
 		if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
@@ -753,23 +772,23 @@ SMODS.Joker {
 			}
 		end
 		if context.post_trigger and context.other_joker ~= card then
-			card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
+			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if context.individual and context.cardarea == G.play then
-			card.ability.extra.emult = lenient_bignum(card.ability.extra.emult) + lenient_bignum(card.ability.extra.emult_gain)
+			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
-					key = "a_powmult",
+					key = "a_xmult",
 					vars = {
-						number_format(lenient_bignum(card.ability.extra.emult)),
+						number_format(lenient_bignum(card.ability.extra.xmult)),
 					},
 				}),
-				Emult_mod = lenient_bignum(card.ability.extra.emult),
+				Xmult_mod = lenient_bignum(card.ability.extra.xmult),
 				colour = G.C.MULT,
 			}
 		end
@@ -1014,15 +1033,15 @@ SMODS.Joker {
 }
 SMODS.Joker {
 	key = "weather_machine",
-	config = { extra = { death_prevention_enabled = true, mult = 1e76 } },
-	rarity = 'cry_exotic',
+	config = { extra = { death_prevention_enabled = true, mult = 0, mult_mod = 1e76 } },
+	rarity = 'cry_mythic',
 	atlas = "crp_placeholders",
-	pos = { x = 7, y = 0 },
-	cost = 50,
+	pos = { x = 8, y = 0 },
+	cost = 100,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.mult } }
+		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.mult, card.ability.extra.mult_mod } }
 	end,
 	calculate = function(self, card, context)
 		if context.game_over and to_big(G.GAME.chips / G.GAME.blind.chips) < to_big(1) and card.ability.extra.death_prevention_enabled == true then
@@ -1035,8 +1054,9 @@ SMODS.Joker {
 				end,
 			}))
 		card.ability.extra.death_prevention_enabled = false
+		card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
 		return {
-			message = localize("k_saved_ex"),
+			message = 'Saved & Upgraded!',
 			saved = true,
 			colour = G.C.RED,
 		}
@@ -1054,7 +1074,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
@@ -1287,20 +1307,20 @@ SMODS.Joker {
 	remove_from_deck = function(self, card, from_debuff)
 		G.hand:change_size(-card.ability.extra.slots)
 		G.hand:change_size(8)
-		G.jokers.config.card_limit = 8
+		G.jokers.config.card_limit = 5
 		G.consumeables.config.card_limit = 2
 	end,
 	crp_credits = {
-		idea = { "Unknown", "Glitchkat10" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
 SMODS.Joker {
 	key = "exponentia_2",
 	config = { extra = { Emult = 1, Emult_mod = 0.3 } },
-	rarity = "crp_mythic",
+	rarity = "crp_exotic_2",
 	atlas = "crp_placeholders",
-	pos = { x = 8, y = 0 },
+	pos = { x = 7, y = 0 },
 	cost = 100,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1356,7 +1376,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
@@ -1763,7 +1783,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
@@ -1809,7 +1829,7 @@ SMODS.Joker {
 			max_retriggers = 400
 		},
 	},
-	rarity = "crp_mythic",
+	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 5 },
 	soul_pos = { x = 6, y = 5, extra = { x = 5, y = 5 } },
