@@ -163,16 +163,17 @@ return {
 				name = "Semicolon",
 				text = {
 					"Asks {C:attention}really{} nicely for the",
-					"Joker to the right to trigger",
+					"{C:attention}Joker{} to the right to trigger",
 				},
 			},
 			j_crp_weather_machine = {
 				name = "Weather Machine",
 				text = {
 					"Prevents death once",
-					"Gains {C:mult}+#3#{} Mult when it prevents death",
-					"{C:inactive} Death prevention active: #1#{}",
-					"{C:inactive}Currently: {C:mult}+#2#{C:inactive} Mult{}"
+					"This Joker gains {C:mult}+#3#{} Mult",
+					"when death prevented",
+					"{C:inactive}(Death prevention active: #1#)",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
 				},
 			},
 			["j_crp_:3"] = {
@@ -203,14 +204,16 @@ return {
 			j_crp_room_for_all = {
 				name = "Room For All",
 				text = {
-					"{C:dark_edition,X:edition}Infinite{} Hand size, Joker slots, and Consumable slots"
+					"{C:attention}+#1#{} hand size, {C:attention}Joker{} slots,",
+					"and {C:attention}consumable{} slots"
 				},
 			},
 			j_crp_exponentia_2 = {
 				name = "Exponentia 2",
 				text = {
-					"This Joker gains {C:dark_edition,X:edition}^#2#{} Mult whenever {C:dark_edition,X:edition}^Mult{} is triggered",
-					"{C:inactive}Currently {C:dark_edition,X:edition}^#1#{C:inactive} Mult{}"
+					"This {C:attention}Joker{} gains {C:white,X:dark_edition}^#2#{} Mult",
+					"when {C:white,X:dark_edition}^Mult{} is triggered",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
 				},
 			},
 			j_crp_bulgoes_hiking_journey = {
@@ -262,7 +265,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{}Prize",
+				name = "{C:edition}Bulgoe{} Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create a {C:edition,X:grey}Bulgoe{}",
@@ -311,8 +314,9 @@ return {
 			j_crp_tetrationa = {
 				name = "Tetrationa",
 				text = {
-					"This Joker gains {C:dark_edition,X:edition}^^#2#{} Mult whenever {C:dark_edition,X:edition}^Mult{} is triggered",
-					"{C:inactive}Currently {C:dark_edition,X:edition}^^#1#{C:inactive} Mult{}"
+					"This {C:attention}Joker{} gains {C:edition,X:dark_edition}^^#2#{} Mult",
+					"when {C:white,X:dark_edition}^Mult{} is triggered",
+					"{C:inactive}(Currently {C:edition,X:dark_edition}^^#1#{C:inactive} Mult){}"
 				},
 			},
 			j_crp_bulgoeship_card = {
@@ -338,7 +342,8 @@ return {
 				name = "Underflow",
 				text = {
 					"{C:white,X:dark_edition}^#1#{} Mult",
-					"Decreases by {C:white,X:dark_edition}^#2#{} Mult at end of round",
+					"Decreases by {C:white,X:dark_edition}^#2#{} Mult",
+					"at end of round",
 				},
 			},
 			j_crp_statically_charged = {
@@ -354,7 +359,8 @@ return {
 				name = "playerrWon",
 				text = {
 					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
-					"{C:attention}N{} increases by {C:attention}#3#{} at end of round",
+					"{C:attention}N{} increases by {C:attention}#3#{} at",
+					"end of round",
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
 			},
@@ -391,8 +397,10 @@ return {
 			j_crp_dumpster_diver = {
 				name = "Dumpster Diver",
 				text = {
-					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Jokers{} at end of round,",
-					"{C:green}#2# in #3#{} chance to instead create {C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker{}",
+					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Jokers{}",
+					"at end of round,",
+					"{C:green}#2# in #3#{} chance to instead create",
+					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker{}",
 				},
 			}
 		},

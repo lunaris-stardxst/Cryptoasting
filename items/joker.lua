@@ -1300,8 +1300,8 @@ SMODS.Joker {
 	atlas = "crp_placeholders",
 	pos = { x = 8, y = 0 },
 	cost = 100,
-	blueprint_compat = true,
-	demicolon_compat = true,
+	blueprint_compat = false,
+	demicolon_compat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.slots) } }
 	end,
@@ -1334,11 +1334,11 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.Emult_mod) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return {
 				message = '^' .. lenient_bignum(card.ability.extra.Emult) .. ' Mult',
 				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				colour = G.C.EDITION,
+				colour = G.C.DARK_EDITION,
 				card = card
 			}
 		end
@@ -1744,7 +1744,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return {
 				message = '^^' .. lenient_bignum(card.ability.extra.EEmult) .. ' Mult',
 				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
