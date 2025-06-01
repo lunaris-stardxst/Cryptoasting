@@ -1034,7 +1034,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "weather_machine",
 	config = { extra = { death_prevention_enabled = true, mult = 0, mult_mod = 1e76 } },
-	rarity = "cry_mythic",
+	rarity = "crp_mythic",
 	atlas = "crp_placeholders",
 	pos = { x = 8, y = 0 },
 	cost = 100,
