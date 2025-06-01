@@ -26,11 +26,10 @@ return {
 			j_crp_scones_bones = {
 				name = "Scones, Bones, Skibidi Stones",
 				text = {
-					"{X:chips}X#3#{} Chips, {X:chips}-X#4#{} Chips when you click",
-					"Prevents death if you score at least {C:attention}#2#%{} of the required score",
-					"(works only once)",
-					"Creates {C:attention}#5# Stone{} Cards if played hand contains a Flush",
-					"{C:inactive} Death prevention active: #1#{}",
+					"{C:white,X:chips}X#3#{} Chips, {C:white,X:chips}-X#4#{} Chips when you click",
+					"Prevents death once if you score at least {C:attention}#2#%{} of the required score",
+					"Creates {C:attention}#5# Stone{} cards if played hand contains a {C:attention}Flush",
+					"{C:inactive}(Death prevention active: #1#)",
 				},
 			},
 			j_crp_jogger = {
@@ -170,7 +169,7 @@ return {
 				name = "Weather Machine",
 				text = {
 					"Prevents death once",
-					"This Joker gains {C:mult}+#3#{} Mult",
+					"This {C:attention}Joker{} gains {C:mult}+#3#{} Mult",
 					"when death prevented",
 					"{C:inactive}(Death prevention active: #1#)",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"

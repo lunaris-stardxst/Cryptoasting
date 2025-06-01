@@ -124,7 +124,7 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+--[[ SMODS.Joker {
 	key = "scones_bones",
 	config = { extra = { death_prevention_enabled = true, score_percentage = 50, xchips = 3, xchips_mod = 0.01, stones = 2 } },
 	rarity = 3,
@@ -134,7 +134,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.score_percentage, card.ability.extra.xchips, card.ability.extra.xchips_mod, card.ability.extra.stone_cards } }
+		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.score_percentage, card.ability.extra.xchips, card.ability.extra.xchips_mod, card.ability.extra.stones } }
 	end,
 	calculate = function(self, card, context)
 		-- ill be honest i just stole like most of the things here from cryptid lmao
@@ -157,7 +157,7 @@ SMODS.Joker {
 		if context.selling_self then
 			card.ability.extra.death_prevention_enabled = false
 		end
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return {
 				card = card,
 				Xchip_mod = lenient_bignum(card.ability.extra.xchips),
@@ -240,7 +240,7 @@ SMODS.Joker {
 		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
-}
+} ]]--
 
 SMODS.Joker {
 	key = "jogger",
