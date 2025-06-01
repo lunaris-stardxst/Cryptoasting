@@ -3,7 +3,7 @@
 
 SMODS.Atlas {
 	key = "tags",
-	path = "atlas_tags.png",
+	path = "atlas_tag.png",
 	px = 34,
 	py = 34
 }

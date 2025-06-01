@@ -2,6 +2,7 @@
 
 local files = {
 	"items/consumable",
+	"items/deck",
 	"items/edition",
 	"items/joker",
 	"items/rarity",

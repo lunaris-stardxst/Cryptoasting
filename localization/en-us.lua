@@ -262,7 +262,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{} Prize",
+				name = "{C:edition}Bulgoe{}Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create a {C:edition,X:grey}Bulgoe{}",
@@ -394,7 +394,7 @@ return {
 					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Jokers{} at end of round,",
 					"{C:green}#2# in #3#{} chance to instead create {C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker{}",
 				},
-			},
+			}
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -419,6 +419,39 @@ return {
 					"Create a {C:crp_2exomythic4me}2ExoMythic4me{} {C:attention}Joker{},",
 					"{C:red}destroy{} all other {C:attention}items{},",
 					"bypassing {C:red}all effects{}"
+				}
+			}
+		},
+		Back = {
+			b_crp_cyan = {
+				name = "Cyan Deck",
+				text = {
+					"{C:attention}+#1#{} hand size",
+					"{C:red}#2#{} discard"
+				}
+			},
+			b_crp_gray = {
+				name = "Gray Deck",
+				text = {
+					"Start with {C:money}$0",
+					"Start with {C:attention}Money Tree"
+				}
+			},
+			b_crp_white = {
+				name = "White Deck",
+				text = {
+					"{C:attention}-#1#{} Joker slot",
+					"{C:blue}+#1#{} hand"
+				}
+			},
+			b_crp_kiddie = {
+				name = "Kiddie Deck",
+				text = {
+					"{C:blue}#1#{} hands, {C:red}#2#{} discard",
+					"{C:red}#3#{} {C:attention}Joker{} slots, {C:red}#4#{} {C:attention}consumable{} slot",
+					"{C:red}#5#{} hand size",
+					"{C:attention}#6#% Blind{} size"
+
 				}
 			}
 		},

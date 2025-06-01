@@ -3,14 +3,14 @@
 
 SMODS.Atlas {
 	key = "jokers",
-	path = "atlas_jokers.png",
+	path = "atlas_joker.png",
 	px = 71,
 	py = 95
 }
 
 SMODS.Atlas {
 	key = "placeholders",
-	path = "atlas_placeholders.png",
+	path = "atlas_placeholder.png",
 	px = 71,
 	py = 95
 }
