@@ -137,7 +137,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.score_percentage, card.ability.extra.xchips, card.ability.extra.xchips_mod, card.ability.extra.stone_cards } }
 	end,
 	calculate = function(self, card, context)
-		-- ill be honest i just stole like most of the things here from cryptid lma o
+		-- ill be honest i just stole like most of the things here from cryptid lmao
 		if context.game_over and to_big(G.GAME.chips / G.GAME.blind.chips) <= to_big(card.ability.extra.score_percentage / 100) and card.ability.extra.death_prevention_enabled == true then
 			G.E_MANAGER:add_event(Event({
 				func = function()
@@ -1034,7 +1034,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "weather_machine",
 	config = { extra = { death_prevention_enabled = true, mult = 0, mult_mod = 1e76 } },
-	rarity = 'cry_mythic',
+	rarity = "cry_mythic",
 	atlas = "crp_placeholders",
 	pos = { x = 8, y = 0 },
 	cost = 100,
@@ -1604,7 +1604,10 @@ SMODS.Joker {
 
 			if roll <= chance then
 				return {
-					mult = mult
+					message = "+nane0 Mult",
+					mult_mod = lenient_bignum(card.ability.extra.mult),
+					colour = G.C.MULT,
+					card = card
 				}
 			end
 		end
@@ -1829,7 +1832,7 @@ SMODS.Joker {
 			max_retriggers = 400
 		},
 	},
-	rarity = "crp_exotic_2",
+	rarity = "crp_mythic",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 5 },
 	soul_pos = { x = 6, y = 5, extra = { x = 5, y = 5 } },
