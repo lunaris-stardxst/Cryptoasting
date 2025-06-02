@@ -10,35 +10,35 @@ return {
 			j_crp_normalis = {
 				name = "Normalis",
 				text = {
-					"{X:dark_edition,C:white}^#1#{} Chips and Mult",
+					"{X:dark_edition,C:white}^#1#{} Chip#<s>1# and Mult",
 					"{C:inactive}hd bulgoe{}",
 				},
 			},
 			j_crp_sprinter = {
 				name = "Sprinter",
 				text = {
-					"Gains {C:chips}+#2#{} Chips",
+					"Gains {C:chips}+#2#{} Chip#<s>2#",
 					"if played hand",
 					"contains a {C:attention}Straight Flush",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips#<s>1#)",
 				},
 			},
 			j_crp_scones_bones = {
 				name = "Scones, Bones, Skibidi Stones",
 				text = {
-					"{C:white,X:chips}X#3#{} Chips, {C:white,X:chips}-X#4#{} Chips when you click",
+					"{C:white,X:chips}X#3#{} Chip#<s>3#, {C:white,X:chips}-X#4#{} Chip#<s>4# when you click",
 					"Prevents death once if you score at least {C:attention}#2#%{} of the required score",
-					"Creates {C:attention}#5# Stone{} cards if played hand contains a {C:attention}Flush",
+					"Creates {C:attention}#5# Stone{} card#<s>5# if played hand contains a {C:attention}Flush",
 					"{C:inactive}(Death prevention active: #1#)",
 				},
 			},
 			j_crp_jogger = {
 				name = "Jogger",
 				text = {
-					"Gains {C:chips}+#2#{} Chips",
+					"Gains {C:chips}+#2#{} Chip#<s>2#",
 					"if played hand",
 					"contains a {C:attention}High Card",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
 			j_crp_tetration_timmy = {
@@ -58,21 +58,21 @@ return {
 			j_crp_joker_of_all_trades = {
 				name = "Joker of all Trades",
 				text = {
-					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
 					"Earn {C:money}$#3#{} at end of round",
 				},
 			},
 			j_crp_millipede = {
 				name = "Millipede",
 				text = {
-					"{C:chips}+#1#{} Chips if played",
-					"hand has only {C:attention}1{} card",
+					"{C:chips}+#1#{} Chip#<s>1# if played",
+					"hand has only {C:attention}#2#{} card#<s>2#",
 				},
 			},
 			j_crp_joker_2 = {
 				name = "Joker 2",
 				text = {
-					"{C:chips}+#1#{} Chips",
+					"{C:chips}+#1#{} Chip#<s>1#",
 				},
 			},
 			j_crp_joker_3 = {
@@ -102,14 +102,14 @@ return {
 			j_crp_joker_7 = {
 				name = "Joker 7",
 				text = {
-					"{C:attention}+#1#{} {C:tarot}Tarot{} cards",
+					"{C:attention}+#1#{} {C:tarot}Tarot{} card#<s>1#",
 					"{C:inactive}(Does not require room)",
 				},
 			},
 			j_crp_joker_8 = {
 				name = "Joker 8",
 				text = {
-					"{X:chips,C:white}X#1#{} Chips",
+					"{X:chips,C:white}X#1#{} Chip#<s>1#",
 				},
 			},
 			["j_crp_joker?"] = {
@@ -119,9 +119,9 @@ return {
 				},
 			},
 			j_crp_evil_jolly_joker = {
-				name = "EVIL Jolly Joker",
+				name = "{C:red}EVIL{} Jolly Joker",
 				text = {
-					"{C:mult}÷#1#{} Mult if played hand does {C:red}not{}",
+					"{C:white,X:mult}÷#1#{} Mult if played hand does {C:red}not{}",
 					"contain a {C:attention}Pair{}",
 				},
 			},
@@ -134,14 +134,14 @@ return {
 			j_crp_infinitum = {
 				name = "Infinitum",
 				text = {
-					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{}{} Chips & Mult,",
+					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
 					"where {C:attention}X{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
-					"{C:attention}+#1#{} Jokers",
+					"{C:attention}+#1#{} Joker#<s>1#",
 					"{C:inactive}(Does not require room)",
 				},
 			},
@@ -190,7 +190,7 @@ return {
 			j_crp_apple = {
 				name = "Apple",
 				text = {
-					"{C:mult}+#1#{} mult",
+					"{C:mult}+#1#{} Mult",
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
@@ -203,8 +203,8 @@ return {
 			j_crp_room_for_all = {
 				name = "Room For All",
 				text = {
-					"{C:attention}+#1#{} hand size, {C:attention}Joker{} slots,",
-					"and {C:attention}consumable{} slots"
+					"{C:attention}+#1#{} hand siz#<s>1#, {C:attention}Joker{} slot#<s>1#,",
+					"and {C:attention}consumable{} slot#<s>1#"
 				},
 			},
 			j_crp_exponentia_2 = {
@@ -219,14 +219,14 @@ return {
 				name = "{C:edition}Bulgoe{}'s Hiking Journey",
 				text = {
 					"Each {C:attention}card{} played",
-					"permanently gains {X:chips,C:white}X#1#{} Chips",
+					"permanently gains {X:chips,C:white}X#1#{} Chip#<s>1#",
 					"when scored"
 				},
 			},
 			j_crp_water_bottle = {
 				name = "Water Bottle",
 				text = {
-					"Creates {C:attention}#1# Splashes{}",
+					"Creates {C:attention}#1# Splash#<es>1#{}",
 					"when sold",
 					"{C:inactive}(Does not require room){}",
 				},
@@ -267,7 +267,7 @@ return {
 				name = "{C:edition}Bulgoe{} Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
-					"skipped create a {C:edition,X:grey}Bulgoe{}",
+					"skipped create {C:attention}#1#{} {C:edition,X:grey}Bulgoe#<s>1#{}",
 					"{C:inactive}(Does not require room)",
 				},
 			},
@@ -281,14 +281,14 @@ return {
 				name = "Gamblecore",
 				text = {
 					"{C:red}Fixed {}{C:green}#1# in #2#{} chance",
-					"for {C:red}+nane0{} mult",
+					"for {C:red}+nane0{} Mult",
 				},
 			},
 			j_crp_centipede = {
 				name = "Centipede",
 				text = {
 					"{C:chips}+#1#{} Chips if played",
-					"hand has only {C:attention}1{} card",
+					"hand has only {C:attention}#2#{} card#<s>2#",
 				},
 			},
 			j_crp_dorito = {
@@ -301,7 +301,7 @@ return {
 				name = "Decipede",
 				text = {
 					"{C:chips}+#1#{} Chips if played",
-					"hand has only {C:attention}1{} card",
+					"hand has only {C:attention}#2#{} card#<s>2#",
 				},
 			},
 			j_crp_pentation_peter = {
@@ -333,8 +333,8 @@ return {
 					"Retrigger all cards played",
 					"{C:attention}#2#{} time#<s>2#,",
 					"each played card gives",
-					"{X:dark_edition,C:white} ^#1# {} Mult when scored",
-					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} retriggers)",
+					"{X:mult,C:white}X#1#{} Mult when scored",
+					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} retrigger#<s>3#)",
 				},
 			},
 			j_crp_underflow = {
@@ -366,10 +366,12 @@ return {
 			j_crp_duplicare_2 = {
 				name = "Duplicare 2",
 				text = {
-					"This {C:attention}Joker{} gains {X:mult}X#2#{} Mult",
-					"when a {C:attention}Joker{} or {C:attention}playing card{} is triggered",
-					"Retrigger all {C:attention}Jokers{} and {C:attention}playing cards #3#{} additional times",
-					"{C:inactive}(Currently {X:mult}X#1#{C:inactive} Mult){}",
+					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
+					"when a {C:attention}Joker{} or",
+					"{C:attention}playing card{} is triggered,",
+					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
+					"{C:attention}cards #3#{} additional time#<s>3#",
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
 				},
 			},
 			j_crp_jolly_of_joker = {
@@ -390,16 +392,16 @@ return {
 			j_crp_evil_bulgoe = {
 				name = "{C:red}EVIL{}{C:edition}Bulgoe{}",
 				text = {
-					"{C:white,X:chips}÷#1#{} Chips",
+					"{C:white,X:chips}÷#1#{} Chip#<s>1#",
 				},
 			},
 			j_crp_dumpster_diver = {
 				name = "Dumpster Diver",
 				text = {
-					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Jokers{}",
+					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Joker#<s>1#{}",
 					"at end of round,",
 					"{C:green}#2# in #3#{} chance to instead create",
-					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker{}",
+					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker#<s>4#{}",
 				},
 			}
 		},
@@ -447,7 +449,7 @@ return {
 			b_crp_white = {
 				name = "White Deck",
 				text = {
-					"{C:attention}-#1#{} Joker slot",
+					"{C:attention}#2#{} Joker slot",
 					"{C:blue}+#1#{} hand"
 				}
 			},
@@ -458,7 +460,14 @@ return {
 					"{C:red}#3#{} {C:attention}Joker{} slots, {C:red}#4#{} {C:attention}consumable{} slot",
 					"{C:red}#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
-
+				}
+			},
+			b_crp_adult = {
+				name = "Adult Deck",
+				text = {
+					"{C:attention}+#1#{} {C:attention}Joker{} slot, {C:attention}+#2#{} {C:attention}consumable{} slot",
+					"{C:attention}+#3#{} hand size",
+					"{C:attention}#4#% Blind{} size"
 				}
 			}
 		},

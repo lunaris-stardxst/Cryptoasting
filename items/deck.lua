@@ -67,7 +67,20 @@ SMODS.Back {
 	end,
 	crp_credits = {
 		idea = { "SolvLyi" },
-		art = { "GudUsername" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Back {
+	key = "adult",
+    config = { joker_slot = 1, consumable_slot = 1, hand_size = 1, ante_scaling = 2 },
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 2 },
+    loc_vars = function(self, info_queue)
+		return { vars = { lenient_bignum(self.config.joker_slot), lenient_bignum(self.config.consumable_slot), lenient_bignum(self.config.hand_size), lenient_bignum(lenient_bignum(self.config.ante_scaling) * lenient_bignum(100)) } }
+	end,
+	crp_credits = {
+		idea = { "playeronenotfake" },
 		code = { "Glitchkat10" }
 	}
 }

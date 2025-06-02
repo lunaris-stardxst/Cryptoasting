@@ -368,7 +368,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "millipede",
-	config = { extra = { chips = 1000 } },
+	config = { extra = { chips = 1000, full_hand = 1 } },
 	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 2 },
@@ -376,10 +376,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chips) } }
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and context.full_hand and #context.full_hand == 1) or context.forcetrigger then
+		if (context.joker_main and context.full_hand and #context.full_hand == lenient_bignum(card.ability.extra.full_hand)) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips)
 			}
@@ -605,7 +605,7 @@ SMODS.Joker {
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 4 },
-	cost = 44,
+	cost = 4.4,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -1531,7 +1531,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "bulgoe_prize",
-	config = {},
+	config = { extra = { create = 1 } },
 	rarity = 1,
 	atlas =  "crp_jokers",
 	pos = { x = 4, y = 4 },
@@ -1539,25 +1539,27 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, center)
-		return { vars = {} }
+		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.skipping_booster) or context.forcetrigger then
-			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_bulgoe") -- creates the card in question but puts it in the middle of the screen where it does nothing
-			card:add_to_deck() -- puts the card you just created in the metaphorical "deck" of all cards you currently have, consumables and jokers included
-			card:start_materialize() -- plays the particle animation when jokers spawn in
-			G.jokers:emplace(card) -- puts the card you created in specifically your joker tray so Balatro knows what to do when it gets there
-			card:juice_up(0.3, 0.4) -- plays the particle animation when jokers spawn in
+			for i = 1, lenient_bignum(card.ability.extra.create) do
+				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_bulgoe")
+				card:add_to_deck()
+				card:start_materialize()
+				G.jokers:emplace(card) 
+				card:juice_up(0.3, 0.4)
+			end
 			return {
 				message = localize("k_bulgoe_spawn"),
-				colour = G.C.CHIPS,
+				colour = G.C.BLUE,
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
 		art = { "Lexi" },
-		code = { "Lexi" }
+		code = { "Lexi", "Glitchkat10" }
 	}
 }
 
@@ -1626,7 +1628,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "centipede",
-	config = { extra = { chips = 100 } },
+	config = { extra = { chips = 100, full_hand = 1 } },
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 2 },
@@ -1634,10 +1636,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chips) } }
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and context.full_hand and #context.full_hand == 1) or context.forcetrigger then
+		if (context.joker_main and context.full_hand and #context.full_hand == lenient_bignum(card.ability.extra.full_hand)) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips)
 			}
@@ -1678,7 +1680,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "decipede",
-	config = { extra = { chips = 10 } },
+	config = { extra = { chips = 10, full_hand = 1 } },
 	rarity = 1,
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 2 },
@@ -1686,10 +1688,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chips) } }
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and context.full_hand and #context.full_hand == 1) or context.forcetrigger then
+		if (context.joker_main and context.full_hand and #context.full_hand == lenient_bignum(card.ability.extra.full_hand)) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips)
 			}
@@ -1831,65 +1833,51 @@ SMODS.Joker {
 	key = "iterum_2",
 	config = {
 		extra = {
-			Emult = 2,
+			Xmult = 1.05,
 			retriggers = 10
 		},
 		immutable = {
 			max_retriggers = 400
 		},
 	},
-	rarity = "crp_mythic",
+	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 5 },
 	soul_pos = { x = 6, y = 5, extra = { x = 5, y = 5 } },
-	cost = 100,
+	cost = 50,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Emult), math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers)), lenient_bignum(card.ability.immutable.max_retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.Xmult), math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers)), lenient_bignum(card.ability.immutable.max_retriggers) } }
 	end,
 	calculate = function(self, card, context)
 		if context.repetition then
 			if context.cardarea == G.play then
 				return {
 					message = localize("k_again_ex"),
-					repetitions = to_number(
-						math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers))
-					),
+					repetitions = to_number(math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers))),
 					card = card,
 				}
 			end
 		elseif context.individual then
 			if context.cardarea == G.play then
 				return {
-					message = localize({
-						type = "variable",
-						key = "a_powmult",
-						vars = {
-							number_format(lenient_bignum(card.ability.extra.Emult)),
-						},
-					}),
-					Emult_mod = lenient_bignum(card.ability.extra.Emult),
-					colour = G.C.DARK_EDITION,
+					message = "X" .. number_format(lenient_bignum(card.ability.extra.Xmult)) .. " Mult",
+					Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
+					colour = G.C.MULT,
 				}
 			end
 		end
 		if context.forcetrigger then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_powmult",
-					vars = {
-						number_format(lenient_bignum(card.ability.extra.Emult)),
-					},
-				}),
-				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				colour = G.C.DARK_EDITION,
+				message = "X" .. number_format(lenient_bignum(card.ability.extra.Xmult)) .. " Mult",
+				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
+				colour = G.C.MULT,
 			}
 		end
 	end,
 	crp_credits = {
-		idea = { "MarioFan597" },
+		idea = { "Glitchkat10", "MarioFan597" },
 		art = { "Tatteredlurker" },
 		code = { "Glitchkat10", "MathIsFun_" }
 	}
