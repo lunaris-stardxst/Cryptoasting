@@ -224,3 +224,12 @@ function Cryptposting.update_member_count()
 		end
 	end -- :bulgoe:
 end
+
+local _occ = create_card
+function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+	local _card = _occ(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+	if _type == "Joker" and _card.config and _card.config.center and _card.config.center.key == "crp_glitchkat10" then
+		SMODS.Stickers['pinned']:apply(_card, true)
+	end
+	return _card
+end

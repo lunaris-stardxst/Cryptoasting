@@ -2167,7 +2167,6 @@ SMODS.Joker {
 	}
 }
 
-
 --[[ SMODS.Joker {
 	key = "everything_is_fine",
 	config = {
