@@ -335,7 +335,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_of_all_trades",
 	config = { extra = { chips = 150, mult = 15, dollars = 5 } },
-	rarity = 3,
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 3, y = 1 },
 	cost = 9,
