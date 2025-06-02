@@ -572,7 +572,7 @@ return {
 			k_crp_2exomythic4me = "2ExoMythic4me",
 			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe",
-			k_crp_exomythicepicawesomeuncommon2mexotic2gigammegaalphaomnipotranscendant2exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
+			k_crp_exomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
 		},
 		labels = {
 			crp_overloaded = "Overloaded",

@@ -72,7 +72,7 @@ local exomythicepicawesomeuncommon2mexotic22exomythic4mecipe_gradient = SMODS.Gr
 	cycle = 2 -- i have no idea why this isn't affecting the speed rn
 })
 
-local exomythicepicawesomeuncommon2mexotic2gigammegaalphaomnipotranscendant2exomythic4mecipe_gradient = SMODS.Gradient({
+local exomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient = SMODS.Gradient({
     key="exomythicepicawesomeuncommon2mexotic2gigammegaalphaomnipotranscendant2exomythic4mecipe",
     colours = {
         HEX("ff6600"),
@@ -199,6 +199,6 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "exomythicepicawesomeuncommon2mexotic2gigammegaalphaomnipotranscendant2exomythic4mecipe",
-	badge_colour = exomythicepicawesomeuncommon2mexotic2gigammegaalphaomnipotranscendant2exomythic4mecipe_gradient,
+	key = "exomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
+	badge_colour = exomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient,
 })
