@@ -22,13 +22,13 @@ SMODS.Challenge {
     },
     rules = {
         modifiers = {
-            {id = "joker_slots", value = -100},
-            {id = "discards", value = 5},
+            { id = "joker_slots", value = -1e100 },
+            { id = "discards", value = 5 },
         }
     },
     jokers = {
-        {id = "j_crp_sprinter", eternal = true},
-        {id = "j_cry_sync_catalyst", eternal = true}
+        { id = "j_crp_sprinter", eternal = true },
+        { id = "j_cry_sync_catalyst", eternal = true }
     },
     deck = {
         type = "Challenge Deck",

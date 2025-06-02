@@ -2078,6 +2078,94 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "glitchkat10",
+	config = { extra = { mult = 1, chips = 1, Xmult = 1, Xchips = 1 } },
+	rarity = "crp_self-insert",
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 1 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xchips), lenient_bignum(card.ability.extra.Xmult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			local quotes = {
+				"yea i made the mod",
+				"i'm so tuff",
+				"hello",
+				"i see.",
+				"graveyarded!",
+				"approved!",
+				"alr bro",
+				"in the big '27 :wilted_rose:",
+				"oh yeah. pin it.",
+				"dysthymia",
+				"bulgoe",
+				"bulgoe's hiking journey",
+				"bulgoe prize",
+				"bulgoeship card",
+				"https://discord.gg/Jk9Q9usrNy",
+				"my name is glitchkat10. i made the cryptposting.",
+				"i'm cryptposting it",
+				"“i have no idea why this isn't affecting the speed rn”",
+				"my favorite song is nanachi by mrkolii",
+				"can we ban grahkon he's taking up too much space",
+				"ultrakill",
+				"joe kerr",
+				"i also coded for ascensio",
+				"i also coded for cryptid",
+				"i also made glitch's backlog",
+				"i also suggestions for cryptid",
+				"i also drew for ascensio",
+				"i also made suggestions for ascensio",
+				"exomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
+				"tbh i work more on cryptposting than poker",
+				"icl ts pmo sm :broken_heart:",
+				"i use vs code for coding",
+				"i use zen for browsing",
+				"i use aseprite for drawing",
+                "“hey guys, did you know that in terms of male human and female pokémon breeding, vaporeon is the most compatible pokémon for humans? not only are they in the field egg group, which is mostly comprised of mammals, vaporeon are an average of 3”03’ tall and 63.9 pounds, this means they’re large enough to be able handle human dicks, and with their impressive base stats for hp and access to acid armor, you can be rough with one. due to their mostly water based biology, there’s no doubt in my mind that an aroused vaporeon would be incredibly wet, so wet that you could easily have sex with one for hours without getting sore. they can also learn the moves attract, baby-doll eyes, captivate, charm, and tail whip, along with not having fur to hide nipples, so it’d be incredibly easy for one to get you in the mood. with their abilities water absorb and hydration, they can easily recover from fatigue with enough water. no other pokémon comes close to this level of compatibility. also, fun fact, if you pull out enough, you can make your vaporeon turn white. vaporeon is literally built for human dick. ungodly defense stat+high hp pool+acid armor means it can take cock all day, all shapes and sizes and still come for more.“",
+				"what the smegma",
+				"me (6'1”) when a burglar (balatro reference) tries to steal my feminist literature (6'1” btw)",
+				"metal pipe sound effect",
+                "collecting “code = { “glitchkat10“ }“ like the cuts on my body"
+			}
+			local quote = quotes[math.random(#quotes)]
+            return {
+	            chip_mod = -lenient_bignum(card.ability.extra.chips),
+                message =  "-" .. lenient_bignum(card.ability.extra.chips),
+                colour = G.C.CHIPS,
+	            extra = {
+                    mult_mod = -lenient_bignum(card.ability.extra.mult),
+                    message =  "-" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+                    colour = G.C.MULT,
+                    extra = {
+		                Xchip_mod = 1 / lenient_bignum(card.ability.extra.Xchips),
+                        message = "÷" .. lenient_bignum(card.ability.extra.Xchips),
+                        colour = G.C.CHIPS,
+                        extra = {
+		                    Xmult_mod = 1 / lenient_bignum(card.ability.extra.Xmult),
+                            message = "÷" .. lenient_bignum(card.ability.extra.Xmult) .. " Mult",
+                            colour = G.C.MULT,
+                            extra = {
+                                message = quote,
+                                colour = G.C.RARITY["crp_self-insert"]
+                            }
+                        }
+                    }
+	            }
+            }
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
 
 
 --[[ SMODS.Joker {

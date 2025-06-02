@@ -403,7 +403,16 @@ return {
 					"{C:green}#2# in #3#{} chance to instead create",
 					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker#<s>4#{}",
 				},
-			}
+			},
+			j_crp_glitchkat10 = {
+				name = "Glitchkat10",
+				text = {
+					"{C:chips}-#1#{} Chip#<s>1#",
+					"{C:mult}-#2#{} Mult",
+					"{C:white,X:chips}÷#3#{} Chip#<s>1#",
+					"{C:white,X:mult}÷#4#{} Mult",
+				},
+			},
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -556,6 +565,7 @@ return {
 	},
 	misc = {
 		dictionary = {
+			["k_crp_self-insert"] = "Self-Insert",
 			k_crp_trash = "Trash",
 			k_crp_m = "M",
 			k_crp_uncommon_2 = "Uncommon 2",

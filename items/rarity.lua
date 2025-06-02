@@ -106,6 +106,12 @@ local m = SMODS.Gradient({
 })
 
 SMODS.Rarity({
+	key = "self-insert",
+	badge_colour = HEX("982700"),
+	pools = { ["Joker"] = true },
+})
+
+SMODS.Rarity({
 	key = "trash",
 	badge_colour = trash_gradient,
 	default_weight = 0.005,
