@@ -2019,7 +2019,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Grahkon", "Glitchkat10" },
-		art = { "Glitchkat10" },
+		art = { "Lexi" },
 		code = { "Glitchkat10" }
 	}
 }
