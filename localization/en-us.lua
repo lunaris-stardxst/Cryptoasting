@@ -471,7 +471,7 @@ return {
 			b_crp_white = {
 				name = "White Deck",
 				text = {
-					"{C:attention}#2#{} Joker slot",
+					"{C:attention}-#2#{} Joker slot",
 					"{C:blue}+#1#{} hand"
 				}
 			},

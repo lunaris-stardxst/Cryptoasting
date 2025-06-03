@@ -14,11 +14,11 @@ SMODS.Atlas {
 
 SMODS.Back {
 	key = "cyan",
-    config = { hand_size = 2, discards = 1 * -1 },
+    config = { hand_size = 2, discards = -1 },
 	atlas = "crp_decks",
 	pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.hand_size), lenient_bignum(self.config.discards) } }
+		return { vars = { lenient_bignum(self.config.hand_size), lenient_bignum(self.config.discards) * -1 } }
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
@@ -33,7 +33,7 @@ SMODS.Back {
 	atlas = "crp_decks",
 	pos = { x = 1, y = 0 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.dollars) } }
+		return { vars = {  } }
 	end,
     crp_credits = {
 		idea = { "Poker The Poker" },
@@ -48,7 +48,7 @@ SMODS.Back {
 	atlas = "crp_decks",
 	pos = { x = 2, y = 0 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.hands), lenient_bignum(self.config.joker_slot) } }
+		return { vars = { lenient_bignum(self.config.hands) * -1, lenient_bignum(self.config.joker_slot) } }
 	end,
     crp_credits = {
 		idea = { "Poker The Poker" },
