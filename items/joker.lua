@@ -2160,12 +2160,126 @@ SMODS.Joker {
             }
 		end
 	end,
+    in_pool = function(self, args)
+		return true, {allow_duplicates = true}
+	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "gudusername",
+	config = { extra = { Xchips = 0.99, Xmult = 0.99, Echips = 0.99, Emult = 0.99, EEchips = 0.99, EEmult = 0.99, EEEchips = 0.99, EEEmult = 0.99 } },
+	rarity = "crp_self-insert",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 3 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.Xchips), lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Echips), lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.EEchips), lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEEchips), lenient_bignum(card.ability.extra.EEEmult), } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			local quotes = {
+				"Pls no sell me",
+                "*Pushes you into a road cutely*"
+			}
+			local quote = quotes[math.random(#quotes)]
+            return {
+		        Xchip_mod = lenient_bignum(card.ability.extra.Xchips),
+                message = "X" .. lenient_bignum(card.ability.extra.Xchips),
+                colour = G.C.CHIPS,
+                extra = {
+		            Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
+                    message = "X" .. lenient_bignum(card.ability.extra.Xmult) .. " Mult",
+                    colour = G.C.MULT,
+                    extra = {
+                        Echips_mod = lenient_bignum(card.ability.extra.Echips),
+                        message = "^" .. lenient_bignum(card.ability.extra.Echips),
+                        colour = G.C.DARK_EDITION,
+                        extra = {
+                            Emult_mod = lenient_bignum(card.ability.extra.Emult),
+                            message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
+                            colour = G.C.DARK_EDITION,
+                            extra = {
+                                EEchips_mod = lenient_bignum(card.ability.extra.EEchips),
+                                message = "^^" .. lenient_bignum(card.ability.extra.EEchips),
+                                colour = G.C.DARK_EDITION,
+                                extra = {
+                                    EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
+                                    message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
+                                    colour = G.C.DARK_EDITION,
+                                    extra = {
+                                        EEEchips_mod = lenient_bignum(card.ability.extra.EEEchips),
+                                        message = "^^^" .. lenient_bignum(card.ability.extra.EEEchips),
+                                        colour = G.C.EDITION,
+                                        extra = {
+                                            EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
+                                            message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+                                            colour = G.C.EDITION,
+                                            extra = {
+                                                message = quote,
+                                                colour = G.C.RARITY["crp_self-insert"]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+		end
+	end,
+    in_pool = function(self, args)
+		return true, {allow_duplicates = true}
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+--[[
+ SMODS.Joker {
+	key = "shit",
+	config = { extra = { create = 1 } },
+	rarity = 3,
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.create) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.end_of_round and not context.individual and not context.repetition) or context.forcetrigger then
+			local create = lenient_bignum(card.ability.extra.create)
+			G.GAME.joker_buffer = G.GAME.joker_buffer + create
+			for i = 1, create do
+				local trash = create_card("Joker", G.jokers, nil, "crp_self-insert", nil, nil, nil, "crp_shit")
+				trash:set_edition({ negative = true })
+				trash:add_to_deck()
+				G.jokers:emplace(trash)
+				trash:start_materialize()
+			end
+			return {
+				message = "+" .. lenient_bignum(card.ability.extra.create) .. " Self-Insert Joker",
+				colour = G.C.RARITY["crp_self-insert"],
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+}
+--]]
 
 --[[ SMODS.Joker {
 	key = "everything_is_fine",

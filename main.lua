@@ -198,7 +198,7 @@ Cryptid.pointerblistifytype("rarity", "crp_22exomythic4mecipe", nil)
 -- Update the cryptposting member count using https
 Cryptposting = Cryptposting or {}
 
-local member_fallback = 40 -- Fallback member count in case the request fails or is not available
+local member_fallback = 41 -- Fallback member count in case the request fails or is not available
 local succ, https = pcall(require, "SMODS.https")
 local last_update_time = 0
 local initial = true
@@ -228,8 +228,9 @@ end
 local _occ = create_card
 function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
 	local _card = _occ(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
-	if _type == "Joker" and _card.config and _card.config.center and _card.config.center.key == "crp_glitchkat10" then
-		SMODS.Stickers['pinned']:apply(_card, true)
+	if _type == "Joker" and _card.ability.rarity== "crp_self-insert" then
+		SMODS.Stickers["cry_absolute"]:apply(_card, true)
+		print("skibidi hawk tuah big mac")
 	end
 	return _card
 end

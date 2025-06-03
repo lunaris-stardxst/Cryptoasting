@@ -14,7 +14,7 @@ SMODS.Atlas {
 
 SMODS.Back {
 	key = "cyan",
-    config = { hand_size = 2, discards = -1 },
+    config = { hand_size = 2, discards = 1 * -1 },
 	atlas = "crp_decks",
 	pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue)

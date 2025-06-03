@@ -413,6 +413,19 @@ return {
 					"{C:white,X:mult}÷#4#{} Mult",
 				},
 			},
+			j_crp_gudusername = {
+				name = "GudUsername",
+				text = {
+					"{C:white,X:chips}X#1#{} Chip#<s>1#",
+					"{C:white,X:mult}X#2#{} Mult",
+					"{C:white,X:dark_edition}^#3#{} Chip#<s>3#",
+					"{C:white,X:dark_edition}^#4#{} Mult",
+					"{C:edition,X:dark_edition}^^#5#{} Chip#<s>4#",
+					"{C:edition,X:dark_edition}^^#6#{} Mult",
+					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#",
+					"{C:dark_edition,X:edition}^^^#8#{} Mult",
+				},
+			}
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -445,7 +458,7 @@ return {
 				name = "Cyan Deck",
 				text = {
 					"{C:attention}+#1#{} hand size",
-					"{C:red}#2#{} discard"
+					"{C:red}-#2#{} discard#<s>2#"
 				}
 			},
 			b_crp_gray = {
