@@ -2228,7 +2228,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "gudusername",
-	config = { extra = { Xchips = 0.99, Xmult = 0.99, Echips = 0.99, Emult = 0.99, EEchips = 0.99, EEmult = 0.99, EEEchips = 0.99, EEEmult = 0.99 } },
+	config = { immutable = { Xchips = 0.99, Xmult = 0.99, Echips = 0.99, Emult = 0.99, EEchips = 0.99, EEmult = 0.99, EEEchips = 0.99, EEEmult = 0.99 } },
 	rarity = "crp_self-insert",
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 3 },
@@ -2236,7 +2236,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xchips), lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Echips), lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.EEchips), lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEEchips), lenient_bignum(card.ability.extra.EEEmult), } }
+		return { vars = { lenient_bignum(card.ability.immutable.Xchips), lenient_bignum(card.ability.immutable.Xmult), lenient_bignum(card.ability.immutable.Echips), lenient_bignum(card.ability.immutable.Emult), lenient_bignum(card.ability.immutable.EEchips), lenient_bignum(card.ability.immutable.EEmult), lenient_bignum(card.ability.immutable.EEEchips), lenient_bignum(card.ability.immutable.EEEmult), } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -2245,50 +2245,50 @@ SMODS.Joker {
                 "*Pushes you into a road cutely*"
 			}
 			local quote = quotes[math.random(#quotes)]
-            return {
-		        Xchip_mod = lenient_bignum(card.ability.extra.Xchips),
-                message = "X" .. lenient_bignum(card.ability.extra.Xchips),
-                colour = G.C.CHIPS,
-                extra = {
-		            Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-                    message = "X" .. lenient_bignum(card.ability.extra.Xmult) .. " Mult",
-                    colour = G.C.MULT,
-                    extra = {
-                        Echips_mod = lenient_bignum(card.ability.extra.Echips),
-                        message = "^" .. lenient_bignum(card.ability.extra.Echips),
-                        colour = G.C.DARK_EDITION,
-                        extra = {
-                            Emult_mod = lenient_bignum(card.ability.extra.Emult),
-                            message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
-                            colour = G.C.DARK_EDITION,
-                            extra = {
-                                EEchips_mod = lenient_bignum(card.ability.extra.EEchips),
-                                message = "^^" .. lenient_bignum(card.ability.extra.EEchips),
-                                colour = G.C.DARK_EDITION,
-                                extra = {
-                                    EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-                                    message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-                                    colour = G.C.DARK_EDITION,
-                                    extra = {
-                                        EEEchips_mod = lenient_bignum(card.ability.extra.EEEchips),
-                                        message = "^^^" .. lenient_bignum(card.ability.extra.EEEchips),
-                                        colour = G.C.EDITION,
-                                        extra = {
-                                            EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
-                                            message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
-                                            colour = G.C.EDITION,
-                                            extra = {
-                                                message = quote,
-                                                colour = G.C.RARITY["crp_self-insert"]
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+			return {
+				Xchip_mod = lenient_bignum(card.ability.immutable.Xchips),
+				message = "X" .. lenient_bignum(card.ability.immutable.Xchips),
+				colour = G.C.CHIPS,
+				extra = {
+					Xmult_mod = lenient_bignum(card.ability.immutable.Xmult),
+					message = "X" .. lenient_bignum(card.ability.immutable.Xmult) .. " Mult",
+					colour = G.C.MULT,
+					extra = {
+						Echips_mod = lenient_bignum(card.ability.immutable.Echips),
+						message = "^" .. lenient_bignum(card.ability.immutable.Echips),
+						colour = G.C.DARK_EDITION,
+						extra = {
+							Emult_mod = lenient_bignum(card.ability.immutable.Emult),
+							message = "^" .. lenient_bignum(card.ability.immutable.Emult) .. " Mult",
+							colour = G.C.DARK_EDITION,
+							extra = {
+								EEchips_mod = lenient_bignum(card.ability.immutable.EEchips),
+								message = "^^" .. lenient_bignum(card.ability.immutable.EEchips),
+								colour = G.C.DARK_EDITION,
+								extra = {
+									EEmult_mod = lenient_bignum(card.ability.immutable.EEmult),
+									message = "^^" .. lenient_bignum(card.ability.immutable.EEmult) .. " Mult",
+									colour = G.C.DARK_EDITION,
+									extra = {
+										EEEchips_mod = lenient_bignum(card.ability.immutable.EEEchips),
+										message = "^^^" .. lenient_bignum(card.ability.immutable.EEEchips),
+										colour = G.C.EDITION,
+										extra = {
+											EEEmult_mod = lenient_bignum(card.ability.immutable.EEEmult),
+											message = "^^^" .. lenient_bignum(card.ability.immutable.EEEmult) .. " Mult",
+											colour = G.C.EDITION,
+											extra = {
+												message = quote,
+												colour = G.C.RARITY["crp_self-insert"]
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		end
 	end,
     in_pool = function(self, args)
