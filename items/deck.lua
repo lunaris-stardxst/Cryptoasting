@@ -44,11 +44,11 @@ SMODS.Back {
 
 SMODS.Back {
 	key = "white",
-    config = { hands = 1, joker_slot = -1 },
+    config = { joker_slot = -1, hands = 1 },
 	atlas = "crp_decks",
 	pos = { x = 2, y = 0 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.hands) * -1, lenient_bignum(self.config.joker_slot) } }
+		return { vars = { lenient_bignum(self.config.joker_slot) * -1, lenient_bignum(self.config.hands) } }
 	end,
     crp_credits = {
 		idea = { "Poker The Poker" },
@@ -59,11 +59,11 @@ SMODS.Back {
 
 SMODS.Back {
 	key = "kiddie",
-    config = { hands = -2, discards = -1, joker_slot = -2, consumable_slot = -1, hand_size = -2, ante_scaling = 0.3 },
+    config = { hands = -2, discards = -1, joker_slot = -2, consumable_slot = -1, hand_size = -1, ante_scaling = 0.3 },
 	atlas = "crp_placeholders",
 	pos = { x = 4, y = 2 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.hands), lenient_bignum(self.config.discards), lenient_bignum(self.config.joker_slot), lenient_bignum(self.config.consumable_slot), lenient_bignum(self.config.hand_size), lenient_bignum(lenient_bignum(self.config.ante_scaling) * lenient_bignum(100)) } }
+		return { vars = { lenient_bignum(self.config.hands) * -1, lenient_bignum(self.config.discards) * -1, lenient_bignum(self.config.joker_slot) * -1, lenient_bignum(self.config.consumable_slot) * -1, lenient_bignum(self.config.hand_size) * -1, lenient_bignum(self.config.ante_scaling) * 100 } }
 	end,
 	crp_credits = {
 		idea = { "SolvLyi" },

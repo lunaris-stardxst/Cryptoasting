@@ -471,16 +471,16 @@ return {
 			b_crp_white = {
 				name = "White Deck",
 				text = {
-					"{C:attention}-#2#{} Joker slot",
-					"{C:blue}+#1#{} hand"
+					"{C:attention}-#1#{} Joker slot",
+					"{C:blue}+#2#{} hand"
 				}
 			},
 			b_crp_kiddie = {
 				name = "Kiddie Deck",
 				text = {
-					"{C:blue}#1#{} hands, {C:red}#2#{} discard",
-					"{C:red}#3#{} {C:attention}Joker{} slots, {C:red}#4#{} {C:attention}consumable{} slot",
-					"{C:red}#5#{} hand size",
+					"{C:blue}-#1#{} hands, {C:red}-#2#{} discard",
+					"{C:red}-#3#{} {C:attention}Joker{} slots, {C:red}-#4#{} {C:attention}consumable{} slot",
+					"{C:red}-#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
 				}
 			},
@@ -549,6 +549,54 @@ return {
 					"Shop has a {C:crp_mythic}Mythic{}",
 					"{C:attention}Joker{} at quadruple the price",
 				},
+			},
+			["tag_crp_better_better_top-up_tag"] = {
+			    name = "Better Better Top-up Tag",
+        		text = {
+            		"Create up to #1#",
+            		"{C:red}Rare{} {C:attention}Jokers{}",
+            		"{C:inactive}(Must have room){}"
+        		}
+			},
+			["tag_crp_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Top-up Tag",
+				text = {
+					"Create up to #1#",
+					"{C:cry_epic}Epic{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to #1#",
+					"{C:purple}Legendary{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to #1#",
+					"{C:cry_exotic}Exotic{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_candy_top-up_tag"] = {
+				name = "Candy Top-up Tag",
+				text = {
+					"Create up to #1#",
+					"{C:cry_candy}Candy{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_trash_top-up_tag"] = {
+				name = "Trash Top-up Tag",
+				text = {
+					"Create up to #1#",
+					"{C:crp_trash}Trash{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
 			},
 		},
 		Edition = {
