@@ -1000,7 +1000,7 @@ SMODS.Joker {
 		end
     end,
 	in_pool = function(self, args)
-		return true, {allow_duplicates = true}
+		return true, { allow_duplicates = true }
 	end,
     crp_credits = {
         idea = { "Unknown", "Glitchkat10" },
@@ -1113,7 +1113,7 @@ SMODS.Joker {
 		return nil
 	end,
 	in_pool = function(self, args)
-		return true, {allow_duplicates = true}
+		return true, { allow_duplicates = true }
 	end,
 	crp_credits = {
 		idea = { "lord.ruby", "Glitchkat10" },
@@ -1130,6 +1130,9 @@ SMODS.Joker {
 	cost = 0,
 	blueprint_compat = false,
 	demicolon_compat = false,
+	in_pool = function(self, args)
+		return true, { allow_duplicates = true }
+	end,
 	crp_credits = {
 		idea = { "lord.ruby" },
 		art = { "Glitchkat10" },

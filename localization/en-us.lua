@@ -598,11 +598,27 @@ return {
 					"{C:inactive}(Must have room){}"
 				}
 			},
+			["tag_crp_:3_top-up_tag"] = {
+				name = ":3 Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:HEX(ff00ff)}:3{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
 			["tag_crp_candy_top-up_tag"] = {
 				name = "Candy Top-up Tag",
 				text = {
 					"Create up to {C:attention}#1#",
 					"{C:cry_candy}Candy{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_top-down_tag"] = {
+				name = "Top-down Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:cry_cursed}Cursed{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
 			},

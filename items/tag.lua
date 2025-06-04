@@ -132,7 +132,7 @@ SMODS.Tag {
 	atlas = "crp_tags",
 	pos = { x = 0, y = 1 },
 	config = { extra = { amount = 2 } },
-	min_ante = 2,
+	min_ante = 3,
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
 	end,
@@ -165,7 +165,7 @@ SMODS.Tag {
 	key = "better_better_better_top-up_tag",
 	atlas = "crp_tags",
 	pos = { x = 1, y = 1 },
-	min_ante = 2,
+	min_ante = 4,
 	config = { extra = { amount = 2 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
@@ -199,7 +199,7 @@ SMODS.Tag {
 	key = "better_better_better_better_top-up_tag",
 	atlas = "crp_tags",
 	pos = { x = 2, y = 1 },
-	min_ante = 2,
+	min_ante = 5,
 	config = { extra = { amount = 2 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
@@ -233,7 +233,7 @@ SMODS.Tag {
 	key = "better_better_better_better_better_top-up_tag",
 	atlas = "crp_tags",
 	pos = { x = 3, y = 1 },
-	min_ante = 2,
+	min_ante = 6,
 	config = { extra = { amount = 2 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
@@ -267,7 +267,7 @@ SMODS.Tag {
     key = "better_better_better_better_better_better_top-up_tag",
     atlas = "crp_tags",
     pos = { x = 5, y = 1 },
-	min_ante = 2,
+	min_ante = 7,
     config = { extra = { amount = 2 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { tag.config.extra.amount } }
@@ -301,7 +301,7 @@ SMODS.Tag {
 	key = "better_better_better_better_better_better_better_top-up_tag",
 	atlas = "crp_tags",
 	pos = { x = 2, y = 2 },
-	min_ante = 2,
+	min_ante = 8,
 	config = { extra = { amount = 2 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
@@ -328,6 +328,40 @@ SMODS.Tag {
 		idea = { "Grahkon" },
 		art = { "Grahkon" },
 		code = { "ScarredOut" }
+	}
+}
+
+SMODS.Tag {
+	key = ":3_top-up_tag",
+	atlas = "crp_tags",
+	pos = { x = 0, y = 3 },
+	min_ante = 1,
+	config = { extra = { amount = 2 } },
+	loc_vars = function(self, info_queue, tag)
+		return { vars = { tag.config.extra.amount } }
+	end,
+	apply = function(self, tag, context)
+		if context.type == "immediate" then
+			tag:yep("+", G.C.RED, function()
+				for i = 1, tag.config.extra.amount do
+					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+						local hittable = {
+							set = "Joker",
+							rarity = "crp_:3"
+						}
+						SMODS.add_card(hittable)
+					end
+				end
+				return true
+			end)
+			tag.triggered = true
+			return true
+		end
+	end,
+	crp_credits = {
+		idea = { "Grahkon" },
+		art = { "Grahkon" },
+		code = { "Glitchkat10" }
 	}
 }
 
@@ -366,10 +400,44 @@ SMODS.Tag {
 }
 
 SMODS.Tag {
+	key = "top-down_tag",
+	atlas = "crp_tags",
+	pos = { x = 7, y = 2 },
+	min_ante = -2,
+	config = { extra = { amount = 2 } },
+	loc_vars = function(self, info_queue, tag)
+		return { vars = { tag.config.extra.amount } }
+	end,
+	apply = function(self, tag, context)
+		if context.type == "immediate" then
+			tag:yep("+", G.C.RED, function()
+				for i = 1, tag.config.extra.amount do
+					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+						local hittable = {
+							set = "Joker",
+							rarity = "cry_cursed"
+						}
+						SMODS.add_card(hittable)
+					end
+				end
+				return true
+			end)
+			tag.triggered = true
+			return true
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "aqlr" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Tag {
 	key = "trash_top-up_tag",
 	atlas = "crp_tags",
-	pos = { x = 6, y = 2 },
-	min_ante = 2,
+	pos = { x = 1, y = 3 },
+	min_ante = 0,
 	config = { extra = { amount = 2 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { tag.config.extra.amount } }
@@ -394,7 +462,7 @@ SMODS.Tag {
 	end,
 	crp_credits = {
 		idea = { "Grahkon" },
-		art = { "Grahkon" },
+		art = { "Glitchkat10" },
 		code = { "ScarredOut" }
 	}
 }
