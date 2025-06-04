@@ -551,17 +551,17 @@ return {
 				},
 			},
 			["tag_crp_better_better_top-up_tag"] = {
-			    name = "Better Better Top-up Tag",
-        		text = {
-            		"Create up to #1#",
-            		"{C:red}Rare{} {C:attention}Jokers{}",
-            		"{C:inactive}(Must have room){}"
-        		}
+				name = "Better Better Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:red}Rare{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
 			},
 			["tag_crp_better_better_better_top-up_tag"] = {
 				name = "Better Better Better Top-up Tag",
 				text = {
-					"Create up to #1#",
+					"Create up to {C:attention}#1#",
 					"{C:cry_epic}Epic{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
@@ -569,7 +569,7 @@ return {
 			["tag_crp_better_better_better_better_top-up_tag"] = {
 				name = "Better Better Better Better Top-up Tag",
 				text = {
-					"Create up to #1#",
+					"Create up to {C:attention}#1#",
 					"{C:purple}Legendary{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
@@ -577,15 +577,31 @@ return {
 			["tag_crp_better_better_better_better_better_top-up_tag"] = {
 				name = "Better Better Better Better Better Top-up Tag",
 				text = {
-					"Create up to #1#",
+					"Create up to {C:attention}#1#",
 					"{C:cry_exotic}Exotic{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:crp_mythic}Mythic{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:crp_exomythic}ExoMythic{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
 			},
 			["tag_crp_candy_top-up_tag"] = {
 				name = "Candy Top-up Tag",
 				text = {
-					"Create up to #1#",
+					"Create up to {C:attention}#1#",
 					"{C:cry_candy}Candy{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
@@ -593,7 +609,7 @@ return {
 			["tag_crp_trash_top-up_tag"] = {
 				name = "Trash Top-up Tag",
 				text = {
-					"Create up to #1#",
+					"Create up to {C:attention}#1#",
 					"{C:crp_trash}Trash{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
 				}
