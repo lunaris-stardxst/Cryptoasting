@@ -703,19 +703,16 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "jolly_of_joker",
-	config = {
-		extra = {
-			emult = 8
-		}
-	},
+	config = { extra = { Emult = 8 } },
 	rarity = "cry_exotic",
-	atlas = "crp_placeholders",
-	pos = { x = 7, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 1, y = 5 },
+	soul_pos = { x = 3, y = 5, extra = { x = 2, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.emult) } }
+		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main and next(context.poker_hands['Pair'])) or context.forcetrigger then
@@ -724,37 +721,33 @@ SMODS.Joker {
 					type = "variable",
 					key = "a_powmult",
 					vars = {
-						number_format(lenient_bignum(card.ability.extra.emult)),
+						number_format(lenient_bignum(card.ability.extra.Emult)),
 					},
 				}),
-				Emult_mod = lenient_bignum(card.ability.extra.emult),
-				colour = G.C.MULT,
+				Emult_mod = lenient_bignum(card.ability.extra.Emult),
+				colour = G.C.DARK_EDITION,
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "Tatteredlurker" },
 		code = { "Rainstar" }
 	}
 }
 
 SMODS.Joker {
 	key = "duplicare_2",
-	config = {
-		extra = {
-			xmult = 1,
-			xmult_gain = 0.2,
-			retriggers = 1
-		}
-	},
+	config = { extra = { Xmult = 1, Xmult_gain = 0.2, retriggers = 1 } },
 	rarity = "crp_exotic_2",
-	atlas = "crp_placeholders",
-	pos = { x = 7, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 7, y = 5 },
+	soul_pos = { x = 9, y = 5, extra = { x = 8, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
 	end,
 	calculate = function(self, card, context) 
 		if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
@@ -772,11 +765,11 @@ SMODS.Joker {
 			}
 		end
 		if context.post_trigger and context.other_joker ~= card then
-			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
+			card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) + lenient_bignum(card.ability.extra.Xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if context.individual and context.cardarea == G.play then
-			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
+			card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) + lenient_bignum(card.ability.extra.Xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if (context.joker_main) or context.forcetrigger then
@@ -785,16 +778,17 @@ SMODS.Joker {
 					type = "variable",
 					key = "a_xmult",
 					vars = {
-						number_format(lenient_bignum(card.ability.extra.xmult)),
+						number_format(lenient_bignum(card.ability.extra.Xmult)),
 					},
 				}),
-				Xmult_mod = lenient_bignum(card.ability.extra.xmult),
+				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
 				colour = G.C.MULT,
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		art = { "Tatteredlurker" },
 		code = { "Rainstar" }
 	}
 }

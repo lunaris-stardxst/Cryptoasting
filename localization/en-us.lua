@@ -52,7 +52,7 @@ return {
 				text = {
 					"{C:mult}+1{} Mult for every {C:attention}Graveyarded{}",
 					"submission in the {C:attention}CSL{}",
-					"(Currently {C:mult}+#1#{} Mult)",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
 			j_crp_joker_of_all_trades = {
@@ -148,7 +148,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:edition,X:dark_edition}#1##2##3##4#{} Mult",
+					"{C:dark_edition,X:edition}#1##2##3##4#{} Mult",
 				},
 			},
 			j_crp_pi_joker = {
@@ -264,7 +264,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{} Prize",
+				name = "{C:edition}Bulgoe{}Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create {C:attention}#1#{} {C:edition,X:grey}Bulgoe#<s>1#{}",
