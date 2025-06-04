@@ -1836,19 +1836,11 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "iterum_2",
-	config = {
-		extra = {
-			Xmult = 1.05,
-			retriggers = 10
-		},
-		immutable = {
-			max_retriggers = 400
-		},
-	},
+	config = { extra = { Xmult = 1.05, retriggers = 10 }, immutable = { max_retriggers = 400 }, },
 	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 5 },
-	soul_pos = { x = 6, y = 5, extra = { x = 5, y = 5 } },
+	soul_pos = { x = 5, y = 5, extra = { x = 6, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
 	demicolon_compat = true,
