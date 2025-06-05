@@ -20,7 +20,7 @@ return {
 					"Gains {C:chips}+#2#{} Chip#<s>2#",
 					"if played hand",
 					"contains a {C:attention}Straight Flush",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips#<s>1#)",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
 			j_crp_scones_bones = {
