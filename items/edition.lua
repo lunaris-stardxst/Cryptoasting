@@ -9,6 +9,450 @@ SMODS.Sound {
 }
 
 SMODS.Edition {
+	key = "zany",
+	weight = 0,
+	shader = "overloaded",
+	sound = {
+        sound = "cry_e_jolly",
+        per = 1,
+        vol = 0.5,
+    },
+	in_shop = true,
+	extra_cost = 0,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { mult = 12, trigger = nil },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.mult } }
+	end,
+	calculate = function(self, card, context)
+		if
+			(
+				context.edition -- for when on jonklers
+				and context.cardarea == G.jokers -- checks if should trigger
+				and card.config.trigger -- fixes double trigger
+			) or (
+				context.main_scoring -- for when on playing cards
+				and context.cardarea == G.play
+			)
+		then
+			return { mult = self.config.mult } -- updated value
+		end
+		if context.joker_main then
+			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jonklers)
+		end
+
+		if context.after then
+			card.config.trigger = nil
+		end
+	end,
+	-- gee i wonder where i stole this from
+	init = function(self)
+		--Change name of cards with Jolly edition
+		local gcui = generate_card_ui
+		function generate_card_ui(
+			_c,
+			full_UI_table,
+			specific_vars,
+			card_type,
+			badges,
+			hide_desc,
+			main_start,
+			main_end,
+			card
+		)
+			local full_UI_table =
+				gcui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
+			if
+				card
+				and Cryptid.safe_get(card, "edition", "crp_mad")
+				and ((not card.ability) or card.ability.set ~= "Edition")
+				and type(Cryptid.safe_get(full_UI_table, "name")) == "table"
+				and Cryptid.safe_get(full_UI_table.name, 1, "nodes", 1, "config", "object", "config")
+			then
+				local conf = full_UI_table.name[1].nodes[1].config.object.config
+				if conf.string and #conf.string > 0 then
+					local function q_ify_word(text)
+						-- Define a pattern for vowels
+						local vowels = "AEIOUaeiou"
+
+						-- Use gsub to replace the first consonant of each word with 'M'
+						local result = text:gsub("(%a)(%w*)", function(first, rest)
+							if vowels:find(first) then
+								-- If the first character is a vowel, add an M
+								if (not rest[1]) or (rest:lower()[1] == rest[1]) then --this check doesn't work properly
+									return "Q" .. first:lower() .. rest
+								else
+									return "Q" .. first:upper() .. rest
+								end
+							elseif first:lower() == "q" then
+								-- If the word already starts with 'M', keep it unchanged
+								return first .. rest
+							else
+								-- Replace the first consonant with 'M'
+								return "Q" .. rest
+							end
+						end)
+
+						return result
+					end
+					function q_ify(text)
+						-- Use gsub to apply the m_ify_word function to each word
+						local result = text:gsub("(%S+)", function(word)
+							return q_ify_word(word)
+						end)
+
+						return result
+					end
+					conf.string[1] = q_ify(conf.string[1])
+					full_UI_table.name[1].nodes[1].config.object:remove()
+					full_UI_table.name[1].nodes[1].config.object = DynaText(conf)
+				end
+			end
+			return full_UI_table
+		end
+	end,
+    crp_credits = {
+        idea = { "Superb_thing" },
+		code = { "Rainstar" },
+	},
+}
+
+SMODS.Edition {
+	key = "mad",
+	weight = 0,
+	shader = "overloaded",
+	sound = {
+        sound = "cry_e_jolly",
+        per = 1,
+        vol = 0.5,
+    },
+	in_shop = true,
+	extra_cost = 0,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { mult = 10, trigger = nil },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.mult } }
+	end,
+	calculate = function(self, card, context)
+		if
+			(
+				context.edition -- for when on jonklers
+				and context.cardarea == G.jokers -- checks if should trigger
+				and card.config.trigger -- fixes double trigger
+			) or (
+				context.main_scoring -- for when on playing cards
+				and context.cardarea == G.play
+			)
+		then
+			return { mult = self.config.mult } -- updated value
+		end
+		if context.joker_main then
+			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jonklers)
+		end
+
+		if context.after then
+			card.config.trigger = nil
+		end
+	end,
+	-- gee i still wonder where i stole this from
+	init = function(self)
+		--Change name of cards with Jolly edition
+		local gcui = generate_card_ui
+		function generate_card_ui(
+			_c,
+			full_UI_table,
+			specific_vars,
+			card_type,
+			badges,
+			hide_desc,
+			main_start,
+			main_end,
+			card
+		)
+			local full_UI_table =
+				gcui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
+			if
+				card
+				and Cryptid.safe_get(card, "edition", "crp_mad")
+				and ((not card.ability) or card.ability.set ~= "Edition")
+				and type(Cryptid.safe_get(full_UI_table, "name")) == "table"
+				and Cryptid.safe_get(full_UI_table.name, 1, "nodes", 1, "config", "object", "config")
+			then
+				local conf = full_UI_table.name[1].nodes[1].config.object.config
+				if conf.string and #conf.string > 0 then
+					local function c_ify_word(text)
+						-- Define a pattern for vowels
+						local vowels = "AEIOUaeiou"
+
+						-- Use gsub to replace the first consonant of each word with 'M'
+						local result = text:gsub("(%a)(%w*)", function(first, rest)
+							if vowels:find(first) then
+								-- If the first character is a vowel, add an M
+								if (not rest[1]) or (rest:lower()[1] == rest[1]) then --this check doesn't work properly
+									return "C" .. first:lower() .. rest
+								else
+									return "C" .. first:upper() .. rest
+								end
+							elseif first:lower() == "c" then
+								-- If the word already starts with 'M', keep it unchanged
+								return first .. rest
+							else
+								-- Replace the first consonant with 'M'
+								return "C" .. rest
+							end
+						end)
+
+						return result
+					end
+					function c_ify(text)
+						-- Use gsub to apply the m_ify_word function to each word
+						local result = text:gsub("(%S+)", function(word)
+							return c_ify_word(word)
+						end)
+
+						return result
+					end
+					conf.string[1] = c_ify(conf.string[1])
+					full_UI_table.name[1].nodes[1].config.object:remove()
+					full_UI_table.name[1].nodes[1].config.object = DynaText(conf)
+				end
+			end
+			return full_UI_table
+		end
+	end,
+    crp_credits = {
+        idea = { "Superb_thing" },
+		code = { "Rainstar" },
+	},
+}
+
+SMODS.Edition {
+	key = "crazy",
+	weight = 0,
+	shader = "overloaded",
+	sound = {
+        sound = "cry_e_jolly",
+        per = 1,
+        vol = 0.5,
+    },
+	in_shop = true,
+	extra_cost = 0,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { mult = 30, trigger = nil },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.mult } }
+	end,
+	calculate = function(self, card, context)
+		if
+			(
+				context.edition -- for when on jonklers
+				and context.cardarea == G.jokers -- checks if should trigger
+				and card.config.trigger -- fixes double trigger
+			) or (
+				context.main_scoring -- for when on playing cards
+				and context.cardarea == G.play
+			)
+		then
+			return { mult = self.config.mult } -- updated value
+		end
+		if context.joker_main then
+			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jonklers)
+		end
+
+		if context.after then
+			card.config.trigger = nil
+		end
+	end,
+	-- gee i once again still wonder where i stole this from
+	init = function(self)
+		--Change name of cards with Jolly edition
+		local gcui = generate_card_ui
+		function generate_card_ui(
+			_c,
+			full_UI_table,
+			specific_vars,
+			card_type,
+			badges,
+			hide_desc,
+			main_start,
+			main_end,
+			card
+		)
+			local full_UI_table =
+				gcui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
+			if
+				card
+				and Cryptid.safe_get(card, "edition", "crp_mad")
+				and ((not card.ability) or card.ability.set ~= "Edition")
+				and type(Cryptid.safe_get(full_UI_table, "name")) == "table"
+				and Cryptid.safe_get(full_UI_table.name, 1, "nodes", 1, "config", "object", "config")
+			then
+				local conf = full_UI_table.name[1].nodes[1].config.object.config
+				if conf.string and #conf.string > 0 then
+					local function c_ify_word(text)
+						-- Define a pattern for vowels
+						local vowels = "AEIOUaeiou"
+
+						-- Use gsub to replace the first consonant of each word with 'M'
+						local result = text:gsub("(%a)(%w*)", function(first, rest)
+							if vowels:find(first) then
+								-- If the first character is a vowel, add an M
+								if (not rest[1]) or (rest:lower()[1] == rest[1]) then --this check doesn't work properly
+									return "CCC" .. first:lower() .. rest
+								else
+									return "CCC" .. first:upper() .. rest
+								end
+							elseif first:lower() == "ccc" then
+								-- If the word already starts with 'M', keep it unchanged
+								return first .. rest
+							else
+								-- Replace the first consonant with 'M'
+								return "CCC" .. rest
+							end
+						end)
+
+						return result
+					end
+					function c_ify(text)
+						-- Use gsub to apply the m_ify_word function to each word
+						local result = text:gsub("(%S+)", function(word)
+							return c_ify_word(word)
+						end)
+
+						return result
+					end
+					conf.string[1] = c_ify(conf.string[1])
+					full_UI_table.name[1].nodes[1].config.object:remove()
+					full_UI_table.name[1].nodes[1].config.object = DynaText(conf)
+				end
+			end
+			return full_UI_table
+		end
+	end,
+    crp_credits = {
+        idea = { "Superb_thing" },
+		code = { "Rainstar" },
+	},
+}
+
+SMODS.Edition {
+	key = "insane",
+	weight = 0,
+	shader = "overloaded",
+	sound = {
+        sound = "cry_e_jolly",
+        per = 1,
+        vol = 0.5,
+    },
+	in_shop = true,
+	extra_cost = 0,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { mult = 90, trigger = nil },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.mult } }
+	end,
+	calculate = function(self, card, context)
+		if
+			(
+				context.edition -- for when on jonklers
+				and context.cardarea == G.jokers -- checks if should trigger
+				and card.config.trigger -- fixes double trigger
+			) or (
+				context.main_scoring -- for when on playing cards
+				and context.cardarea == G.play
+			)
+		then
+			return { mult = self.config.mult } -- updated value
+		end
+		if context.joker_main then
+			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jonklers)
+		end
+
+		if context.after then
+			card.config.trigger = nil
+		end
+	end,
+	-- gee i once again, for the fourth time, still wonder where i stole this from
+	init = function(self)
+		--Change name of cards with Jolly edition
+		local gcui = generate_card_ui
+		function generate_card_ui(
+			_c,
+			full_UI_table,
+			specific_vars,
+			card_type,
+			badges,
+			hide_desc,
+			main_start,
+			main_end,
+			card
+		)
+			local full_UI_table =
+				gcui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
+			if
+				card
+				and Cryptid.safe_get(card, "edition", "crp_mad")
+				and ((not card.ability) or card.ability.set ~= "Edition")
+				and type(Cryptid.safe_get(full_UI_table, "name")) == "table"
+				and Cryptid.safe_get(full_UI_table.name, 1, "nodes", 1, "config", "object", "config")
+			then
+				local conf = full_UI_table.name[1].nodes[1].config.object.config
+				if conf.string and #conf.string > 0 then
+					local function c_ify_word(text)
+						-- Define a pattern for vowels
+						local vowels = "AEIOUaeiou"
+
+						-- Use gsub to replace the first consonant of each word with 'M'
+						local result = text:gsub("(%a)(%w*)", function(first, rest)
+							if vowels:find(first) then
+								-- If the first character is a vowel, add an M
+								if (not rest[1]) or (rest:lower()[1] == rest[1]) then --this check doesn't work properly
+									return "CCCCCCCCC" .. first:lower() .. rest
+								else
+									return "CCCCCCCCC" .. first:upper() .. rest
+								end
+							elseif first:lower() == "c" then
+								-- If the word already starts with 'M', keep it unchanged
+								return first .. rest
+							else
+								-- Replace the first consonant with 'M'
+								return "CCCCCCCCC" .. rest
+							end
+						end)
+
+						return result
+					end
+					function c_ify(text)
+						-- Use gsub to apply the m_ify_word function to each word
+						local result = text:gsub("(%S+)", function(word)
+							return c_ify_word(word)
+						end)
+
+						return result
+					end
+					conf.string[1] = c_ify(conf.string[1])
+					full_UI_table.name[1].nodes[1].config.object:remove()
+					full_UI_table.name[1].nodes[1].config.object = DynaText(conf)
+				end
+			end
+			return full_UI_table
+		end
+	end,
+    crp_credits = {
+        idea = { "Superb_thing" },
+		code = { "Rainstar" },
+	},
+}
+
+SMODS.Edition {
 	key = "overloaded",
 	weight = 0.03,
 	shader = "overloaded",
