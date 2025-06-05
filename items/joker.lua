@@ -351,10 +351,10 @@ SMODS.Joker {
 --[[ SMODS.Joker {
 	key = "dead_joker",
 	config = { immutable = { mult = 107 } },
-	rarity = 3,
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 0 },
-	cost = 8,
+	cost = 7,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -376,11 +376,11 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_of_all_trades",
-	config = { extra = { chips = 150, mult = 15, dollars = 5 } },
+	config = { extra = { chips = 150, mult = 15, dollars = 3 } },
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 3, y = 1 },
-	cost = 9,
+	cost = 7,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -466,7 +466,7 @@ SMODS.Joker {
 	rarity = 3,
 	atlas = "crp_jokers",
 	pos = { x = 8, y = 0 },
-	cost = 10,
+	cost = 8,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -582,7 +582,7 @@ SMODS.Joker {
 	rarity = "cry_epic",
 	atlas = "crp_jokers",
 	pos = { x = 7, y = 1 },
-	cost = 17,
+	cost = 16,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
@@ -691,61 +691,6 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "evil_jolly_joker",
-	config = { extra = { mult = 8 } },
-	rarity = "cry_cursed",
-	atlas = "crp_placeholders",
-	pos = { x = 0, y = 0 },
-	cost = 0,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main and not next(context.poker_hands["Pair"])) or context.forcetrigger then
-			return {
-				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
-				colour = G.C.MULT,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Unknown", "Glitchkat10" },
-		code = { "Rainstar" }
-	}
-}
-
-SMODS.Joker {
-	key = "evil_joker",
-	config = { extra = { mult = 4 } },
-	rarity = "cry_cursed",
-	atlas = "crp_jokers",
-	pos = { x = 8, y = 1 },
-	cost = 0,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
-				colour = G.C.MULT,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Glitchkat10" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
 	key = "jolly_of_joker",
 	config = { extra = { Emult = 8 } },
 	rarity = "cry_exotic",
@@ -776,6 +721,33 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Unknown" },
 		art = { "Tatteredlurker" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "evil_jolly_joker",
+	config = { extra = { mult = 8 } },
+	rarity = "cry_cursed",
+	atlas = "crp_placeholders",
+	pos = { x = 0, y = 0 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main and not next(context.poker_hands["Pair"])) or context.forcetrigger then
+			return {
+				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown", "Glitchkat10" },
 		code = { "Rainstar" }
 	}
 }
@@ -818,15 +790,7 @@ SMODS.Joker {
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_xmult",
-					vars = {
-						number_format(lenient_bignum(card.ability.extra.Xmult)),
-					},
-				}),
-				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-				colour = G.C.MULT,
+				Xmult = lenient_bignum(card.ability.extra.Xmult),
 			}
 		end
 	end,
@@ -834,6 +798,34 @@ SMODS.Joker {
 		idea = { "Glitchkat10" },
 		art = { "Tatteredlurker" },
 		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "evil_joker",
+	config = { extra = { mult = 4 } },
+	rarity = "cry_cursed",
+	atlas = "crp_jokers",
+	pos = { x = 8, y = 1 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
+				colour = G.C.MULT,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Glitchkat10" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
 	}
 }
 
