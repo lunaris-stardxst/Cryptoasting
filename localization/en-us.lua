@@ -47,6 +47,13 @@ return {
 					"{X:dark_edition,C:edition}^^#1#{} Mult",
 				},
 			},
+			j_crp_perdurantes = {
+				name = "Perdurantes",
+				text = {
+					"Gains {X:dark_edition,C:white}^#2#{} Mult for every {C:attention}#3#{} triggers",
+					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {X:dark_edition,C:edition}^#1#{C:inactive} Mult){}"
+				},
+			},
 			j_crp_dead_joker = {
 				name = "Dead Joker",
 				text = {
@@ -118,13 +125,6 @@ return {
 					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
-			j_crp_jolly_of_joker = {
-				name = "The Jolly of Joker",
-				text = {
-					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
-					"contains a {C:attention}Pair{}",
-				},
-			},
 			j_crp_evil_jolly_joker = {
 				name = "{C:red}EVIL{} Jolly Joker",
 				text = {
@@ -132,21 +132,17 @@ return {
 					"contain a {C:attention}Pair{}",
 				},
 			},
-			j_crp_duplicare_2 = {
-				name = "Duplicare 2",
-				text = {
-					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
-					"when a {C:attention}Joker{} or",
-					"{C:attention}playing card{} is triggered,",
-					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
-					"{C:attention}cards #3#{} additional time#<s>3#",
-					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
-				},
-			},
 			j_crp_evil_joker = {
 				name = "{C:red}EVIL{}Joker",
 				text = {
 					"{C:white,X:mult}÷#1#{} Mult",
+				},
+			},
+			j_crp_infinitum = {
+				name = "Infinitum",
+				text = {
+					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
+					"where {C:attention}X{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_joker_0 = {
@@ -160,6 +156,16 @@ return {
 				name = "Jonkler",
 				text = {
 					"{C:dark_edition,X:edition}#1##2##3##4#{} Mult",
+				},
+			},
+			j_crp_quetta_m = {
+				name = "Quetta M",
+				text = {
+					"{C:dark_edition,X:edition}#4##1##5##2#{} Mult",
+					"Increases by {C:attention}#3#{} when you play a {C:attention}Pair{}",
+					"{C:inactive}\"#4#-2#5#\" = \"=\"",
+					"{C:inactive}\"#4#-1#5#\" = \"+\"",
+					"{C:inactive}\"#4#0#5#\" = \"X\"",
 				},
 			},
 			j_crp_pi_joker = {
@@ -180,23 +186,16 @@ return {
 				name = "Weather Machine",
 				text = {
 					"Prevents death once",
-					"This {C:attention}Joker{} gains {C:mult}+#3#{} Mult",
+					"This {C:attention}Joker{} gains {C:mult}+#1#{} Mult",
 					"when death prevented",
-					"{C:inactive}(Death prevention active: #1#)",
-					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+					"{C:inactive}(Death prevention active: #2#)",
+					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
 				},
 			},
 			["j_crp_:3"] = {
 				name = ":3",
 				text = {
 					":3",
-				},
-			},
-			j_crp_infinitum = {
-				name = "Infinitum",
-				text = {
-					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
-					"where {C:attention}X{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_sigma_man = {
@@ -212,10 +211,25 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_exodiac = {
+				name = "Exodiac",
+				text = {
+					"{C:cry_exotic}Exotic{} Jokers each give",
+					"{X:edition,C:dark_edition}^^^#1#{} Mult when triggered,",
+					"create a random {C:dark_edition}Negative{} {C:cry_exotic}Exotic{}",
+					"{C:attention}Joker at the end of shop",
+				},
+			},
 			j_crp_heptation_henry = {
 				name = "heptation henry",
 				text = {
 					"{C:dark_edition,X:edition}#1#5#2##3#{} Mult",
+				},
+			},
+			j_crp_morble = {
+				name = "Morble",
+				text = {
+					"Jokers give {C:white,X:money}^$#1#{} when triggered",
 				},
 			},
 			j_crp_room_for_all = {
@@ -381,6 +395,24 @@ return {
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
 			},
+			j_crp_duplicare_2 = {
+				name = "Duplicare 2",
+				text = {
+					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
+					"when a {C:attention}Joker{} or",
+					"{C:attention}playing card{} is triggered,",
+					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
+					"{C:attention}cards #3#{} additional time#<s>3#",
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
+				},
+			},
+			j_crp_jolly_of_joker = {
+				name = "The Jolly of Joker",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
+					"contains a {C:attention}Pair{}",
+				},
+			},
 			j_crp_progressive = {
 				name = "Progressive Joker",
 				text = {
@@ -516,7 +548,7 @@ return {
 				},
 			},
 			tag_crp_uncommon_2_tag = {
-				name = "Uncommon2 Tag",
+				name = "Uncommon 2 Tag",
 				text = {
 					"Shop has a free",
 					"{C:uncommon}Uncommon 2{} {C:attention}Joker{}",
@@ -646,6 +678,37 @@ return {
 					"retrigger {C:attention}#3#{} times",
 				},
 			},
+			e_crp_zany = {
+				name = "Zany",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"This card is feeling",
+					"rather {C:attention}zany{}",
+				},
+			},
+			e_crp_mad = {
+				name = "Mad",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"This card is feeling",
+					"rather {C:attention}mad{}",
+				},
+			},
+			e_crp_crazy = {
+				name = "Crazy",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"Counts as {C:attention}3 Mad Jokers{}"
+				},
+			},
+			e_crp_insane = {
+				name = "Insane",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"Counts as {C:attention}3 Crazy Jokers{}",
+					"{C:inactive}(AKA {C:attention}9 Mad Jokers{C:inactive})"
+				},
+			},
 			--[[ e_crp_psychic = {
 				name = "Psychic",
 				text = {
@@ -680,6 +743,10 @@ return {
 		labels = {
 			crp_overloaded = "Overloaded",
 			crp_fourdimensional = "Four-Dimensional",
+			crp_zany = "Zany",
+			crp_mad = "Mad",
+			crp_crazy = "Crazy",
+			crp_insane = "Insane",
 			--[[ crp_psychic = "Psychic", ]]--
 		},
 		v_dictionary = {

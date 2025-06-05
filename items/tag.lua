@@ -461,9 +461,9 @@ SMODS.Tag {
 		end
 	end,
 	crp_credits = {
-		idea = { "Grahkon" },
+		idea = { "Glitchkat10" },
 		art = { "Glitchkat10" },
-		code = { "ScarredOut" }
+		code = { "Glitchkat10" }
 	}
 }
 --[[
