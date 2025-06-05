@@ -1,41 +1,45 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 SMODS.Challenge {
-    key = "crp_cecilchallenge",
+    key = "cecilchallenge",
     loc_txt = {
         name = "Sea Salt",
     },
     rules = {
         modifiers = {
-            {id = "dollars", value = -7360000000}
+            { id = "dollars", value = -7360002798 }
         }
     },
     consumeables = {
-        {id = "c_judgement"},
-        {id = "c_judgement"}
-    }
+        { id = "c_judgement" },
+        { id = "c_judgement" }
+    },
+    restrictions = {
+		banned_cards = {},
+		banned_other = {
+            { id = "bl_ox", type = "blind" }
+        }
+	},
 }
+
 SMODS.Challenge {
-    key = "crp_marathon",
+    key = "marathon",
     loc_txt = {
         name = "Marathon",
     },
     rules = {
         modifiers = {
             { id = "joker_slots", value = -1e100 },
-            { id = "discards", value = 5 },
+            { id = "hands", value = 1 },
+            { id = "discards", value = 10 },
+            { id = "hand_size", value = 5 },
         }
     },
     jokers = {
-        { id = "j_crp_sprinter", eternal = true },
-        { id = "j_cry_sync_catalyst", eternal = true }
+        { id = "j_crp_sprinter", stickers = { "cry_absolute" } },
+        { id = "j_cry_sync_catalyst", stickers = { "cry_absolute" } },
     },
     deck = {
-        type = "Challenge Deck",
-        no_ranks = {
-            {id = "A"},
-            {id = "2"},
-            {id = "3"},
-        }
+        type = "Challenge Deck"
     }
 }
