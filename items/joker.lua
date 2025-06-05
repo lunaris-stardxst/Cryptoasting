@@ -309,7 +309,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "dead_joker",
 	config = { immutable = { mult = 107 } },
-	rarity = 3,
+	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 0 },
 	cost = 8,
