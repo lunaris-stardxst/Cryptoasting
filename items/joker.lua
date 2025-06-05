@@ -1017,7 +1017,7 @@ SMODS.Joker {
     blueprint_compat = true,
 	demicolon_compat = true,
     loc_vars = function(self, info_queue, card)
-        return { vars = { "{", card.ability.immutable.arrows, "}", card.ability.immutable.EEEmult } }
+        return { vars = { "{", "}", } }
     end,
     calculate = function(self, card, context)
         if (context.joker_main) or context.force_trigger then

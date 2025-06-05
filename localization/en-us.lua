@@ -125,6 +125,13 @@ return {
 					"{C:mult}+#1#{} Mult...{C:attention}?",
 				},
 			},
+			j_crp_jolly_of_joker = {
+				name = "The Jolly of Joker",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
+					"contains a {C:attention}Pair{}",
+				},
+			},
 			j_crp_evil_jolly_joker = {
 				name = "{C:red}EVIL{} Jolly Joker",
 				text = {
@@ -132,10 +139,29 @@ return {
 					"contain a {C:attention}Pair{}",
 				},
 			},
+			j_crp_duplicare_2 = {
+				name = "Duplicare 2",
+				text = {
+					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
+					"when a {C:attention}Joker{} or",
+					"{C:attention}playing card{} is triggered,",
+					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
+					"{C:attention}cards #3#{} additional time#<s>3#",
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
+				},
+			},
 			j_crp_evil_joker = {
 				name = "{C:red}EVIL{}Joker",
 				text = {
 					"{C:white,X:mult}÷#1#{} Mult",
+				},
+			},
+			j_crp_progressive = {
+				name = "Progressive Joker",
+				text = {
+					"{C:mult}+[round]{} Mult",
+					"{C:white,X:mult}X[ante]{} Mult",
+					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult{}",
 				},
 			},
 			j_crp_infinitum = {
@@ -155,7 +181,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:dark_edition,X:edition}#1##2##3##4#{} Mult",
+					"{C:dark_edition,X:edition}#1#Twenty-five thousand#2#one{} Mult",
 				},
 			},
 			j_crp_quetta_m = {
@@ -393,32 +419,6 @@ return {
 					"{C:attention}N{} increases by {C:attention}#3#{} at",
 					"end of round",
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
-				},
-			},
-			j_crp_duplicare_2 = {
-				name = "Duplicare 2",
-				text = {
-					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
-					"when a {C:attention}Joker{} or",
-					"{C:attention}playing card{} is triggered,",
-					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
-					"{C:attention}cards #3#{} additional time#<s>3#",
-					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
-				},
-			},
-			j_crp_jolly_of_joker = {
-				name = "The Jolly of Joker",
-				text = {
-					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
-					"contains a {C:attention}Pair{}",
-				},
-			},
-			j_crp_progressive = {
-				name = "Progressive Joker",
-				text = {
-					"{C:mult}+[round]{} Mult",
-					"{C:white,X:mult}X[ante]{} Mult",
-					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult{}",
 				},
 			},
 			j_crp_evil_bulgoe = {
