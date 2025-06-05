@@ -2289,8 +2289,8 @@ SMODS.Joker {
 		return true, {allow_duplicates = true}
 	end,
 	crp_credits = {
-		idea = { "Glitchkat10" },
-		art = { "Glitchkat10" },
+		idea = { "GudUsername", "Glitchkat10" },
+		art = { "GudUsername" },
 		code = { "Glitchkat10" }
 	}
 }
