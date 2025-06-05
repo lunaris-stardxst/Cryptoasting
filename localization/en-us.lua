@@ -50,7 +50,7 @@ return {
 			j_crp_perdurantes = {
 				name = "Perdurantes",
 				text = {
-					"Gains {X:dark_edition,C:edition}^#2#{} Mult for every {C:attention}#3#{} triggers",
+					"Gains {X:dark_edition,C:white}^#2#{} Mult for every {C:attention}#3#{} triggers",
 					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {X:dark_edition,C:edition}^#1#{C:inactive} Mult){}"
 				},
 			},
@@ -163,8 +163,9 @@ return {
 				text = {
 					"{C:dark_edition,X:edition}#4##1##5##2#{} Mult",
 					"Increases by {C:attention}#3#{} when you play a {C:attention}Pair{}",
-					"{C:inactive}btw #4#-2#5# is just =mult im too lazy to do whatever the fuck{}",
-					"{C:inactive}entropy did{}"
+					"{C:inactive}\"#4#-2#5#\" = \"=\"",
+					"{C:inactive}\"#4#-1#5#\" = \"+\"",
+					"{C:inactive}\"#4#0#5#\" = \"X\"",
 				},
 			},
 			j_crp_pi_joker = {
@@ -185,10 +186,10 @@ return {
 				name = "Weather Machine",
 				text = {
 					"Prevents death once",
-					"This {C:attention}Joker{} gains {C:mult}+#3#{} Mult",
+					"This {C:attention}Joker{} gains {C:mult}+#1#{} Mult",
 					"when death prevented",
-					"{C:inactive}(Death prevention active: #1#)",
-					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+					"{C:inactive}(Death prevention active: #2#)",
+					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
 				},
 			},
 			["j_crp_:3"] = {
@@ -213,8 +214,10 @@ return {
 			j_crp_exodiac = {
 				name = "Exodiac",
 				text = {
-					"{C:cry_exotic}Exotic{} Jokers each give {X:dark_edition,C:edition}^^^#1#{} Mult when triggered",
-					"Create a random {C:edition}Negative{} {C:cry_exotic}Exotic{} Joker at the end of shop",
+					"{C:cry_exotic}Exotic{} Jokers each give",
+					"{X:edition,C:dark_edition}^^^#1#{} Mult when triggered,",
+					"create a random {C:dark_edition}Negative{} {C:cry_exotic}Exotic{}",
+					"{C:attention}Joker at the end of shop",
 				},
 			},
 			j_crp_heptation_henry = {
@@ -226,7 +229,7 @@ return {
 			j_crp_morble = {
 				name = "Morble",
 				text = {
-					"Jokers give {X:money}^2{C:money}${} when triggered",
+					"Jokers give {C:white,X:money}^$#1#{} when triggered",
 				},
 			},
 			j_crp_room_for_all = {
@@ -545,7 +548,7 @@ return {
 				},
 			},
 			tag_crp_uncommon_2_tag = {
-				name = "Uncommon2 Tag",
+				name = "Uncommon 2 Tag",
 				text = {
 					"Shop has a free",
 					"{C:uncommon}Uncommon 2{} {C:attention}Joker{}",
@@ -695,15 +698,15 @@ return {
 				name = "Crazy",
 				text = {
 					"{C:mult}+#1#{} Mult",
-					"Counts as 3 {C:attention}Mad Jokers{}"
+					"Counts as {C:attention}3 Mad Jokers{}"
 				},
 			},
 			e_crp_insane = {
 				name = "Insane",
 				text = {
 					"{C:mult}+#1#{} Mult",
-					"Counts as 3 {C:attention}Crazy Jokers{}",
-					"{C:inactive}(aka 9 {C:attention}Crazy Jokers{C:inactive})"
+					"Counts as {C:attention}3 Crazy Jokers{}",
+					"{C:inactive}(AKA {C:attention}9 Mad Jokers{C:inactive})"
 				},
 			},
 			--[[ e_crp_psychic = {

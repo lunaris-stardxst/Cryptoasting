@@ -11,7 +11,7 @@ SMODS.Sound {
 SMODS.Edition {
 	key = "zany",
 	weight = 0,
-	shader = "overloaded",
+	shader = false,
 	sound = {
         sound = "cry_e_jolly",
         per = 1,
@@ -87,11 +87,11 @@ SMODS.Edition {
 									return "Q" .. first:upper() .. rest
 								end
 							elseif first:lower() == "q" then
-								-- If the word already starts with 'M', keep it unchanged
+								-- If the word already starts with 'z', keep it unchanged
 								return first .. rest
 							else
-								-- Replace the first consonant with 'M'
-								return "Q" .. rest
+								-- Replace the first consonant with 'z'
+								return "Z" .. rest
 							end
 						end)
 
@@ -114,7 +114,7 @@ SMODS.Edition {
 		end
 	end,
     crp_credits = {
-        idea = { "Superb_thing" },
+        idea = { "superb_thing" },
 		code = { "Rainstar" },
 	},
 }
@@ -122,7 +122,7 @@ SMODS.Edition {
 SMODS.Edition {
 	key = "mad",
 	weight = 0,
-	shader = "overloaded",
+	shader = false,
 	sound = {
         sound = "cry_e_jolly",
         per = 1,
@@ -225,7 +225,7 @@ SMODS.Edition {
 		end
 	end,
     crp_credits = {
-        idea = { "Superb_thing" },
+        idea = { "superb_thing" },
 		code = { "Rainstar" },
 	},
 }
@@ -233,7 +233,7 @@ SMODS.Edition {
 SMODS.Edition {
 	key = "crazy",
 	weight = 0,
-	shader = "overloaded",
+	shader = false,
 	sound = {
         sound = "cry_e_jolly",
         per = 1,
@@ -336,7 +336,7 @@ SMODS.Edition {
 		end
 	end,
     crp_credits = {
-        idea = { "Superb_thing" },
+        idea = { "superb_thing" },
 		code = { "Rainstar" },
 	},
 }
@@ -344,7 +344,7 @@ SMODS.Edition {
 SMODS.Edition {
 	key = "insane",
 	weight = 0,
-	shader = "overloaded",
+	shader = false,
 	sound = {
         sound = "cry_e_jolly",
         per = 1,
@@ -447,7 +447,7 @@ SMODS.Edition {
 		end
 	end,
     crp_credits = {
-        idea = { "Superb_thing" },
+        idea = { "superb_thing" },
 		code = { "Rainstar" },
 	},
 }

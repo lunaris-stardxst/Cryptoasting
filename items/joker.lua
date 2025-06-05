@@ -108,10 +108,10 @@ SMODS.Joker {
 				chips = lenient_bignum(card.ability.extra.chips),
 			}
 		end
-		if (context.before and next(context.poker_hands['Straight Flush']) and not context.blueprint) or context.forcetrigger then
+		if (context.before and next(context.poker_hands["Straight Flush"]) and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) + lenient_bignum(card.ability.extra.chips_scale)
 			return {
-				message = 'Upgraded!',
+				message = "Upgraded!",
 				colour = G.C.CHIPS,
 				card = card
 			}
@@ -167,12 +167,12 @@ SMODS.Joker {
 			}
 		end
 		-- this is completely stolen from marble joker's code
-		if context.before and next(context.poker_hands['Flush']) or context.forcetrigger then
+		if context.before and next(context.poker_hands["Flush"]) or context.forcetrigger then
 			local stone_cards = lenient_bignum(card.ability.extra.stones)
 			for i = 1, stone_cards do
                 G.E_MANAGER:add_event(Event({
                     func = function() 
-                        local front = pseudorandom_element(G.P_CARDS, pseudoseed('marb_fr'))
+                        local front = pseudorandom_element(G.P_CARDS, pseudoseed("marb_fr"))
                         G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                         local card = Card(G.play.T.x + G.play.T.w/2, G.play.T.y, G.CARD_W, G.CARD_H, front, G.P_CENTERS.m_stone, {playing_card = G.playing_card})
                         card:start_materialize({G.C.SECONDARY_SET.Enhanced})
@@ -181,14 +181,14 @@ SMODS.Joker {
                         return true
                     end})
 				)
-                card_eval_status_text(context.blueprint_card or self, 'extra', nil, nil, nil, {message = localize('k_plus_stone'), colour = G.C.SECONDARY_SET.Enhanced})
+                card_eval_status_text(context.blueprint_card or self, "extra", nil, nil, nil, {message = localize("k_plus_stone"), colour = G.C.SECONDARY_SET.Enhanced})
                 G.E_MANAGER:add_event(Event({
                     func = function() 
                         G.deck.config.card_limit = G.deck.config.card_limit + 1
                         return true
                     end})
 				)
-                draw_card(G.play,G.deck, 90,'up', nil)
+                draw_card(G.play,G.deck, 90,"up", nil)
                 playing_card_joker_effects({true})
 			end
 		end
@@ -261,10 +261,10 @@ SMODS.Joker {
 				chips = lenient_bignum(card.ability.extra.chips),
 			}
 		end
-		if (context.before and next(context.poker_hands['High Card']) and not context.blueprint) or context.forcetrigger then
+		if (context.before and next(context.poker_hands["High Card"]) and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) + lenient_bignum(card.ability.extra.chips_scale)
 			return {
-				message = 'Upgraded!',
+				message = "Upgraded!",
 				colour = G.C.CHIPS,
 				card = card
 			}
@@ -293,7 +293,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = '^^' .. lenient_bignum(card.ability.extra.EEmult) .. ' Mult',
+				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
 				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
 				colour = G.C.DARK_EDITION,
 				card = card
@@ -325,7 +325,7 @@ SMODS.Joker {
 				card.ability.extra.current_retriggers = 0
 				card.ability.extra.Emult = card.ability.extra.Emult + card.ability.extra.Emult_mod
 				return {
-					message = '^' .. lenient_bignum(card.ability.extra.Emult) .. ' Mult',
+					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
 					Emult_mod = lenient_bignum(card.ability.extra.Emult),
 					colour = G.C.DARK_EDITION,
 					card = card
@@ -333,7 +333,7 @@ SMODS.Joker {
 			else
 				card.ability.extra.current_retriggers = card.ability.extra.current_retriggers + 1
 				return {
-					message = '^' .. lenient_bignum(card.ability.extra.Emult) .. ' Mult',
+					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
 					Emult_mod = lenient_bignum(card.ability.extra.Emult),
 					colour = G.C.DARK_EDITION,
 					card = card
@@ -347,7 +347,8 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+-- commented out due to the current effect being graveyarded
+--[[ SMODS.Joker {
 	key = "dead_joker",
 	config = { immutable = { mult = 107 } },
 	rarity = 3,
@@ -371,7 +372,7 @@ SMODS.Joker {
 		art = { "GudUsername" },
 		code = { "Glitchkat10" }
 	}
-}
+} ]]--
 
 SMODS.Joker {
 	key = "joker_of_all_trades",
@@ -536,7 +537,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = '^^' .. lenient_bignum(card.ability.extra.EEmult) .. ' Mult',
+				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
 				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
 				colour = G.C.DARK_EDITION,
 				card = card
@@ -592,13 +593,13 @@ SMODS.Joker {
       		G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + tarots_to_create
 		for i = 1, tarots_to_create do
 			if (context.joker_main) or context.forcetrigger then
-        		local card_type = 'Tarot'
+        		local card_type = "Tarot"
         		G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
         		G.E_MANAGER:add_event(Event({
-          			trigger = 'before',
+          			trigger = "before",
          			delay = 0.0,
           			func = (function()
-              			local n_card = create_card(card_type,G.consumeables, nil, nil, nil, nil, nil, 'jk7')
+              			local n_card = create_card(card_type,G.consumeables, nil, nil, nil, nil, nil, "jk7")
               			n_card:add_to_deck()
               			G.consumeables:emplace(n_card)
               			G.GAME.consumeable_buffer = 0
@@ -630,7 +631,7 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				Xchips = lenient_bignum(card.ability.extra.Xchips),
-				message = 'X' .. card.ability.extra.Xchips .. ' Chips',
+				message = "X" .. card.ability.extra.Xchips .. " Chips",
 				colour = G.C.CHIPS,
 			}
 		end
@@ -657,22 +658,22 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			if
-				next(SMODS.find_card('j_joker'))
-				and next(SMODS.find_card('j_crp_joker_2'))
-				and next(SMODS.find_card('j_crp_joker_3'))
-				and next(SMODS.find_card('j_crp_joker_4'))
-				and next(SMODS.find_card('j_crp_joker_5'))
-				and next(SMODS.find_card('j_crp_joker_6'))
-				and next(SMODS.find_card('j_crp_joker_7'))
-				and next(SMODS.find_card('j_crp_joker_8'))
-				and next(SMODS.find_card('j_crp_joker_0')) 
+				next(SMODS.find_card("j_joker"))
+				and next(SMODS.find_card("j_crp_joker_2"))
+				and next(SMODS.find_card("j_crp_joker_3"))
+				and next(SMODS.find_card("j_crp_joker_4"))
+				and next(SMODS.find_card("j_crp_joker_5"))
+				and next(SMODS.find_card("j_crp_joker_6"))
+				and next(SMODS.find_card("j_crp_joker_7"))
+				and next(SMODS.find_card("j_crp_joker_8"))
+				and next(SMODS.find_card("j_crp_joker_0")) 
 			then
 				return {
 					hypermult_mod = {
 						4,
 						lenient_bignum(card.ability.extra.mult)
 					},
-					message = "{4}" .. lenient_bignum(card.ability.extra.mult) .. ' Mult',
+					message = "{4}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
 					colour = G.C.EDITION,
 				}
 			else
@@ -702,7 +703,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and not next(context.poker_hands['Pair'])) or context.forcetrigger then
+		if (context.joker_main and not next(context.poker_hands["Pair"])) or context.forcetrigger then
 			return {
 				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
 				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
@@ -758,7 +759,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and next(context.poker_hands['Pair'])) or context.forcetrigger then
+		if (context.joker_main and next(context.poker_hands["Pair"])) or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",
@@ -862,7 +863,7 @@ SMODS.Joker {
 			return {
 				mult_mod = lenient_bignum(card.ability.extra.mult),
 				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-				message = 'Progressum!',
+				message = "Progressum!",
 				colour = G.C.MULT,
 				card = card
 			}
@@ -888,7 +889,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chipsmult), '{', '}' } }
+		return { vars = { lenient_bignum(card.ability.extra.chipsmult), "{", "}" } }
 	end,
 	calculate = function(self, card, context)
 		-- jokers, doesnt work as of now
@@ -913,21 +914,21 @@ SMODS.Joker {
 		--			}
 		--		elseif arrow_number_jokers == 2 then
 		--			return {
-		--				message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				message = "^^" .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 		--				colour = G.C.EDITION,
 		--				EEchip_mod = card.ability.extra.chipsmult,
 		--				EEmult_mod = card.ability.extra.chipsmult
 		--			}
 		--		elseif arrow_number_jokers == 3 then
 		--			return {
-		--				message = '^^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				message = "^^^" .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 		--				colour = G.C.EDITION,
 		--				EEEchip_mod = card.ability.extra.chipsmult,
 		--				EEEmult_mod = card.ability.extra.chipsmult
 		--			}
 		--		elseif arrow_number_jokers >= 4 then
 		--			return {
-		--				message = '{' .. arrow_number_jokers .. '} ' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+		--				message = "{" .. arrow_number_jokers .. "} " .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 		--				colour = G.C.EDITION,
 		--				hyperchip_mod = {arrow_number_jokers, card.ability.extra.chipsmult},
 		--				hypermult_mod = {arrow_number_jokers, card.ability.extra.chipsmult}
@@ -948,28 +949,28 @@ SMODS.Joker {
 			end
 			if lenient_bignum(arrow_number_cards) == 1 then
 				return {
-					message = '^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					message = "^" .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 					colour = G.C.DARK_EDITION,
 					Echip_mod = lenient_bignum(card.ability.extra.chipsmult),
 					Emult_mod = lenient_bignum(card.ability.extra.chipsmult)
 				}
 			elseif lenient_bignum(arrow_number_cards) == 2 then
 				return {
-					message = '^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					message = "^^" .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 					colour = G.C.DARK_EDITION,
 					EEchip_mod = lenient_bignum(card.ability.extra.chipsmult),
 					EEmult_mod = lenient_bignum(card.ability.extra.chipsmult)
 				}
 			elseif lenient_bignum(arrow_number_cards) == 3 then
 				return {
-					message = '^^^' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					message = "^^^" .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 					colour = G.C.EDITION,
 					EEEchip_mod = lenient_bignum(card.ability.extra.chipsmult),
 					EEEmult_mod = lenient_bignum(card.ability.extra.chipsmult)
 				}
 			elseif lenient_bignum(arrow_number_cards) >= 4 then
 				return {
-					message = '{' .. lenient_bignum(arrow_number_cards) .. '} ' .. lenient_bignum(card.ability.extra.chipsmult) .. ' Chips & Mult',
+					message = "{" .. lenient_bignum(arrow_number_cards) .. "} " .. lenient_bignum(card.ability.extra.chipsmult) .. " Chips & Mult",
 					colour = G.C.EDITION,
 					hyperchip_mod = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)},
 					hypermult_mod = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)}
@@ -1024,13 +1025,13 @@ SMODS.Joker {
     blueprint_compat = true,
 	demicolon_compat = true,
     loc_vars = function(self, info_queue, card)
-        return { vars = { '{', card.ability.immutable.arrows, '}', card.ability.immutable.EEEmult } }
+        return { vars = { "{", card.ability.immutable.arrows, "}", card.ability.immutable.EEEmult } }
     end,
     calculate = function(self, card, context)
         if (context.joker_main) or context.force_trigger then
             return {
 				EEEmult_mod = card.ability.immutable.EEEmult,
-                message = '{' .. card.ability.immutable.arrows .. '}' .. card.ability.immutable.EEEmult .. ' Mult',
+                message = "{" .. card.ability.immutable.arrows .. "}" .. card.ability.immutable.EEEmult .. " Mult",
                 colour = G.C.EDITION,
                 card = card
             }
@@ -1062,7 +1063,7 @@ SMODS.Joker {
 			if card.ability.extra.operator <= -2 then
 				return {
 					Eqmult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "=" .. lenient_bignum(card.ability.extra.mult) .. ' Mult',
+					message = "=" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
 					colour = G.C.EDITION,
 				}
 			else
@@ -1071,15 +1072,15 @@ SMODS.Joker {
 						lenient_bignum(card.ability.extra.operator),
 						lenient_bignum(card.ability.extra.mult)
 					},
-					message = "{" .. lenient_bignum(card.ability.extra.operator) .. "}" .. lenient_bignum(card.ability.extra.mult) .. ' Mult',
+					message = "{" .. lenient_bignum(card.ability.extra.operator) .. "}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
 					colour = G.C.EDITION,
 				}
 			end
 		end
-		if (context.before and next(context.poker_hands['Pair']) and not context.blueprint) or context.forcetrigger then
+		if (context.before and next(context.poker_hands["Pair"]) and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.operator = card.ability.extra.operator + card.ability.extra.operator_increase
 			return {
-				message = 'Upgraded!',
+				message = "Upgraded!",
 				card = card
 			}
 		end
@@ -1118,7 +1119,7 @@ SMODS.Joker {
 }
 SMODS.Joker {
 	key = "weather_machine",
-	config = { extra = { death_prevention_enabled = true, mult = 0, mult_mod = 1e76 } },
+	config = { extra = { mult_mod = 1e76, death_prevention_enabled = true, mult = 0 } },
 	rarity = "crp_mythic",
 	atlas = "crp_placeholders",
 	pos = { x = 8, y = 0 },
@@ -1126,10 +1127,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.mult, card.ability.extra.mult_mod } }
+		return { vars = { lenient_bignum(card.ability.extra.mult_mod), card.ability.extra.death_prevention_enabled, lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
-		if context.game_over and to_big(G.GAME.chips / G.GAME.blind.chips) < to_big(1) and card.ability.extra.death_prevention_enabled == true then
+		if context.game_over and lenient_bignum(G.GAME.chips / G.GAME.blind.chips) < lenient_bignum(1) and card.ability.extra.death_prevention_enabled == true then
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					G.hand_text_area.blind_chips:juice_up()
@@ -1139,9 +1140,9 @@ SMODS.Joker {
 				end,
 			}))
 		card.ability.extra.death_prevention_enabled = false
-		card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+		card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) + lenient_bignum(card.ability.extra.mult_mod)
 		return {
-			message = 'Saved & Upgraded!',
+			message = "Saved & Upgraded!",
 			saved = true,
 			colour = G.C.RED,
 		}
@@ -1153,7 +1154,7 @@ SMODS.Joker {
 			return {
 				card = card,
 				mult_mod = lenient_bignum(card.ability.extra.mult),
-				message = "+" .. number_format(card.ability.extra.mult) .. "Mult",
+				message = "+" .. number_format(lenient_bignum(card.ability.extra.mult)) .. "Mult",
 				colour = G.C.MULT,
 			}
 		end
@@ -1309,9 +1310,8 @@ SMODS.Joker {
 		then
 			card.ability.extra.rounds_remaining = lenient_bignum(lenient_bignum(card.ability.extra.rounds_remaining) - 1)
 			if
-				lenient_bignum(card.ability.extra.rounds_remaining) <= lenient_bignum(0)
+				lenient_bignum(card.ability.extra.rounds_remaining) <= 0
 			then
-
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						play_sound("crp_eat")
@@ -1347,10 +1347,9 @@ SMODS.Joker {
 	}
 }
 
-
 SMODS.Joker {
 	key = "exodiac",
-	config = { extra = { eeemult = 1.13 } },
+	config = { extra = { EEEmult = 1.13 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholders",
 	pos = { x = 10, y = 0 },
@@ -1359,19 +1358,19 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.eeemult) } }
+		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.ending_shop then
-			local card = create_card("Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment")
+			local card = create_card("Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment") -- this is true
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()
 			G.jokers:emplace(card)
 		end
 		if context.other_joker and context.other_joker.config.center.rarity == "cry_exotic" then
 			return {
-				EEEmult_mod = lenient_bignum(card.ability.extra.eeemult),
-				message = "^^^" .. lenient_bignum(card.ability.extra.eeemult) .. " Mult",
+				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
+				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
@@ -1415,7 +1414,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "morble",
-	config = { extra = { emoney = 2 } },
+	config = { extra = { Emoney = 2 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholders",
 	pos = { x = 9, y = 0 },
@@ -1424,14 +1423,14 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.emoney) } }
+		return { vars = { lenient_bignum(card.ability.extra.Emoney) } }
 	end,
 	calculate = function(self, card, context)
 		if context.other_joker then
-			G.GAME.dollars = G.GAME.dollars ^ lenient_bignum(card.ability.extra.emoney)
+			G.GAME.dollars = G.GAME.dollars ^ lenient_bignum(card.ability.extra.Emoney)
 			return {
-				message = "^" .. lenient_bignum(card.ability.extra.emoney) .. "$",
-				colour = G.C.EDITION,
+				message = "^$" .. lenient_bignum(card.ability.extra.Emoney),
+				colour = G.C.MONEY,
 			}
 		end
 	end,
@@ -1484,7 +1483,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = '^' .. lenient_bignum(card.ability.extra.Emult) .. ' Mult',
+				message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
 				Emult_mod = lenient_bignum(card.ability.extra.Emult),
 				colour = G.C.DARK_EDITION,
 				card = card
@@ -1552,7 +1551,7 @@ SMODS.Joker {
             context.other_card.ability.perma_x_chips = lenient_bignum(context.other_card.ability.perma_x_chips) or 0
             context.other_card.ability.perma_x_chips = lenient_bignum(context.other_card.ability.perma_x_chips) + lenient_bignum(card.ability.extra.perma_x_chips)
             return {
-                extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
+                extra = { message = localize("k_upgrade_ex"), colour = G.C.CHIPS },
                 card = card
 			}
 		end
@@ -1609,7 +1608,7 @@ SMODS.Joker {
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_celestial_normal_1
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_spectral_normal_1
-		return { vars = { '{', '}' } }
+		return { vars = { "{", "}" } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -1870,7 +1869,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = '^^^' .. lenient_bignum(card.ability.extra.EEEmult) .. ' Mult',
+				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
 				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
 				colour = G.C.EDITION,
 				card = card
@@ -1898,7 +1897,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = '^^' .. lenient_bignum(card.ability.extra.EEmult) .. ' Mult',
+				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
 				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
 				colour = G.C.DARK_EDITION,
 				card = card
@@ -1965,7 +1964,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
 			return {
-				message = '^^' .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. ' Mult',
+				message = "^^" .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. " Mult",
 				EEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
 				colour = G.C.DARK_EDITION,
 				card = card
@@ -2122,7 +2121,7 @@ SMODS.Joker {
 					lenient_bignum(math.round(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
 					lenient_bignum(card.ability.extra.mult)
 				},
-				message = "{" .. lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(card.ability.extra.mult) .. ' Mult',
+				message = "{" .. lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
@@ -2249,7 +2248,7 @@ SMODS.Joker {
 				"https://discord.gg/Jk9Q9usrNy",
 				"my name is glitchkat10. i made the cryptposting.",
 				"i'm cryptposting it",
-				"“i have no idea why this isn't affecting the speed rn”",
+				"\"i have no idea why this isn't affecting the speed rn\"",
 				"my favorite song is nanachi by mrkolii",
 				"can we ban grahkon he's taking up too much space",
 				"ultrakill",
@@ -2266,11 +2265,11 @@ SMODS.Joker {
 				"i use vs code for coding",
 				"i use zen for browsing",
 				"i use aseprite for drawing",
-				"hey guys, did you know that in terms of male human and female pokémon breeding, vaporeon is the most compatible pokémon for humans? not only are they in the field egg group, which is mostly comprised of mammals, vaporeon are an average of 3”03' tall and 63.9 pounds, this means they're large enough to be able handle human dicks, and with their impressive base stats for hp and access to acid armor, you can be rough with one. due to their mostly water based biology, there's no doubt in my mind that an aroused vaporeon would be incredibly wet, so wet that you could easily have sex with one for hours without getting sore. they can also learn the moves attract, baby-doll eyes, captivate, charm, and tail whip, along with not having fur to hide nipples, so it'd be incredibly easy for one to get you in the mood. with their abilities water absorb and hydration, they can easily recover from fatigue with enough water. no other pokémon comes close to this level of compatibility. also, fun fact, if you pull out enough, you can make your vaporeon turn white. vaporeon is literally built for human dick. ungodly defense stat+high hp pool+acid armor means it can take cock all day, all shapes and sizes and still come for more.",
+				"hey guys, did you know that in terms of male human and female pokémon breeding, vaporeon is the most compatible pokémon for humans? not only are they in the field egg group, which is mostly comprised of mammals, vaporeon are an average of 3\"03' tall and 63.9 pounds, this means they're large enough to be able handle human dicks, and with their impressive base stats for hp and access to acid armor, you can be rough with one. due to their mostly water based biology, there's no doubt in my mind that an aroused vaporeon would be incredibly wet, so wet that you could easily have sex with one for hours without getting sore. they can also learn the moves attract, baby-doll eyes, captivate, charm, and tail whip, along with not having fur to hide nipples, so it'd be incredibly easy for one to get you in the mood. with their abilities water absorb and hydration, they can easily recover from fatigue with enough water. no other pokémon comes close to this level of compatibility. also, fun fact, if you pull out enough, you can make your vaporeon turn white. vaporeon is literally built for human dick. ungodly defense stat+high hp pool+acid armor means it can take cock all day, all shapes and sizes and still come for more.",
 				"what the smegma",
-				"me (6'1”) when a burglar (balatro reference) tries to steal my feminist literature (6'1” btw)",
+				"me (6'1\") when a burglar (balatro reference) tries to steal my feminist literature (6'1\" btw)",
 				"metal pipe sound effect",
-				"collecting “code = { “glitchkat10” }” like the cuts on my body",
+				"collecting \"code = { \"glitchkat10\" }\" like the cuts on my body",
 				"what the freak bro",
 				"schedule 1 is peam",
 				"this will be PEAM",
@@ -2327,7 +2326,7 @@ SMODS.Joker {
 				"i don't feel like it today tbh",
 				"oops",
 				"that moment when you accidentally delete joker.lua",
-				"font: arial, size: 10, text color: “custom color #f04360, close to light red 1,” highlight color: “ custom color #4c2f4d, close to dark gray 4,” text: “font: arial, size: 10, text color: “custom color #f04360, close to light red 1,” highlight color: “ custom color #4c2f4d, close to dark gray 4,” text: [recursive]”",
+				"font: arial, size: 10, text color: \"custom color #f04360, close to light red 1,\" highlight color: \" custom color #4c2f4d, close to dark gray 4,\" text: \"font: arial, size: 10, text color: \"custom color #f04360, close to light red 1,\" highlight color: \" custom color #4c2f4d, close to dark gray 4,\" text: [recursive]\"",
 				"cryptposting idea document (cid)",
 				"https://docs.google.com/document/d/1toiOWh2qfouhZYUSiBEgHxU91lbzgvMfR46bShg67Qs/edit?usp=sharing",
 				"a collection of the cryptid community's unfunniest shitposts",
