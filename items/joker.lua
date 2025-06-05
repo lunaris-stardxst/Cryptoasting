@@ -334,11 +334,11 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_of_all_trades",
-	config = { extra = { chips = 150, mult = 15, dollars = 5 } },
+	config = { extra = { chips = 150, mult = 15, dollars = 3 } },
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 3, y = 1 },
-	cost = 9,
+	cost = 7,
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
