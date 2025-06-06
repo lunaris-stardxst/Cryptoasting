@@ -73,14 +73,14 @@ SMODS.Back {
 
 SMODS.Back {
 	key = "adult",
-    config = { joker_slot = 1, consumable_slot = 1, hand_size = 1, ante_scaling = 2 },
+    config = { hands = 2, discards = 1, joker_slot = 2, consumable_slot = 1, hand_size = 1, ante_scaling = 3 },
 	atlas = "crp_placeholders",
 	pos = { x = 4, y = 2 },
     loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.joker_slot), lenient_bignum(self.config.consumable_slot), lenient_bignum(self.config.hand_size), lenient_bignum(lenient_bignum(self.config.ante_scaling) * lenient_bignum(100)) } }
+		return { vars = { lenient_bignum(self.config.hands), lenient_bignum(self.config.discards), lenient_bignum(self.config.joker_slot), lenient_bignum(self.config.consumable_slot), lenient_bignum(self.config.hand_size), lenient_bignum(self.config.ante_scaling) * 100 } }
 	end,
 	crp_credits = {
-		idea = { "playeronenotfake" },
+		idea = { "playeronenotfake", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
