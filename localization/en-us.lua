@@ -201,13 +201,6 @@ return {
 					"{X:mult,C:white}Xpi{} Mult",
 				},
 			},
-			j_crp_semicolon = {
-				name = "Semicolon",
-				text = {
-					"Asks {C:attention}really{} nicely for the",
-					"{C:attention}Joker{} to the right to trigger",
-				},
-			},
 			j_crp_weather_machine = {
 				name = "Weather Machine",
 				text = {
@@ -216,6 +209,13 @@ return {
 					"when death prevented",
 					"{C:inactive}(Death prevention active: #2#)",
 					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+				},
+			},
+			j_crp_semicolon = {
+				name = "Semicolon",
+				text = {
+					"Asks {C:attention}really{} nicely for the",
+					"{C:attention}Joker{} to the right to trigger",
 				},
 			},
 			["j_crp_:3"] = {
@@ -255,7 +255,7 @@ return {
 			j_crp_morble = {
 				name = "Morble",
 				text = {
-					"Jokers give {C:white,X:money}^$#1#{} when triggered",
+					"{C:attention}Jokers{} give {C:white,X:money}^$#1#{} when triggered",
 				},
 			},
 			j_crp_room_for_all = {
