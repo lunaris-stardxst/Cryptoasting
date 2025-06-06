@@ -457,6 +457,16 @@ return {
 					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#",
 					"{C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
+			},
+			["j_crp_cryptposting_cross-mod"] = {
+				name = "Cryptposting Cross-Mod",
+				text = {
+					"{C:chips}+#1#{} Chip#<s>1#",
+					"{C:mult}+#2#{} Mult",
+					"{C:white,X:chips}X#3#{} Chip#<s>3#",
+					"{C:white,X:mult}X#4#{} Mult",
+					"{C:white,X:dark_edition}^#5#{} Mult",
+				},
 			}
 		},
 		Spectral =  {
@@ -756,3 +766,4 @@ return {
 		}
 	}
 }
+

@@ -2473,43 +2473,49 @@ SMODS.Joker {
 	}
 }
 --]]
-
---[[ SMODS.Joker {
-	key = "everything_is_fine",
+--[[
+SMODS.Joker {
+	key = "cryptposting_cross-mod",
 	config = {
+		immutable = {
+			chips = 1,
+			mult = 1
+		},
 		extra = {
-			x_chips = 1.27,
-			x_mult = 1.98,
-			e_mult = 1.1,
-			bulgoe = 270,
+			Xchips = 1.27,
+			Xmult = 1.98,
+			Emult = 1.1,
+			bulgoe = 27,
 		}
 	},
 	rarity = 4,
 	atlas = "crp_jokers",
-	pos = { x = 1, y = 6 },
-	soul_pos = { x = 3, y = 6, extra = { x = 2, y = 6 } },
+	pos = { x = 0, y = 0 },
 	cost = 20,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.x_chips), lenient_bignum(card.ability.extra.x_mult), lenient_bignum(card.ability.extra.e_mult), lenient_bignum(card.ability.extra.bulgoe) } }
+		return { vars = { card.ability.immutable.chips, card.ability.immutable.mult, tostring(card.ability.extra.Xchips), tostring(card.ability.extra.Xmult), card.ability.extra.Emult, card.ability.extra.bulgoe } }
 	end,
 	calculate = function(self, card, context)
-		-- Main or forced trigger logic
 		if context.joker_main or context.forcetrigger then
 			return {
-				chips = 1,
-				mult = 1,
-				Xchips = lenient_bignum(card.ability.extra.x_chips),
-				Xmult = lenient_bignum(card.ability.extra.x_mult),
-				message = localize({
-					type = "variable",
-					key = "a_powmult",
-					vars = {
-						number_format(card.ability.extra.e_mult),
-					},
-				}),
-				Emult_mod = lenient_bignum(card.ability.extra.e_mult),
-				colour = G.C.DARK_EDITION,
+				chips = card.ability.immutable.chips,
+				extra = {
+					mult = card.ability.immutable.mult,
+					extra = {
+						Xchips_mod = card.ability.extra.Xchips,
+						message = "X" .. card.ability.extra.Xchips,
+						colour = G.C.CHIPS,
+						extra = {
+							Xmult = card.ability.extra.Xmult,
+							extra = {
+								Emult_mod = card.ability.extra.Emult,
+								message = "^" .. card.ability.extra.Emult .. " Mult",
+								colour = G.C.DARK_EDITION,
+							}
+						}
+					}
+				}
 			}
 		end
 		if context.other_joker and context.other_joker.ability.set == "Joker" then
@@ -2528,7 +2534,7 @@ SMODS.Joker {
 						key = "a_chips",
 						vars = { number_format(card.ability.extra.bulgoe) },
 					}),
-					chip_mod = lenient_bignum(card.ability.extraa.bulgoe),
+					chip_mod = card.ability.extra.bulgoe,
 				}
 			end
 		end
@@ -2537,7 +2543,7 @@ SMODS.Joker {
 		idea = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
-} --]]
+} ]]--
 
 ----------------------------------------------
 ------------MOD CODE END----------------------

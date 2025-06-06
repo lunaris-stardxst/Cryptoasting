@@ -126,6 +126,46 @@ SMODS.Tag {
 		code = { "Glitchkat10" }
 	}
 }
+--[[
+SMODS.Tag {
+	key = "mythic_tag",
+	atlas = "crp_tags",
+	pos = { x = 7, y = 0 },
+	min_ante = 5,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_mythic" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_mythic > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_mythic", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.crp_mythic, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 4
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "Glitchkat10" },
+		code = { "Glitchkat10" }
+	}
+} ]]--
 
 SMODS.Tag {
 	key = "better_better_top-up_tag",
@@ -428,7 +468,7 @@ SMODS.Tag {
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
-		art = { "aqrlr" },
+		art = { "aqrlr", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -614,42 +654,7 @@ SMODS.Tag {
 			tag.triggered = true
 			return card
 		end
-	end,
-
-	SMODS.Tag {
-	key = "mythic_tag",
-	atlas = "crp_tags",
-	pos = { x = 8, y = 0 },
-	min_ante = 5,
-	config = { type = "store_joker_create" },
-	apply = function(self, tag, context)
-		if context.type == "store_joker_create" then
-			local rares_in_posession = { 0 }
-			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_mythic" and not rares_in_posession[v.config.center.key] then
-					rares_in_posession[1] = rares_in_posession[1] + 1
-					rares_in_posession[v.config.center.key] = true
-				end
-			end
-			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_m > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_mythic", nil, nil, nil, "cry_eta")
-				create_shop_card_ui(card, "Joker", context.area)
-				card.states.visible = false
-				tag:yep("+", G.C.RARITY.crp_mythic, function()
-					card:start_materialize()
-					card.misprint_cost_fac = 0
-					card:set_cost()
-					return true
-				end)
-			else
-				tag:nope()
-			end
-			tag.triggered = true
-			return card
-		end
-	end,
-} ]]--
+	end, ]]--
 
 --[[
 SMODS.Tag {
