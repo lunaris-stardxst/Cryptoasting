@@ -1734,8 +1734,8 @@ SMODS.Joker {
 	key = "gamblecore",
 	config = { immutable = { numerator = 1, denominator = 255, mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368 } },
 	rarity = 2,
-	atlas = "crp_placeholders",
-	pos = { x = 3, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 9, y = 0 },
 	cost = 5,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1763,6 +1763,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "Wily Joker", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }

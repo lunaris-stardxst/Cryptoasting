@@ -466,9 +466,194 @@ SMODS.Tag {
 		code = { "Glitchkat10" }
 	}
 }
+
+--[[ SMODS.Tag {
+	key = "uncommon_2_tag",
+	atlas = "crp_tags",
+	pos = { x = 3, y = 0 },
+	min_ante = 0,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_uncommon_2" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_uncommon_2 > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_uncommon_2", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.Uncommon, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 0
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "lord.ruby" },
+		code = { "lord.ruby" }
+	}
+}
+
+SMODS.Tag {
+	key = "rare_2_tag",
+	atlas = "crp_tags",
+	pos = { x = 4, y = 0 },
+	min_ante = 0,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_rare_2" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_rare_2 > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_rare_2", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.Rare, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 0
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		art = { "lord.ruby"},
+		code = { "lord.ruby" }
+	}
+}
+
+ --[[ SMODS.Tag {
+	key = "awesome_tag",
+	atlas = "crp_tags",
+	pos = { x = 5, y = 0 },
+	min_ante = 0,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_awesome" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_awesome > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_awesome", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.crp_awesome, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 0.5
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+}
+
+SMODS.Tag {
+	key = "m_tag",
+	atlas = "crp_tags",
+	pos = { x = 6, y = 0 },
+	min_ante = 0,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_m" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_m > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_m", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.cry_exotic, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 0
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+
+	SMODS.Tag {
+	key = "mythic_tag",
+	atlas = "crp_tags",
+	pos = { x = 8, y = 0 },
+	min_ante = 5,
+	config = { type = "store_joker_create" },
+	apply = function(self, tag, context)
+		if context.type == "store_joker_create" then
+			local rares_in_posession = { 0 }
+			for k, v in ipairs(G.jokers.cards) do
+				if v.config.center.rarity == "crp_mythic" and not rares_in_posession[v.config.center.key] then
+					rares_in_posession[1] = rares_in_posession[1] + 1
+					rares_in_posession[v.config.center.key] = true
+				end
+			end
+			local card
+			if #G.P_JOKER_RARITY_POOLS.crp_m > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_mythic", nil, nil, nil, "cry_eta")
+				create_shop_card_ui(card, "Joker", context.area)
+				card.states.visible = false
+				tag:yep("+", G.C.RARITY.crp_mythic, function()
+					card:start_materialize()
+					card.misprint_cost_fac = 0
+					card:set_cost()
+					return true
+				end)
+			else
+				tag:nope()
+			end
+			tag.triggered = true
+			return card
+		end
+	end,
+} ]]--
+
 --[[
 SMODS.Tag {
-    key = "worsex2topuptag",
+    key = "worse_worse_top-up_tag",
     atlas = "crp_tags",
     pos = {
         x = 5,
@@ -672,152 +857,3 @@ SMODS.Tag {
     end
 }
 ]]-- op tag commentation ends here
---[[ SMODS.Tag {
-	key = "uncommon_2_tag",
-	atlas = "crp_tags",
-	pos = { x = 3, y = 0 },
-	min_ante = 0,
-	config = { type = "store_joker_create" },
-	apply = function(self, tag, context)
-		if context.type == "store_joker_create" then
-			local rares_in_posession = { 0 }
-			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_uncommon_2" and not rares_in_posession[v.config.center.key] then
-					rares_in_posession[1] = rares_in_posession[1] + 1
-					rares_in_posession[v.config.center.key] = true
-				end
-			end
-			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_uncommon_2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_uncommon_2", nil, nil, nil, "cry_eta")
-				create_shop_card_ui(card, "Joker", context.area)
-				card.states.visible = false
-				tag:yep("+", G.C.RARITY.Uncommon, function()
-					card:start_materialize()
-					card.misprint_cost_fac = 0
-					card:set_cost()
-					return true
-				end)
-			else
-				tag:nope()
-			end
-			tag.triggered = true
-			return card
-		end
-	end,
-	crp_credits = {
-		idea = { "Unknown" },
-		art = { "lord.ruby" },
-		code = { "lord.ruby" }
-	}
-}
-
-SMODS.Tag {
-	key = "rare_2_tag",
-	atlas = "crp_tags",
-	pos = { x = 4, y = 0 },
-	min_ante = 0,
-	config = { type = "store_joker_create" },
-	apply = function(self, tag, context)
-		if context.type == "store_joker_create" then
-			local rares_in_posession = { 0 }
-			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_rare_2" and not rares_in_posession[v.config.center.key] then
-					rares_in_posession[1] = rares_in_posession[1] + 1
-					rares_in_posession[v.config.center.key] = true
-				end
-			end
-			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_rare_2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_rare_2", nil, nil, nil, "cry_eta")
-				create_shop_card_ui(card, "Joker", context.area)
-				card.states.visible = false
-				tag:yep("+", G.C.RARITY.Rare, function()
-					card:start_materialize()
-					card.misprint_cost_fac = 0
-					card:set_cost()
-					return true
-				end)
-			else
-				tag:nope()
-			end
-			tag.triggered = true
-			return card
-		end
-	end,
-	crp_credits = {
-		idea = { "Unknown" },
-		art = { "lord.ruby"},
-		code = { "lord.ruby" }
-	}
-}
-
- --[[ SMODS.Tag {
-	key = "awesome_tag",
-	atlas = "crp_tags",
-	pos = { x = 5, y = 0 },
-	min_ante = 0,
-	config = { type = "store_joker_create" },
-	apply = function(self, tag, context)
-		if context.type == "store_joker_create" then
-			local rares_in_posession = { 0 }
-			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_awesome" and not rares_in_posession[v.config.center.key] then
-					rares_in_posession[1] = rares_in_posession[1] + 1
-					rares_in_posession[v.config.center.key] = true
-				end
-			end
-			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_awesome > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_awesome", nil, nil, nil, "cry_eta")
-				create_shop_card_ui(card, "Joker", context.area)
-				card.states.visible = false
-				tag:yep("+", G.C.RARITY.crp_awesome, function()
-					card:start_materialize()
-					card.misprint_cost_fac = 0.5
-					card:set_cost()
-					return true
-				end)
-			else
-				tag:nope()
-			end
-			tag.triggered = true
-			return card
-		end
-	end,
-}
-
-SMODS.Tag {
-	key = "m_tag",
-	atlas = "crp_tags",
-	pos = { x = 6, y = 0 },
-	min_ante = 0,
-	config = { type = "store_joker_create" },
-	apply = function(self, tag, context)
-		if context.type == "store_joker_create" then
-			local rares_in_posession = { 0 }
-			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_m" and not rares_in_posession[v.config.center.key] then
-					rares_in_posession[1] = rares_in_posession[1] + 1
-					rares_in_posession[v.config.center.key] = true
-				end
-			end
-			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_m > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_m", nil, nil, nil, "cry_eta")
-				create_shop_card_ui(card, "Joker", context.area)
-				card.states.visible = false
-				tag:yep("+", G.C.RARITY.cry_exotic, function()
-					card:start_materialize()
-					card.misprint_cost_fac = 0
-					card:set_cost()
-					return true
-				end)
-			else
-				tag:nope()
-			end
-			tag.triggered = true
-			return card
-		end
-	end,
-} ]]--
