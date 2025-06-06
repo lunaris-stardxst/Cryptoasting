@@ -530,7 +530,7 @@ return {
 				name = "Adult Deck",
 				text = {
 					"{C:blue}+#1#{} hand#<s>1#, {C:red}+#2#{} discard#<s>2#",
-					"{C:attention}+#3#{} {C:attention}Joker{} slot#<s>3#, {C:attention}+#4#{} {C:attention}consumable{} slot#<s>4#",
+					"{C:attention}+#3# Joker{} slot#<s>3#, {C:attention}+#4#{} {C:attention}consumable{} slot#<s>4#",
 					"{C:attention}+#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
 				}
