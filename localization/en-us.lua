@@ -398,8 +398,8 @@ return {
 			j_crp_underflow = {
 				name = "Underflow",
 				text = {
-					"{C:white,X:dark_edition}^#1#{} Mult",
-					"Decreases by {C:white,X:dark_edition}^#2#{} Mult",
+					"{C:white,X:mult}X#1#{} Mult",
+					"Decreases by {C:white,X:mult}X#2#{} Mult",
 					"at end of round",
 				},
 			},
