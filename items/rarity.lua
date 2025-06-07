@@ -158,16 +158,19 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "mythic",
 	badge_colour = mythic_gradient,
+	pools = { ["Joker"] = true }
 })
 
 SMODS.Rarity({
 	key = "exotic_2",
 	badge_colour = m,
+	pools = { ["Joker"] = true }
 })
 
 SMODS.Rarity({
 	key = "exomythic",
 	badge_colour = exomythic_gradient,
+	pools = { ["Joker"] = true }
 })
 
 SMODS.Rarity({

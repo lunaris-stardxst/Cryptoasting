@@ -126,7 +126,7 @@ SMODS.Tag {
 		code = { "Glitchkat10" }
 	}
 }
---[[
+
 SMODS.Tag {
 	key = "mythic_tag",
 	atlas = "crp_tags",
@@ -147,7 +147,7 @@ SMODS.Tag {
 				card = create_card("Joker", context.area, nil, "crp_mythic", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
-				tag:yep("+", G.C.RARITY.crp_mythic, function()
+				tag:yep("+", HEX("ffb300"), function()
 					card:start_materialize()
 					card.misprint_cost_fac = 4
 					card:set_cost()
@@ -165,7 +165,7 @@ SMODS.Tag {
 		art = { "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
-} ]]--
+}
 
 SMODS.Tag {
 	key = "better_better_top-up_tag",
