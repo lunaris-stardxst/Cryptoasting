@@ -496,6 +496,27 @@ return {
 					"bypassing {C:red}all effects{}"
 				}
 			},
+			c_crp_happiness = {
+				name = "Happiness",
+				text = {
+					"Apply {C:attention, T:e_polychrome}Polychrome{}",
+					"to all {C:attention}cards in hand{}"
+				}
+			},
+			c_crp_sadness = {
+				name = "Sadness",
+				text = {
+					"Apply {C:attention, T:e_foil}Foil{}",
+					"to all {C:attention}cards in hand{}"
+				}
+			},
+			c_crp_neutrality = {
+				name = "Neutrality",
+				text = {
+					"Apply {C:attention, T:e_holo}Holographic{}",
+					"to all {C:attention}cards in hand{}"
+				}
+			},
 			c_crp_reckoning = {
 				name = "Reckoning",
 				text = {
@@ -508,6 +529,15 @@ return {
 				text = {
 					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
 					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
+				}
+			}
+		},
+		Tarot = {
+			c_crp_prospect = {
+				name = "Wheel of Prospect",
+				text = {
+					"{C:green}#1# in #2# chance{} to generate a",
+					"random {C:attention}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}"
 				}
 			}
 		},
@@ -549,6 +579,20 @@ return {
 					"{C:attention}+#3# Joker{} slot#<s>3#, {C:attention}+#4#{} {C:attention}consumable{} slot#<s>4#",
 					"{C:attention}+#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
+				}
+			},
+			b_crp_brown = {
+				name = "Brown Deck",
+				text = {
+					"{C:blue}-#1#{} hand",
+					"{C:attention}+#2#{} card selection limit"
+				}
+			},
+			b_crp_creativemode = {
+				name = "Creative Mode Deck",
+				text = {
+					"Start with",
+					"1 {C:attention,T:c_cry_pointer}Pointer{}"
 				}
 			}
 		},
