@@ -496,6 +496,20 @@ return {
 					"bypassing {C:red}all effects{}"
 				}
 			},
+			c_crp_reckoning = {
+				name = "Reckoning",
+				text = {
+					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
+				}
+			},
+			c_crp_poltergeist = {
+				name = "Poltergeist",
+				text = {
+					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
+				}
+			},
 			c_crp_happiness = {
 				name = "Happiness",
 				text = {
@@ -515,29 +529,6 @@ return {
 				text = {
 					"Apply {C:attention, T:e_holo}Holographic{}",
 					"to all {C:attention}cards in hand{}"
-				}
-			},
-			c_crp_reckoning = {
-				name = "Reckoning",
-				text = {
-					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
-				}
-			},
-			c_crp_poltergeist = {
-				name = "Poltergeist",
-				text = {
-					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
-				}
-			}
-		},
-		Tarot = {
-			c_crp_prospect = {
-				name = "Wheel of Prospect",
-				text = {
-					"{C:green}#1# in #2# chance{} to generate a",
-					"random {C:attention}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}"
 				}
 			}
 		},
@@ -593,6 +584,15 @@ return {
 				text = {
 					"Start with",
 					"1 {C:attention,T:c_cry_pointer}Pointer{}"
+				}
+			}
+		},
+		Tarot = {
+			c_crp_prospect = {
+				name = "Wheel of Prospect",
+				text = {
+					"{C:green}#1# in #2# chance{} to generate a",
+					"random {C:attention}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}"
 				}
 			}
 		},
