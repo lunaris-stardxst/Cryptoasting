@@ -69,7 +69,7 @@ local exomythicepicawesomeuncommon2mexotic22exomythic4mecipe_gradient = SMODS.Gr
 		HEX("ffff00"),
 		HEX("ef0098")
 	},
-	cycle = 2 -- i have no idea why this isn't affecting the speed rn
+	cycle = 2
 })
 
 local hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient = SMODS.Gradient({
@@ -187,11 +187,6 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "cryptastic",
 	badge_colour = m,
-})
-
-SMODS.Rarity({
-	key = "exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
-	badge_colour = exomythic_gradient,
 })
 
 SMODS.Rarity({

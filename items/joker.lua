@@ -1375,7 +1375,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "heptation_henry",
-	config = { extra = { hypermult = 1.1 } },
+	config = { immutable = { arrows = 7 }, extra = { hypermult = 1.1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholders",
 	pos = { x = 9, y = 0 },
@@ -1384,16 +1384,16 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { "{", "}", lenient_bignum(card.ability.extra.hypermult) } }
+		return { vars = { lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				hypermult_mod = {
-					5, 
+					lenient_bignum(card.ability.immutable.arrows),
 					lenient_bignum(card.ability.extra.hypermult)
 				},
-				message = "{5}" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
+				message = "^^^^^" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
@@ -2429,6 +2429,33 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "septingentiquinvigintation_stevie",
+	config = { immutable = { arrows = 723 }, extra = { mantissa = 1e111, placebo = 1.1 } },
+	rarity = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
+	atlas = "crp_placeholders",
+	pos = { x = 12, y = 0 },
+	cost = 1600,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.placebo) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				hypermult_mod = {lenient_bignum(card.ability.immutable.arrows), lenient_bignum(card.ability.extra.mantissa)},
+				message = "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" .. lenient_bignum(card.ability.extra.placebo) .. " Mult",
+				colour = G.C.EDITION
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Glitchkat10" }
+	}
+}
 --[[
  SMODS.Joker {
 	key = "shit",
@@ -2465,77 +2492,5 @@ SMODS.Joker {
 	}
 }
 --]]
---[[
-SMODS.Joker {
-	key = "cryptposting_cross-mod",
-	config = {
-		immutable = {
-			chips = 1,
-			mult = 1
-		},
-		extra = {
-			Xchips = 1.27,
-			Xmult = 1.98,
-			Emult = 1.1,
-			bulgoe = 27,
-		}
-	},
-	rarity = 4,
-	atlas = "crp_jokers",
-	pos = { x = 0, y = 0 },
-	cost = 20,
-	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.immutable.chips, card.ability.immutable.mult, tostring(card.ability.extra.Xchips), tostring(card.ability.extra.Xmult), card.ability.extra.Emult, card.ability.extra.bulgoe } }
-	end,
-	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
-			return {
-				chips = card.ability.immutable.chips,
-				extra = {
-					mult = card.ability.immutable.mult,
-					extra = {
-						Xchips_mod = card.ability.extra.Xchips,
-						message = "X" .. card.ability.extra.Xchips,
-						colour = G.C.CHIPS,
-						extra = {
-							Xmult = card.ability.extra.Xmult,
-							extra = {
-								Emult_mod = card.ability.extra.Emult,
-								message = "^" .. card.ability.extra.Emult .. " Mult",
-								colour = G.C.DARK_EDITION,
-							}
-						}
-					}
-				}
-			}
-		end
-		if context.other_joker and context.other_joker.ability.set == "Joker" then
-			if context.other_joker.config.center.key == "crp_bulgoe" then
-				if not Talisman.config_file.disable_anims then
-					G.E_MANAGER:add_event(Event({
-						func = function()
-							context.other_joker:juice_up(0.5, 0.5)
-							return true
-						end,
-					}))
-				end
-				return {
-					message = localize({
-						type = "variable",
-						key = "a_chips",
-						vars = { number_format(card.ability.extra.bulgoe) },
-					}),
-					chip_mod = card.ability.extra.bulgoe,
-				}
-			end
-		end
-	end,
-	crp_credits = {
-		idea = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
-} ]]--
-
 ----------------------------------------------
 ------------MOD CODE END----------------------

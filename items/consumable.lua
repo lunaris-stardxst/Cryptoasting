@@ -174,3 +174,118 @@ SMODS.Consumable {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Consumable {
+	key = "reckoning",
+	set = "Spectral",
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
+	cost = 120,
+	unlocked = true,
+	discovered = true,
+	atlas = "crp_consumables",
+	hidden = true,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0.4,
+			func = function()
+				if pseudorandom("crp_reckoning") < 0.27 then
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+						attention_text({
+							text = localize('k_nope_ex'),
+							scale = 1.3, 
+							hold = 1.4,
+							major = card,
+							backdrop_colour = G.C.SECONDARY_SET.Tarot,
+							align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+							offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
+							silent = true
+						})
+						G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
+							play_sound('tarot2', 0.76, 0.4)
+							delay(3);return true end}))
+						play_sound('tarot2', 1, 0.4)
+						card:juice_up(0.3, 0.5)
+						return true 
+					end}))
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 5, func = function()
+						delay(0.5)
+						G.STATE = G.STATES.GAME_OVER
+						G.STATE_COMPLETE = false
+						return true 
+					end}))
+					return true
+				end
+				play_sound("timpani")
+				local card = create_card("Joker", G.jokers, nil, "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe", nil, nil, nil, "crp_reckoning")
+				card:add_to_deck()
+				G.jokers:emplace(card)
+				card:juice_up(0.3, 0.5)
+				return true
+			end,
+		}))
+		delay(0.6)
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		custom = { key = "placeholder", text = "MarioFan597" },
+		code = { "Glitchkat10" }
+	}
+}
+--[[
+SMODS.Consumable {
+	key = "poltergeist",
+	set = "Spectral",
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
+	cost = 120,
+	unlocked = true,
+	discovered = true,
+	atlas = "crp_consumables",
+	use = function(self, card, area, copier)
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0.4,
+			func = function()
+				if pseudorandom("crp_poltergeist") < 0.98 then
+					attention_text({
+						text = localize('k_nope_ex'),
+						scale = 1.3, 
+						hold = 1.4,
+						major = card,
+						backdrop_colour = G.C.SECONDARY_SET.Tarot,
+						align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+						offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
+						silent = true
+					})
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
+						play_sound('tarot2', 0.76, 0.4)
+						delay(3);return true end}))
+					play_sound('tarot2', 1, 0.4)
+					card:juice_up(0.3, 0.5)
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.5, func = function()
+						-- This will cause a crash by trying to access a nil value
+						local crash = nil
+						crash.nonexistent = true
+						return true
+					end}))
+					return true
+				end
+				play_sound("timpani")
+				local card = create_card("Joker", G.jokers, nil, "crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe", nil, nil, nil, "crp_poltergeist")
+				card:add_to_deck()
+				G.jokers:emplace(card)
+				card:juice_up(0.3, 0.5)
+				return true
+			end
+		}))
+	end,
+	can_use = function(self, card)
+		return true
+	end
+}
+]]--

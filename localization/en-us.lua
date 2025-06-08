@@ -181,7 +181,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:dark_edition,X:edition}#1#Twenty-five thousand#2#one{} Mult",
+					"{C:dark_edition,X:edition}#1#Twenty-five thousand #2#one{} Mult",
 				},
 			},
 			j_crp_quetta_m = {
@@ -243,13 +243,13 @@ return {
 					"{C:cry_exotic}Exotic{} Jokers each give",
 					"{X:edition,C:dark_edition}^^^#1#{} Mult when triggered,",
 					"create a random {C:dark_edition}Negative{} {C:cry_exotic}Exotic{}",
-					"{C:attention}Joker at the end of shop",
+					"{C:attention}Joker{} at the end of shop",
 				},
 			},
 			j_crp_heptation_henry = {
 				name = "heptation henry",
 				text = {
-					"{C:dark_edition,X:edition}#1#5#2##3#{} Mult",
+					"{C:dark_edition,X:edition}^^^^^#1#{} Mult",
 				},
 			},
 			j_crp_morble = {
@@ -261,7 +261,7 @@ return {
 			j_crp_room_for_all = {
 				name = "Room For All",
 				text = {
-					"{C:attention}+#1#{} hand siz#<s>1#, {C:attention}Joker{} slot#<s>1#,",
+					"{C:attention}+#1#{} hand size, {C:attention}Joker{} slot#<s>1#,",
 					"and {C:attention}consumable{} slot#<s>1#"
 				},
 			},
@@ -458,16 +458,18 @@ return {
 					"{C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
 			},
-			["j_crp_cryptposting_cross-mod"] = {
-				name = "Cryptposting Cross-Mod",
+			j_crp_septingentiquinvigintation_stevie = {
+				name = "septingentiquinvigintation stevie",
 				text = {
-					"{C:chips}+#1#{} Chip#<s>1#",
-					"{C:mult}+#2#{} Mult",
-					"{C:white,X:chips}X#3#{} Chip#<s>3#",
-					"{C:white,X:mult}X#4#{} Mult",
-					"{C:white,X:dark_edition}^#5#{} Mult",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#1#{} Mult",
 				},
-			}
+			},
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -492,6 +494,20 @@ return {
 					"Create a {C:crp_2exomythic4me}2ExoMythic4me{} {C:attention}Joker{},",
 					"{C:red}destroy{} all other {C:attention}items{},",
 					"bypassing {C:red}all effects{}"
+				}
+			},
+			c_crp_reckoning = {
+				name = "Reckoning",
+				text = {
+					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
+				}
+			},
+			c_crp_poltergeist = {
+				name = "Poltergeist",
+				text = {
+					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
 				}
 			}
 		},
