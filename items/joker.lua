@@ -1344,7 +1344,7 @@ SMODS.Joker {
 	config = { extra = { EEEmult = 1.13 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholders",
-	pos = { x = 10, y = 0 },
+	pos = { x = 11, y = 0 },
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 400,
 	blueprint_compat = true,
@@ -2456,6 +2456,7 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
 --[[
  SMODS.Joker {
 	key = "shit",
@@ -2492,5 +2493,59 @@ SMODS.Joker {
 	}
 }
 --]]
+
+-- god help us all
+local function get_numeric(val)
+    if type(val) == "number" then
+        return val
+    elseif type(val) == "table" then
+        if val.value then
+            return tonumber(val.value) or math.huge
+        elseif val.toNumber then
+            return val:toNumber()
+        elseif val[1] then
+            return tonumber(val[1]) or math.huge
+        end
+        return math.huge
+    else
+        return 0
+    end
+end -- yeah idk why i made this
+
+SMODS.Joker {
+    key = "love_is_not_in_the_air",
+    config = { extra = { dollars = 25 } },
+    rarity = 2,
+    atlas = "crp_placeholders",
+    pos = { x = 3, y = 0 },
+    cost = 6,
+    blueprint_compat = true,
+    demicolon_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars } }
+    end,
+    calculate = function(self, card, context)
+        if (context.joker_main) or context.forcetrigger then
+            local hand = G.GAME.current_round.current_hand
+            local hand_score = get_numeric(hand.chips) * get_numeric(hand.mult)
+            local blind = get_numeric(G.GAME.blind.chips)
+            print("hand_score:", hand_score, "blind:", blind)
+            if hand_score >= blind then
+                ease_dollars(card.ability.extra.dollars)
+                return {
+                    message = "$" .. card.ability.extra.dollars,
+                    colour = G.C.MONEY,
+                }
+            else
+                G.GAME.chips = math.huge
+                return {
+                    message = "WRONG!",
+                    mult_mod = 0,
+                    colour = G.C.DARK_EDITION,
+                }
+            end
+        end
+    end,
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------

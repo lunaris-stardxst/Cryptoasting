@@ -168,7 +168,7 @@ return {
 				name = "Infinitum",
 				text = {
 					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
-					"where {C:attention}X{} is their position in their {C:attention}card area{}"
+					"where {C:dark_edition,X:edition}X{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_joker_0 = {
@@ -500,16 +500,24 @@ return {
 				name = "Reckoning",
 				text = {
 					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
+					"{C:green}27%{} chance to instantly {C:red}lose{} the game instead"
+				}
+			},
+			c_crp_path_of_solstice = {
+				name = "Path of Solstice",
+				text = {
+					"Create a {C:crp_22exomythic4meCipe}22ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:red}destroy{} all other {C:attention}items{}, bypassing {C:red}all effects{}, and",
+					"reset deck to a standard {C:attention}52{} card deck"
 				}
 			},
 			c_crp_poltergeist = {
 				name = "Poltergeist",
 				text = {
 					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
+					"\"No downside whatsoever\""
 				}
-			}
+			},
 		},
 		Back = {
 			b_crp_cyan = {
