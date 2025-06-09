@@ -198,10 +198,6 @@ SMODS.Consumable{
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
-	crp_credits = {
-		idea = {"Unknown"},
-		code = {"ScarredOut"}
-	},
 	atlas = "crp_placeholders",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
@@ -221,17 +217,53 @@ SMODS.Consumable{
                 end
             }))
         end
-	end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "ScarredOut" }
+	},
 }
+
+SMODS.Consumable {
+    key = "sadness",
+    set = "Spectral",
+    unlocked = true,
+    discovered = true,
+    atlas = "crp_placeholders",
+    pos = {
+        x = 2,
+        y = 2
+    },
+    can_use = function(self, card)
+        if G.hand.cards and #G.hand.cards > 0 then
+            return true
+        else
+            return false
+        end
+    end,
+    use = function(self, card, area)
+        for i = 1, #G.hand.cards do
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local selectcard = G.hand.cards[i]
+                    selectcard:set_edition("e_foil")
+                    return true
+                end
+            }))
+        end
+    end,
+    crp_credits = {
+        idea = { "Unknown" },
+        code = { "ScarredOut" }
+    }
+}
+
+
 SMODS.Consumable{
 	key = "neutrality",
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
-	crp_credits = {
-		idea = {"Unknown"},
-		code = {"ScarredOut"}
-	},
 	atlas = "crp_placeholders",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
@@ -251,59 +283,21 @@ SMODS.Consumable{
                 end
             }))
         end
-	end
-}
-SMODS.Consumable{
-	key = "sadness",
-	set = "Spectral",
-	unlocked = true,
-	discovered = true,
-	crp_credits = {
-		idea = {"Unknown"},
-		code = {"ScarredOut"}
-	},
-	atlas = "crp_placeholders",
-	pos = { x = 2, y = 2 },
-	can_use = function(self, card)
-		if G.hand.cards and #G.hand.cards > 0 then
-			return true
-		else
-			return false
-		end
 	end,
-	use = function(self, card, area)
-		 for i = 1, #G.hand.cards do
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    local selectcard = G.hand.cards[i]
-                    selectcard:set_edition("e_foil")
-                    return true
-                end
-            }))
-        end
-	end
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "ScarredOut" }
+	},
 }
+
 SMODS.Consumable{
 	key = "prospect",
 	set = "Tarot",
 	unlocked = true,
 	discovered = true,
-	crp_credits = {
-		idea = {"aqrlr"},
-		code = {"ScarredOut"}
-	},
-	config = {
-		extra = {
-			odds = 10
-		}
-	},
+	config = { extra = { odds = 10 } },
 	loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                G.GAME.probabilities.normal,
-                card.ability.extra.odds
-            }
-        }
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
     end,
 	atlas = "crp_placeholders",
 	pos = { x = 1, y = 2 },
@@ -338,7 +332,11 @@ SMODS.Consumable{
             return true
 			end }))
 		end
-	end
+	end,
+	crp_credits = {
+		idea = { "aqrlr" },
+		code = { "ScarredOut" }
+	},
 }
 
 local function createfulldeck(enhancement, edition, amount, emplacement)

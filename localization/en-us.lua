@@ -506,7 +506,7 @@ return {
 			c_crp_path_of_solstice = {
 				name = "Path of Solstice",
 				text = {
-					"Create a {C:crp_22exomythic4meCipe}22ExoMythic4meCipe{} {C:attention}Joker{},",
+					"Create a {C:crp_22exomythic4mecipe}22ExoMythic4meCipe{} {C:attention}Joker{},",
 					"{C:red}destroy{} all other {C:attention}items{}, bypassing {C:red}all effects{}, and",
 					"reset deck to a standard {C:attention}52{} card deck"
 				}
@@ -591,7 +591,7 @@ return {
 				name = "Creative Mode Deck",
 				text = {
 					"Start with",
-					"1 {C:attention,T:c_cry_pointer}Pointer{}"
+					"{C:attention}1 {C:spectral}Pointer{}"
 				}
 			}
 		},
@@ -599,8 +599,9 @@ return {
 			c_crp_prospect = {
 				name = "Wheel of Prospect",
 				text = {
-					"{C:green}#1# in #2# chance{} to generate a",
-					"random {C:attention}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}"
+					"{C:green}#1# in #2# chance{} to create a",
+					"random {C:dark_edition}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}",
+					"{C:inactive}(Does not require room)"
 				}
 			}
 		},

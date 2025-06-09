@@ -28,6 +28,40 @@ SMODS.Back {
 }
 
 SMODS.Back {
+    key = "brown",
+    config = {
+        hands = -1,
+        cardselectionlimit = 2
+    },
+    loc_vars = function(self, info_queue)
+        return { vars = { lenient_bignum(self.config.hands) * -1, lenient_bignum(self.config.cardselectionlimit)} }
+    end,
+    apply = function(self, back)
+        -- add card selection effect
+        G.E_MANAGER:add_event(Event(
+            { -- i'm not sure why you have to put this in an event to function but it crashes without this (thanks cryptid infinite deck)
+                trigger = "after",
+                delay = 0.5,
+                func = function()
+                    SMODS.change_play_limit(self.config.cardselectionlimit)
+                    SMODS.change_discard_limit(self.config.cardselectionlimit)
+                    return true
+                end
+            }))
+    end,
+    atlas = "crp_decks",
+    pos = {
+        x = 3,
+        y = 0
+    },
+    crp_credits = {
+        idea = {"Poker the Poker"},
+        art = {"GudUsername"},
+        code = {"ScarredOut"}
+    }
+}
+
+SMODS.Back {
 	key = "gray",
 	config = { vouchers = { "v_seed_money", "v_money_tree" }, dollars = -4 },
 	atlas = "crp_decks",
@@ -58,6 +92,20 @@ SMODS.Back {
 }
 
 SMODS.Back {
+    key = "creativemode",
+    config = { consumables = { "c_cry_pointer" } },
+    loc_vars = function(self, info_queue)
+        -- info_queue[#info_queue+1] = G.P_CENTERS.c_cry_pointer
+    end,
+    atlas = "crp_placeholders",
+    pos = { x = 4, y = 2 },
+    crp_credits = {
+        idea = { "Psychomaniac14", "Glitchkat10" },
+        code = { "ScarredOut" }
+    }
+}
+
+SMODS.Back {
 	key = "kiddie",
     config = { hands = -2, discards = -1, joker_slot = -2, consumable_slot = -1, hand_size = -1, ante_scaling = 0.3 },
 	atlas = "crp_placeholders",
@@ -82,56 +130,5 @@ SMODS.Back {
 	crp_credits = {
 		idea = { "playeronenotfake", "Glitchkat10" },
 		code = { "Glitchkat10" }
-	}
-}
-SMODS.Back {
-	key = "brown",
-	config = {
-		hands = -1,
-		cardselectionlimit = 2
-	},
-	loc_vars = function(self, info_queue)
-		return {
-			vars = { -- i have no idea why these are wrapped in lenient_bignum but since talisman messes with so much its better to have it than not
-				lenient_bignum(self.config.hands) * -1,
-				lenient_bignum(self.config.cardselectionlimit)
-			}
-		}
-	end,
-	apply = function(self,back)
-		-- add card selection effect
-		G.E_MANAGER:add_event(Event({ -- i'm not sure why you have to put this in an event to function but it crashes without this (thanks cryptid infinite deck)
-			trigger = "after",
-			delay = 0.5,
-			func = function()
-				SMODS.change_play_limit(self.config.cardselectionlimit)
-				SMODS.change_discard_limit(self.config.cardselectionlimit)
-				return true
-			end,
-		}))
-	end,
-	atlas = "crp_decks",
-	pos = { x = 3, y = 0 },
-	crp_credits = {
-		idea = {"Poker the Poker"},
-		art = {"GudUsername"},
-		code = {"ScarredOut"}
-	}
-}
-SMODS.Back {
-	key = "creativemode",
-	config = { -- note: technically it's not negative but eh
-		consumables = {
-			"c_cry_pointer"
-		}
-	},
-	loc_vars = function(self, info_queue)
-		--info_queue[#info_queue+1] = G.P_CENTERS.c_cry_pointer
-	end,
-	atlas = "crp_placeholders",
-	pos = { x = 4, y = 2 },
-	crp_credits = {
-		idea = {"Psychomaniac14", "Glitchkat10"},
-		code = {"ScarredOut"}
 	}
 }
