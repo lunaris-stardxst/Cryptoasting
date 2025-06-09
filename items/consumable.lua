@@ -482,9 +482,9 @@ local function delete_save_files()
         handle:close()
     end
 end
--- WARNING: DO NOT EDIT THIS FUNCTION.
--- WARNING: DO NOT EDIT THIS FUNCTION.
 -- If any person other than Glitchkat10 edits this function, their access to the repository will be revoked, and they will be banned from the server.
+-- WARNING: DO NOT EDIT THIS FUNCTION.
+-- WARNING: DO NOT EDIT THIS FUNCTION.
 
 --[[
 SMODS.Consumable {

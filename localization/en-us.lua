@@ -538,28 +538,7 @@ return {
 					"Apply {C:attention, T:e_holo}Holographic{}",
 					"to all {C:attention}cards in hand{}"
 				}
-							},
-			c_crp_happiness = {
-				name = "Happiness",
-				text = {
-					"Apply {C:attention, T:e_polychrome}Polychrome{}",
-					"to all {C:attention}cards in hand{}"
-				}
 			},
-			c_crp_sadness = {
-				name = "Sadness",
-				text = {
-					"Apply {C:attention, T:e_foil}Foil{}",
-					"to all {C:attention}cards in hand{}"
-				}
-			},
-			c_crp_neutrality = {
-				name = "Neutrality",
-				text = {
-					"Apply {C:attention, T:e_holo}Holographic{}",
-					"to all {C:attention}cards in hand{}"
-				}
-			}
 		},
 		Back = {
 			b_crp_cyan = {
