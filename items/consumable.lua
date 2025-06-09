@@ -4,6 +4,12 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+SMODS.Atlas {
+	key = "placeholders",
+	path = "atlas_placeholder.png",
+	px = 71,
+	py = 95
+}
 
 SMODS.Consumable {
 	key = "prayer",
@@ -186,6 +192,153 @@ SMODS.Consumable {
 		custom = { key = "placeholder", text = "MarioFan597" },
 		code = { "Glitchkat10" }
 	}
+}
+SMODS.Consumable{
+	key = "happiness",
+	set = "Spectral",
+	unlocked = true,
+	discovered = true,
+	crp_credits = {
+		idea = {"Unknown"},
+		code = {"ScarredOut"}
+	},
+	atlas = "crp_placeholders",
+	pos = { x = 2, y = 2 },
+	can_use = function(self, card)
+		if G.hand.cards and #G.hand.cards > 0 then
+			return true
+		else
+			return false
+		end
+	end,
+	use = function(self, card, area)
+		 for i = 1, #G.hand.cards do
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local selectcard = G.hand.cards[i]
+                    selectcard:set_edition("e_polychrome")
+                    return true
+                end
+            }))
+        end
+	end
+}
+SMODS.Consumable{
+	key = "neutrality",
+	set = "Spectral",
+	unlocked = true,
+	discovered = true,
+	crp_credits = {
+		idea = {"Unknown"},
+		code = {"ScarredOut"}
+	},
+	atlas = "crp_placeholders",
+	pos = { x = 2, y = 2 },
+	can_use = function(self, card)
+		if G.hand.cards and #G.hand.cards > 0 then
+			return true
+		else
+			return false
+		end
+	end,
+	use = function(self, card, area)
+		 for i = 1, #G.hand.cards do
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local selectcard = G.hand.cards[i]
+                    selectcard:set_edition("e_holo")
+                    return true
+                end
+            }))
+        end
+	end
+}
+SMODS.Consumable{
+	key = "sadness",
+	set = "Spectral",
+	unlocked = true,
+	discovered = true,
+	crp_credits = {
+		idea = {"Unknown"},
+		code = {"ScarredOut"}
+	},
+	atlas = "crp_placeholders",
+	pos = { x = 2, y = 2 },
+	can_use = function(self, card)
+		if G.hand.cards and #G.hand.cards > 0 then
+			return true
+		else
+			return false
+		end
+	end,
+	use = function(self, card, area)
+		 for i = 1, #G.hand.cards do
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local selectcard = G.hand.cards[i]
+                    selectcard:set_edition("e_foil")
+                    return true
+                end
+            }))
+        end
+	end
+}
+SMODS.Consumable{
+	key = "prospect",
+	set = "Tarot",
+	unlocked = true,
+	discovered = true,
+	crp_credits = {
+		idea = {"aqrlr"},
+		code = {"ScarredOut"}
+	},
+	config = {
+		extra = {
+			odds = 10
+		}
+	},
+	loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.GAME.probabilities.normal,
+                card.ability.extra.odds
+            }
+        }
+    end,
+	atlas = "crp_placeholders",
+	pos = { x = 1, y = 2 },
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area)
+		if pseudorandom("wheelofprospect") < G.GAME.probabilities.normal / card.ability.extra.odds then
+			local pickedrarity = pseudorandom_element({1, "cry_epic"}, pseudoseed("chessbattleadvanced")) -- picking the joker rarity, 50/50 for either Rare or Epic
+			local hittable = {
+				set = "Joker",
+				rarity = pickedrarity,
+				edition = "e_negative"
+			}
+			SMODS.add_card(hittable)
+		else -- stolen from the Wheel of Fortune basegame code
+			G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+                attention_text({
+                    text = localize('k_nope_ex'),
+                    scale = 1.3, 
+                    hold = 1.4,
+                    major = card,
+                    backdrop_colour = G.C.SECONDARY_SET.Tarot,
+                    align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+                    offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
+                    silent = true
+                    })
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
+                        play_sound('tarot2', 0.76, 0.4);return true end}))
+                    play_sound('tarot2', 1, 0.4)
+                    card:juice_up(0.3, 0.5)
+            return true
+			end }))
+		end
+	end
 }
 
 local function createfulldeck(enhancement, edition, amount, emplacement)
@@ -399,8 +552,7 @@ SMODS.Consumable {
 			end
 		}))
 	end,
-} ]] -- 
-
+} ]]--
 SMODS.Consumable {
 	key = "reckoning",
 	set = "Spectral",
