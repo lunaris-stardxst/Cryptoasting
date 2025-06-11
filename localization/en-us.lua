@@ -748,6 +748,22 @@ return {
 					"{C:inactive}(Must have room){}"
 				}
 			},
+			tag_crp_overloaded_tag = {
+				name = "Overloaded Tag",
+				text = {
+					"Next base edition shop",
+					"{C:attention}Joker{} is free and",
+					"becomes {C:dark_edition}Overloaded{}",
+				}
+			},
+			["tag_crp_four-dimensional_tag"] = {
+				name = "Four-Dimensional Tag",
+				text = {
+					"Next base edition shop",
+					"{C:attention}Joker{} is free and",
+					"becomes {C:dark_edition}Four-Dimensional{}",
+				}
+			},
 		},
 		Edition = {
 			e_crp_overloaded = {
