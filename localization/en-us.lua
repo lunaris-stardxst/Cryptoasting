@@ -742,6 +742,22 @@ return {
 					"{C:inactive}(Must have room){}"
 				}
 			},
+			tag_crp_overloaded_tag = {
+				name = "Overloaded Tag",
+				text = {
+					"Next base edition shop",
+					"{C:attention}Joker{} is free and",
+					"becomes {C:dark_edition}Overloaded{}",
+				}
+			},
+			["tag_crp_four-dimensional_tag"] = {
+				name = "Four-Dimensional Tag",
+				text = {
+					"Next base edition shop",
+					"{C:attention}Joker{} is free and",
+					"becomes {C:dark_edition}Four-Dimensional{}",
+				}
+			},
 		},
 		Edition = {
 			e_crp_overloaded = {
@@ -751,7 +767,7 @@ return {
 					"{C:dark_edition,X:edition}^^^#2#{} Mult",
 				},
 			},
-			e_crp_fourdimensional = {
+			["e_crp_four-dimensional"] = {
 				name = "Four-Dimensional",
 				text = {
 					"{C:green}#1# in #2#{} chance to",
@@ -822,7 +838,7 @@ return {
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
-			crp_fourdimensional = "Four-Dimensional",
+			["crp_four-dimensional"] = "Four-Dimensional",
 			crp_zany = "Zany",
 			crp_mad = "Mad",
 			crp_crazy = "Crazy",

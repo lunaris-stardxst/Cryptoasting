@@ -392,6 +392,7 @@ SMODS.Consumable {
     cost = 120,
     unlocked = true,
     discovered = true,
+	hidden = true,
     atlas = "crp_consumables",
 	can_use = function(self, card)
 		return true
@@ -493,6 +494,7 @@ SMODS.Consumable {
 	cost = 240,
 	unlocked = true,
 	discovered = true,
+	hidden = true,	
 	atlas = "crp_consumables",
 	can_use = function(self, card)
 		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit

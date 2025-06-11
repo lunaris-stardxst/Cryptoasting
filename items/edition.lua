@@ -498,37 +498,36 @@ SMODS.Edition {
 }
 
 SMODS.Shader {
-	key = "fourdimensional",
-	path = "fourdimensional.fs",
+	key = "four-dimensional",
+	path = "four-dimensional.fs",
 }
 
 SMODS.Sound {
-	key = "e_fourdimensional",
-	path = "e_fourdimensional.ogg",
+	key = "e_four-dimensional",
+	path = "e_four-dimensional.ogg",
 }
 
 SMODS.Edition {
 	disable_base_shader = true,
 	disable_shadow = true,
-    key = "fourdimensional",
+    key = "four-dimensional",
     weight = 0.2,
-    shader = "fourdimensional",
+    shader = "four-dimensional",
     in_shop = true,
     extra_cost = 5,
     sound = {
-        sound = "crp_e_fourdimensional",
+        sound = "crp_e_four-dimensional",
         per = 1,
         vol = 0.5,
     },
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
-    config = { retrigger_chance = 4, retriggers = 24 },
+    config = { extra = { retrigger_chance = 4, retriggers = 24 } },
     loc_vars = function(self, info_queue, center)
-        local chance = center and center.edition and center.edition.retrigger_chance or lenient_bignum(self.config.retrigger_chance)
-        local retriggers = center and center.edition and center.edition.retriggers or lenient_bignum(self.config.retriggers)
-
-        return { vars = { G.GAME.probabilities.normal, chance, retriggers } }
+        local chance = center and center.edition and center.edition.retrigger_chance or lenient_bignum(self.config.extra.retrigger_chance)
+        local retriggers = center and center.edition and center.edition.retriggers or lenient_bignum(self.config.extra.retriggers)
+        return { vars = { G.GAME.probabilities.normal or 1, chance, retriggers } }
     end,
     calculate = function(self, card, context)
         if
@@ -538,10 +537,10 @@ SMODS.Edition {
                 or (context.retrigger_joker_check and not context.retrigger_joker)
             )
         then
-            local should_retrigger = pseudorandom("crp_fourdimensional") <= G.GAME.probabilities.normal / lenient_bignum(self.config.retrigger_chance)
+            local should_retrigger = pseudorandom("crp_four-dimensional") <= G.GAME.probabilities.normal / lenient_bignum(self.config.extra.retrigger_chance)
             return {
                 message = localize("k_again_ex"),
-                repetitions = should_retrigger and lenient_bignum(self.config.retriggers) or 0,
+                repetitions = should_retrigger and lenient_bignum(self.config.extra.retriggers) or 0,
                 card = card,
             }
         end
