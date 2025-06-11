@@ -515,7 +515,7 @@ return {
 				name = "Reckoning",
 				text = {
 					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
+					"{C:green}27%{} chance to instantly {C:red}lose{} the game instead"
 				}
 			},
 			c_crp_path_of_solstice = {
