@@ -498,8 +498,8 @@ SMODS.Edition {
 }
 
 SMODS.Shader {
-	key = "four-dimensional",
-	path = "four-dimensional.fs",
+	key = "fourdimensional",
+	path = "fourdimensional.fs",
 }
 
 SMODS.Sound {
@@ -512,7 +512,7 @@ SMODS.Edition {
 	disable_shadow = true,
     key = "four-dimensional",
     weight = 0.2,
-    shader = "four-dimensional",
+    shader = "fourdimensional",
     in_shop = true,
     extra_cost = 5,
     sound = {
