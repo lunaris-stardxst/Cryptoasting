@@ -773,7 +773,7 @@ return {
 					"{C:dark_edition,X:edition}^^^#2#{} Mult",
 				},
 			},
-			e_crp_fourdimensional = {
+			["e_crp_four-dimensional"] = {
 				name = "Four-Dimensional",
 				text = {
 					"{C:green}#1# in #2#{} chance to",
