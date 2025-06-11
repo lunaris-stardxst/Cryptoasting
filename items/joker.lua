@@ -1344,7 +1344,7 @@ SMODS.Joker {
 	config = { extra = { EEEmult = 1.13 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholders",
-	pos = { x = 10, y = 0 },
+	pos = { x = 11, y = 0 },
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 400,
 	blueprint_compat = true,
