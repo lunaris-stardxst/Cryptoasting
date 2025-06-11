@@ -470,6 +470,21 @@ return {
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#1#{} Mult",
 				},
 			},
+			j_crp_bullshit = {
+				name = "Bullshit",
+				text = {
+					"Sell this {C:attention}Joker{} to create {C:attention}#1#{}", -- note: this wording is a little weird and kinda inaccurate because when multiple are created, it rolls individually
+					"of either a {C:attention}Bull{} or a {C:crp_trash}Trash{} rarity {C:attention}Joker{}" -- would take more words than its worth to point that out though
+				}
+			},
+			j_crp_twoforsome = {
+				name = "Two for Some",
+				text = {
+					"{C:attention}+#1#{} hand size",
+					"{C:attention}+#2#{} consumable slots",
+					"{C:attention}+#3#{} booster pack slots in the {C:attention}shop{}",
+				}
+			}
 		},
 		Spectral =  {
 			c_crp_prayer = {
