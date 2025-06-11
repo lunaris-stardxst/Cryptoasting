@@ -553,7 +553,7 @@ return {
 					"Apply {C:attention, T:e_holo}Holographic{}",
 					"to all {C:attention}cards in hand{}"
 				}
-			}
+			},
 		},
 		Back = {
 			b_crp_cyan = {
