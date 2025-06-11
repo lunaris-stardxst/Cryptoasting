@@ -168,7 +168,7 @@ return {
 				name = "Infinitum",
 				text = {
 					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
-					"where {C:dark_edition,X:edition}X{} is their position in their {C:attention}card area{}"
+					"where {C:attention}X{} is their position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_joker_0 = {
@@ -470,6 +470,21 @@ return {
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#1#{} Mult",
 				},
 			},
+			j_crp_bullshit = {
+				name = "Bullshit",
+				text = {
+					"Sell this {C:attention}Joker{} to create {C:attention}#1#{}", -- note: this wording is a little weird and kinda inaccurate because when multiple are created, it rolls individually
+					"of either a {C:attention}Bull{} or a {C:crp_trash}Trash{} rarity {C:attention}Joker{}" -- would take more words than its worth to point that out though
+				}
+			},
+			j_crp_twoforsome = {
+				name = "Two for Some",
+				text = {
+					"{C:attention}+#1#{} hand size",
+					"{C:attention}+#2#{} consumable slots",
+					"{C:attention}+#3#{} booster pack slots in the {C:attention}shop{}",
+				}
+			}
 		},
 		Spectral =  {
 			c_crp_prayer = {
@@ -500,22 +515,14 @@ return {
 				name = "Reckoning",
 				text = {
 					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}27%{} chance to instantly {C:red}lose{} the game instead"
-				}
-			},
-			c_crp_path_of_solstice = {
-				name = "Path of Solstice",
-				text = {
-					"Create a {C:crp_22exomythic4mecipe}22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:red}destroy{} all other {C:attention}items{}, bypassing {C:red}all effects{}, and",
-					"reset deck to a standard {C:attention}52{} card deck"
+					"{C:green}27%{} chance to instantly {C:red}lose{} the game"
 				}
 			},
 			c_crp_poltergeist = {
 				name = "Poltergeist",
 				text = {
 					"Create a {C:crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe}HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipoTranscendant2ExoMythic4meCipe{} {C:attention}Joker{},",
-					"\"No downside whatsoever\""
+					"{C:green}98%{} chance to instantly {C:red}crash{} the game"
 				}
 			},
 			c_crp_happiness = {
@@ -538,7 +545,7 @@ return {
 					"Apply {C:attention, T:e_holo}Holographic{}",
 					"to all {C:attention}cards in hand{}"
 				}
-			},
+			}
 		},
 		Back = {
 			b_crp_cyan = {
@@ -591,7 +598,7 @@ return {
 				name = "Creative Mode Deck",
 				text = {
 					"Start with",
-					"{C:attention}1 {C:spectral}Pointer{}"
+					"1 {C:attention,T:c_cry_pointer}Pointer{}"
 				}
 			}
 		},
@@ -599,9 +606,8 @@ return {
 			c_crp_prospect = {
 				name = "Wheel of Prospect",
 				text = {
-					"{C:green}#1# in #2# chance{} to create a",
-					"random {C:dark_edition}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}",
-					"{C:inactive}(Does not require room)"
+					"{C:green}#1# in #2# chance{} to generate a",
+					"random {C:attention}Negative{} {C:red}Rare{} or {C:cry_epic}Epic{} {C:attention}Joker{}"
 				}
 			}
 		},
@@ -742,22 +748,6 @@ return {
 					"{C:inactive}(Must have room){}"
 				}
 			},
-			tag_crp_overloaded_tag = {
-				name = "Overloaded Tag",
-				text = {
-					"Next base edition shop",
-					"{C:attention}Joker{} is free and",
-					"becomes {C:dark_edition}Overloaded{}",
-				}
-			},
-			["tag_crp_four-dimensional_tag"] = {
-				name = "Four-Dimensional Tag",
-				text = {
-					"Next base edition shop",
-					"{C:attention}Joker{} is free and",
-					"becomes {C:dark_edition}Four-Dimensional{}",
-				}
-			},
 		},
 		Edition = {
 			e_crp_overloaded = {
@@ -767,7 +757,7 @@ return {
 					"{C:dark_edition,X:edition}^^^#2#{} Mult",
 				},
 			},
-			["e_crp_four-dimensional"] = {
+			e_crp_fourdimensional = {
 				name = "Four-Dimensional",
 				text = {
 					"{C:green}#1# in #2#{} chance to",
@@ -838,7 +828,7 @@ return {
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
-			["crp_four-dimensional"] = "Four-Dimensional",
+			crp_fourdimensional = "Four-Dimensional",
 			crp_zany = "Zany",
 			crp_mad = "Mad",
 			crp_crazy = "Crazy",
