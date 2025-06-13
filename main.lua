@@ -10,6 +10,8 @@ local files = {
 	"items/voucher",
 	"items/challenge",
 	"lib/https",
+	"lib/cardanim",
+	"lib/cardanim_macros/skim",
 	"lib/modbadge",
 	"lib/pointerblist",
 }

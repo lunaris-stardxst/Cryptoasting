@@ -16,6 +16,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+	key = "peter",
+	path = "peter.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "placeholders",
 	path = "atlas_placeholder.png",
 	px = 71,
@@ -285,42 +292,42 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "tetration_timmy",
-	config = { extra = { EEmult = 1.1 } },
-	rarity = "cry_exotic",
-	atlas = "crp_timmy",
-	animation = {
-		macro = {
-		type = "skim",
-		pos = {
-			include = { { x1=0,x2=3,y1=0,y2=6 } },
-			exclude = { { x1=0,x2=3,y1=7,y2=7 } },
-		},
-		}
-	},
-	pos = { x = 2, y = 3 },
-	soul_pos = { x = 3, y = 3, extra = { x = 4, y = 3 } },
-	cost = 50,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-				colour = G.C.DARK_EDITION,
-				card = card
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker","Glitchkat10" },
-		art = { "MarioFan597" },
-		code = { "Glitchkat10" }
-	}
+    key = "tetration_timmy",
+    config = { extra = { EEmult = 1.1 } },
+    rarity = "cry_exotic",
+    atlas = "timmy",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 7, extra = { x = 0, y = 7 } },
+    cost = 50,
+    blueprint_compat = true,
+    demicolon_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
+    end,
+    calculate = function(self, card, context)
+        if (context.joker_main) or context.forcetrigger then
+            return {
+                message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
+                EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
+                colour = G.C.DARK_EDITION,
+                card = card
+            }
+        end
+    end,
+    animation = {
+        macro = {
+        type = "skim",
+        pos = {
+            include = {{x1=0,x2=3,y1=0,y2=6}},
+            exclude = {{x1=0,x2=3,y1=7,y2=7}},
+        },
+        }
+    },
+    crp_credits = {
+        idea = { "Poker The Poker","Glitchkat10" },
+        art = { "MarioFan597" },
+        code = { "Glitchkat10" }
+    }
 }
 
 SMODS.Joker {
@@ -1874,9 +1881,9 @@ SMODS.Joker {
 	key = "pentation_peter",
 	config = { extra = { EEEmult = 1.1 } },
 	rarity = "crp_mythic",
-	atlas = "crp_placeholders",
-	pos = { x = 8, y = 0 },
-	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
+	atlas = "peter",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 7, extra = { x = 0, y = 7 } },
 	cost = 100,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1893,8 +1900,18 @@ SMODS.Joker {
 			}
 		end
 	end,
+	animation = {
+        macro = {
+        type = "skim",
+        pos = {
+            include = {{x1=0,x2=3,y1=0,y2=6}},
+            exclude = {{x1=0,x2=3,y1=7,y2=7}},
+        },
+        }
+    },
 	crp_credits = {
 		idea = { "Glitchkat10" },
+		art = { "MarioFan597" },
 		code = { "Glitchkat10" }
 	}
 }
