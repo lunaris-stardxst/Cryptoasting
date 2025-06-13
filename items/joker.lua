@@ -630,8 +630,12 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xchips = lenient_bignum(card.ability.extra.Xchips),
-				message = "X" .. card.ability.extra.Xchips .. " Chips",
+				message = localize({
+					type = "variable",
+					key = "a_xchips",
+					vars = { number_format(card.ability.extra.Xchips) },
+				}),
+				Xchip_mod = lenient_bignum(card.ability.extra.Xchips),
 				colour = G.C.CHIPS,
 			}
 		end
@@ -1098,8 +1102,16 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				x_chips = math.pi, -- i wish it could be "Xchips" but it can't
-				Xmult = math.pi,
+				message = localize({
+					type = "variable",
+					key = "a_xchips",
+					vars = { math.pi },
+				}),
+				Xchip_mod = math.pi,
+				colour = G.C.CHIPS,
+				extra = {
+					Xmult = math.pi,
+				}
 			}
 		end
 	end,
@@ -1427,7 +1439,7 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
@@ -1759,7 +1771,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
-		art = { "Wily Joker", "Glitchkat10" },
+		art = { "GudUsername", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -2083,6 +2095,46 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "bullshit",
+	config = { extra = { amount = 1 } },
+	rarity = 1,
+	atlas = "crp_placeholders",
+	pos = { x = 2, y = 0 },
+	cost = 5,
+	blueprint_compat = false,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = G.P_CENTERS.j_bull
+		return { vars = { lenient_bignum(card.ability.extra.amount) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.selling_self) or context.forcetrigger then
+			for i = 1, lenient_bignum(card.ability.extra.amount) do -- usually amount will be 1, making this joker mutable isn't needed but it's very funny
+				-- flip coin essentially to decide which to make
+				local tableofcreation = {}
+				local pickedside = pseudorandom_element({ 1, 2 }, pseudoseed("advancedchessbattle"))
+				if pickedside == 1 then -- bull
+					tableofcreation = {
+						set = "Joker",
+						key = "j_bull"
+					}
+				else -- trash
+					tableofcreation = {
+						set = "Joker",
+						rarity = "crp_trash"
+					}
+				end
+				SMODS.add_card(tableofcreation) -- make the card (SMODS.add_card my beloved)
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "ScarredOut" }
+	}
+}
+
+SMODS.Joker {
 	key = "playerrwon",
 	config = { extra = { arrows = 1, mult = 9, arrows_scale = 1 }, immutable = { max = 500 } },
 	rarity = "crp_22exomythic4mecipe",
@@ -2141,6 +2193,34 @@ SMODS.Joker {
 		idea = { "Grahkon", "Glitchkat10" },
 		art = { "Lexi" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "twoforsome",
+	config = { extra = { hand_size = 2, consumeableslots = 2, boosterpackslots = 2 } },
+	rarity = 3,
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = false,
+	demicolon_compat = false,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.hand_size, card.ability.extra.consumeableslots, card.ability.extra.boosterpackslots } }
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		SMODS.change_booster_limit(card.ability.extra.boosterpackslots)
+		G.hand:change_size(card.ability.extra.hand_size)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumeableslots
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		SMODS.change_booster_limit(-card.ability.extra.boosterpackslots)
+		G.hand:change_size(-card.ability.extra.hand_size)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumeableslots
+	end,
+	crp_credits = {
+		idea = { "aqrlr" },
+		code = { "ScarredOut" }
 	}
 }
 
@@ -2342,7 +2422,7 @@ SMODS.Joker {
 		end
 	end,
     in_pool = function(self, args)
-		return true, {allow_duplicates = true}
+		return true, { allow_duplicates = true }
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
@@ -2417,11 +2497,11 @@ SMODS.Joker {
 		end
 	end,
     in_pool = function(self, args)
-		return true, {allow_duplicates = true}
+		return true, { allow_duplicates = true }
 	end,
 	crp_credits = {
 		idea = { "Glitchkat10" },
-		art = { "Glitchkat10" },
+		art = { "GudUsername" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -2452,90 +2532,7 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
-SMODS.Joker { -- this is glorpshit
-	key = "bullshit",
-	config = {
-		extra = {
-			amount = 1
-		}
-	},
-	rarity = 1,
-	atlas = "crp_placeholders",
-	pos = { x = 2, y = 0 },
-	cost = 5,
-	blueprint_compat = false,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue+1] = G.P_CENTERS.j_bull
-		return {
-			vars = {card.ability.extra.amount}
-		}
-	end,
-	calculate = function(self, card, context)
-		if context.selling_self or context.forcetrigger then
-			for i = 1, math.floor(card.ability.extra.amount) do -- usually amount will be 1, making this joker mutable isn't needed but it's very funny
-				-- flip coin essentially to decide which to make
-				local tableofcreation = {}
-				local pickedside = pseudorandom_element({1, 2}, pseudoseed("advancedchessbattle"))
-				if pickedside == 1 then -- bull
-					tableofcreation = {
-						set = "Joker",
-						key = "j_bull"
-					}
-				else -- trash
-					tableofcreation = {
-						set = "Joker",
-						rarity = "crp_trash"
-					}
-				end
-				SMODS.add_card(tableofcreation) -- make the card (SMODS.add_card my beloved)
-			end
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		code = { "ScarredOut" }
-	}
-}
-SMODS.Joker {
-	key = "twoforsome",
-	config = {
-		extra = {
-			hand_size = 2,
-			consumeableslots = 2,
-			boosterpackslots = 2
-		}
-	},
-	rarity = 3,
-	atlas = "crp_placeholders",
-	pos = { x = 4, y = 0 },
-	cost = 8,
-	blueprint_compat = false,
-	demicolon_compat = false,
-	loc_vars = function(self, info_queue, card)
-		return {
-			vars = {
-				card.ability.extra.hand_size,
-				card.ability.extra.consumeableslots,
-				card.ability.extra.boosterpackslots
-			}
-		}
-	end,
-	add_to_deck = function(self, card, from_debuff)
-		SMODS.change_booster_limit(card.ability.extra.boosterpackslots)
-		G.hand:change_size(card.ability.extra.hand_size)
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumeableslots
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		SMODS.change_booster_limit(-card.ability.extra.boosterpackslots)
-		G.hand:change_size(-card.ability.extra.hand_size)
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumeableslots
-	end,
-	crp_credits = {
-		idea = { "aqrlr" },
-		code = { "ScarredOut" }
-	}
-}
+
 --[[
  SMODS.Joker {
 	key = "shit",

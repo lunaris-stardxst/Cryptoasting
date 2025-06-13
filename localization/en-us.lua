@@ -448,14 +448,10 @@ return {
 			j_crp_gudusername = {
 				name = "GudUsername",
 				text = {
-					"{C:white,X:chips}X#1#{} Chip#<s>1#",
-					"{C:white,X:mult}X#2#{} Mult",
-					"{C:white,X:dark_edition}^#3#{} Chip#<s>3#",
-					"{C:white,X:dark_edition}^#4#{} Mult",
-					"{C:edition,X:dark_edition}^^#5#{} Chip#<s>4#",
-					"{C:edition,X:dark_edition}^^#6#{} Mult",
-					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#",
-					"{C:dark_edition,X:edition}^^^#8#{} Mult",
+					"{C:white,X:chips}X#1#{} Chip#<s>1#, {C:white,X:mult}X#2#{} Mult",
+					"{C:white,X:dark_edition}^#3#{} Chip#<s>3#, {C:white,X:dark_edition}^#4#{} Mult",
+					"{C:edition,X:dark_edition}^^#5#{} Chip#<s>4#, {C:edition,X:dark_edition}^^#6#{} Mult",
+					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
 			},
 			j_crp_septingentiquinvigintation_stevie = {
@@ -481,8 +477,8 @@ return {
 				name = "Two for Some",
 				text = {
 					"{C:attention}+#1#{} hand size",
-					"{C:attention}+#2#{} consumable slots",
-					"{C:attention}+#3#{} booster pack slots in the {C:attention}shop{}",
+					"{C:attention}+#2# consumable{} slot#<s>2#",
+					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}",
 				}
 			}
 		},
