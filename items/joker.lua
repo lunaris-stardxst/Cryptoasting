@@ -9,6 +9,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+	key = "timmy",
+	path = "timmy.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "placeholders",
 	path = "atlas_placeholder.png",
 	px = 71,
@@ -281,7 +288,16 @@ SMODS.Joker {
 	key = "tetration_timmy",
 	config = { extra = { EEmult = 1.1 } },
 	rarity = "cry_exotic",
-	atlas = "crp_jokers",
+	atlas = "crp_timmy",
+	animation = {
+		macro = {
+		type = "skim",
+		pos = {
+			include = { { x1=0,x2=3,y1=0,y2=6 } },
+			exclude = { { x1=0,x2=3,y1=7,y2=7 } },
+		},
+		}
+	},
 	pos = { x = 2, y = 3 },
 	soul_pos = { x = 3, y = 3, extra = { x = 4, y = 3 } },
 	cost = 50,
@@ -758,7 +774,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "duplicare_2",
-	config = { extra = { Xmult = 1, Xmult_gain = 0.2, retriggers = 1 } },
+	config = { extra = { Xmult = 1, Xmult_gain = 0.25, retriggers = 1 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
 	pos = { x = 7, y = 5 },
@@ -1950,33 +1966,35 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "bulgoeship_card",
-	config = { extra = { EEmult_mod = 0.1 } },
-	rarity = "crp_mythic",
-	atlas = "crp_jokers",
-	pos = { x = 1, y = 7 },
-	soul_pos = { x = 2, y = 7, extra = { x = 3, y = 7 } },
-	cost = 100,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { number_format(lenient_bignum(card.ability.extra.EEmult_mod)), number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))), }, }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
-			return {
-				message = "^^" .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. " Mult",
-				EEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
-				colour = G.C.DARK_EDITION,
-				card = card
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "Glitchkat10" },
-		code = { "Glitchkat10" }
-	}
+    key = "bulgoeship_card",
+    config = { extra = { EEmult_mod = 0.1 } },
+    rarity = "crp_mythic",
+    atlas = "crp_jokers",
+    pos = { x = 1, y = 7 },
+    soul_pos = { x = 2, y = 7, extra = { x = 3, y = 7 } },
+    cost = 100,
+    blueprint_compat = true,
+    demicolon_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { number_format(card.ability.extra.EEmult_mod), number_format(card.ability.extra.EEmult_mod) * Cryptposting.member_count, }, }
+    end,
+    calculate = function(self, card, context)
+    print("look for this")
+    Cryptposting.update_member_count()
+        if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
+            return {
+                message = "^^" .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. " Mult",
+                EEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
+                colour = G.C.DARK_EDITION,
+                card = card
+            }
+        end
+    end,
+    crp_credits = {
+        idea = { "Poker The Poker" },
+        art = { "Glitchkat10", "HexaCryonic" },
+        code = { "Glitchkat10", "Tesseffex" }
+    }
 }
 
 SMODS.Joker {
