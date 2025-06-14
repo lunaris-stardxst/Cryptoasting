@@ -187,9 +187,9 @@ return {
 			j_crp_quetta_m = {
 				name = "Quetta M",
 				text = {
-					"{C:dark_edition,X:edition}#4##1##5##2#{} Mult, operator",
-					"increases by {C:attention}#3#{} when you play a {C:attention}Pair{}",
-					"{C:inactive}\"#4#-2#5#\" = \"=\"",
+					"{C:dark_edition,X:edition}#4##1##5##2#{} Mult, {C:red}fixed{} {C:green}13%{} chance",
+					"for operator to increase by {C:dark_edition,X:edition}#3#{}",
+					"when a {C:attention}Pair{} is played",
 					"{C:inactive}\"#4#-1#5#\" = \"+\"",
 					"{C:inactive}\"#4#0#5#\" = \"X\"",
 				},

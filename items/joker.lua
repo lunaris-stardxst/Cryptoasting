@@ -1067,7 +1067,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "quetta_m",
-	config = { extra = { operator = -2, mult = 8, operator_increase = 8 } },
+	config = { extra = { operator = -1, mult = 8, operator_increase = 8 }, immutable = { numerator = 13, denominator = 100 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholders",
 	pos = { x = 10, y = 0 },
@@ -1079,34 +1079,63 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			if card.ability.extra.operator <= -2 then
+			if card.ability.extra.operator <= -1 then
 				return {
-					Eqmult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "=" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.EDITION,
+					mult_mod = lenient_bignum(card.ability.extra.mult),
+					message = "+" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+					colour = G.C.MULT
 				}
-			else
+			elseif card.ability.extra.operator == 0 then
+				return {
+					Xmult_mod = lenient_bignum(card.ability.extra.mult),
+					message = "X" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+					colour = G.C.MULT
+				}
+			elseif card.ability.extra.operator == 1 then
+				return {
+					Emult_mod = lenient_bignum(card.ability.extra.mult),
+					message = "^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+					colour = G.C.DARK_EDITION
+				}
+			elseif card.ability.extra.operator == 2 then
+				return {
+					EEmult_mod = lenient_bignum(card.ability.extra.mult),
+					message = "^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+					colour = G.C.DARK_EDITION
+				}
+			elseif card.ability.extra.operator == 3 then
+				return {
+					EEEmult_mod = lenient_bignum(card.ability.extra.mult),
+					message = "^^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+					colour = G.C.EDITION
+				}
+			else  -- guys the elseif chain isn't THAT massive syfm 🥀
 				return {
 					hypermult_mod = {
 						lenient_bignum(card.ability.extra.operator),
 						lenient_bignum(card.ability.extra.mult)
 					},
 					message = "{" .. lenient_bignum(card.ability.extra.operator) .. "}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.EDITION,
+					colour = G.C.EDITION
 				}
 			end
 		end
-		if (context.before and next(context.poker_hands["Pair"]) and not context.blueprint) or context.forcetrigger then
-			card.ability.extra.operator = card.ability.extra.operator + card.ability.extra.operator_increase
-			return {
-				message = "Upgraded!",
-				card = card
-			}
+
+		local roll = pseudorandom("gamblecore")
+		local chance = lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)
+		if (context.before and context.scoring_name == "Pair" and not context.blueprint) or context.forcetrigger then
+			if roll <= chance then
+				card.ability.extra.operator = card.ability.extra.operator + card.ability.extra.operator_increase
+				return {
+					message = "Upgraded!",
+					card = card
+				}
+			end
 		end
 	end,
 	crp_credits = {
-		idea = { "superb_thing" },
-		code = { "Rainstar" }
+		idea = { "superb_thing", "Glitchkat10" },
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
@@ -1133,7 +1162,7 @@ SMODS.Joker {
 				Xchip_mod = math.pi,
 				colour = G.C.CHIPS,
 				extra = {
-					Xmult = math.pi,
+					Xmult = math.pi
 				}
 			}
 		end
@@ -1780,7 +1809,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			local roll = pseudorandom("gamblecore")
-			local chance = card.ability.immutable.numerator / card.ability.immutable.denominator
+			local chance = lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)
 
 			if roll <= chance or context.forcetrigger then
 				return {
