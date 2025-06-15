@@ -1121,7 +1121,7 @@ SMODS.Joker {
 			end
 		end
 
-		local roll = pseudorandom("gamblecore")
+		local roll = pseudorandom("quetta_m")
 		local chance = lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)
 		if (context.before and context.scoring_name == "Pair" and not context.blueprint) or context.forcetrigger then
 			if roll <= chance then
