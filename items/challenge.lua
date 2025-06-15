@@ -32,7 +32,7 @@ SMODS.Challenge {
             { id = "joker_slots", value = -1e100 },
             { id = "hands", value = 1 },
             { id = "discards", value = 10 },
-            { id = "hand_size", value = 5 },
+            { id = "hand_size", value = 6 },
         }
     },
     jokers = {

@@ -224,7 +224,7 @@ return {
 					":3",
 				},
 			},
-			j_crp_sigma_man = {
+			["j_crp_sigma-man"] = {
 				name = "Sigma-Man",
 				text = {
 					"are you sure",
@@ -719,6 +719,27 @@ return {
 					"Create up to {C:attention}#1#",
 					"{C:crp_exomythic}ExoMythic{} {C:attention}Jokers{}",
 					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Better Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:crp_2exomythic4me}2ExoMythic4me{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_better_better_better_better_better_better_better_better_better_top-up_tag"] = {
+				name = "Better Better Better Better Better Better Better Better Better Better Top-up Tag",
+				text = {
+					"Create up to {C:attention}#1#",
+					"{C:crp_22exomythic4mecipe}22ExoMythic4meCipe{} {C:attention}Jokers{}",
+					"{C:inactive}(Must have room){}"
+				}
+			},
+			["tag_crp_best_top-up_tag"] = {
+				name = "Best Top-up Tag",
+				text = {
 				}
 			},
 			["tag_crp_:3_top-up_tag"] = {

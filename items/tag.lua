@@ -372,6 +372,72 @@ SMODS.Tag {
 }
 
 SMODS.Tag {
+    key = "better_better_better_better_better_better_better_better_top-up_tag",
+    atlas = "crp_tags",
+    pos = { x = 4, y = 2 },
+    config = { extra = { amount = 2 } },
+    loc_vars = function(self, info_queue, tag)
+        return { vars = { tag.config.extra.amount } }
+    end,
+    apply = function(self, tag, context)
+        if context.type == "immediate" then
+			tag:yep("+", G.C.RED, function()
+				for i = 1, tag.config.extra.amount do
+					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+						local hittable = {
+        					set = "Joker",
+        					rarity = "crp_2exomythic4me"
+    					}
+						SMODS.add_card(hittable)
+					end
+				end
+				return true
+			end)
+			tag.triggered = true
+			return true
+		end
+    end,
+	crp_credits = {
+		idea = { "Grahkon" },
+		art = { "Grahkon" },
+		code = { "ScarredOut" }
+	},
+}
+
+SMODS.Tag {
+    key = "better_better_better_better_better_better_better_better_better_top-up_tag",
+    atlas = "crp_tags",
+    pos = { x = 0, y = 2 },
+    config = { extra = { amount = 2 } },
+    loc_vars = function(self, info_queue, tag)
+        return { vars = { tag.config.extra.amount } }
+    end,
+    apply = function(self, tag, context)
+        if context.type == "immediate" then
+			tag:yep("+", G.C.RED, function()
+				for i = 1, tag.config.extra.amount do
+					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+						local hittable = {
+        					set = "Joker",
+        					rarity = "crp_22exomythic4mecipe"
+    					}
+						SMODS.add_card(hittable)
+					end
+				end
+				return true
+			end)
+			tag.triggered = true
+			return true
+		end
+    end,
+	crp_credits = {
+		idea = { "Grahkon" },
+		art = { "Grahkon" },
+		code = { "ScarredOut" }
+	},
+}
+
+SMODS.Tag {
 	key = ":3_top-up_tag",
 	atlas = "crp_tags",
 	pos = { x = 0, y = 3 },
@@ -783,108 +849,6 @@ SMODS.Tag {
 						local hittable = {
         					set = "Joker",
         					rarity = "crp_abysmal"
-    					}
-						SMODS.add_card(hittable)
-					end
-				end
-				return true
-			end)
-			tag.triggered = true
-			return true
-		end
-    end
-}
-SMODS.Tag {
-    key = "betterx9topuptag",
-    atlas = "crp_tags",
-    pos = {
-        x = 0,
-        y = 2
-    },
-    config = {
-        extra = {
-            amount = 2
-        }
-    },
-    loc_txt = {
-        name = "Better Better Better Better Better Better Better Better Better Top-up Tag",
-        text = {
-            "Create up to #1#",
-            "{C:crp_22exomythic4mecipe}22ExoMythic4meCipe{} {C:attention}Jokers{}",
-            "{C:inactive}(Must have room){}"
-        }
-    },
-    loc_vars = function(self, info_queue, tag)
-        return {
-            vars = {
-                tag.config.extra.amount
-            }
-        }
-    end,
-	crp_credits = {
-		idea = { "Grahkon" },
-		art = { "Grahkon" },
-		code = { "ScarredOut" }
-	},
-    apply = function(self, tag, context)
-        if context.type == "immediate" then
-			tag:yep("+", G.C.RED, function()
-				for i = 1, tag.config.extra.amount do
-					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
-						local hittable = {
-        					set = "Joker",
-        					rarity = "crp_22exomythic4mecipe"
-    					}
-						SMODS.add_card(hittable)
-					end
-				end
-				return true
-			end)
-			tag.triggered = true
-			return true
-		end
-    end
-}
-SMODS.Tag {
-    key = "betterx8topuptag",
-    atlas = "crp_tags",
-    pos = {
-        x = 4,
-        y = 2
-    },
-    config = {
-        extra = {
-            amount = 2
-        }
-    },
-    loc_txt = {
-        name = "Better Better Better Better Better Better Better Better Top-up Tag",
-        text = {
-            "Create up to #1#",
-            "{C:crp_2exomythic4me}2ExoMythic4Me{} {C:attention}Jokers{}",
-            "{C:inactive}(Must have room){}"
-        }
-    },
-    loc_vars = function(self, info_queue, tag)
-        return {
-            vars = {
-                tag.config.extra.amount
-            }
-        }
-    end,
-	crp_credits = {
-		idea = { "Grahkon" },
-		art = { "Grahkon" },
-		code = { "ScarredOut" }
-	},
-    apply = function(self, tag, context)
-        if context.type == "immediate" then
-			tag:yep("+", G.C.RED, function()
-				for i = 1, tag.config.extra.amount do
-					if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
-						local hittable = {
-        					set = "Joker",
-        					rarity = "crp_2exomythic4me"
     					}
 						SMODS.add_card(hittable)
 					end

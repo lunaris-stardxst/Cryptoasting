@@ -1281,7 +1281,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "sigma_man",
+	key = "sigma-man",
 	pos = { x = 7, y = 4 },
 	pools = { ["Meme"] = true },
 	rarity = "crp_cipe",
@@ -1289,6 +1289,8 @@ SMODS.Joker {
 	perishable_compat = true,
 	atlas = "crp_jokers",
 	calculate = function(self, card, context)
+		local chance = 1 / 4
+		local roll = pseudorandom("sigma-man")
 		if
 			context.selling_card
 			and context.card.ability.name == "cry-Chad"
@@ -1297,10 +1299,12 @@ SMODS.Joker {
 		then
 			return {}
 		elseif
-			( -- Compacting all the elseifs into one block for space and readability also maintablity
+			(
+				(
 				context.selling_self
 				or context.discard
-				or context.reroll_shop --Yes
+				or context.before
+				or context.reroll_shop
 				or context.buying_card
 				or context.skip_blind
 				or context.using_consumeable
@@ -1309,13 +1313,15 @@ SMODS.Joker {
 				or context.skipping_booster
 				or context.open_booster
 				or context.forcetrigger
+				)
+				and roll <= chance
 			)
 			and #G.jokers.cards + G.GAME.joker_buffer < (context.selling_self and (G.jokers.config.card_limit + 1) or G.jokers.config.card_limit)
 			and not context.retrigger_joker
 			and not context.blueprint
 		then
 			local createjoker = math.min(1, G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
-			G.GAME.joker_buffer = G.GAME.joker_buffer + createjoker
+				G.GAME.joker_buffer = G.GAME.joker_buffer + createjoker
 			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_cry_chad")
 			card:add_to_deck()
 			G.jokers:emplace(card)
