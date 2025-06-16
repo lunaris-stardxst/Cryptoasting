@@ -13,7 +13,11 @@ SMODS.Blind {
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
     mult = math.random(1, 6),
-	boss_colour = HEX("cccccc")
+	boss_colour = HEX("cccccc"),
+    crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Blind {
@@ -21,7 +25,12 @@ SMODS.Blind {
 	pos = { x = 0, y = 1 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
-	boss_colour = HEX("757575")
+	boss_colour = HEX("757575"),
+    crp_credits = {
+		idea = { "Unknown" },
+        art = { "SolvLyi" },
+		code = { "Glitchkat10" }
+	}
 }
 
 SMODS.Blind {
@@ -29,12 +38,22 @@ SMODS.Blind {
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
     mult = -1,
-    boss_colour = HEX("3a55ab")
+    boss_colour = HEX("3a55ab"),
+    crp_credits = {
+		idea = { "superb_thing" },
+        art = { "LocalThunk" },
+		code = { "Glitchkat10" }
+	}
 }
 SMODS.Blind {
 	key = "big...?",
 	pos = { x = 0, y = 1 },
 	boss = { min = 2, max = 10 },
     mult = -1.5,
-    boss_colour = HEX("e0a23a")
+    boss_colour = HEX("e0a23a"),
+    crp_credits = {
+		idea = { "aqrlr" },
+        art = { "LocalThunk" },
+		code = { "Glitchkat10" }
+	}
 }
