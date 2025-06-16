@@ -1683,7 +1683,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-    key = "purist_jolly_joker",
+    key = "purist_jolly",
     config = { extra = { mult = 16 } },
     rarity = 1,
     atlas = "crp_jokers",
@@ -1709,7 +1709,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "big_joker",
+	key = "big",
 	config = { extra = { mult = 15 } },
 	rarity = 1,
 	atlas = "crp_placeholders",
@@ -2568,6 +2568,31 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "GudUsername" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "googologist",
+	rarity = "crp_trash",
+	atlas = "crp_placeholders",
+	pos = { x = 1, y = 0 },
+	cost = 0,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { "{", "}" } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "What does that even mean??",
+				colour = G.C.EDITION
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
 		code = { "Glitchkat10" }
 	}
 }

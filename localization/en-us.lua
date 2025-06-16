@@ -333,7 +333,7 @@ return {
 					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
-			j_crp_purist_jolly_joker = {
+			j_crp_purist_jolly = {
 				name = "Purist Jolly Joker",
 				text = {
 					"{C:mult}+#1#{} Mult if",
@@ -341,7 +341,7 @@ return {
 					"a {C:attention}Pair",
 				},
 			},
-			j_crp_big_joker = {
+			j_crp_big = {
 				name = "Big Joker",
 				text = {
 					"{C:mult}+#1#{} Mult",
@@ -478,6 +478,12 @@ return {
 					"{C:white,X:dark_edition}^#3#{} Chip#<s>3#, {C:white,X:dark_edition}^#4#{} Mult",
 					"{C:edition,X:dark_edition}^^#5#{} Chip#<s>4#, {C:edition,X:dark_edition}^^#6#{} Mult",
 					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
+				},
+			},
+			j_crp_googologist = {
+				name = "Googologist",
+				text = {
+					"{C:dark_edition,X:edition}#1#Mult, 1(1)1.7e308#2#",
 				},
 			},
 			j_crp_none = {
