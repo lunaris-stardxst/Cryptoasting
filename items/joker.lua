@@ -2573,6 +2573,21 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "none",
+	rarity = "crp_trash",
+	atlas = "crp_jokers",
+	pos = { x = 9, y = 2 },
+	cost = 0,
+	blueprint_compat = false,
+	demicolon_compat = false,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		art = { "Psychomaniac14" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "septingentiquinvigintation_stevie",
 	config = { immutable = { arrows = 723 }, extra = { mantissa = 1e111, placebo = 1.1 } },
 	rarity = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",

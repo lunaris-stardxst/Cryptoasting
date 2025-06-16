@@ -480,6 +480,12 @@ return {
 					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
 			},
+			j_crp_none = {
+				name = "None Joker",
+				text = {
+					"",
+				},
+			},
 			j_crp_septingentiquinvigintation_stevie = {
 				name = "septingentiquinvigintation stevie",
 				text = {
