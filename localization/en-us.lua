@@ -187,7 +187,7 @@ return {
 				text = {
 					"{C:mult}+[round]{} Mult",
 					"{C:white,X:mult}X[ante]{} Mult",
-					"{C:inactive}Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult{}",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult and {C:white,X:mult}X#2#{C:inactive} Mult){}",
 				},
 			},
 			j_crp_infinitum = {
@@ -533,19 +533,19 @@ return {
 					"bypassing {C:red}all effects{}"
 				}
 			},
-			c_crp_reckoning = {
-				name = "Reckoning",
-				text = {
-					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:green}27%{} chance to instantly {C:red}lose{} the game instead"
-				}
-			},
 			c_crp_path_of_solstice = {
 				name = "Path of Solstice",
 				text = {
 					"Create a {C:crp_22exomythic4mecipe}22ExoMythic4meCipe{} {C:attention}Joker{},",
-					"{C:red}destroy{} all other {C:attention}items{}, bypassing {C:red}all effects{}, and",
-					"reset deck to a standard {C:attention}52{} card deck"
+					"{C:red}destroy{} all other {C:attention}items{}, bypassing {C:red}all effects{}",
+					"Reset deck to a standard {C:attention}52{} card deck"
+				}
+			},
+			c_crp_reckoning = {
+				name = "Reckoning",
+				text = {
+					"Create a {C:crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe}ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe{} {C:attention}Joker{},",
+					"{C:red}Fixed {C:green}27%{} chance to instantly {C:red}lose{} the game instead"
 				}
 			},
 			c_crp_poltergeist = {

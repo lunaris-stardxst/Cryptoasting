@@ -9,13 +9,14 @@ SMODS.Atlas {
 
 SMODS.Blind {
 	key = "dice",
-	pos = { x = 0, y = 0 },
+	pos = { x = 0, y = 2 },
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
     mult = math.random(1, 6),
-	boss_colour = HEX("cccccc"),
+	boss_colour = HEX("26bc55"),
     crp_credits = {
 		idea = { "Poker The Poker" },
+        art = { "George The Rat" },
 		code = { "Glitchkat10" }
 	}
 }
