@@ -1081,15 +1081,11 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			if card.ability.extra.operator <= -1 then
 				return {
-					mult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "+" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.MULT
+					mult = lenient_bignum(card.ability.extra.mult),
 				}
 			elseif card.ability.extra.operator == 0 then
 				return {
-					Xmult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "X" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.MULT
+					Xmult = lenient_bignum(card.ability.extra.mult),
 				}
 			elseif card.ability.extra.operator == 1 then
 				return {
@@ -1820,7 +1816,7 @@ SMODS.Joker {
 			if roll <= chance or context.forcetrigger then
 				return {
 					message = "+nane0 Mult",
-					mult_mod = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368,
+					mult_mod = 1.79769e308,
 					colour = G.C.MULT,
 					card = card
 				}
@@ -2119,8 +2115,8 @@ SMODS.Joker {
 				card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) - lenient_bignum(card.ability.extra.Xmult_scale)
 			end
 			if card.ability.extra.Xmult <= -1 then
-				card.ability.extra.Xmult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
-			end -- the number above is the max value of a double in lua, which is ~1.7976931348623157e308. this number is usually referred to as "naneinf" in balatro. attempting to use the operation (2^1024) - 1 momentarily results in a number too big for lua to process, so i have to use this long-winded integer instead.
+				card.ability.extra.Xmult = 1.79769e308
+			end
 		end
 	end,
 	crp_credits = {

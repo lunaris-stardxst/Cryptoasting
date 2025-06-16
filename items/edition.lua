@@ -17,7 +17,8 @@ SMODS.Edition {
         per = 1,
         vol = 0.5,
     },
-	in_shop = true,
+	pos = { x = 3, y = 0},
+	in_shop = false,
 	extra_cost = 0,
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
@@ -128,7 +129,8 @@ SMODS.Edition {
         per = 1,
         vol = 0.5,
     },
-	in_shop = true,
+	pos = { x = 4, y = 0},
+	in_shop = false,
 	extra_cost = 0,
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
@@ -239,7 +241,8 @@ SMODS.Edition {
         per = 1,
         vol = 0.5,
     },
-	in_shop = true,
+	pos = { x = 5, y = 0},
+	in_shop = false,
 	extra_cost = 0,
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
@@ -350,7 +353,8 @@ SMODS.Edition {
         per = 1,
         vol = 0.5,
     },
-	in_shop = true,
+	pos = { x = 4, y = 0},
+	in_shop = false,
 	extra_cost = 0,
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight

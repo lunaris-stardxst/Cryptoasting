@@ -1,5 +1,31 @@
 return {
 	descriptions = {
+		Blind = {
+			bl_crp_the = {
+				name = "The",
+				text = {
+					"",
+				},
+			},
+			bl_crp_dice = {
+				name = "The Dice",
+				text = {
+					"Randomized blind size (1-6)",
+				},
+			},
+			["bl_crp_small...?"] = {
+				name = "Small Blind...?",
+				text = {
+					"",
+				},
+			},
+			["bl_crp_big...?"] = {
+				name = "Big Blind...?",
+				text = {
+					"",
+				},
+			},
+		},
 		Joker = {
 			j_crp_bulgoe = {
 				name = "{C:edition}Bulgoe",
