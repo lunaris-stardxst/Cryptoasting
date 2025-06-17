@@ -480,16 +480,11 @@ return {
 					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
 			},
-			j_crp_googologist = {
-				name = "Googologist",
+			j_crp_amazon_gift_card = {
+				name = "Amazon Gift Card",
 				text = {
-					"{C:dark_edition,X:edition}#1#Mult, 1(1)1.7e308#2#",
-				},
-			},
-			j_crp_none = {
-				name = "None Joker",
-				text = {
-					"",
+					"{C:green}#1# in #2#{} chance to",
+					"{C:red}not{} give {C:white,X:dark_edition}^#3#{} Mult"
 				},
 			},
 			j_crp_septingentiquinvigintation_stevie = {
@@ -502,6 +497,35 @@ return {
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#1#{} Mult",
+				},
+			},
+			["j_crp_low-fat_milk"] = {
+				name = "Low-Fat Milk",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"{C:red}Halves{} at end of round",
+					"Destroyed at under {C:mult}8{} Mult",
+				},
+			},
+			["j_crp_low-fqt_milk"] = {
+				name = "Low-Fqt Milk",
+				text = {
+					"{C:chips}+#1#{} Chips",
+					"Value multiplied by {C:attention}0.8{} at end of round",
+					"Destroyed at under {C:chips}512{} Chips",
+					"{C:inactive}\"Fqt in MY milk?!\"{}",
+				},
+			},
+			j_crp_googologist = {
+				name = "Googologist",
+				text = {
+					"{C:dark_edition,X:edition}#1#Mult, 1(1)1.7e308#2#",
+				},
+			},
+			j_crp_none = {
+				name = "None Joker",
+				text = {
+					"",
 				},
 			},
 			j_crp_bullshit = {

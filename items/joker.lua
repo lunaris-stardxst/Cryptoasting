@@ -2573,6 +2573,173 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "amazon_gift_card",
+	config = { extra = { Emult = 7, odds = 16 } },
+	rarity = "crp_cipe",
+	atlas = "crp_placeholders",
+	pos = { x = 5, y = 0 },
+	cost = 10,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local prob = cry_prob(lenient_bignum(card.ability.cry_prob), lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged)
+		return { vars = { card.ability.cry_rigged and lenient_bignum(card.ability.extra.odds) or lenient_bignum(card.ability.extra.odds) - prob, lenient_bignum(card.ability.extra.odds), lenient_bignum(card.ability.extra.Emult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			if (pseudorandom("amazon_gift_card") < cry_prob(lenient_bignum(card.ability.cry_prob), lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged) / lenient_bignum(card.ability.extra.odds)) or context.forcetrigger then
+				return {
+					Emult_mod = lenient_bignum(card.ability.extra.Emult),
+					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
+					colour = G.C.DARK_EDITION
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "SolvLyi" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "septingentiquinvigintation_stevie",
+	config = { immutable = { arrows = 723 }, extra = { mantissa = 1e111, placebo = 1.1 } },
+	rarity = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
+	atlas = "crp_placeholders",
+	pos = { x = 12, y = 0 },
+	cost = 1600,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.placebo) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				hypermult_mod = {lenient_bignum(card.ability.immutable.arrows), lenient_bignum(card.ability.extra.mantissa)},
+				message = "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" .. lenient_bignum(card.ability.extra.placebo) .. " Mult",
+				colour = G.C.EDITION
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "low-fat_milk",
+	config = { extra = { mult = 1024 } },
+	rarity = 3,
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(card.ability.extra.mult),
+			}
+		end
+		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+			card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) / 2
+			if lenient_bignum(card.ability.extra.mult) <= 8 then
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound("tarot1")
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({
+							trigger = "after",
+							delay = 0.3,
+							blockable = false,
+							func = function()
+								G.jokers:remove_card(card)
+								card:remove()
+								card = nil
+								return true
+							end,
+						}))
+						return true
+					end,
+				}))
+				return {
+					message = localize("k_drank"),
+					colour = G.C.FILTER,
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "low-fqt_milk",
+	config = { extra = { chips = 2048 } },
+	rarity = "crp_rare_2",
+	atlas = "crp_placeholders",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.chips) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				chips = lenient_bignum(card.ability.extra.chips),
+			}
+		end
+		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) * 0.8
+			if lenient_bignum(card.ability.extra.chips) <= 512 then
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound("tarot1")
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({
+							trigger = "after",
+							delay = 0.3,
+							blockable = false,
+							func = function()
+								G.jokers:remove_card(card)
+								card:remove()
+								card = nil
+								return true
+							end,
+						}))
+						return true
+					end,
+				}))
+				return {
+					message = localize("k_drank"),
+					colour = G.C.FILTER,
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
 	key = "googologist",
 	rarity = "crp_trash",
 	atlas = "crp_placeholders",
@@ -2608,33 +2775,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Psychomaniac14" },
 		art = { "Psychomaniac14" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
-	key = "septingentiquinvigintation_stevie",
-	config = { immutable = { arrows = 723 }, extra = { mantissa = 1e111, placebo = 1.1 } },
-	rarity = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
-	atlas = "crp_placeholders",
-	pos = { x = 12, y = 0 },
-	cost = 1600,
-	blueprint_compat = true,
-	demicolon_compat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.placebo) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				hypermult_mod = {lenient_bignum(card.ability.immutable.arrows), lenient_bignum(card.ability.extra.mantissa)},
-				message = "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" .. lenient_bignum(card.ability.extra.placebo) .. " Mult",
-				colour = G.C.EDITION
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "PurplePickle" },
 		code = { "Glitchkat10" }
 	}
 }

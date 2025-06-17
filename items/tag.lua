@@ -375,6 +375,7 @@ SMODS.Tag {
     key = "better_better_better_better_better_better_better_better_top-up_tag",
     atlas = "crp_tags",
     pos = { x = 4, y = 2 },
+	min_ante = 8,
     config = { extra = { amount = 2 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { tag.config.extra.amount } }
@@ -408,6 +409,7 @@ SMODS.Tag {
     key = "better_better_better_better_better_better_better_better_better_top-up_tag",
     atlas = "crp_tags",
     pos = { x = 0, y = 2 },
+	min_ante = 8,
     config = { extra = { amount = 2 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { tag.config.extra.amount } }
