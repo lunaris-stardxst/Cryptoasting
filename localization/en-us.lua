@@ -448,7 +448,7 @@ return {
 				},
 			},
 			j_crp_evil_bulgoe = {
-				name = "{C:red}EVIL{}{C:edition}Bulgoe{}",
+				name = "{C:red}EVIL{} {C:edition}Bulgoe{}",
 				text = {
 					"{C:white,X:chips}÷#1#{} Chip#<s>1#",
 				},

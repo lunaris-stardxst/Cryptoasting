@@ -2672,7 +2672,7 @@ SMODS.Joker {
 					end,
 				}))
 				return {
-					message = localize("k_drank"),
+					message = localize("k_drank_ex"),
 					colour = G.C.FILTER,
 				}
 			end
@@ -2727,7 +2727,7 @@ SMODS.Joker {
 					end,
 				}))
 				return {
-					message = localize("k_drank"),
+					message = localize("k_drank_ex"),
 					colour = G.C.FILTER,
 				}
 			end
