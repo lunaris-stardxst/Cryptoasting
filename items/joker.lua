@@ -1640,46 +1640,60 @@ SMODS.Joker {
 	-- still stolen from cryptids exponentia
 	init = function(self)
 		-- Hook for scaling
-		local scie = SMODS.calculate_individual_effect
-		function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
-			local ret = scie(effect, scored_card, key, amount, from_edition)
-			if
-				(
-					key == "e_mult"
-					or key == "emult"
-					or key == "Emult"
-					or key == "e_mult_mod"
-					or key == "emult_mod"
-					or key == "Emult_mod"
-				)
-				and amount ~= 1
-				and mult
-			then
-				for k, v in pairs(find_joker("Exponentia 2")) do
-					local old = v.ability.extra.Emult
-					v.ability.extra.Emult = lenient_bignum(to_big(v.ability.extra.Emult) + v.ability.extra.Emult_mod)
-					card_eval_status_text(v, "extra", nil, nil, nil, {
-						message = localize({
-							type = "variable",
-							key = "a_powmult",
-							vars = { number_format(v.ability.extra.Emult) },
-						}),
-					})
-					Cryptid.apply_scale_mod(v, v.ability.extra.Emult_mod, old, v.ability.extra.Emult, {
-						base = { { "extra", "Emult" } },
-						scaler = { { "extra", "Emult_mod" } },
-						scaler_base = { v.ability.extra.Emult_mod },
-					})
-				end
-			end
-			return ret
-		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
 	}
 }
+
+-- exponentia 2 and tetrationa's effects
+local scie = SMODS.calculate_individual_effect
+function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
+	local ret = scie(effect, scored_card, key, amount, from_edition)
+	if
+		(
+			key == "e_mult"
+			or key == "emult"
+			or key == "Emult"
+			or key == "e_mult_mod"
+			or key == "emult_mod"
+			or key == "Emult_mod"
+		)
+		and amount ~= 1
+		and mult
+	then
+		for k, v in pairs(find_joker("j_crp_exponentia_2")) do
+			local old = v.ability.extra.Emult
+			v.ability.extra.Emult = lenient_bignum(to_big(v.ability.extra.Emult) + v.ability.extra.Emult_mod)
+			card_eval_status_text(v, "extra", nil, nil, nil, {
+				message = localize({
+					type = "variable",
+					key = "a_powmult",
+					vars = { number_format(v.ability.extra.Emult) },
+				}),
+			})
+			Cryptid.apply_scale_mod(v, v.ability.extra.Emult_mod, old, v.ability.extra.Emult, {
+				base = { { "extra", "Emult" } },
+				scaler = { { "extra", "Emult_mod" } },
+				scaler_base = { v.ability.extra.Emult_mod },
+			})
+		end
+		for k, v in pairs(find_joker("j_crp_tetrationa")) do
+			local old = v.ability.extra.EEmult
+			v.ability.extra.EEmult = lenient_bignum(to_big(v.ability.extra.EEmult) + v.ability.extra.EEmult_mod)
+			card_eval_status_text(v, "extra", nil, nil, nil, {
+				message = '^^' .. number_format(v.ability.extra.EEmult) .. ' Mult',
+			})
+			Cryptid.apply_scale_mod(v, v.ability.extra.EEmult_mod, old, v.ability.extra.EEmult, {
+				base = { { "extra", "EEmult" } },
+				scaler = { { "extra", "EEmult_mod" } },
+				scaler_base = { v.ability.extra.EEmult_mod },
+			})
+		end
+	end
+	return ret
+end
 
 SMODS.Joker {
 	key = "bulgoes_hiking_journey",
@@ -2143,44 +2157,6 @@ SMODS.Joker {
 				colour = G.C.DARK_EDITION,
 				card = card
 			}
-		end
-	end,
-	-- stole this from cryptids exponentia
-	init = function(self)
-		-- Hook for scaling
-		local scie = SMODS.calculate_individual_effect
-		function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
-			local ret = scie(effect, scored_card, key, amount, from_edition)
-			if
-				(
-					key == "e_mult"
-					or key == "emult"
-					or key == "Emult"
-					or key == "e_mult_mod"
-					or key == "emult_mod"
-					or key == "Emult_mod"
-				)
-				and amount ~= 1
-				and mult
-			then
-				for k, v in pairs(find_joker("Tetrationa")) do
-					local old = v.ability.extra.EEmult
-					v.ability.extra.EEmult = lenient_bignum(to_big(v.ability.extra.EEmult) + v.ability.extra.EEmult_mod)
-					card_eval_status_text(v, "extra", nil, nil, nil, {
-						message = localize({
-							type = "variable",
-							key = "a_tetmult",
-							vars = { number_format(v.ability.extra.EEmult) },
-						}),
-					})
-					Cryptid.apply_scale_mod(v, v.ability.extra.EEmult_mod, old, v.ability.extra.EEmult, {
-						base = { { "extra", "EEmult" } },
-						scaler = { { "extra", "EEmult_mod" } },
-						scaler_base = { v.ability.extra.EEmult_mod },
-					})
-				end
-			end
-			return ret
 		end
 	end,
 	crp_credits = {
