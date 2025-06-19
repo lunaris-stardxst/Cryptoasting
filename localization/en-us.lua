@@ -348,7 +348,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{}Prize",
+				name = "{C:edition}Bulgoe{} Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create {C:attention}#1#{} {C:edition,X:grey}Bulgoe#<s>1#{}",

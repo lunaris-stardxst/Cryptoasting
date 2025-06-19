@@ -1017,8 +1017,8 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		local jokers_to_create = lenient_bignum(card.ability.extra.create)
-      	G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-		for i = 1, jokers_to_create do
+      		G.GAME.joker_buffer = G.GAME.joker_buffer + math.ceil(jokers_to_create)
+		for i = 1, math.ceil(jokers_to_create) do
 			if (context.joker_main) or context.forcetrigger then
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker")
 				card:add_to_deck()
@@ -2217,7 +2217,7 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				hypermult_mod = {
-					lenient_bignum(math.round(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
+					lenient_bignum(math.ceil(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
 					lenient_bignum(card.ability.extra.mult)
 				},
 				message = "{" .. lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
