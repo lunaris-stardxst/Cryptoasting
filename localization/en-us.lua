@@ -263,6 +263,15 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_all = {
+				name = "All",
+				text = {
+					"Creates {C:attention}#1# Joker{}, {C:attention}#2# Consumable{}, {C:attention}#3# Tag, and {C:attention}#4# Voucher{}",
+					"{C:attention}based on their order in the collection{} when a hand is played",
+					"Gain {C:attention}#1# Joker Slot{} for each joker created and",
+					"increases amount of jokers created by {C:attention}#5#{} when triggered",
+				},
+			},
 			j_crp_exodiac = {
 				name = "Exodiac",
 				text = {
@@ -348,7 +357,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{} Prize",
+				name = "{C:edition}Bulgoe{}Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create {C:attention}#1#{} {C:edition,X:grey}Bulgoe#<s>1#{}",
@@ -392,6 +401,13 @@ return {
 				name = "pentation peter",
 				text = {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
+				},
+			},
+			j_crp_quantum_joker = {
+				name = "Quantum Joker",
+				text = {
+					"{C:attention}Enhanced Cards{} have the positive effects",
+					"of all {C:attention}Vanilla, Cryptid, and Cryptposting enhancements{}"
 				},
 			},
 			j_crp_tetrationa = {
@@ -469,6 +485,13 @@ return {
 					"{C:mult}-#2#{} Mult",
 					"{C:white,X:chips}÷#3#{} Chip#<s>1#",
 					"{C:white,X:mult}÷#4#{} Mult",
+				},
+			},
+			j_crp_rainstar = {
+				name = "Rainstar",
+				text = {
+					"{C:chips}-#1#{} Chip#<s>1# and {C:mult}-#2#{} Mult if played hand",
+					"does not contain a {C:attention}Flush{}",
 				},
 			},
 			j_crp_gudusername = {
@@ -907,6 +930,52 @@ return {
 					"{C:attention}#6# 7{}s played or discarded",
 				},
 			}, ]]--
+		},
+		Voucher = {
+			v_crp_patience = {
+				name = "Patience",
+				text = {
+					"Wait for it..."
+				},
+			},
+			v_crp_patience_2 = {
+				name = "More Patience",
+				text = {
+					"Wait for it..."
+				},
+			},
+			v_crp_patience_3 = {
+				name = "Even More Patience",
+				text = {
+					"Wait for it... a bit more..."
+				},
+			},
+			v_crp_patience_4 = {
+				name = "Even More Patience Again",
+				text = {
+					"Just a bit... longer..."
+				},
+			},
+			v_crp_patience_5 = {
+				name = "So Much Patience",
+				text = {
+					"You're almost there..."
+				},
+			},
+			v_crp_payoff = {
+				name = "Payoff",
+				text = {
+					"{C:chips}+4{} Chips! You did it!"
+				},
+			},
+			v_crp_just_kidding = {
+				name = "Just Kidding, This Is The Real Payoff",
+				text = {
+					"Creates {C:attention}#1#{} {C:edition}Negative{C:crp_exomythic} ExoMythic{} Jokers",
+					"And {C:attention}#2#{} {C:edition}Negative{C:crp_2exomythic4me} 2ExoMythic4Me{} Joker",
+					"{C:inactive}\"Took ya long enough.\""
+				},
+			},
 		}
 	},
 	misc = {
@@ -929,6 +998,7 @@ return {
 			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe",
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
+			k_crp_all = "All",
 		},
 		labels = {
 			crp_overloaded = "Overloaded",

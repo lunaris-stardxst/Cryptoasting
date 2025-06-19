@@ -25,6 +25,14 @@ local exomythic_gradient = SMODS.Gradient({
     }
 })
 
+local all_gradient = SMODS.Gradient({
+    key="all",
+    colours = {
+        HEX("ffffff"),
+        HEX("000000")
+    }
+})
+
 local exomythic4me_gradient = SMODS.Gradient({
     key="2exomythic4me",
     colours = {
@@ -207,4 +215,10 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
 	badge_colour = hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient,
+})
+
+
+SMODS.Rarity({
+	key = "all",
+	badge_colour = all_gradient
 })
