@@ -49,7 +49,7 @@ SMODS.Joker {
 	rarity = 1,
 	atlas =  "crp_jokers",
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	pos = { x = 0, y = 0 },
 	cost = 1,
 	loc_vars = function(self, info_queue, card)
@@ -76,7 +76,7 @@ SMODS.Joker {
 	rarity = "cry_exotic",
 	atlas =  "crp_jokers",
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	pos = { x = 1, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 3, y = 0 } },
 	cost = 50,
@@ -112,7 +112,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 0 },
 	cost = 5,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.chips_scale) } }
 	end,
@@ -147,7 +147,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.score_percentage, card.ability.extra.xchips, card.ability.extra.xchips_mod, card.ability.extra.stones } }
 	end,
@@ -263,7 +263,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 0 },
 	cost = 5,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.chips_scale) } }
 	end,
@@ -298,7 +298,7 @@ SMODS.Joker {
     soul_pos = { x = 1, y = 7, extra = { x = 0, y = 7 } },
     cost = 50,
     blueprint_compat = true,
-    demicolon_compat = true,
+    demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
         return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
     end,
@@ -336,7 +336,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 0 },
 	cost = 50,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.Emult_mod), lenient_bignum(card.ability.extra.retrigger_requirement), lenient_bignum(card.ability.extra.current_retriggers) } }
 	end,
@@ -377,7 +377,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 0 },
 	cost = 7,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.immutable.mult } }
 	end,
@@ -403,7 +403,7 @@ SMODS.Joker {
 	pos = { x = 3, y = 1 },
 	cost = 7,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.dollars) } }
 	end,
@@ -437,7 +437,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 2 },
 	cost = 10,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
@@ -463,7 +463,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 0 },
 	cost = 1,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
@@ -489,7 +489,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,
@@ -516,7 +516,7 @@ SMODS.Joker {
 	soul_pos = { x = 1, y = 1, extra = { x = 2, y = 1 } },
 	cost = 50,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
 	end,
@@ -551,7 +551,7 @@ SMODS.Joker {
 	soul_pos = { x = 2, y = 2, extra = { x = 3, y = 2 } },
 	cost = (4^4)/(math.sqrt(4)),
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
 	end,
@@ -580,7 +580,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 1 },
 	cost = 9,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.dollars) } }
 	end,
@@ -605,7 +605,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 1 },
 	cost = 16,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
@@ -644,7 +644,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 3 },
 	cost = 10,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xchips) } }
 	end,
@@ -676,7 +676,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 4 },
 	cost = 4.4,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -724,7 +724,7 @@ SMODS.Joker {
 	soul_pos = { x = 3, y = 5, extra = { x = 2, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
 	end,
@@ -758,7 +758,7 @@ SMODS.Joker {
 	pos = { x = 9, y = 1 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -786,7 +786,7 @@ SMODS.Joker {
 	soul_pos = { x = 9, y = 5, extra = { x = 8, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
 	end,
@@ -834,7 +834,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 1 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -867,7 +867,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 0 },
 	cost = 15,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
 	end,
@@ -904,7 +904,7 @@ SMODS.Joker {
 	pos = { x = 11, y = 0 },
 	cost = 400,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chipsmult), "{", "}" } }
 	end,
@@ -1009,7 +1009,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 4 },
 	cost = 9,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
@@ -1040,7 +1040,7 @@ SMODS.Joker {
     pos = { x = 1, y = 0 },
     cost = 0,
     blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
         return { vars = { "{", "}", } }
     end,
@@ -1072,7 +1072,7 @@ SMODS.Joker {
 	soul_pos = { x = 3, y = 3, extra = { x = 4, y = 3 } },
 	cost = 800,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.operator), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.operator_increase), "{", "}" } }
 	end,
@@ -1143,7 +1143,7 @@ SMODS.Joker {
 	pos = { x = 1, y = 3 },
 	cost = 10,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -1177,7 +1177,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 0 },
 	cost = 100,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult_mod), card.ability.extra.death_prevention_enabled, lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -1225,7 +1225,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 5 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -1264,7 +1264,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 3 },
 	cost = 0,
 	blueprint_compat = false,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	in_pool = function(self, args)
 		return true, { allow_duplicates = true }
 	end,
@@ -1348,7 +1348,7 @@ SMODS.Joker {
 	pos = { x = 3, y = 4 },
 	cost = 1,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.rounds_remaining) } }
 	end,
@@ -1539,7 +1539,7 @@ SMODS.Joker {
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 400,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
 	end,
@@ -1573,7 +1573,7 @@ SMODS.Joker {
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 200,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.hypermult) } }
 	end,
@@ -1604,7 +1604,7 @@ SMODS.Joker {
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 200,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Emoney) } }
 	end,
@@ -1631,7 +1631,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 0 },
 	cost = 100,
 	blueprint_compat = false,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.slots) } }
 	end,
@@ -1659,7 +1659,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 0 },
 	cost = 100,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.Emult_mod) } }
 	end,
@@ -1737,7 +1737,7 @@ SMODS.Joker {
 	rarity = "cry_epic",
 	atlas =  "crp_jokers",
 	blueprint_compat = true,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	pos = { x = 0, y = 7 },
 	cost = 13,
 	loc_vars = function(self, info_queue, card)
@@ -1771,7 +1771,7 @@ SMODS.Joker {
 	cost = 6,
 	eternal_compat = false,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.splash) } }
 	end,
@@ -1800,7 +1800,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 1 },
 	cost = 9,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_arcana_normal_1
@@ -1830,7 +1830,7 @@ SMODS.Joker {
     pos = { x = 5, y = 3 },
     cost = 4,
     blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
         return { vars = { lenient_bignum(card.ability.extra.mult) } }
     end,
@@ -1857,7 +1857,7 @@ SMODS.Joker {
 	display_size = { w = 2 * 71, h = 2 * 95 },
 	cost = 6,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -1918,7 +1918,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 4 },
 	cost = 1,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -1944,7 +1944,7 @@ SMODS.Joker {
 	pos = { x = 9, y = 0 },
 	cost = 5,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.immutable.numerator, card.ability.immutable.denominator, card.ability.immutable.mult } }
 	end,
@@ -1978,7 +1978,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 2 },
 	cost = 6,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
@@ -2004,7 +2004,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 6 },
 	cost = 1,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -2030,7 +2030,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 2 },
 	cost = 1,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
@@ -2057,7 +2057,7 @@ SMODS.Joker {
     soul_pos = { x = 1, y = 7, extra = { x = 0, y = 7 } },
 	cost = 100,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
 	end,
@@ -2095,7 +2095,7 @@ SMODS.Joker {
     pos = { x = 6, y = 0 },
 	cost = 20,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
 	end,
@@ -2181,7 +2181,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 0 },
 	cost = 100,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
 	end,
@@ -2210,7 +2210,7 @@ SMODS.Joker {
     soul_pos = { x = 2, y = 7, extra = { x = 3, y = 7 } },
     cost = 100,
     blueprint_compat = true,
-    demicolon_compat = true,
+    demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
         return { vars = { number_format(card.ability.extra.EEmult_mod), number_format(card.ability.extra.EEmult_mod) * Cryptposting.member_count, }, }
     end,
@@ -2242,7 +2242,7 @@ SMODS.Joker {
 	soul_pos = { x = 5, y = 5, extra = { x = 6, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult), math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers)), lenient_bignum(card.ability.immutable.max_retriggers) } }
 	end,
@@ -2288,7 +2288,7 @@ SMODS.Joker {
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 100,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Xmult_scale) } }
 	end,
@@ -2322,7 +2322,7 @@ SMODS.Joker {
 	soul_pos = { x = 2, y = 6, extra = { x = 3, y = 6 } },
 	cost = 200,
 	blueprint_compat = true,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.e_crp_overloaded
 		return { vars = {  } }
@@ -2356,7 +2356,7 @@ SMODS.Joker {
 	pos = { x = 2, y = 0 },
 	cost = 5,
 	blueprint_compat = false,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue+1] = G.P_CENTERS.j_bull
 		return { vars = { lenient_bignum(card.ability.extra.amount) } }
@@ -2397,7 +2397,7 @@ SMODS.Joker {
 	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
 	cost = 800,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.arrows_scale), "{", "}" } }
 	end,
@@ -2430,7 +2430,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 2 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
@@ -2458,7 +2458,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 0 },
 	cost = 8,
 	blueprint_compat = false,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.hand_size, card.ability.extra.consumeableslots, card.ability.extra.boosterpackslots } }
 	end,
@@ -2486,7 +2486,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.create), cry_prob(card.ability.cry_prob, card.ability.extra.odds, card.ability.cry_rigged), card.ability.extra.odds, lenient_bignum(card.ability.extra.rare_create) } }
 	end,
@@ -2540,7 +2540,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 1 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xchips), lenient_bignum(card.ability.extra.Xmult) } }
 	end,
@@ -2693,7 +2693,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 4 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -2756,7 +2756,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 3 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.immutable.Xchips), lenient_bignum(card.ability.immutable.Xmult), lenient_bignum(card.ability.immutable.Echips), lenient_bignum(card.ability.immutable.Emult), lenient_bignum(card.ability.immutable.EEchips), lenient_bignum(card.ability.immutable.EEmult), lenient_bignum(card.ability.immutable.EEEchips), lenient_bignum(card.ability.immutable.EEEmult), } }
 	end,
@@ -2831,7 +2831,7 @@ SMODS.Joker {
 	pos = { x = 5, y = 0 },
 	cost = 10,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		local prob = cry_prob(lenient_bignum(card.ability.cry_prob), lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged)
 		return { vars = { card.ability.cry_rigged and lenient_bignum(card.ability.extra.odds) or lenient_bignum(card.ability.extra.odds) - prob, lenient_bignum(card.ability.extra.odds), lenient_bignum(card.ability.extra.Emult) } }
@@ -2861,7 +2861,7 @@ SMODS.Joker {
 	pos = { x = 12, y = 0 },
 	cost = 1600,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.placebo) } }
 	end,
@@ -2888,7 +2888,7 @@ SMODS.Joker {
 	pos = { x = 9, y = 3 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
@@ -2944,7 +2944,7 @@ SMODS.Joker {
 	pos = { x = 9, y = 4 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
@@ -2999,7 +2999,7 @@ SMODS.Joker {
 	pos = { x = 1, y = 0 },
 	cost = 0,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { "{", "}" } }
 	end,
@@ -3024,7 +3024,7 @@ SMODS.Joker {
 	pos = { x = 9, y = 2 },
 	cost = 0,
 	blueprint_compat = false,
-	demicolon_compat = false,
+	demicoloncompat = false,
 	crp_credits = {
 		idea = { "Psychomaniac14" },
 		art = { "Psychomaniac14" },
@@ -3041,7 +3041,7 @@ SMODS.Joker {
 	pos = { x = 4, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
-	demicolon_compat = true,
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
