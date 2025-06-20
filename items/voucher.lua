@@ -112,19 +112,19 @@ SMODS.Voucher {
     key = "just_kidding",
     atlas = "crp_placeholders",
     pos = { x = 7, y = 2 },
-    config = { extra = { exomythic_count = 4, twoexomythic4me_count = 1 } },
+    config = { extra = { exomythic_count = 3, twoexomythic4me_count = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.exomythic_count, card.ability.extra.twoexomythic4me_count } }
     end,
 	requires = { "v_crp_payoff" },
     redeem = function(self, card)
-        for i=1, card.ability.extra.exomythic_count do
+        for i = 1, card.ability.extra.exomythic_count do
 			local card = create_card("Joker", G.jokers, nil, "crp_exomythic", nil, nil, nil, "truly_fair")
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()
 			G.jokers:emplace(card)
         end
-        for i=1, card.ability.extra.twoexomythic4me_count do
+        for i = 1, card.ability.extra.twoexomythic4me_count do
 			local card = create_card("Joker", G.jokers, nil, "crp_2exomythic4me", nil, nil, nil, "truly_fair")
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()

@@ -53,7 +53,8 @@ return {
 				name = "Scones, Bones, Skibidi Stones",
 				text = {
 					"{C:white,X:chips}X#3#{} Chip#<s>3#, {C:white,X:chips}-X#4#{} Chip#<s>4# when you click",
-					"Prevents death once if you score at least {C:attention}#2#%{} of the required score",
+					"Prevents death once if you score at least",
+					"{C:attention}#2#%{} of the required score",
 					"Creates {C:attention}#5# Stone{} card#<s>5# if played hand contains a {C:attention}Flush",
 					"{C:inactive}(Death prevention active: #1#)",
 				},
@@ -266,10 +267,12 @@ return {
 			j_crp_all = {
 				name = "All",
 				text = {
-					"Creates {C:attention}#1# Joker{}, {C:attention}#2# Consumable{}, {C:attention}#3# Tag, and {C:attention}#4# Voucher{}",
-					"{C:attention}based on their order in the collection{} when a hand is played",
-					"Gain {C:attention}#1# Joker Slot{} for each joker created and",
-					"increases amount of jokers created by {C:attention}#5#{} when triggered",
+					"Creates {C:attention}#1# Joker#<s>1#{}, {C:attention}#2# consumable#<s>2#{}, {C:attention}#3# Tag#<s>3#{}, and {C:attention}#4# Voucher#<s>4#",
+					"based on their {C:attention}order{} in the {C:attention}collection{} when hand played",
+					"Gains {C:dark_edition}+#6#{} Joker slot#<s>6# for every {C:attention}Joker{} created",
+					"and {C:attention}+#7#{} consumable slot#<s>7# for every {C:attention}consumable{} created",
+					"Increases amount of items created by {C:attention}#5#{} when triggered",
+					"{C:inactive}(Currently {C:dark_edition}+#8#{C:inactive} Joker slot#<s>8# and {C:attention}+#9#{C:inactive} consumable slot#<s>9#){}"
 				},
 			},
 			j_crp_exodiac = {
@@ -357,7 +360,7 @@ return {
 				},
 			},
 			j_crp_bulgoe_prize = {
-				name = "{C:edition}Bulgoe{}Prize",
+				name = "{C:edition}Bulgoe{} Prize",
 				text = {
 					"Whenever any {C:attention}Booster Pack{} is",
 					"skipped create {C:attention}#1#{} {C:edition,X:grey}Bulgoe#<s>1#{}",
@@ -406,8 +409,9 @@ return {
 			j_crp_quantum_joker = {
 				name = "Quantum Joker",
 				text = {
-					"{C:attention}Enhanced Cards{} have the positive effects",
-					"of all {C:attention}Vanilla, Cryptid, and Cryptposting enhancements{}"
+					"{C:attention}Enhanced Cards{} have the positive ",
+					"effects of all {C:attention}Vanilla{}, {C:attention}Cryptid{},",
+					"and {C:attention}Cryptposting{} enhancements"
 				},
 			},
 			j_crp_tetrationa = {
@@ -971,8 +975,8 @@ return {
 			v_crp_just_kidding = {
 				name = "Just Kidding, This Is The Real Payoff",
 				text = {
-					"Creates {C:attention}#1#{} {C:edition}Negative{C:crp_exomythic} ExoMythic{} Jokers",
-					"And {C:attention}#2#{} {C:edition}Negative{C:crp_2exomythic4me} 2ExoMythic4Me{} Joker",
+					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_exomythic}ExoMythic{} {C:attention}Joker#<s>1#{}",
+					"and {C:attention}#2#{} {C:dark_edition}Negative{} {C:crp_2exomythic4me}2ExoMythic4Me{} {C:attention}Joker#<s>2#{}",
 					"{C:inactive}\"Took ya long enough.\""
 				},
 			},

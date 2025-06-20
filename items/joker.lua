@@ -1067,8 +1067,9 @@ SMODS.Joker {
 	key = "quetta_m",
 	config = { extra = { operator = -1, mult = 8, operator_increase = 8 }, immutable = { numerator = 13, denominator = 100 } },
 	rarity = "crp_22exomythic4mecipe",
-	atlas = "crp_placeholders",
-	pos = { x = 10, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 2, y = 3 },
+	soul_pos = { x = 3, y = 3, extra = { x = 4, y = 3 } },
 	cost = 800,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -1128,7 +1129,8 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "superb_thing", "Glitchkat10" },
+		idea = { "Glitchkat10", "superb_thing" },
+		art = { "George The Rat" },
 		code = { "Rainstar", "Glitchkat10" }
 	}
 }
@@ -1403,94 +1405,128 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+SMODS.Joker { -- IT'S ALIVE
 	key = "all",
-	config =
-		{ extra = { jokers = 1, consumables = 1, tags = 1, vouchers = 1, joker_increase = 1, joker_id = 0, consumable_id = 0, tag_id = 0, voucher_id = 0 } },
-	rarity = 'crp_all',
+	rarity = "crp_all",
 	atlas = "crp_placeholders",
-	pos = { x = 0, y = 0 },
-	cost = 1000000,
-	eternal_compat = false,
+	pos = { x = 14, y = 0 },
+	cost = 9827982798279827,
 	blueprint_compat = false,
-	demicolon_compat = false,
+	demicoloncompat = true,
+	config = {
+		extra = {
+			jokers = 1,
+			consumables = 1,
+			tags = 1,
+			vouchers = 1,
+			increase = 1,
+			joker_slots = 1,
+			consumable_slots = 1,
+			total_joker_slots_added = 0,
+			total_consumable_slots_added = 0
+		}
+	},
 	loc_vars = function(self, info_queue, card)
-		return { vars = { math.min(25, card.ability.extra.jokers), card.ability.extra.consumables, card.ability.extra.tags, card.ability.extra.vouchers, card.ability.extra.joker_increase, card.ability.extra.joker_id, card.ability.extra.consumable_id, card.ability.extra.tag_id, card.ability.extra.voucher_id } }
+		return {
+			vars = {
+				math.min(25, card.ability.extra.jokers),
+				math.min(25, card.ability.extra.consumables),
+				math.min(25, card.ability.extra.tags),
+				math.min(25, card.ability.extra.vouchers),
+				card.ability.extra.increase,
+				card.ability.extra.joker_slots,
+				card.ability.extra.consumable_slots,
+				card.ability.extra.total_joker_slots_added,
+				card.ability.extra.total_consumable_slots_added
+			}
+		}
 	end,
 	calculate = function(self, card, context)
-		--if context.selling_self then
-		--	for k, v in pairs(G.P_CENTERS) do
-		--		if v.set == 'Joker' then
-		--			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, v.key, 'all')
-		--			card:add_to_deck()
-		--			G.jokers:emplace(card)
-		--		end
-		--		if v.set == 'Consumeable' then
-		--			local card = create_card("Consumeable", G.consumeables, nil, nil, nil, nil, v.key, 'all')
-		--			card:add_to_deck()
-		--			G.jokers:emplace(card)
-		--		end
-		--		if v.set == 'Voucher' then
-		--			local card = create_card("Voucher", G.consumeables, nil, nil, nil, nil, v.key, 'all')
-		--			card:add_to_deck()
-		--			G.jokers:emplace(card)
-		--		end
-		--	end
-		--	for k, v in pairs(G.P_TAGS) do
-		--		local tag = v.key
-		--		add_tag(tag)
-		--	end
-		--end
-		if context.before and context.cardarea == G.jokers then
-			for i = 1, math.min(25, card.ability.extra.jokers) do
-				local card_key = G.P_CENTER_POOLS["Joker"][card.ability.extra.joker_id + i].key
-				local card1 = create_card("Joker", G.jokers, nil, nil, nil, nil, card_key, 'literally_fucking_everything')
-				card1:add_to_deck()
-				G.jokers:emplace(card1)
+		if (context.before and context.cardarea == G.jokers) or context.forcetrigger then
+			G.GAME.all_joker_key = G.GAME.all_joker_key or 1
+			G.GAME.all_consumable_key = G.GAME.all_consumable_key or 1
+			G.GAME.all_tag_key = G.GAME.all_tag_key or 1
+			G.GAME.all_voucher_key = G.GAME.all_voucher_key or 1
+
+			local jokers_added, consumables_added = 0, 0
+
+			for _ = 1, math.min(25, card.ability.extra.jokers) do
+				if G.GAME.all_joker_key > #G.P_CENTER_POOLS.Joker then G.GAME.all_joker_key = 1 end
+				local key = G.P_CENTER_POOLS.Joker[G.GAME.all_joker_key].key
+				local j = create_card("Joker", G.jokers, nil, nil, nil, nil, key, "literally_fucking_everything")
+				j:add_to_deck()
+				G.jokers:emplace(j)
+				G.GAME.all_joker_key = G.GAME.all_joker_key + 1
+				jokers_added = jokers_added + 1
 			end
-			for i = 1, card.ability.extra.consumables do
-				local card_key = G.P_CENTER_POOLS["Consumeables"][card.ability.extra.consumable_id + i].key
-				local card1 = create_card("Consumeable", G.consumeables, nil, nil, nil, nil, card_key, 'literally_fucking_everything')
-				card1:add_to_deck()
-				G.consumeables:emplace(card1)
+
+			for _ = 1, math.min(25, card.ability.extra.consumables) do
+				if G.GAME.all_consumable_key > #G.P_CENTER_POOLS.Consumeables then G.GAME.all_consumable_key = 1 end
+				local key = G.P_CENTER_POOLS.Consumeables[G.GAME.all_consumable_key].key
+				local c = create_card("Consumeable", G.consumeables, nil, nil, nil, nil, key, "literally_fucking_everything")
+				c:add_to_deck()
+				G.consumeables:emplace(c)
+				G.GAME.all_consumable_key = G.GAME.all_consumable_key + 1
+				consumables_added = consumables_added + 1
 			end
-			--for i = 1, card.ability.extra.tags do
-			--	local tag_key = G.P_CENTER_POOLS["Tag"][card.ability.extra.tag_id + i].key
-			--	add_tag(Tag(tag_key))
-			--	if card.ability.extra.tag_id >= #G.P_CENTER_POOLS["tag"] then
-			--		card.ability.extra.tag_id = card.ability.extra.tag_id + 1
-			--	else
-			--		card.ability.extra.tag_id = 0
-			--	end
-			--end
-			for i = 1, card.ability.extra.vouchers do
-				local card_key = G.P_CENTER_POOLS["Voucher"][card.ability.extra.voucher_id + i].key
-				local card1 = create_card("Voucher", G.consumeables, nil, nil, nil, nil, card_key, 'literally_fucking_everything')
-				card1:add_to_deck()
-				G.consumeables:emplace(card1)
+
+			for _ = 1, math.min(25, card.ability.extra.tags) do
+				if G.GAME.all_tag_key > #G.P_CENTER_POOLS.Tag then G.GAME.all_tag_key = 1 end
+				local key = G.P_CENTER_POOLS.Tag[G.GAME.all_tag_key].key
+				add_tag(Tag(key))
+				G.GAME.all_tag_key = G.GAME.all_tag_key + 1
 			end
-			G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokers
-			card.ability.extra.jokers = card.ability.extra.jokers + card.ability.extra.joker_increase
-			if card.ability.extra.joker_id >= #G.P_CENTER_POOLS["Joker"] then
-				card.ability.extra.joker_id = 0
-			else
-				card.ability.extra.joker_id = card.ability.extra.joker_id + 1
+
+			for _ = 1, math.min(25, card.ability.extra.vouchers) do
+				if G.GAME.all_voucher_key > #G.P_CENTER_POOLS.Voucher then G.GAME.all_voucher_key = 1 end
+				local key = G.P_CENTER_POOLS.Voucher[G.GAME.all_voucher_key].key
+				local area = (G.STATE == G.STATES.HAND_PLAYED and (G.redeemed_vouchers_during_hand or CardArea(G.play.T.x, G.play.T.y, G.play.T.w, G.play.T.h, { type = "play", card_limit = 5 }))) or G.play
+
+				if G.STATE == G.STATES.HAND_PLAYED and not G.redeemed_vouchers_during_hand then
+					G.redeemed_vouchers_during_hand = area
+				end
+				local v = create_card("Voucher", area, nil, nil, nil, nil, key)
+				v:start_materialize()
+				area:emplace(v)
+				v.cost = 0
+				v.shop_voucher = false
+				local prev = G.GAME.current_round.voucher
+				v:redeem()
+				G.GAME.current_round.voucher = prev
+				G.E_MANAGER:add_event(Event({
+					trigger = "after",
+					delay = 0,
+					func = function()
+						v:start_dissolve()
+						return true
+					end
+				}))
+				G.GAME.all_voucher_key = G.GAME.all_voucher_key + 1
 			end
-			if card.ability.extra.voucher_id >= #G.P_CENTER_POOLS["Voucher"] then
-				card.ability.extra.voucher_id = 0
-			else
-				card.ability.extra.voucher_id = card.ability.extra.voucher_id + 1
-			end
-			if card.ability.extra.consumable_id >= #G.P_CENTER_POOLS["Consumeables"] then
-				card.ability.extra.consumable_id = 0
-			else
-				card.ability.extra.consumable_id = card.ability.extra.consumable_id + 1
-			end
+
+			local j_slot_gain = jokers_added * card.ability.extra.joker_slots
+			local c_slot_gain = consumables_added * card.ability.extra.consumable_slots
+			G.jokers.config.card_limit = G.jokers.config.card_limit + j_slot_gain
+			G.consumeables.config.card_limit = G.consumeables.config.card_limit + c_slot_gain
+
+			card.ability.extra.total_joker_slots_added = (card.ability.extra.total_joker_slots_added or 0) + j_slot_gain
+			card.ability.extra.total_consumable_slots_added = (card.ability.extra.total_consumable_slots_added or 0) + c_slot_gain
+
+			card.ability.extra.jokers = card.ability.extra.jokers + card.ability.extra.increase
+			card.ability.extra.consumables = card.ability.extra.consumables + card.ability.extra.increase
+			card.ability.extra.tags = card.ability.extra.tags + card.ability.extra.increase
+			card.ability.extra.vouchers = card.ability.extra.vouchers + card.ability.extra.increase
+		end
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		if not from_debuff then
+			G.jokers.config.card_limit = G.jokers.config.card_limit - (card.ability.extra.total_joker_slots_added or 0)
+			G.consumeables.config.card_limit = G.consumeables.config.card_limit - (card.ability.extra.total_consumable_slots_added or 0)
 		end
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
-		code = { "Rainstar" }
+		code = { "Glitchkat10", "Rainstar" }
 	}
 }
 
@@ -2848,8 +2884,8 @@ SMODS.Joker {
 	key = "low-fat_milk",
 	config = { extra = { mult = 1024 } },
 	rarity = 3,
-	atlas = "crp_placeholders",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 9, y = 3 },
 	cost = 8,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -2895,6 +2931,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
+		art = { "PurplePickle", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -2903,8 +2940,8 @@ SMODS.Joker {
 	key = "low-fqt_milk",
 	config = { extra = { chips = 2048 } },
 	rarity = "crp_rare_2",
-	atlas = "crp_placeholders",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 9, y = 4 },
 	cost = 8,
 	blueprint_compat = true,
 	demicolon_compat = true,
@@ -2950,6 +2987,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
+		art = { "PurplePickle", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
