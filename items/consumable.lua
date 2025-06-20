@@ -614,3 +614,90 @@ SMODS.Consumable {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Consumable {
+	key = "all_or_nothing",
+	set = "Spectral",
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
+	cost = 9827,
+	config = { extra = { hands = -27, discards = -27 } },
+	unlocked = true,
+	discovered = true,
+	atlas = "crp_consumables",
+	hidden = true,
+	can_use = function(self, card)
+		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
+	end,
+	use = function(self, card, area, copier)
+		if pseudorandom("all_or_nothing") < 0.5 then
+			-- 50% chance: destroy all items, reset deck, reset hands/discards
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					-- destroy jokers and consumables
+					local deletable_jokers = {}
+					local deletable_consumeables = {}
+					for _, v in ipairs(G.jokers.cards) do
+						deletable_jokers[#deletable_jokers + 1] = v
+					end
+					for _, v in ipairs(G.consumeables.cards) do
+						if v ~= card then
+							deletable_consumeables[#deletable_consumeables + 1] = v
+						end
+					end
+					local _first_dissolve = nil
+					for _, v in ipairs(deletable_jokers) do
+						v:start_dissolve(nil, _first_dissolve)
+						_first_dissolve = true
+					end
+					for _, v in ipairs(deletable_consumeables) do
+						v:start_dissolve(nil, _first_dissolve)
+						_first_dissolve = true
+					end
+
+					-- clear  deck
+					G.deck.cards = {}
+					G.playing_cards = {}
+
+					-- clear tags
+					if G.GAME.tags then
+						local tags_to_remove = {}
+						for k, v in pairs(G.GAME.tags) do
+							tags_to_remove[#tags_to_remove + 1] = v
+						end
+						for _, v in ipairs(tags_to_remove) do
+							if v.remove then v:remove() end
+						end
+						G.GAME.tags = {}
+					end
+
+					-- create new deck
+					createfulldeck()
+
+					G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
+					G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discards
+					ease_hands_played(card.ability.extra.hands)
+					ease_discard(card.ability.extra.discards)
+
+					return true
+				end,
+			}))
+		else
+			-- 50% chance to create all
+			play_sound("timpani")
+			local card = create_card("Joker", G.jokers, nil, "crp_all", nil, nil, nil, "crp_all_or_nothing")
+			card:add_to_deck()
+			G.jokers:emplace(card)
+			card:juice_up(0.3, 0.5)
+			return true
+		end
+		delay(0.6)
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		custom = { key = "placeholder", text = "MarioFan597" },
+		code = { "Glitchkat10" }
+	}
+}

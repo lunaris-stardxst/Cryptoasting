@@ -406,7 +406,7 @@ return {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
-			j_crp_quantum_joker = {
+			j_crp_quantum = {
 				name = "Quantum Joker",
 				text = {
 					"{C:attention}Enhanced Cards{} have the positive ",
@@ -637,6 +637,16 @@ return {
 				text = {
 					"Apply {C:attention, T:e_holo}Holographic{}",
 					"to all {C:attention}cards in hand{}"
+				}
+			},
+			c_crp_all_or_nothing = {
+				name = "All or Nothing",
+				text = {
+					"{C:red}Fixed{} {C:green}50%{} chance to create {C:crp_all}All{}",
+					"Otherwise:",
+					"{C:red}Destroy{} all {C:attention}Jokers{} and {C:attention}consumables{}, bypassing {C:red}all effects{}",
+					"Reset deck to a standard {C:attention}52{} card deck",
+					"Decrease {C:blue}hands{} and {C:red}discards{} by {C:attention}27{}"
 				}
 			},
 		},

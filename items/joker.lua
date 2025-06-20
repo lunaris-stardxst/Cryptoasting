@@ -1525,7 +1525,7 @@ SMODS.Joker { -- IT'S ALIVE
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "lunarisIllustratez" },
 		code = { "Glitchkat10", "Rainstar" }
 	}
 }
@@ -2087,9 +2087,26 @@ SMODS.Joker {
 	}
 }
 
+--[[ commented out due to returns ending everything for some reason
 SMODS.Joker {
-	key = "quantum_joker",
-	config = { extra = { bonus_chips = 30, mult_mult = 4, glass_xmult = 2, light_xmult_mod = 0.2, lucky_mult = 20, lucky_mult_chance = 5, lucky_money = 20, lucky_money_chance = 15, echo_retriggers = 2, echo_retrigger_chance = 2, abstract_emult = 1.15, steel_xmult = 1.5, gold_money = 3 } },
+	key = "quantum",
+	config = {
+		extra = {
+			bonus_chips = 30,
+			mult_mult = 4,
+			glass_xmult = 2,
+			light_xmult_mod = 0.2,
+			lucky_mult = 20,
+			lucky_mult_chance = 5, 
+			lucky_money = 20,
+			lucky_money_chance = 15,
+			echo_retriggers = 2,
+			echo_retrigger_chance = 2,
+			abstract_emult = 1.15,
+			steel_xmult = 1.5,
+			gold_money = 3
+		}
+	},
 	rarity = 4,
 	atlas = "crp_placeholders",
     pos = { x = 6, y = 0 },
@@ -2110,9 +2127,7 @@ SMODS.Joker {
 			end
 			if card.ability.extra.lucky_mult_chance == math.random(1, card.ability.extra.lucky_mult_chance) then
 				return {
-					message = "+" .. lenient_bignum(card.ability.extra.lucky_mult) .. " Mult",
-					mult_mod = lenient_bignum(card.ability.extra.lucky_mult),
-					colour = G.C.MULT,
+					mult = lenient_bignum(card.ability.extra.lucky_mult),
 				}
 			end
 			if card.ability.extra.lucky_money_chance == math.random(1, card.ability.extra.lucky_money_chance) then
@@ -2123,17 +2138,11 @@ SMODS.Joker {
 				}
 			end
 			return {
-				message = "+" .. lenient_bignum(card.ability.extra.bonus_chips) .. " Chips",
-				chip_mod = lenient_bignum(card.ability.extra.bonus_chips),
-				colour = G.C.CHIPS,
+				chips = lenient_bignum(card.ability.extra.bonus_chips),
 				extra = {
-					message = "+" .. lenient_bignum(card.ability.extra.mult_mult) .. " Mult",
-					mult_mod = lenient_bignum(card.ability.extra.mult_mult),
-					colour = G.C.MULT,
+					mult = lenient_bignum(card.ability.extra.mult_mult),
 					extra = {
-						message = "X" .. lenient_bignum(card.ability.extra.glass_xmult) .. " Mult",
-						Xmult_mod = lenient_bignum(card.ability.extra.glass_xmult),
-						colour = G.C.MULT,
+						Xmult = lenient_bignum(card.ability.extra.glass_xmult),
 						extra = {
 							message = "^" .. lenient_bignum(card.ability.extra.abstract_emult) .. " Mult",
 							Emult_mod = lenient_bignum(card.ability.extra.abstract_emult),
@@ -2146,20 +2155,18 @@ SMODS.Joker {
 		if context.repetition and context.cardarea == G.play and context.other_card.ability.set == 'Enhanced' then
 			if lenient_bignum(card.ability.extra.echo_retrigger_chance) == math.random(1, card.ability.extra.echo_retrigger_chance) then
 				return {
-						message = localize("k_again_ex"),
-						repetitions = lenient_bignum(card.ability.extra.echo_retriggers),
-						card = card,
+					message = localize("k_again_ex"),
+					repetitions = lenient_bignum(card.ability.extra.echo_retriggers),
+					card = card,
 				}
 			end
 		end
 		if context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card.ability.set == 'Enhanced' then
 			return {
-				message = "X" .. lenient_bignum(card.ability.extra.steel_xmult) .. " Mult",
-				Xmult_mod = lenient_bignum(card.ability.extra.steel_xmult),
-				colour = G.C.MULT,
+				Xmult = lenient_bignum(card.ability.extra.steel_xmult),
 			}
 		end
-		if context.end_of_round and context.cardarea == G.play and context.individual and context.other_card.ability.set == 'Enhanced' then
+		if context.end_of_round and context.cardarea == G.play and context.other_card.ability.set == 'Enhanced' then
 			return {
 				message = "+" .. lenient_bignum(card.ability.extra.gold_money) .. "$",
 				ease_dollars(card.ability.extra.gold_money),
@@ -2172,6 +2179,7 @@ SMODS.Joker {
 		code = { "Rainstar" }
 	}
 }
+]]--
 
 SMODS.Joker {
 	key = "tetrationa",
@@ -2650,13 +2658,9 @@ SMODS.Joker {
 			}
 			local quote = quotes[math.random(#quotes)]
             return {
-	            chip_mod = -lenient_bignum(card.ability.extra.chips),
-                message =  "-" .. lenient_bignum(card.ability.extra.chips),
-                colour = G.C.CHIPS,
+	            chips = -lenient_bignum(card.ability.extra.chips),
 	            extra = {
-                    mult_mod = -lenient_bignum(card.ability.extra.mult),
-                    message =  "-" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-                    colour = G.C.MULT,
+                    mult = -lenient_bignum(card.ability.extra.mult),
                     extra = {
 		                Xchip_mod = 1 / lenient_bignum(card.ability.extra.Xchips),
                         message = "÷" .. lenient_bignum(card.ability.extra.Xchips),
@@ -2698,44 +2702,46 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.before and not next(context.poker_hands["Flush"])) or context.forcetrigger then
-			local quotes = {
-				"hjello there",
-				"can you tell that i like flushes",
-				"oh yeah i coded a few jonklers for this mod",
-				"you should rewire your brain to only play flushes and nothing else like i do",
-				"did you know that i exist? shocker, i know",
-				"ill be honest i was gonna help you but ive been told by some glitching heart thing that i should do absolutely fuck-all soooo",
-				"me when i dont even know how the most basic of functions work",
-				"hi sage",
-				"imagine having 246 quotes, couldnt be me!",
-				"gee it sure would suck if i got debuffed, removed or banished from existence",
-				"you should also play the something mod by me when that comes out (its never coming out)",
-				"did you know that im bulgoe approved by the one and only bulgoe? dont believe me? ask him yourself",
-				"insert something funny here",
-				"{25000}2 Mult... nah i lied",
-				"feels weird being condensed into a card ngl",
-				"imagine if the hit game JokerPoker - Balala got a cryptid ass mod wouldnt that be funny",
-				"so far ive coded like 10 jokers for this mod and only like 7 of them work wonderfully. im so good at coding",
-				"you should play slay the spire, its a peak roguelike deckbuilder",
-				"polterworx? but i dont even know her works",
-				"if you're reading this then congrats this is the 20th quote ive written here"
-			}
-			local quote = quotes[math.random(#quotes)]
+		local quotes = {
+			"hjello there",
+			"can you tell that i like flushes",
+			"oh yeah i coded a few jonklers for this mod",
+			"you should rewire your brain to only play flushes and nothing else like i do",
+			"did you know that i exist? shocker, i know",
+			"ill be honest i was gonna help you but ive been told by some glitching heart thing that i should do absolutely fuck-all soooo",
+			"me when i dont even know how the most basic of functions work",
+			"hi sage",
+			"imagine having 246 quotes, couldnt be me!",
+			"gee it sure would suck if i got debuffed, removed, or banished from existence",
+			"you should also play the something mod by me when that comes out (its never coming out)",
+			"did you know that im bulgoe approved by the one and only bulgoe? dont believe me? ask him yourself",
+			"insert something funny here",
+			"{25000}2 Mult... nah i lied",
+			"feels weird being condensed into a card ngl",
+			"imagine if the hit game JokerPoker - Balala got a cryptid ass mod wouldnt that be funny",
+			"so far ive coded like 10 jokers for this mod and only like 7 of them work wonderfully. im so good at coding",
+			"you should play slay the spire, its a peak roguelike deckbuilder",
+			"polterworx? but i dont even know her works",
+			"if you're reading this then congrats this is the 20th quote ive written here",
+			"glitchkat10 was here"
+		}
+		local quote = quotes[math.random(#quotes)]
+		if (context.joker_main and not next(context.poker_hands["Flush"])) or context.forcetrigger then
             return {
-	            chip_mod = -lenient_bignum(card.ability.extra.chips),
-                message =  "-" .. lenient_bignum(card.ability.extra.chips),
-                colour = G.C.CHIPS,
+	            chips = -lenient_bignum(card.ability.extra.chips),
 	            extra = {
-                    mult_mod = -lenient_bignum(card.ability.extra.mult),
-                    message =  "-" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-                    colour = G.C.MULT,
+                    mult = -lenient_bignum(card.ability.extra.mult),
                 	extra = {
                 	    message = quote,
                 	    colour = G.C.RARITY["crp_self-insert"]
                 	}
 	            }
             }
+		elseif context.joker_main then
+			return {
+				message = quote,
+				colour = G.C.RARITY["crp_self-insert"]
+			}
 		end
 	end,
     in_pool = function(self, args)
@@ -2744,7 +2750,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Rainstar" },
 		art = { "Siecelesness" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
