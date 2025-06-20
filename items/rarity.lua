@@ -208,3 +208,9 @@ SMODS.Rarity({
 	key = "hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
 	badge_colour = hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient,
 })
+
+
+SMODS.Rarity({
+	key = "all",
+	badge_colour = HEX("000000")
+})

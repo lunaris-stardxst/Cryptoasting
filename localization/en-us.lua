@@ -53,7 +53,8 @@ return {
 				name = "Scones, Bones, Skibidi Stones",
 				text = {
 					"{C:white,X:chips}X#3#{} Chip#<s>3#, {C:white,X:chips}-X#4#{} Chip#<s>4# when you click",
-					"Prevents death once if you score at least {C:attention}#2#%{} of the required score",
+					"Prevents death once if you score at least",
+					"{C:attention}#2#%{} of the required score",
 					"Creates {C:attention}#5# Stone{} card#<s>5# if played hand contains a {C:attention}Flush",
 					"{C:inactive}(Death prevention active: #1#)",
 				},
@@ -263,6 +264,17 @@ return {
 					"Expires in {C:attention}#2#{} rounds",
 				},
 			},
+			j_crp_all = {
+				name = "All",
+				text = {
+					"Creates {C:attention}#1# Joker#<s>1#{}, {C:attention}#2# consumable#<s>2#{}, {C:attention}#3# Tag#<s>3#{}, and {C:attention}#4# Voucher#<s>4#",
+					"based on their {C:attention}order{} in the {C:attention}collection{} when hand played",
+					"Gains {C:dark_edition}+#6#{} Joker slot#<s>6# for every {C:attention}Joker{} created",
+					"and {C:attention}+#7#{} consumable slot#<s>7# for every {C:attention}consumable{} created",
+					"Increases amount of items created by {C:attention}#5#{} when triggered",
+					"{C:inactive}(Currently {C:dark_edition}+#8#{C:inactive} Joker slot#<s>8# and {C:attention}+#9#{C:inactive} consumable slot#<s>9#){}"
+				},
+			},
 			j_crp_exodiac = {
 				name = "Exodiac",
 				text = {
@@ -394,6 +406,14 @@ return {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
+			j_crp_quantum_joker = {
+				name = "Quantum Joker",
+				text = {
+					"{C:attention}Enhanced Cards{} have the positive ",
+					"effects of all {C:attention}Vanilla{}, {C:attention}Cryptid{},",
+					"and {C:attention}Cryptposting{} enhancements"
+				},
+			},
 			j_crp_tetrationa = {
 				name = "Tetrationa",
 				text = {
@@ -469,6 +489,13 @@ return {
 					"{C:mult}-#2#{} Mult",
 					"{C:white,X:chips}÷#3#{} Chip#<s>1#",
 					"{C:white,X:mult}÷#4#{} Mult",
+				},
+			},
+			j_crp_rainstar = {
+				name = "Rainstar",
+				text = {
+					"{C:chips}-#1#{} Chip#<s>1# and {C:mult}-#2#{} Mult if played hand",
+					"does not contain a {C:attention}Flush{}",
 				},
 			},
 			j_crp_gudusername = {
@@ -907,6 +934,52 @@ return {
 					"{C:attention}#6# 7{}s played or discarded",
 				},
 			}, ]]--
+		},
+		Voucher = {
+			v_crp_patience = {
+				name = "Patience",
+				text = {
+					"Wait for it..."
+				},
+			},
+			v_crp_patience_2 = {
+				name = "More Patience",
+				text = {
+					"Wait for it..."
+				},
+			},
+			v_crp_patience_3 = {
+				name = "Even More Patience",
+				text = {
+					"Wait for it... a bit more..."
+				},
+			},
+			v_crp_patience_4 = {
+				name = "Even More Patience Again",
+				text = {
+					"Just a bit... longer..."
+				},
+			},
+			v_crp_patience_5 = {
+				name = "So Much Patience",
+				text = {
+					"You're almost there..."
+				},
+			},
+			v_crp_payoff = {
+				name = "Payoff",
+				text = {
+					"{C:chips}+4{} Chips! You did it!"
+				},
+			},
+			v_crp_just_kidding = {
+				name = "Just Kidding, This Is The Real Payoff",
+				text = {
+					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_exomythic}ExoMythic{} {C:attention}Joker#<s>1#{}",
+					"and {C:attention}#2#{} {C:dark_edition}Negative{} {C:crp_2exomythic4me}2ExoMythic4Me{} {C:attention}Joker#<s>2#{}",
+					"{C:inactive}\"Took ya long enough.\""
+				},
+			},
 		}
 	},
 	misc = {
@@ -929,6 +1002,7 @@ return {
 			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe",
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
+			k_crp_all = "All",
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
