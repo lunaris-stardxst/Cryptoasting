@@ -997,6 +997,7 @@ return {
 			["k_crp_self-insert"] = "Self-Insert",
 			k_crp_trash = "Trash",
 			k_crp_m = "M",
+			k_crp_common_2 = "Common 2",
 			k_crp_uncommon_2 = "Uncommon 2",
 			k_crp_rare_2 = "Rare 2",
 			k_crp_awesome = "Awesome",

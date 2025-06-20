@@ -107,7 +107,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "sprinter",
 	config = { extra = { chips = 0, chips_scale = 75 } },
-	rarity = 1,
+	rarity = "crp_common_2",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 0 },
 	cost = 5,
@@ -252,40 +252,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Poker The Poker" },
 		code = { "Rainstar" }
-	}
-}
-
-SMODS.Joker {
-	key = "jogger",
-	config = { extra = { chips = 0, chips_scale = 5 } },
-	rarity = 1,
-	atlas = "crp_jokers",
-	pos = { x = 5, y = 0 },
-	cost = 5,
-	blueprint_compat = true,
-	demicoloncompat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.chips_scale) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				chips = lenient_bignum(card.ability.extra.chips),
-			}
-		end
-		if (context.before and next(context.poker_hands["High Card"]) and not context.blueprint) or context.forcetrigger then
-			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) + lenient_bignum(card.ability.extra.chips_scale)
-			return {
-				message = "Upgraded!",
-				colour = G.C.CHIPS,
-				card = card
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "MarioFan597" },
-		code = { "Glitchkat10" }
 	}
 }
 
@@ -1016,7 +982,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		local jokers_to_create = lenient_bignum(card.ability.extra.create)
       	G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-		for i = 1, jokers_to_create do
+		for i = 1, math.ceil(jokers_to_create) do
 			if (context.joker_main) or context.forcetrigger then
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joker")
 				card:add_to_deck()
@@ -1849,32 +1815,6 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "big",
-	config = { extra = { mult = 15 } },
-	rarity = 1,
-	atlas = "crp_placeholders",
-	pos = { x = 2, y = 0 },
-	display_size = { w = 2 * 71, h = 2 * 95 },
-	cost = 6,
-	blueprint_compat = true,
-	demicoloncompat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult) } }
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				mult = lenient_bignum(card.ability.extra.mult)
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Unknown" },
-		code = { "Glitchkat10" }
-	}
-}
-
-SMODS.Joker {
 	key = "bulgoe_prize",
 	config = { extra = { create = 1 } },
 	rarity = 1,
@@ -1999,7 +1939,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "dorito",
 	config = { immutable = { mult = 1 } },
-	rarity = 1,
+	rarity = "crp_common_2",
 	atlas = "crp_jokers",
 	pos = { x = 4, y = 6 },
 	cost = 1,
@@ -2291,9 +2231,9 @@ SMODS.Joker {
 	key = "underflow",
 	config = { extra = { Xmult = 1, Xmult_scale = 1 } },
 	rarity = "crp_mythic",
-	atlas = "crp_placeholders",
-	pos = { x = 8, y = 0 },
-	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 6 },
+	soul_pos = { x = 6, y = 6, extra = { x = 7, y = 6 } },
 	cost = 100,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -2317,6 +2257,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "MarioFan597", "Glitchkat10" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -2398,7 +2339,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "playerrwon",
-	config = { extra = { arrows = 1, mult = 9, arrows_scale = 1 }, immutable = { max = 500 } },
+	config = { extra = { arrows = 1, placebo = 9, arrows_scale = 1, mult = 1e300 }, immutable = { max = 9827 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholders",
 	pos = { x = 10, y = 0 },
@@ -2407,21 +2348,27 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))), lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.arrows_scale), "{", "}" } }
+		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))), lenient_bignum(card.ability.extra.placebo), lenient_bignum(card.ability.extra.arrows_scale), "{", "}" } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
+			if to_big(card.ability.extra.arrows) < to_big(100) then
+				card.ability.extra.mult = lenient_bignum(card.ability.extra.placebo)
+			end
 			return {
 				hypermult_mod = {
-					lenient_bignum(math.round(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
+					lenient_bignum(math.ceil(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
 					lenient_bignum(card.ability.extra.mult)
 				},
-				message = "{" .. lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+				message = "{" .. lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))) .. "}" .. lenient_bignum(card.ability.extra.placebo) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
 		if (context.end_of_round and not context.blueprint and not context.retrigger and not context.individual and not context.repetition) or context.forcetrigger then
 			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_scale)
+			if to_big(card.ability.extra.arrows) > to_big(100) then
+				card.ability.extra.mult = 1e300
+			end
 		end
 	end,
 	crp_credits = {
@@ -3002,7 +2949,7 @@ SMODS.Joker {
 	key = "googologist",
 	rarity = "crp_trash",
 	atlas = "crp_placeholders",
-	pos = { x = 1, y = 0 },
+	pos = { x = 5, y = 0 },
 	cost = 0,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -3019,6 +2966,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
+		art = { "Tatteredlurker" },
 		code = { "Glitchkat10" }
 	}
 }
