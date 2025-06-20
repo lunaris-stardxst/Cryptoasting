@@ -303,8 +303,8 @@ return {
 					"and {C:attention}consumable{} slot#<s>1#"
 				},
 			},
-			j_crp_exponentia_2 = {
-				name = "Exponentia 2",
+			j_crp_potentia = {
+				name = "Potentia",
 				text = {
 					"This {C:attention}Joker{} gains {C:white,X:dark_edition}^#2#{} Mult",
 					"when {C:white,X:dark_edition}^Mult{} is triggered",
@@ -431,8 +431,8 @@ return {
 					"{C:blue,s:0.7}https://discord.gg/Jk9Q9usrNy{}",
 				},
 			},
-			j_crp_iterum_2 = {
-				name = "Iterum 2",
+			j_crp_repetitio = {
+				name = "Repetitio",
 				text = {
 					"Retrigger all cards played",
 					"{C:attention}#2#{} time#<s>2#,",
@@ -1028,6 +1028,7 @@ return {
 			everything = "Everything: #1#",
 			colon_3 = ":3",
 			placeholder = "Placeholder Art: #1#",
+			alt = "~ #1#",
 		}
 	}
 }

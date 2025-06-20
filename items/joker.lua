@@ -134,7 +134,8 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Poker The Poker" },
 		art = { "MarioFan597" },
-		code = { "Glitchkat10" }
+		code = { "Glitchkat10" },
+		custom = { key = "alt",text = "Runner" }
 	}
 }
 
@@ -1302,7 +1303,8 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Unknown" },
 		art = { "Lexi" },
-		code = { "Lexi" }
+		code = { "Lexi" },
+		custom = { key = "alt",text = "Sob" }
 	},
 }
 
@@ -1618,7 +1620,7 @@ SMODS.Joker {
 	}
 }
 SMODS.Joker {
-	key = "exponentia_2",
+	key = "potentia",
 	config = { extra = { Emult = 1, Emult_mod = 0.3 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_placeholders",
@@ -1645,11 +1647,12 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		code = { "Rainstar" }
+		code = { "Rainstar" },
+		custom = { key = "alt",text = "Exponentia" }
 	}
 }
 
--- exponentia 2 and tetrationa's effects
+-- potentia and tetrationa's effects
 local scie = SMODS.calculate_individual_effect
 function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
 	local ret = scie(effect, scored_card, key, amount, from_edition)
@@ -1728,9 +1731,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "water_bottle",
-	config =
-		{ extra = { splash = 5 } },
-		{ immutable = { max_spawn = 100 } }, -- idk how to fix it lol
+	config = { extra = { splash = 5 }, immutable = { max_spawn = 100 } },
 	rarity = 2,
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 4 },
@@ -1739,11 +1740,11 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.splash) } }
+		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.splash), lenient_bignum(card.ability.immutable.max_spawn))) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.selling_self) or context.forcetrigger then
-			for i = 1, math.floor(lenient_bignum(card.ability.extra.splash)) do
+			for i = 1, math.ceil(lenient_bignum(math.min(lenient_bignum(card.ability.extra.splash), lenient_bignum(card.ability.immutable.max_spawn)))) do
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_splash")
 				card:add_to_deck()
 				G.jokers:emplace(card)
@@ -1753,7 +1754,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "Tatteredlurker" },
-		code = { "Lexi" }
+		code = { "Lexi", "Glitchkat10" }
 	}
 }
 
@@ -1956,9 +1957,10 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "brionic9673914" },
+		idea = { "brionic9673914", "Glitchkat10" },
 		art = { "Glitchkat10" },
-		code = { "Glitchkat10", "Lexi" }
+		code = { "Glitchkat10", "Lexi" },
+		custom = { key = "alt",text = "chip" }
 	}
 }
 
@@ -2182,7 +2184,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "iterum_2",
+	key = "repetitio",
 	config = { extra = { Xmult = 1.05, retriggers = 10 }, immutable = { max_retriggers = 400 }, },
 	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
@@ -2223,7 +2225,8 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10", "MarioFan597" },
 		art = { "Tatteredlurker" },
-		code = { "Glitchkat10", "MathIsFun_" }
+		code = { "Glitchkat10", "MathIsFun_" },
+		custom = { key = "alt",text = "Iterum" }
 	}
 }
 
@@ -2802,7 +2805,8 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "SolvLyi" },
-		code = { "Glitchkat10" }
+		code = { "Glitchkat10" },
+		custom = { key = "alt",text = "Googol Play Card" }
 	}
 }
 
@@ -2941,14 +2945,15 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "PurplePickle" },
 		art = { "PurplePickle", "Glitchkat10" },
-		code = { "Glitchkat10" }
+		code = { "Glitchkat10" },
+		custom = { key = "alt",text = "Low-Fat Milk" }
 	}
 }
 
 SMODS.Joker {
 	key = "googologist",
 	rarity = "crp_trash",
-	atlas = "crp_placeholders",
+	atlas = "crp_jokers",
 	pos = { x = 5, y = 0 },
 	cost = 0,
 	blueprint_compat = true,
