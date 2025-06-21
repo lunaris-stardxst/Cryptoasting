@@ -3026,6 +3026,33 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
 --]]
+
+SMODS.Joker {
+	key = "skibiditoilet",
+	config = {},
+	rarity = 1,
+	atlas =  "crp_jokers",
+	blueprint_compat = true,
+	demicoloncompat = true,
+	pos = { x = 0, y = 0 },
+	cost = 1,
+	loc_vars = function(self, info_queue, card)
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				mult = G.GAME.hands["Flush"].mult,
+				chips = G.GAME.hands["Flush"].chips,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		art = { "N/A" },
+		code = { "Poker The Poker" },
+	}
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------

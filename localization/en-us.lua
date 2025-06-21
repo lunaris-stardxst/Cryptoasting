@@ -569,6 +569,12 @@ return {
 					"{C:attention}+#2# consumable{} slot#<s>2#",
 					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}",
 				}
+			},
+			j_crp_skibiditoilet = {
+				name = "Skibidi Toilet",
+				text = {
+					"Gives the base Chips and Mult of {C:attention}Flush{}",
+				}
 			}
 		},
 		Spectral =  {
