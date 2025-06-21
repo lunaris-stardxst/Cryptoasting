@@ -36,7 +36,7 @@ return {
 			j_crp_normalis = {
 				name = "Normalis",
 				text = {
-					"{X:dark_edition,C:white}^#1#{} Chip#<s>1# and Mult",
+					"{C:white,X:dark_edition}^#1#{} Chip#<s>1# and Mult",
 					"{C:inactive}hd bulgoe{}",
 				},
 			},
@@ -71,14 +71,14 @@ return {
 			j_crp_tetration_timmy = {
 				name = "tetration timmy",
 				text = {
-					"{X:dark_edition,C:edition}^^#1#{} Mult",
+					"{C:edition,X:dark_edition}^^#1#{} Mult",
 				},
 			},
 			j_crp_perdurantes = {
 				name = "Perdurantes",
 				text = {
-					"Gains {X:dark_edition,C:white}^#2#{} Mult for every {C:attention}#3#{} triggers",
-					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {X:dark_edition,C:edition}^#1#{C:inactive} Mult){}"
+					"Gains {C:white,X:dark_edition}^#2#{} Mult for every {C:attention}#3#{} triggers",
+					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
 				},
 			},
 			j_crp_dead_joker = {
@@ -112,19 +112,19 @@ return {
 			j_crp_joker_3 = {
 				name = "Joker 3",
 				text = {
-					"{X:mult,C:white}X#1#{} Mult",
+					"{C:white,X:mult}X#1#{} Mult",
 				},
 			},
 			j_crp_joker_4 = {
 				name = "Joker 4",
 				text = {
-					"{X:dark_edition,C:white}^#1#{} Mult",
+					"{C:white,X:dark_edition}^#1#{} Mult",
 				},
 			},
 			j_crp_joker_5 = {
 				name = "Joker 5",
 				text = {
-					"{X:dark_edition,C:edition}^^#1#{} Mult",
+					"{C:edition,X:dark_edition}^^#1#{} Mult",
 				},
 			},
 			j_crp_joker_6 = {
@@ -143,7 +143,7 @@ return {
 			j_crp_joker_8 = {
 				name = "Joker 8",
 				text = {
-					"{X:chips,C:white}X#1#{} Chip#<s>1#",
+					"{C:white,X:chips}X#1#{} Chip#<s>1#",
 				},
 			},
 			["j_crp_joker?"] = {
@@ -155,7 +155,7 @@ return {
 			j_crp_jolly_of_joker = {
 				name = "The Jolly of Joker",
 				text = {
-					"{X:dark_edition,C:white}^#1#{} Mult if played hand",
+					"{C:white,X:dark_edition}^#1#{} Mult if played hand",
 					"contains a {C:attention}Pair{}",
 				},
 			},
@@ -224,8 +224,8 @@ return {
 			j_crp_pi_joker = {
 				name = "Pi Joker",
 				text = {
-					"{X:chips,C:white}Xpi{} Chips",
-					"{X:mult,C:white}Xpi{} Mult",
+					"{C:white,X:chips}Xpi{} Chips",
+					"{C:white,X:mult}Xpi{} Mult",
 				},
 			},
 			j_crp_weather_machine = {
@@ -279,7 +279,7 @@ return {
 				name = "Exodiac",
 				text = {
 					"{C:cry_exotic}Exotic{} Jokers each give",
-					"{X:edition,C:dark_edition}^^^#1#{} Mult when triggered,",
+					"{C:dark_edition,X:edition}^^^#1#{} Mult when triggered,",
 					"create a random {C:dark_edition}Negative{} {C:cry_exotic}Exotic{}",
 					"{C:attention}Joker{} at the end of shop",
 				},
@@ -315,7 +315,7 @@ return {
 				name = "{C:edition}Bulgoe{}'s Hiking Journey",
 				text = {
 					"Each {C:attention}card{} played",
-					"permanently gains {X:chips,C:white}X#1#{} Chip#<s>1#",
+					"permanently gains {C:white,X:chips}X#1#{} Chip#<s>1#",
 					"when scored"
 				},
 			},
@@ -333,13 +333,13 @@ return {
 					"Lowers the framerate to {C:attention}1{} FPS, randomizes resolution, disables fullscreen, and causes an instant loss if game speed is above {C:attention}X0.5{}.",
 					"Changes game language every second, all rerolls are free, and redeems {C:attention}50000 unskippable {}{C:tarot}Arcana Packs{} after each {C:attention}Blind{} is revealed.",
 					"Generates {C:attention}50000000 Googol Play Cards{} at the start of each round. All {C:attention}Jokers{} except those created by this {C:attention}Joker{} become {C:attention}Authentic{} and {C:attention}Restricted.",
-					"Grants {X:chips,C:white}X10{} Chips, {X:chips,C:white}X10{} Chips, and randomizes screen rotation whenever any card is scored.",
-					"Does NOT give {X:mult,C:white}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
+					"Grants {C:white,X:chips}X10{} Chips, {C:white,X:chips}X10{} Chips, and randomizes screen rotation whenever any card is scored.",
+					"Does NOT give {C:white,X:mult}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
 					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker's values.",
 					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
 					"{C:white,X:chips}X10{} Chips. {C:white,X:chips}X10{} more Chips",
 					"If the player forgets about the {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips. If the player does not forget about the amount of {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips",
-					"Grants {X:chips,C:white}X10{} Chips. Also provides {X:edition,C:dark_edition}#1#69#2#{}2 Chips and {X:edition,C:dark_edition}#1#69#2#{}2 Mult.",
+					"Grants {C:white,X:chips}X10{} Chips. Also provides {C:dark_edition,X:edition}#1#69#2#{}2 Chips and {C:dark_edition,X:edition}#1#69#2#{}2 Mult.",
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
 					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
@@ -425,9 +425,9 @@ return {
 			j_crp_bulgoeship_card = {
 				name = "{C:edition}Bulgoe{}ship Card",
 				text = {
-					"{X:dark_edition,C:edition}^^#1#{} Mult for each member",
+					"{C:edition,X:dark_edition}^^#1#{} Mult for each member",
 					"in the {C:attention}Cryptposting Discord{}",
-					"{C:inactive}(Currently {X:dark_edition,C:edition}^^#2#{C:inactive} Mult)",
+					"{C:inactive}(Currently {C:edition,X:dark_edition}^^#2#{C:inactive} Mult)",
 					"{C:blue,s:0.7}https://discord.gg/Jk9Q9usrNy{}",
 				},
 			},
@@ -437,7 +437,7 @@ return {
 					"Retrigger all cards played",
 					"{C:attention}#2#{} time#<s>2#,",
 					"each played card gives",
-					"{X:mult,C:white}X#1#{} Mult when scored",
+					"{C:white,X:mult}X#1#{} Mult when scored",
 					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} retrigger#<s>3#)",
 				},
 			},
@@ -558,8 +558,9 @@ return {
 			j_crp_bullshit = {
 				name = "Bullshit",
 				text = {
-					"Sell this {C:attention}Joker{} to create {C:attention}#1#{}", -- note: this wording is a little weird and kinda inaccurate because when multiple are created, it rolls individually
-					"of either a {C:attention}Bull{} or a {C:crp_trash}Trash{} rarity {C:attention}Joker{}" -- would take more words than its worth to point that out though
+					"Sell this {C:attention}Joker{} to",
+					"create {C:attention}#1#{} of either a {C:attention}Bull{}",
+					"or a {C:crp_trash}Trash{} {C:attention}Joker{}",
 				}
 			},
 			j_crp_twoforsome = {
