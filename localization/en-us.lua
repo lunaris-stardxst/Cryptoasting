@@ -573,7 +573,9 @@ return {
 			j_crp_skibiditoilet = {
 				name = "Skibidi Toilet",
 				text = {
-					"Gives the base Chips and Mult of {C:attention}Flush{}",
+					"Gives the base",
+					"Chips and Mult of",
+					"{C:attention}Flush{}",
 				}
 			}
 		},
