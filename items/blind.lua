@@ -28,7 +28,7 @@ SMODS.Blind {
 	atlas = "blind",
 	boss_colour = HEX("757575"),
     crp_credits = {
-		idea = { "Unknown" },
+		idea = { "Poker The Poker" },
         art = { "SolvLyi" },
 		code = { "Glitchkat10" }
 	}
