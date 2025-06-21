@@ -688,7 +688,7 @@ SMODS.Joker {
 	rarity = "cry_exotic",
 	atlas = "crp_jokers",
 	pos = { x = 1, y = 5 },
-	soul_pos = { x = 3, y = 5, extra = { x = 2, y = 5 } },
+	soul_pos = { x = 2, y = 5, extra = { x = 3, y = 5 } },
 	cost = 50,
 	blueprint_compat = true,
 	demicoloncompat = true,
