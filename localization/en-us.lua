@@ -59,15 +59,6 @@ return {
 					"{C:inactive}(Death prevention active: #1#)",
 				},
 			},
-			j_crp_jogger = {
-				name = "Jogger",
-				text = {
-					"Gains {C:chips}+#2#{} Chip#<s>2#",
-					"if played hand",
-					"contains a {C:attention}High Card",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
-				},
-			},
 			j_crp_tetration_timmy = {
 				name = "tetration timmy",
 				text = {
@@ -166,8 +157,8 @@ return {
 					"contain a {C:attention}Pair{}",
 				},
 			},
-			j_crp_duplicare_2 = {
-				name = "Duplicare 2",
+			j_crp_duplex = {
+				name = "Duplex",
 				text = {
 					"This {C:attention}Joker{} gains {C:white,X:mult}X#2#{} Mult",
 					"when a {C:attention}Joker{} or",
@@ -563,7 +554,7 @@ return {
 					"or a {C:crp_trash}Trash{} {C:attention}Joker{}",
 				}
 			},
-			j_crp_twoforsome = {
+			j_crp_two_for_some = {
 				name = "Two for Some",
 				text = {
 					"{C:attention}+#1#{} hand size",
@@ -571,12 +562,19 @@ return {
 					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}",
 				}
 			},
-			j_crp_skibiditoilet = {
+			j_crp_chibidoki = {
+				name = "Chibidoki",
+				text = {
+					"{C:crp_unrare}Unrare{} and higher rarity {C:attention}Jokers{}",
+					"give {C:white,B:1}X#1#{} Chips and Mult", -- plasma deck colors
+					"{C:inactive,s:0.8}This Joker is currently slightly unfinished{}"
+				}
+			},
+			j_crp_skibidi_toilet = {
 				name = "Skibidi Toilet",
 				text = {
-					"Gives the base",
-					"Chips and Mult of",
-					"{C:attention}Flush{}",
+					"Gives the current base",
+					"{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}Flush{}"
 				}
 			}
 		},

@@ -45,6 +45,7 @@ SMODS.Sound {
 
 SMODS.Joker {
 	key = "bulgoe",
+	name = "Bulgoe",
 	config = { extra = { chips = 2.7 } },
 	rarity = 1,
 	atlas =  "crp_jokers",
@@ -72,6 +73,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "normalis", -- hd bulgoe :fire:
+	name = "Normalis",
 	config = { extra = { Echips = 2.7, Emult = 2.7 } },
 	rarity = "cry_exotic",
 	atlas =  "crp_jokers",
@@ -106,6 +108,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "sprinter",
+	name = "Sprinter",
 	config = { extra = { chips = 0, chips_scale = 75 } },
 	rarity = "crp_common_2",
 	atlas = "crp_jokers",
@@ -143,6 +146,7 @@ SMODS.Joker {
 -- man.............. - rainstar
 SMODS.Joker {
 	key = "scones_bones",
+	name = "Scones, Bones, Skibidi Scones",
 	config = { extra = { death_prevention_enabled = true, score_percentage = 50, xchips = 3, xchips_mod = 0.01, stones = 2 } },
 	rarity = 3,
 	atlas = "crp_placeholders",
@@ -260,6 +264,7 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "tetration_timmy",
+	name = "tetration timmy",
     config = { extra = { EEmult = 1.1 } },
     rarity = "cry_exotic",
     atlas = "timmy",
@@ -299,6 +304,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "perdurantes",
+	name = "Perdurantes",
 	config = { extra = { Emult = 1, Emult_mod = 1, retrigger_requirement = 50, current_retriggers = 0 } },
 	rarity = "cry_exotic",
 	atlas = "crp_placeholders",
@@ -367,6 +373,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_of_all_trades",
+	name = "Joker of all Trades",
 	config = { extra = { chips = 150, mult = 15, dollars = 3 } },
 	rarity = 2,
 	atlas = "crp_jokers",
@@ -401,6 +408,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "millipede",
+	name = "Millipede",
 	config = { extra = { chips = 1000, full_hand = 1 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -427,6 +435,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_2",
+	name = "Joker 2",
 	config = { extra = { chips = 4 } },
 	rarity = 1,
 	atlas = "crp_jokers",
@@ -453,6 +462,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_3",
+	name = "Joker 3",
 	config = { extra = { Xmult = 4 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -479,6 +489,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_4",
+	name = "Joker 4",
 	config = { extra = { Emult = 4 } },
 	rarity = "cry_exotic",
 	atlas = "crp_jokers",
@@ -514,6 +525,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_5",
+	name = "Joker 5",
 	config = { extra = { EEmult = 4 } },
 	rarity = "crp_mythic",
 	atlas = "crp_jokers",
@@ -544,6 +556,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_6",
+	name = "Joker 6",
 	config = { extra = { dollars = 4 } },
 	rarity = 2,
 	atlas = "crp_jokers",
@@ -569,6 +582,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_7",
+	name = "Joker 7",
 	config = { extra = { create = 4 } },
 	rarity = "cry_epic",
 	atlas = "crp_jokers",
@@ -608,6 +622,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_8",
+	name = "Joker 8",
 	config = { extra = { Xchips = 4 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -640,6 +655,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker?",
+	name = "Joker?",
 	config = { extra = { mult = 4 } },
 	rarity = 1,
 	atlas = "crp_jokers",
@@ -687,6 +703,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "jolly_of_joker",
+	name = "The Jolly of Joker",
 	config = { extra = { Emult = 8 } },
 	rarity = "cry_exotic",
 	atlas = "crp_jokers",
@@ -722,6 +739,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_jolly_joker",
+	name = "Evil Jolly Joker",
 	config = { extra = { mult = 8 } },
 	rarity = "cry_cursed",
 	atlas = "crp_jokers",
@@ -748,7 +766,8 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "duplicare_2",
+	key = "duplex",
+	name = "Duplex",
 	config = { extra = { Xmult = 1, Xmult_gain = 0.25, retriggers = 1 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
@@ -793,12 +812,14 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "Tatteredlurker" },
-		code = { "Rainstar" }
+		code = { "Rainstar" },
+		custom = { key = "alt", text = "Duplicare" }
 	}
 }
 
 SMODS.Joker {
 	key = "evil_joker",
+	name = "Evil Joker",
 	config = { extra = { mult = 4 } },
 	rarity = "cry_cursed",
 	atlas = "crp_jokers",
@@ -827,6 +848,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "progressive",
+	name = "Progressive Joker",
 	config = {
 		extra = {
 			mult = 1,
@@ -866,6 +888,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "infinitum",
+	name = "Infinitum",
 	config = {
 		extra = {
 			chipsmult = 2
@@ -975,6 +998,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "joker_0",
+	name = "Joker 0",
 	config = { extra = { create = 4 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -1006,6 +1030,7 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "jonkler",
+	name = "Jonkler",
     config = { immutable = { arrows = 25000, EEEmult = 1 } },
     rarity = "crp_trash",
     atlas = "crp_placeholders",
@@ -1037,6 +1062,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "quetta_m",
+	name = "Quetta M",
 	config = { extra = { operator = -1, mult = 8, operator_increase = 8 }, immutable = { numerator = 13, denominator = 100 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_jokers",
@@ -1110,6 +1136,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "pi_joker",
+	name = "Pi Joker",
 	config = { extra = {  } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -1144,6 +1171,7 @@ SMODS.Joker {
 }
 SMODS.Joker {
 	key = "weather_machine",
+	name = "Weather Machine",
 	config = { extra = { mult_mod = 1e76, death_prevention_enabled = true, mult = 0 } },
 	rarity = "crp_mythic",
 	atlas = "crp_placeholders",
@@ -1193,6 +1221,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "semicolon",
+	name = "Semicolon",
 	config = { extra = {  } },
 	rarity = "crp_trash",
 	atlas = "crp_jokers",
@@ -1233,6 +1262,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = ":3",
+	name = ":3",
 	rarity = "crp_:3",
 	atlas = "crp_jokers",
 	pos = { x = 6, y = 3 },
@@ -1252,6 +1282,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "sigma-man",
+	name = "Sigma-Man",
 	pos = { x = 7, y = 4 },
 	pools = { ["Meme"] = true },
 	rarity = "crp_cipe",
@@ -1317,6 +1348,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "apple",
+	name = "Apple",
 	config = { extra = { mult = 1, rounds_remaining = 10 } },
 	rarity = 1,
 	atlas =  "crp_jokers",
@@ -1383,6 +1415,7 @@ SMODS.Joker {
 
 SMODS.Joker { -- IT'S ALIVE
 	key = "all",
+	name = "All",
 	rarity = "crp_all",
 	atlas = "crp_placeholders",
 	pos = { x = 14, y = 0 },
@@ -1509,6 +1542,7 @@ SMODS.Joker { -- IT'S ALIVE
 
 SMODS.Joker {
 	key = "exodiac",
+	name = "Exodiac",
 	config = { extra = { EEEmult = 1.13 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholders",
@@ -1543,6 +1577,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "heptation_henry",
+	name = "heptation henry",
 	config = { immutable = { arrows = 7 }, extra = { hypermult = 1.1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholders",
@@ -1574,6 +1609,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "morble",
+	name = "Morble",
 	config = { extra = { Emoney = 2 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholders",
@@ -1602,6 +1638,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "room_for_all",
+	name = "Room For All",
 	config = { extra = { slots = 1e100 } },
 	rarity = "crp_mythic",
 	atlas = "crp_placeholders",
@@ -1630,6 +1667,7 @@ SMODS.Joker {
 }
 SMODS.Joker {
 	key = "potentia",
+	name = "Potentia",
 	config = { extra = { Emult = 1, Emult_mod = 0.3 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_placeholders",
@@ -1712,6 +1750,7 @@ end
 
 SMODS.Joker {
 	key = "bulgoes_hiking_journey",
+	name = "Bulgoe's Hiking Journey",
 	config = { extra = { perma_x_chips = 0.27 } },
 	rarity = "cry_epic",
 	atlas =  "crp_jokers",
@@ -1741,6 +1780,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "water_bottle",
+	name = "Water Bottle",
 	config = { extra = { splash = 5 }, immutable = { max_spawn = 100 } },
 	rarity = 2,
 	atlas = "crp_jokers",
@@ -1771,6 +1811,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "playerrkillerr",
+	name = "playerKillerr",
 	config = { immutable = { mult = 284 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -1801,6 +1842,7 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "purist_jolly",
+	name = "Purist Jolly Joker",
     config = { extra = { mult = 16 } },
     rarity = 1,
     atlas = "crp_jokers",
@@ -1827,6 +1869,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "bulgoe_prize",
+	name = "Bulgoe Prize",
 	config = { extra = { create = 1 } },
 	rarity = 1,
 	atlas =  "crp_jokers",
@@ -1863,6 +1906,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "chip",
+	name = "chip",
 	config = { immutable = { chips = 1 } },
 	rarity = 1,
 	atlas = "crp_jokers",
@@ -1889,6 +1933,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "gamblecore",
+	name = "Gamblecore",
 	config = { immutable = { numerator = 1, denominator = 255, mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368 } },
 	rarity = 2,
 	atlas = "crp_jokers",
@@ -1923,6 +1968,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "centipede",
+	name = "Centipede",
 	config = { extra = { chips = 100, full_hand = 1 } },
 	rarity = 2,
 	atlas = "crp_jokers",
@@ -1949,6 +1995,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "dorito",
+	name = "dorito",
 	config = { immutable = { mult = 1 } },
 	rarity = "crp_common_2",
 	atlas = "crp_jokers",
@@ -1976,6 +2023,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "decipede",
+	name = "Decipede",
 	config = { extra = { chips = 10, full_hand = 1 } },
 	rarity = 1,
 	atlas = "crp_jokers",
@@ -2002,6 +2050,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "pentation_peter",
+	name = "pentation peter",
 	config = { extra = { EEEmult = 1.1 } },
 	rarity = "crp_mythic",
 	atlas = "peter",
@@ -2042,6 +2091,7 @@ SMODS.Joker {
 --[[ commented out due to returns ending everything for some reason
 SMODS.Joker {
 	key = "quantum",
+	name = "Quantum Joker",
 	config = {
 		extra = {
 			bonus_chips = 30,
@@ -2135,6 +2185,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "tetrationa",
+	name = "Tetrationa",
 	config = { extra = { EEmult = 1, EEmult_mod = 0.3 } },
 	rarity = "crp_mythic",
 	atlas = "crp_placeholders",
@@ -2164,6 +2215,7 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "bulgoeship_card",
+	name = "Bulgoeship Card",
     config = { extra = { EEmult_mod = 0.1 } },
     rarity = "crp_mythic",
     atlas = "crp_jokers",
@@ -2177,7 +2229,6 @@ SMODS.Joker {
         return { vars = { number_format(card.ability.extra.EEmult_mod), number_format(card.ability.extra.EEmult_mod) * Cryptposting.member_count, }, }
     end,
     calculate = function(self, card, context)
-    Cryptposting.update_member_count()
         if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
             return {
                 message = "^^" .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. " Mult",
@@ -2196,6 +2247,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "repetitio",
+	name = "Repetitio",
 	config = { extra = { Xmult = 1.05, retriggers = 10 }, immutable = { max_retriggers = 400 }, },
 	rarity = "crp_exotic_2",
 	atlas = "crp_jokers",
@@ -2243,6 +2295,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "underflow",
+	name = "Underflow",
 	config = { extra = { Xmult = 1, Xmult_scale = 1 } },
 	rarity = "crp_mythic",
 	atlas = "crp_jokers",
@@ -2279,6 +2332,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "statically_charged",
+	name = "Statically Charged",
 	config = { extra = {  } },
 	rarity = "crp_exomythic",
 	atlas = "crp_jokers",
@@ -2314,6 +2368,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "bullshit",
+	name = "Bullshit",
 	config = { extra = { amount = 1 } },
 	rarity = 1,
 	atlas = "crp_placeholders",
@@ -2355,6 +2410,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "playerrwon",
+	name = "playerWon",
 	config = { extra = { arrows = 1, placebo = 9, arrows_scale = 1, mult = 1e300 }, immutable = { max = 9827 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholders",
@@ -2396,6 +2452,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_bulgoe",
+	name = "Evil Bulgoe",
 	config = { extra = { chips = 2.7 } },
 	rarity = "cry_cursed",
 	atlas = "crp_jokers",
@@ -2423,7 +2480,8 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "twoforsome",
+	key = "two_for_some",
+	name = "Two for Some",
 	config = { extra = { hand_size = 2, consumeableslots = 2, boosterpackslots = 2 } },
 	rarity = 3,
 	atlas = "crp_placeholders",
@@ -2452,6 +2510,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "dumpster_diver",
+	name = "Dumpster Diver",
 	config = { extra = { create = 2, rare_create = 1, odds = 20 } },
 	rarity = 3,
 	atlas = "crp_placeholders",
@@ -2506,6 +2565,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "glitchkat10",
+	name = "Glitchkat10",
 	config = { extra = { mult = 1, chips = 1, Xmult = 1, Xchips = 1 } },
 	rarity = "crp_self-insert",
 	atlas = "crp_jokers",
@@ -2655,6 +2715,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "rainstar",
+	name = "Rainstar",
 	config = { extra = { mult = 1, chips = 2 } },
 	rarity = "crp_self-insert",
 	atlas = "crp_jokers",
@@ -2720,6 +2781,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "gudusername",
+	name = "GudUsername",
 	config = { immutable = { Xchips = 0.99, Xmult = 0.99, Echips = 0.99, Emult = 0.99, EEchips = 0.99, EEmult = 0.99, EEEchips = 0.99, EEEmult = 0.99 } },
 	rarity = "crp_self-insert",
 	atlas = "crp_jokers",
@@ -2795,6 +2857,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "amazon_gift_card",
+	name = "Amazon Gift Card",
 	config = { extra = { Emult = 7, odds = 16 } },
 	rarity = "crp_cipe",
 	atlas = "crp_placeholders",
@@ -2826,6 +2889,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "septingentiquinvigintation_stevie",
+	name = "Septingentiquinvigintation Stevie",
 	config = { immutable = { arrows = 723 }, extra = { mantissa = 1e111, placebo = 1.1 } },
 	rarity = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
 	atlas = "crp_placeholders",
@@ -2853,6 +2917,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "low-fat_milk",
+	name = "Low-Fat Milk",
 	config = { extra = { mult = 1024 } },
 	rarity = 3,
 	atlas = "crp_jokers",
@@ -2911,6 +2976,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "low-fqt_milk",
+	name = "Low-Fqt Milk",
 	config = { extra = { chips = 2048 } },
 	rarity = "crp_rare_2",
 	atlas = "crp_jokers",
@@ -2970,6 +3036,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "googologist",
+	name = "Googologist",
 	rarity = "crp_trash",
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 0 },
@@ -3009,9 +3076,126 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Sound {
+	key = "xchips",
+	path = "MultiplicativeChips.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
+SMODS.Joker {
+    key = "chibidoki",
+	name = "Chibidoki",
+    pos = { x = 8, y = 6 },
+	soul_pos = { x = 9, y = 6 },
+    config = {
+        extra = {
+            Xchipsmult = 2.25,
+        },
+    },
+    atlas = "crp_jokers",
+    rarity = 4,
+    cost = 20,
+    blueprint_compat = true,
+    demicoloncompat = true,
+    loc_vars = function(self, info_queue, center)
+        return {
+            vars = {
+                number_format(lenient_bignum(center.ability.extra.Xchipsmult)),
+				colours = {
+					{ 0.8, 0.45, 0.85, 1 }
+				}
+            },
+        }
+    end,
+    calculate = function(self, card, context)
+        -- trigger when another qualifying joker triggers
+        if context.other_joker and context.other_joker.ability.set == "Joker" and context.other_joker ~= card then
+            local valid_rare_keys = {
+                ["cry_epic"] = true,
+                ["cry_exotic"] = true,
+                ["cry_candy"] = true,
+                ["crp_mythic"] = true,
+                ["crp_exomythic"] = true,
+                ["crp_2exomythic4me"] = true,
+                ["crp_22exomythic4mecipe"] = true,
+                ["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
+                ["crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe"] = true,
+                ["crp_m"] = true,
+                ["crp_rare_2"] = true,
+                ["crp_awesome"] = true,
+                ["crp_cipe"] = true,
+                ["crp_exotic_2"] = true,
+                ["crp_unrare"] = true,
+                ["crp_meat"] = true,
+            }
+            
+            local rarity = context.other_joker.config.center.rarity
+            local is_qualifying = false
+            
+            -- check base game numeric rarities
+            if type(rarity) == "number" and rarity >= 3 then
+                is_qualifying = true
+            -- check for known string-based rarities
+            elseif type(rarity) == "string" and valid_rare_keys[rarity] then
+                is_qualifying = true
+            end
+            
+            if is_qualifying then
+                if not (Talisman and Talisman.config_file and Talisman.config_file.disable_anims) then
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            context.other_joker:juice_up(0.5, 0.5)
+                            return true
+                        end,
+                    }))
+                end
+                return {
+					message = "X" .. lenient_bignum(card.ability.extra.Xchipsmult) .. " Chips and Mult",
+					sound = "xchips",
+					Xchip_mod = lenient_bignum(card.ability.extra.Xchipsmult),
+					Xmult_mod = lenient_bignum(card.ability.extra.Xchipsmult),
+					colour = { 0.8, 0.45, 0.85, 1 }, -- plasma deck colors
+                }
+            end
+        end
+    end,
+
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		art = { "Psychomaniac14" },
+		code = { "Glitchkat10", "Psychomaniac14" }
+	}
+}
+
+SMODS.Joker {
+	key = "skibidi_toilet",
+	name = "Skibidi Toilet",
+	config = {},
+	rarity = 1,
+	atlas =  "crp_placeholders",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	cost = 1,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(G.GAME.hands["Flush"].mult),
+				chips = lenient_bignum(G.GAME.hands["Flush"].chips),
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "Poker The Poker", "Glitchkat10" },
+	}
+}
+
 --[[
  SMODS.Joker {
 	key = "shit",
+	name = "Shit",
 	config = { extra = { create = 1 } },
 	rarity = 3,
 	atlas = "crp_placeholders",
@@ -3044,33 +3228,6 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
-
 --]]
-
-SMODS.Joker {
-	key = "skibiditoilet",
-	config = {},
-	rarity = 1,
-	atlas =  "crp_jokers",
-	blueprint_compat = true,
-	demicoloncompat = true,
-	pos = { x = 0, y = 0 },
-	cost = 1,
-	loc_vars = function(self, info_queue, card)
-	end,
-	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				mult = G.GAME.hands["Flush"].mult,
-				chips = G.GAME.hands["Flush"].chips,
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "Poker The Poker" },
-		art = { "N/A" },
-		code = { "Poker The Poker" },
-	}
-}
 ----------------------------------------------
 ------------MOD CODE END----------------------

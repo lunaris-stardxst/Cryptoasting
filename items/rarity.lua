@@ -145,6 +145,12 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
+	key = "unrare",
+	badge_colour = HEX("b1e051"),
+	pools = { ["Joker"] = true },
+})
+
+SMODS.Rarity({
 	key = "rare_2",
 	badge_colour = G.C.RARITY[3],
 	pools = { ["Joker"] = true },
