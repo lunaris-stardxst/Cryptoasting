@@ -83,7 +83,7 @@ return {
 			j_crp_vermillion = {
 				name = "Vermillion Joker",
 				text = {
-					"{X:mult,C:white}X#1#{} Mult",
+					"{C:white,X:mult}X#1#{} Mult",
 					"When bought, replace a random",
 					"Joker with the default {C:attention}Joker{}",
 				},
@@ -207,7 +207,7 @@ return {
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
-					"{C:attention}+#1#{} Joker#<s>1#",
+					"{C:attention}+#1# Joker#<s>1#",
 					"{C:inactive}(Does not require room)",
 				},
 			},
@@ -247,16 +247,16 @@ return {
 			j_crp_victoriam = {
 				name = "Victoriam",
 				text = {
-					"{X:dark_edition,C:white}^0.1{} Mult for every {C:edition}win{} on this profile",
-					"{C:inactive}(Excludes seeded runs and Challenge runs)",
-					"(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult)",
+					"{C:white,X:dark_edition}^0.1{} Mult for every {C:edition,X:grey}win{} on this profile",
+					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
 				},
 			},
 			j_crp_participation_trophy = {
 				name = "Participation Trophy",
 				text = {
 					"{C:mult}+0.1{} Mult for every {C:red}loss{} on this profile",
-					"(Currently {C:mult}+#1#{C:inactive} Mult)",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
 			j_crp_semicolon = {
@@ -299,7 +299,7 @@ return {
 			j_crp_money_card = {
 				name = "Money Card",
 				text = {
-					"{X:money,C:white}X$1.1{} at end of round",
+					"{C:white,X:money}X$1.1{} at end of round",
 				},
 			},
 			j_crp_exodiac = {
@@ -341,8 +341,8 @@ return {
 			j_crp_cryptposted = {
 				name = "Cryptposted Joker",
 				text = {
-					"{X:edition,C:dark_edition}{X}#1#{} Mult",
-					"{C:attention}X{} = The amount of",
+					"{C:dark_edition,X:edition}#1#X#2##3#{} Mult, where {C:dark_edition,X:edition}X{}",
+					"is the number of",
 					"{C:attention}Cryptposting Jokers{} owned",
 				},
 			},

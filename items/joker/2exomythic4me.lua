@@ -168,7 +168,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = card.ability.extra.hypermult }
+		return { vars = { "{", "}", lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then

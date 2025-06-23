@@ -51,7 +51,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult } }
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play and context.other_card.ability.played_this_ante then
@@ -75,7 +75,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod ) } }
+		return { vars = { lenient_bignum(G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then

@@ -50,7 +50,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult } }
+		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
@@ -128,9 +128,15 @@ SMODS.Joker {
 	pos = { x = 3, y = 0 },
 	cost = 6,
 	blueprint_compat = false,
-	demicoloncompat = false, -- haven't figured out how to do demicolon yet
+	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmoney) } }
+	end,
+	calculate = function(self, card, context)
+		if context.forcetrigger then
+			ease_dollars(lenient_bignum(G.GAME.dollars * card.ability.extra.Xmoney))
+			return { message = "$" .. number_format(lenient_bignum(card.ability.extra.Xmoney)), colour = G.C.MONEY }
+		end
 	end,
 	calc_dollar_bonus = function(self, card)
 		return math.floor(G.GAME.dollars * (card.ability.extra.Xmoney - 1))
