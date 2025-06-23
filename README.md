@@ -1,5 +1,7 @@
-A fork of Cryptposting that includes 6 approved yet missing jokers.
-
-Disclaimer: Swear words, if any, were added by the original repository. I never add any to my projects intentionally. Even if they have to be added, I will use a function to avoid them.
-
-(If this fork is accepted, please revert this description. I changed it.)
+# Cryptposting
+A collection of the Cryptid community's unfunniest shitposts.<br>
+Order of items in the collection is by rarity, then based off of the order that they were created in the [Cryptposting Idea Document](https://docs.google.com/document/d/1toiOWh2qfouhZYUSiBEgHxU91lbzgvMfR46bShg67Qs/edit?pli=1&tab=t.0).<br>
+[Cartomancer](https://github.com/stupxd/Cartomancer) is highly recommended to be used with this mod.
+<br>
+<br>
+Join the [Cryptposting Discord](https://discord.gg/Jk9Q9usrNy)!
