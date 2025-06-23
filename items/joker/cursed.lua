@@ -14,7 +14,7 @@ SMODS.Atlas {
 
 SMODS.Joker {
 	key = "evil_jolly_joker",
-	name = "Evil Jolly Joker",
+	name = "EVIL Jolly Joker",
 	config = { extra = { mult = 8 } },
 	rarity = "cry_cursed",
 	atlas = "crp_joker",
@@ -29,7 +29,7 @@ SMODS.Joker {
 		if (context.joker_main and not context.scoring_name == "Pair") or context.forcetrigger then
 			return {
 				message = "÷" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-				Xmult_mod = 1 / lenient_bignum(card.ability.extra.mult),
+				Xmult_mod = to_big(1) / to_big(card.ability.extra.mult),
 				colour = G.C.MULT,
 			}
 		end
@@ -71,7 +71,7 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "evil_bulgoe",
-	name = "Evil Bulgoe",
+	name = "EVIL Bulgoe",
 	config = { extra = { chips = 2.7 } },
 	rarity = "cry_cursed",
 	atlas = "crp_joker",
