@@ -64,6 +64,32 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "participation_trophy",
+	name = "Participation Trophy",
+	config = { extra = { mult_mod = 0.1 } },
+	rarity = 1,
+	atlas = "crp_placeholders",
+	pos = { x = 2, y = 0 },
+	cost = 3,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod ) } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return {
+				mult = lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod )
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
 SMODS.Sound {
 	key = "eat",
 	path = "eat.ogg",
