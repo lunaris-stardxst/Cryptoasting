@@ -171,3 +171,32 @@ SMODS.Joker {
 		code = { "Rainstar" }
 	}
 }
+
+SMODS.Joker {
+	key = "victoriam",
+	name = "Victoriam",
+	config = { extra = { Emult_mod = 0.1 } },
+	rarity = "cry_exotic",
+	atlas = "crp_placeholders",
+	pos = { x = 7, y = 0 },
+	cost = 50,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum( 1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod ) } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return {
+				message = "^" .. lenient_bignum( 1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod ) .. " Mult",
+				Emult_mod = lenient_bignum( 1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod ),
+				colour = G.C.DARK_EDITION,
+				card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker", "Glitchkat10" },
+		code = { "wilfredlam0418" }
+	}
+}
