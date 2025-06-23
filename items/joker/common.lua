@@ -40,6 +40,30 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "pillaring",
+	name = "Pillaring Joker",
+	pos = { x = 2, y = 0 },
+	config = { extra = { mult = 4 } },
+	rarity = 1,
+	cost = 4,
+	atlas = "crp_placeholders",
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.mult } }
+	end,
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play and context.other_card.ability.played_this_ante then
+			return { mult = lenient_bignum(card.ability.extra.mult) }
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" }
+	}
+}
+
 SMODS.Sound {
 	key = "eat",
 	path = "eat.ogg",
