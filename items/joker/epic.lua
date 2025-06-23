@@ -93,7 +93,7 @@ SMODS.Joker {
 	blueprint_compat = false, -- false on purpose
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = card.ability.extra.money }
+		return { vars = card.ability.extra.money, colours = { G.C.ETERNAL } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
