@@ -81,3 +81,35 @@ SMODS.Joker {
 		code = { "Poker The Poker" },
 	}
 }
+
+SMODS.Joker {
+	key = "10000_coins",
+	name = "10,000 Coins Falling on You",
+	config = { extra = { money = 10000 } },
+	rarity = "cry_epic",
+	atlas = "crp_placeholder",
+	pos = { x = 5, y = 0 },
+	cost = 20,
+	blueprint_compat = false, -- false on purpose
+	demicoloncompat = false,
+	loc_vars = function(self, info_queue, card)
+		return { vars = card.ability.extra.money }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if pseudorandom("crp_10000_coins") > 0.5 then
+				ease_dollars(lenient_bignum(card.ability.extra.money))
+				return { message = "$" .. number_format(lenient_bignum(card.ability.extra.money)), colour = G.C.MONEY }
+			else
+				for i=1, #G.jokers.cards do
+					G.jokers.cards[i]:start_dissolve()
+					G.jokers.cards[i]:remove_from_deck()
+				end
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" },
+	}
+}
