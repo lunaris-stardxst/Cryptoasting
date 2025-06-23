@@ -414,6 +414,30 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Joker {
+	key = "normalgoe",
+	name = "Normalgoe",
+	config = { extra = { Xmult = 2.7 } },
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.Xmult, colours = { HEX("717ba6") } } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return { Xmult = card.ability.extra.Xmult }
+		end
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "wilfredlam0418" }
+	}
+}
+
 --[[
  SMODS.Joker {
 	key = "shit",
