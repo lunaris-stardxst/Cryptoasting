@@ -80,6 +80,21 @@ return {
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
+			j_crp_vermillion = {
+				name = "Vermillion Joker",
+				text = {
+					"{C:white,X:mult}X#1#{} Mult",
+					"When bought, replace a random",
+					"Joker with the default {C:attention}Joker{}",
+				},
+			},
+			j_crp_pillaring = {
+				name = "Pillaring Joker",
+				text = {
+					"Cards already played this",
+					"{C:attention}Ante{} give {C:mult}+#1#{} Mult when scored",
+				},
+			},
 			j_crp_joker_of_all_trades = {
 				name = "Joker of all Trades",
 				text = {
@@ -192,7 +207,7 @@ return {
 			j_crp_joker_0 = {
 				name = "Joker 0",
 				text = {
-					"{C:attention}+#1#{} Joker#<s>1#",
+					"{C:attention}+#1# Joker#<s>1#",
 					"{C:inactive}(Does not require room)",
 				},
 			},
@@ -227,6 +242,21 @@ return {
 					"when death prevented",
 					"{C:inactive}(Death prevention active: #2#)",
 					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+				},
+			},
+			j_crp_victoriam = {
+				name = "Victoriam",
+				text = {
+					"{C:white,X:dark_edition}^0.1{} Mult for every {C:edition,X:grey}win{} on this profile",
+					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
+				},
+			},
+			j_crp_participation_trophy = {
+				name = "Participation Trophy",
+				text = {
+					"{C:mult}+0.1{} Mult for every {C:red}loss{} on this profile",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
 			j_crp_semicolon = {
@@ -266,6 +296,12 @@ return {
 					"{C:inactive}(Currently {C:dark_edition}+#8#{C:inactive} Joker slot#<s>8# and {C:attention}+#9#{C:inactive} consumable slot#<s>9#){}"
 				},
 			},
+			j_crp_money_card = {
+				name = "Money Card",
+				text = {
+					"{C:white,X:money}X$1.1{} at end of round",
+				},
+			},
 			j_crp_exodiac = {
 				name = "Exodiac",
 				text = {
@@ -300,6 +336,14 @@ return {
 					"This {C:attention}Joker{} gains {C:white,X:dark_edition}^#2#{} Mult",
 					"when {C:white,X:dark_edition}^Mult{} is triggered",
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
+				},
+			},
+			j_crp_cryptposted = {
+				name = "Cryptposted Joker",
+				text = {
+					"{C:dark_edition,X:edition}#1#X#2##3#{} Mult, where {C:dark_edition,X:edition}X{}",
+					"is the number of",
+					"{C:attention}Cryptposting Jokers{} owned",
 				},
 			},
 			j_crp_bulgoes_hiking_journey = {

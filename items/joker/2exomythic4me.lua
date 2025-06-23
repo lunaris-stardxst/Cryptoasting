@@ -156,3 +156,40 @@ SMODS.Joker {
 		code = { "Rainstar" }
 	}
 }
+
+SMODS.Joker {
+	key = "cryptposted",
+	name = "Cryptposted Joker",
+	config = { immutable = { arrows = 0 }, extra = { hypermult = 2 } },
+	rarity = "crp_2exomythic4me",
+	atlas = "crp_placeholders",
+	pos = { x = 11, y = 0 },
+	cost = 400,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { "{", "}", lenient_bignum(card.ability.extra.hypermult) } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			card.ability.immutable.arrows = 0
+			for i=1, #G.jokers.cards do
+				if G.jokers.cards[i].config.center.mod.id == "cryptposting" then
+					card.ability.immutable.arrows = card.ability.immutable.arrows + 1
+				end
+			end
+			return {
+				hypermult_mod = {
+					lenient_bignum(card.ability.immutable.arrows),
+					lenient_bignum(card.ability.extra.hypermult)
+				},
+				message = "{" .. tostring(lenient_bignum(card.ability.immutable.arrows)) .. "}" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
+				colour = G.C.EDITION,
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" }
+	}
+}

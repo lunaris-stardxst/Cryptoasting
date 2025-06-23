@@ -64,7 +64,7 @@ SMODS.Joker {
 	}
 }
 
--- potentia and tetrationa's effects
+-- potentia's scaling effect
 local scie = SMODS.calculate_individual_effect
 function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
 	local ret = scie(effect, scored_card, key, amount, from_edition)
@@ -99,7 +99,8 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
 	end
 	return ret
 end
-
+-- commented out due to not being able to scale
+--[[
 SMODS.Joker {
 	key = "potentia",
 	name = "Potentia",
@@ -134,6 +135,7 @@ SMODS.Joker {
 		custom = { key = "alt",text = "Exponentia" }
 	}
 }
+]]--
 
 SMODS.Joker {
 	key = "repetitio",

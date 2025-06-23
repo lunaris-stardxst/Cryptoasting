@@ -136,7 +136,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_6",
 	name = "Joker 6",
-	config = { extra = { dollars = 4 } },
+	config = { extra = { money = 4 } },
 	rarity = "crp_joker",
 	atlas = "crp_joker",
 	pos = { x = 6, y = 1 },
@@ -144,12 +144,12 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.dollars) } }
+		return { vars = { lenient_bignum(card.ability.extra.money) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			ease_dollars(lenient_bignum(card.ability.extra.dollars))
-			return { message = "$" .. number_format(lenient_bignum(card.ability.extra.dollars)), colour = G.C.MONEY }
+			ease_dollars(lenient_bignum(card.ability.extra.money))
+			return { message = "$" .. number_format(lenient_bignum(card.ability.extra.money)), colour = G.C.MONEY }
 		end
 	end,
 	crp_credits = {
