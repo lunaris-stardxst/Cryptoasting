@@ -7,6 +7,14 @@ local trash_gradient = SMODS.Gradient({
 	cycle = 5
 })
 
+local m = SMODS.Gradient({
+    key="m",
+    colours = {
+        HEX("708b91"), 
+        HEX("1e9eba")
+    }
+})
+
 local mythic_gradient = SMODS.Gradient({
     key="mythic",
     colours = {
@@ -99,14 +107,6 @@ local hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant
 	cycle = 1
 })
 
-local m = SMODS.Gradient({
-    key="m",
-    colours = {
-        HEX("708b91"), 
-        HEX("1e9eba")
-    }
-})
-
 SMODS.Rarity({
 	key = "self-insert",
 	badge_colour = HEX("982700"),
@@ -124,8 +124,14 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "m",
-	badge_colour = m,
+	key = ":3",
+	badge_colour = HEX("ff00ff"),
+	in_shop = true,
+	default_weight = 0.005,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
 })
 
 SMODS.Rarity({
@@ -161,9 +167,19 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "awesome",
-	badge_colour = HEX("00ffff"),
+	key = "joker",
+	badge_colour = HEX("fd812b"),
+	in_shop = true,
+	default_weight = 0.004,
 	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		return weight
+	end
+})
+
+SMODS.Rarity({
+	key = "m",
+	badge_colour = m,
 })
 
 SMODS.Rarity({
@@ -177,9 +193,9 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "mythic",
-	badge_colour = mythic_gradient,
-	pools = { ["Joker"] = true }
+	key = "awesome",
+	badge_colour = HEX("00ffff"),
+	pools = { ["Joker"] = true },
 })
 
 SMODS.Rarity({
@@ -189,26 +205,17 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
+	key = "mythic",
+	badge_colour = mythic_gradient,
+	pools = { ["Joker"] = true }
+})
+
+SMODS.Rarity({
 	key = "exomythic",
 	badge_colour = exomythic_gradient,
 	pools = { ["Joker"] = true }
 })
 
-SMODS.Rarity({
-	key = ":3",
-	badge_colour = HEX("ff00ff"),
-	in_shop = true,
-	default_weight = 0.005,
-	pools = { ["Joker"] = true },
-	get_weight = function(self, weight, object_type)
-		return weight
-	end
-})
-
-SMODS.Rarity({
-	key = "cryptastic",
-	badge_colour = m,
-})
 
 SMODS.Rarity({
 	key = "2exomythic4me",
@@ -229,7 +236,6 @@ SMODS.Rarity({
 	key = "hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
 	badge_colour = hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient,
 })
-
 
 SMODS.Rarity({
 	key = "all",

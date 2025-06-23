@@ -153,8 +153,8 @@ return {
 			j_crp_evil_jolly_joker = {
 				name = "{C:red}EVIL{} Jolly Joker",
 				text = {
-					"{C:white,X:mult}÷#1#{} Mult if played hand does {C:red}not{}",
-					"contain a {C:attention}Pair{}",
+					"{C:white,X:mult}÷#1#{} Mult if played hand is",
+					"{C:red}not{} a {C:attention}Pair{}",
 				},
 			},
 			j_crp_duplex = {
@@ -259,7 +259,7 @@ return {
 				name = "All",
 				text = {
 					"Creates {C:attention}#1# Joker#<s>1#{}, {C:attention}#2# consumable#<s>2#{}, {C:attention}#3# Tag#<s>3#{}, and {C:attention}#4# Voucher#<s>4#",
-					"based on their {C:attention}order{} in the {C:attention}collection{} when hand played",
+					"based on their {C:attention}order{} in the {C:attention}collection backwards{} when hand played",
 					"Gains {C:dark_edition}+#6#{} Joker slot#<s>6# for every {C:attention}Joker{} created",
 					"and {C:attention}+#7#{} consumable slot#<s>7# for every {C:attention}consumable{} created",
 					"Increases amount of items created by {C:attention}#5#{} when triggered",
@@ -1007,13 +1007,13 @@ return {
 			k_crp_common_2 = "Common 2",
 			k_crp_uncommon_2 = "Uncommon 2",
 			k_crp_rare_2 = "Rare 2",
-			k_crp_awesome = "Awesome",
+			k_crp_joker = "Joker",
 			k_crp_cipe = "cipE",
-			k_crp_mythic = "Mythic",
+			k_crp_awesome = "Awesome",
 			k_crp_exotic_2 = "Exotic 2",
+			k_crp_mythic = "Mythic",
 			k_crp_exomythic = "ExoMythic",
 			["k_crp_:3"] = ":3",
-			k_crp_cryptastic = "Cryptastic",
 			k_eaten = "Munch",
 			k_bulgoe_spawn = "+1 Bulgoe",
 			k_crp_2exomythic4me = "2ExoMythic4me",
