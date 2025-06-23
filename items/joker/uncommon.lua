@@ -120,6 +120,28 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "money_card",
+	name = "Money Card",
+	config = { extra = { Xmoney = 1.1 } },
+	rarity = 2,
+	atlas = "crp_placeholders",
+	pos = { x = 3, y = 0 },
+	cost = 6,
+	blueprint_compat = false,
+	demicoloncompat = false, -- haven't figured out how to do demicolon yet
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.Xmoney) } }
+	end,
+	calc_dollar_bonus = function(self, card)
+		return math.floor(G.GAME.dollars * (card.ability.extra.Xmoney - 1))
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Joker {
 	key = "water_bottle",
 	name = "Water Bottle",
 	config = { extra = { splash = 5 }, immutable = { max_spawn = 100 } },
