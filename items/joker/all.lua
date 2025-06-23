@@ -131,7 +131,8 @@ SMODS.Joker { -- IT'S ALIVE
 		end
 	end,
 	crp_credits = {
-		idea = { "lunarisIllustratez" },
+		idea = { "lunarisIllustratez", "Glitchkat10" },
+		art = { "thingifithinker" },
 		code = { "Glitchkat10", "Rainstar" }
 	}
 }
