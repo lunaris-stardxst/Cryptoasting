@@ -195,6 +195,52 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "12345",
+	name = "12345",
+	config = { extra = { jokerslots = 1, consumeableslots = 2, money = 3, mult = 4, chips = 5 } },
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 10,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.jokerslots,
+				card.ability.consumeableslots,
+				card.ability.money,
+				card.ability.mult,
+				card.ability.chips
+			}
+		}
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerslots
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumeableslots
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.jokerslots
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumeableslots
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main or context.forcetrigger then
+			return {
+				chips = lenient_bignum(card.ability.extra.chips),
+				mult = lenient_bignum(card.ability.extra.mult)
+			}
+		end
+	end,
+	calc_dollar_bonus = function(self, card)
+		return lenient_bignum(card.ability.extra.money)
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" },
+	}
+}
+
+SMODS.Joker {
 	key = "playerrkillerr",
 	name = "playerKillerr",
 	config = { immutable = { mult = 284 } },
