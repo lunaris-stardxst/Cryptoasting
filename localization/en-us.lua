@@ -1057,25 +1057,27 @@ return {
 	},
 	misc = {
 		dictionary = {
+			k_crp_abysmal = "Abysmal"
 			["k_crp_self-insert"] = "Self-Insert",
 			k_crp_trash = "Trash",
+			k_crp_edgy = "Edgy" -- not added yet
 			k_crp_m = "M",
 			k_crp_common_2 = "Common 2",
 			k_crp_uncommon_2 = "Uncommon 2",
+			k_crp_2common4me = "2Common4me"
+			k_crp_uncommon_2 = "Uncommon 2",
+			k_crp_unrare = "Unrare"
 			k_crp_rare_2 = "Rare 2",
+			k_crp_meat = "Meat"
 			k_crp_joker = "Joker",
 			k_crp_cipe = "cipE",
+			k_crp_incredible = "Incredible",
+			k_crp_extraordinary = "Extraordinary",
 			k_crp_awesome = "Awesome",
-			k_crp_exotic_2 = "Exotic 2",
-			k_crp_mythic = "Mythic",
-			k_crp_exomythic = "ExoMythic",
-			["k_crp_:3"] = ":3",
-			k_eaten = "Munch",
-			k_bulgoe_spawn = "+1 Bulgoe",
-			k_crp_2exomythic4me = "2ExoMythic4me",
 			k_crp_22exomythic4mecipe = "22ExoMythic4meCipe",
 			k_crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "ExoMythicEpicAwesomeUncommon2MExotic22ExoMythic4meCipe",
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
+			k_crp_supa_rare = "supa rare"
 			k_crp_all = "All",
 		},
 		labels = {
