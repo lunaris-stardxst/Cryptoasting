@@ -171,11 +171,11 @@ SMODS.Joker {
 		return { vars = { "{", "}", lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			card.ability.immutable.arrows = 0
-			for i=1, #G.jokers.cards do
+			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i].config.center.mod.id == "cryptposting" then
-					card.ability.immutable.arrows = card.ability.immutable.arrows + 1
+					card.ability.immutable.arrows = lenient_bignum(card.ability.immutable.arrows) + 1
 				end
 			end
 			return {

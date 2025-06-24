@@ -54,7 +54,7 @@ SMODS.Joker {
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			for i=1, #G.jokers.cards do
+			for i = 1, #G.jokers.cards do
 				eligible_cards = {}
 				if not G.jokers.cards[i] == card and not G.jokers.cards[i].ability.eternal then
 					eligible_cards[#eligible_cards+1] = G.jokers.cards[i]
@@ -63,7 +63,7 @@ SMODS.Joker {
 			if #eligible_cards > 0 then
 				local option = pseudorandom_element(eligible_cards, pseudoseed("crp_vermillion"))
 			end
-			for i=1, #G.jokers.cards do
+			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] == option then idx = i end
 			end
 			if idx and G.jokers.cards[idx] then
@@ -74,12 +74,13 @@ SMODS.Joker {
 		end
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return { xmult = lenient_bignum(card.ability.extra.Xmult) }
 		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "missingnumber" },
 		code = { "wilfredlam0418" }
 	}
 }
@@ -134,12 +135,15 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.forcetrigger then
-			ease_dollars(lenient_bignum(G.GAME.dollars * card.ability.extra.Xmoney))
-			return { message = "$" .. number_format(lenient_bignum(card.ability.extra.Xmoney)), colour = G.C.MONEY }
+			ease_dollars(math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.Xmoney)) - 1))
+			return {
+				message = "$" .. number_format(lenient_bignum(card.ability.extra.Xmoney)),
+				colour = G.C.MONEY
+			}
 		end
 	end,
 	calc_dollar_bonus = function(self, card)
-		return math.floor(G.GAME.dollars * (card.ability.extra.Xmoney - 1))
+		return math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.Xmoney) - 1))
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },

@@ -36,7 +36,7 @@ SMODS.Joker {
 					key = "a_powmultchips",
 					vars = { number_format(lenient_bignum(card.ability.extra.Echips)) },
 				}),
-				colour = { 0.8, 0.45, 0.85, 1 }, -- plasma deck colors
+				colour = G.C.DARK_EDITION
 			}
 		end
 	end,
