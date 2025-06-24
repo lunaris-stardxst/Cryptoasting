@@ -108,3 +108,70 @@ SMODS.Joker {
 		code = { "Glitchkat10", "MathIsFun_" }
 	}
 }
+
+SMODS.Joker {
+	key = "fevrial",
+	name = "Fevrial",
+	config = { extra = { EEEmult = 2 } },
+	rarity = "crp_exomythic",
+	atlas = "crp_placeholder",
+	pos = { x = 9, y = 0 },
+	cost = 200,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.individual and context.cardarea == G.play and context.other_card and (context.other_card:get_id() == 12 or context.other_card:get_id() == 13)) or context.forcetrigger then
+			return {
+				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
+				colour = G.C.EDITION,
+				card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "wilfredlam0418" },
+	}
+}
+
+SMODS.Joker {
+	key = "richard_tarlton",
+	name = "Richard Tarlton",
+	config = { extra = { EEmult = 23, EEmult_mod = 23 } },
+	rarity = "crp_exomythic",
+	atlas = "crp_placeholder",
+	pos = { x = 9, y = 0 },
+	cost = 200,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.discard and not context.other_card.debuff and not context.blueprint) or context.forcetrigger then
+			card.ability.EEmult = lenient_bignum(card.ability.extra.EEmult) + lenient_bignum(card.ability.extra.EEmult_mod)
+			return {
+				message = localize("k_upgrade_ex"),
+				colour = G.C.DARK_EDITION,
+				card = card
+			}
+		end
+
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
+				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
+				colour = G.C.EDITION,
+				card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "wilfredlam0418" },
+	}
+}

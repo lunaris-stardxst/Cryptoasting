@@ -5,6 +5,7 @@ local files = {
 	"items/consumable",
 	"items/deck",
 	"items/edition",
+	"items/joker/abysmal",
 	"items/joker/cursed",
 	"items/joker/self-insert",
 	"items/joker/trash",
