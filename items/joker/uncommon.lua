@@ -42,11 +42,11 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "vermillion",
 	name = "Vermillion Joker",
-	pos = { x = 3, y = 0 },
+	pos = { x = 0, y = 6 },
 	config = { extra = { Xmult = 3 } },
 	rarity = 2,
 	cost = 6,
-	atlas = "crp_placeholders",
+	atlas = "crp_joker",
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)

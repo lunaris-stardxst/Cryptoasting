@@ -203,8 +203,9 @@ SMODS.Joker {
 	key = "270_bulgoescope",
 	name = "270° Bulgoescope",
 	config = { extra = { chips = 10888869450418352160768000000 } },
-	atlas = "crp_placeholder",
-	pos = { x = 6, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 7, y = 7 },
+	soul_pos = { x = 8, y = 7 },
 	rarity = 4,
 	cost = 20,
 	blueprint_compat = true,
@@ -218,7 +219,8 @@ SMODS.Joker {
 		end
 	end,
 	crp_credits = {
-		idea = { "Grahkon", "George the Rat" },
+		idea = { "Grahkon", "George The Rat" },
+		art = { "Grahkon", "Glitchkat10" },
 		code = { "wilfredlam0418" }
 	}
 }

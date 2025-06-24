@@ -207,21 +207,21 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.jokerslots,
-				card.ability.consumeableslots,
-				card.ability.money,
-				card.ability.mult,
-				card.ability.chips
+				card.ability.extra.jokerslots,
+				card.ability.extra.consumeableslots,
+				card.ability.extra.money,
+				card.ability.extra.mult,
+				card.ability.extra.chips
 			}
 		}
 	end,
 	add_to_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerslots
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumeableslots
+		G.jokers.config.card_limit = G.jokers.config.card_limit + lenient_bignum(card.ability.extra.jokerslots)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit + lenient_bignum(card.ability.extra.consumeableslots)
 	end,
 	remove_from_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.jokerslots
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumeableslots
+		G.jokers.config.card_limit = G.jokers.config.card_limit - lenient_bignum(card.ability.extra.jokerslots)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - lenient_bignum(card.ability.extra.consumeableslots)
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
@@ -419,21 +419,24 @@ SMODS.Joker {
 	name = "Normalgoe",
 	config = { extra = { Xmult = 2.7 } },
 	rarity = 3,
-	atlas = "crp_placeholder",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 0, y = 4 },
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult, colours = { HEX("717ba6") } } }
+		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
-			return { Xmult = card.ability.extra.Xmult }
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				Xmult = lenient_bignum(card.ability.extra.Xmult)
+			}
 		end
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
+		art = { "missingnumber" },
 		code = { "wilfredlam0418" }
 	}
 }
