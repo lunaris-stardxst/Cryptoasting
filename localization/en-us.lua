@@ -354,6 +354,16 @@ return {
 					"when scored"
 				},
 			},
+			j_crp_12345 = {
+				name = "12345",
+				text = {
+					"{C:dark_edition}+#1# Joker{} slot#<s>1#",
+					"{C:attention}+#2# consumable{} slot#<s>2#",
+					"Earn {C:money}$#3#{} at end of round",
+					"{C:mult}+4{} Mult",
+					"{C:chips}+5{} Chip#<s>5#",
+				}
+			},
 			j_crp_water_bottle = {
 				name = "Water Bottle",
 				text = {
@@ -392,6 +402,14 @@ return {
 				name = "Big Joker",
 				text = {
 					"{C:mult}+#1#{} Mult",
+				},
+			},
+			j_crp_10000_coins = {
+				name = "10,000 Coins Falling on You",
+				text = {
+					"When this {C:attention}Joker{]} is sold, either",
+					"win {C:money}$#1#{} or destroy every",
+					"owned {C:attention}Joker{}, bypassing {C:red}all effects{}"
 				},
 			},
 			j_crp_bulgoe_prize = {
@@ -542,6 +560,13 @@ return {
 					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
 				},
 			},
+			j_crp_270_bulgoescope = {
+				name = "270° {C:edition}Bulgoe{}scope",
+				text = {
+					"{C:red}Fixed{} {C:green}1 in 27{} chance for scored",
+					"{C:attention}2s{} and {C:attention}7s{} to give {C:chips}+#1#{} Chips",
+				},
+			},
 			j_crp_amazon_gift_card = {
 				name = "Amazon Gift Card",
 				text = {
@@ -620,6 +645,12 @@ return {
 					"Gives the current base",
 					"{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}Flush{}"
 				}
+			},
+			j_crp_normalgoe = {
+				name = "{C:dark_edition}Normalgoe",
+				text = {
+					"{C:white,X:mult}X#1#{} Mult"
+				},
 			}
 		},
 		Spectral =  {
@@ -628,7 +659,7 @@ return {
 				text = {
 					"Create a {C:crp_mythic}Mythic{} {C:attention}Joker{},",
 					"{C:red}destroy{} all other {C:attention}Jokers{},",
-					"including {C:purple}Eternals"				
+					"including {V:1}Eternals"
 				}
 			},
 			c_crp_gate_of_prayers = {

@@ -198,3 +198,29 @@ SMODS.Joker {
 		code = { "Glitchkat10", "Psychomaniac14" }
 	}
 }
+
+SMODS.Joker {
+	key = "270_bulgoescope",
+	name = "270° Bulgoescope",
+	config = { extra = { chips = 10888869450418352160768000000 } },
+	atlas = "crp_joker",
+	pos = { x = 7, y = 7 },
+	soul_pos = { x = 8, y = 7 },
+	rarity = 4,
+	cost = 20,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { "27!" } }
+	end,
+	calculate = function(self, card, context)
+		if (context.individual and context.cardarea == G.play and (context.other_card:get_id() == 2 or context.other_card:get_id() == 7) and pseudorandom("crp_270_bulgoescope") < 1/27) or context.forcetrigger then
+			return { chips = card.ability.extra.chips }
+		end
+	end,
+	crp_credits = {
+		idea = { "Grahkon", "George The Rat" },
+		art = { "Grahkon", "Glitchkat10" },
+		code = { "wilfredlam0418" }
+	}
+}

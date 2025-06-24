@@ -20,6 +20,9 @@ SMODS.Consumable {
 	unlocked = true,
 	discovered = true,
 	atlas = 'crp_consumables',
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.money), colours = { { 0.78, 0.35, 0.52, 1 } } } }
+	end,
 	hidden = true,
 	can_use = function(self, card)
 		return #Cryptid.advanced_find_joker(nil, nil, nil, { "absolute" }, true, "j") < G.jokers.config.card_limit
