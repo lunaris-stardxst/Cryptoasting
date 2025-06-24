@@ -120,10 +120,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.EEEmult } }
+		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.individual and context.cardarea == G.play and context.other_card:get_id() == 12 or context.other_card:get_id() == 13) or context.forcetrigger then
+		if (context.individual and context.cardarea == G.play and context.other_card and (context.other_card:get_id() == 12 or context.other_card:get_id() == 13)) or context.forcetrigger then
 			return {
 				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
 				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
@@ -131,7 +131,7 @@ SMODS.Joker {
 				card = card
 			}
 		end
-	end,Add commentMore actions
+	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
 		code = { "wilfredlam0418" },
@@ -149,7 +149,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.EEmult, card.ability.extra.EEmult_mod } }
+		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.discard and not context.other_card.debuff and not context.blueprint) or context.forcetrigger then

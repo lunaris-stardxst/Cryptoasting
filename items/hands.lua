@@ -29,4 +29,5 @@ SMODS.PokerHand {
 		end
 		if #scoring_ranks < 2 then scoring_ranks = {} end
 		return {} -- i'll work on it tomorrow
+	end
 }
