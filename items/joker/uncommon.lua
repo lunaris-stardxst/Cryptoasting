@@ -242,3 +242,30 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker
+	key = "tag_hoarder",
+	name = "Tag Hoarder",
+	rarity = 2,
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0 },
+	cost = 6,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			local bonus = 0
+			for i = 1, #G.GAME.tags do
+				bonus = bonus + ((2^G.GAME.tags[i].ability.level-1) or 1)
+			end
+			return {
+				chips = lenient_bignum(bonus),
+				mult = lenient_bignum(bonus),
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "wilfredlam0418" }
+	}
+}
