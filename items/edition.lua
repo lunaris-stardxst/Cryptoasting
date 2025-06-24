@@ -607,3 +607,104 @@ SMODS.Edition {
 		code = { "Glitchkat10" },
 	},
 } ]]--
+
+--[[ SMODS.Shader {
+	key = "really_negative",
+	path = "really_negative.fs"
+}
+]]
+
+SMODS.Edition {
+	key = "really_negative",
+	weight = 0.3,
+	shader = false,
+	in_shop = true,
+	extra_cost = 5,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { card_limit = 3 },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.card_limit } }
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Edition {
+	key = "super_negative",
+	weight = 0.1,
+	shader = false,
+	in_shop = true,
+	extra_cost = 10,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { card_limit = 10 },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.card_limit } }
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Edition {
+	key = "photon_readings_negative",
+	weight = 0.05,
+	shader = false,
+	in_shop = true,
+	extra_cost = 20,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { card_limit = 66 },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.card_limit } }
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Edition {
+	key = "photon_readings_really_negative",
+	weight = 0.01,
+	shader = false,
+	in_shop = true,
+	extra_cost = 50,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { card_limit = 666666 },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.card_limit } }
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Edition {
+	key = "photon_readings_negative",
+	weight = 0,
+	shader = false,
+	in_shop = false,
+	extra_cost = 2^1024,
+	get_weight = function(self)
+		return G.GAME.edition_rate * self.weight
+	end,
+	config = { card_limit = 2^1024 },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.card_limit } }
+	end,
+	crp_credits = {
+		idea = { "Grahkon" },
+		code = { "wilfredlam0418" }
+	}
+}
