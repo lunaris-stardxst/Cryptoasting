@@ -75,10 +75,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod) } }
+		return { vars = { lenient_bignum(card.ability.extra.mult_mod), lenient_bignum(G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return {
 				mult = lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod )
 			}

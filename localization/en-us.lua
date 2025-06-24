@@ -201,7 +201,7 @@ return {
 				name = "Infinitum",
 				text = {
 					"Scoring cards give {C:dark_edition,X:edition}#2#X#3##1#{} Chip#<s>1# & Mult,",
-					"where {C:dark_edition,X:edition}X{} is their position in their {C:attention}card area{}"
+					"where {C:dark_edition,X:edition}X{} is the position in their {C:attention}card area{}"
 				},
 			},
 			j_crp_joker_0 = {
@@ -255,8 +255,8 @@ return {
 			j_crp_participation_trophy = {
 				name = "Participation Trophy",
 				text = {
-					"{C:mult}+0.1{} Mult for every {C:red}loss{} on this profile",
-					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
+					"{C:mult}+#1#{} Mult for every {C:red}loss{} on this profile",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
 				},
 			},
 			j_crp_semicolon = {
@@ -420,12 +420,6 @@ return {
 					"{C:inactive}(Does not require room)",
 				},
 			},
-			j_crp_chip = {
-				name = "chip",
-				text = {
-					"You get {C:chips}one{}.",
-				},
-			},
 			j_crp_gamblecore = {
 				name = "Gamblecore",
 				text = {
@@ -435,19 +429,6 @@ return {
 			},
 			j_crp_centipede = {
 				name = "Centipede",
-				text = {
-					"{C:chips}+#1#{} Chips if played",
-					"hand has only {C:attention}#2#{} card#<s>2#",
-				},
-			},
-			j_crp_dorito = {
-				name = "dorito",
-				text = {
-					"You get {C:mult}one{}.",
-				},
-			},
-			j_crp_decipede = {
-				name = "Decipede",
 				text = {
 					"{C:chips}+#1#{} Chips if played",
 					"hand has only {C:attention}#2#{} card#<s>2#",

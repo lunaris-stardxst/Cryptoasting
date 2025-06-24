@@ -21,8 +21,9 @@ SMODS.Joker {
 		}
 	},
 	rarity = "crp_2exomythic4me",
-	atlas = "crp_placeholder",
-	pos = { x = 11, y = 0 },
+	atlas = "crp_jokers",
+	pos = { x = 0, y = 8 },
+	soul_pos = { x = 1, y = 8, extra = { x = 2, y = 8 } },
 	cost = 400,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -118,6 +119,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "Tatteredlurker" },
 		code = { "Rainstar" }
 	}
 }
