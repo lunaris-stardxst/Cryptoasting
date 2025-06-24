@@ -691,7 +691,7 @@ SMODS.Edition {
 }
 
 SMODS.Edition {
-	key = "photon_readings_negative",
+	key = "photon_readings_gone",
 	weight = 0,
 	shader = false,
 	in_shop = false,
