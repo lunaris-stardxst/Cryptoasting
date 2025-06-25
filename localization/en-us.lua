@@ -455,8 +455,9 @@ return {
 			j_crp_perdurantes = {
 				name = "Perdurantes",
 				text = {
-					"Gains {C:white,X:dark_edition}^#2#{} Mult for every {C:attention}#3#{} triggers",
-					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
+					"Gains {C:white,X:dark_edition}^#2#{} Mult for every {C:attention}#3#{}",
+					"trigges#<s>3# of this {C:attention}Joker",
+					"{C:inactive}(Currently {C:attention}#4#{C:inactive} trigger#<s>4# and {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
 				},
 			},
 			j_crp_jolly_of_joker = {
@@ -528,6 +529,7 @@ return {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
 				},
 			},
+			--[[
 			j_crp_tetrationa = {
 				name = "Tetrationa",
 				text = {
@@ -536,6 +538,7 @@ return {
 					"{C:inactive}(Currently {C:edition,X:dark_edition}^^#1#{C:inactive} Mult){}"
 				},
 			},
+			]]--
 			j_crp_bulgoeship_card = {
 				name = "{C:edition}Bulgoe{}ship Card",
 				text = {
@@ -627,7 +630,7 @@ return {
 				name = "playerrWon",
 				text = {
 					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
-					"{C:attention}N{} increases by {C:attention}#3#{} at",
+					"{C:dark_edition,X:edition}N{} increases by {C:attention}#3#{} at",
 					"end of round",
 					"{C:inactive}(Currently {}{C:attention}#1#{}{C:inactive}){}",
 				},
