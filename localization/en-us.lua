@@ -76,31 +76,6 @@ return {
 					"{C:white,X:chips}÷#1#{} Chip#<s>1#",
 				},
 			},
-			j_crp_glitchkat10 = {
-				name = "Glitchkat10",
-				text = {
-					"{C:chips}-#1#{} Chip#<s>1#",
-					"{C:mult}-#2#{} Mult",
-					"{C:white,X:chips}÷#3#{} Chip#<s>1#",
-					"{C:white,X:mult}÷#4#{} Mult",
-				},
-			},
-			j_crp_rainstar = {
-				name = "Rainstar",
-				text = {
-					"{C:chips}-#1#{} Chip#<s>1# and {C:mult}-#2#{} Mult if played hand",
-					"does not contain a {C:attention}Flush{}",
-				},
-			},
-			j_crp_gudusername = {
-				name = "GudUsername",
-				text = {
-					"{C:white,X:chips}X#1#{} Chip#<s>1#, {C:white,X:mult}X#2#{} Mult",
-					"{C:white,X:dark_edition}^#3#{} Chip#<s>3#, {C:white,X:dark_edition}^#4#{} Mult",
-					"{C:edition,X:dark_edition}^^#5#{} Chip#<s>4#, {C:edition,X:dark_edition}^^#6#{} Mult",
-					"{C:dark_edition,X:edition}^^^#7#{} Chip#<s>1#, {C:dark_edition,X:edition}^^^#8#{} Mult",
-				},
-			},
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
@@ -1178,7 +1153,6 @@ return {
 	misc = {
 		dictionary = {
 			k_crp_abysmal = "Abysmal",
-			["k_crp_self-insert"] = "Self-Insert",
 			k_crp_trash = "Trash",
 			k_crp_m = "M",
 			k_crp_common_2 = "Common 2",
