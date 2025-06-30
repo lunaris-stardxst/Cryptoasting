@@ -624,8 +624,8 @@ SMODS.Edition {
 		return G.GAME.edition_rate * self.weight
 	end,
 	config = { card_limit = 3 },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.card_limit } }
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.card_limit } }
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
@@ -635,7 +635,7 @@ SMODS.Edition {
 
 SMODS.Edition {
 	key = "super_negative",
-	weight = 0.1,
+	weight = 0.15,
 	shader = false,
 	in_shop = true,
 	extra_cost = 10,
@@ -643,8 +643,8 @@ SMODS.Edition {
 		return G.GAME.edition_rate * self.weight
 	end,
 	config = { card_limit = 10 },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.card_limit } }
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.card_limit } }
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
@@ -654,7 +654,7 @@ SMODS.Edition {
 
 SMODS.Edition {
 	key = "photon_readings_negative",
-	weight = 0.05,
+	weight = 0.075,
 	shader = false,
 	in_shop = true,
 	extra_cost = 20,
@@ -662,8 +662,8 @@ SMODS.Edition {
 		return G.GAME.edition_rate * self.weight
 	end,
 	config = { card_limit = 66 },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.card_limit } }
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.card_limit } }
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
@@ -673,7 +673,7 @@ SMODS.Edition {
 
 SMODS.Edition {
 	key = "photon_readings_really_negative",
-	weight = 0.01,
+	weight = 0.0375,
 	shader = false,
 	in_shop = true,
 	extra_cost = 50,
@@ -681,8 +681,8 @@ SMODS.Edition {
 		return G.GAME.edition_rate * self.weight
 	end,
 	config = { card_limit = 666666 },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.card_limit } }
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.card_limit } }
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
@@ -692,16 +692,16 @@ SMODS.Edition {
 
 SMODS.Edition {
 	key = "photon_readings_gone",
-	weight = 0,
+	weight = 0.1875,
 	shader = false,
 	in_shop = false,
-	extra_cost = 2^1024,
+	extra_cost = 100,
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
 	end,
 	config = { card_limit = 2^1024 },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.card_limit } }
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config,card_limit } }
 	end,
 	crp_credits = {
 		idea = { "Grahkon" },

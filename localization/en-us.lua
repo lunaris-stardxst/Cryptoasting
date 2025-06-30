@@ -1069,31 +1069,31 @@ return {
 			e_crp_really_negative = {
 				name = "Really Negative",
 				text = {
-					"{C:Attention}+#1#{} Joker Slots",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slots",
 				},
 			},
 			e_crp_super_negative = {
 				name = "Super Negative",
 				text = {
-					"{C:Attention}+#1#{} Joker Slots",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slots",
 				},
 			},
 			e_crp_photon_readings_negative = {
 				name = "Photon Readings Negative",
 				text = {
-					"{C:Attention}+#1#{} Joker Slots",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slots",
 				},
 			},
 			e_crp_photon_readings_really_negative = {
-				name = "Photon Readings are REALLY FUCKING NEGATIVE HOLY SHIT",
+				name = "Photon Readings are REALLY FUCKING NEGATIVE",
 				text = {
-					"{C:Attention}+#1#{} Joker Slots",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slots",
 				},
 			},
 			e_crp_photon_readings_gone = {
-				name = "Photon Readings are gone.",
+				name = "Photon Readings are Gone.",
 				text = {
-					"{C:Attention}+#1#{} Joker Slots",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slots",
 				},
 			},
 		},
@@ -1148,14 +1148,14 @@ return {
 				name = "Very Rare Pack",
 				text = {
 					"Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
-					"Very Rare Consumables",
+					"{C:dark_edition}very rare{} {C:attention}consumables{}",
 				},
 			},
 			p_crp_very_balanced_pack = {
 				name = "Very Balanced Pack",
 				text = {
 					"Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
-					"{C:crp_exomythic}ExoMythic{} Jokers",
+					"{C:crp_exomythic}ExoMythic{} {C:attention}Jokers{}",
 				},
 			},
 		}
@@ -1194,6 +1194,11 @@ return {
 			crp_mad = "Mad",
 			crp_crazy = "Crazy",
 			crp_insane = "Insane",
+			crp_really_negative = "Really Negative",
+			crp_super_negative = "Super Negative",
+			crp_photon_readings_negative = "Photon Readings Negative",
+			crp_photon_readings_really_negative = "Photon Readings are REALLY FUCKING NEGATIVE",
+			crp_photon_readings_gone = "Photon Readings are Gone.",
 			--[[ crp_psychic = "Psychic", ]]--
 		},
 		v_dictionary = {

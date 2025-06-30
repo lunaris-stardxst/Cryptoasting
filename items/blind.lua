@@ -10,6 +10,7 @@ SMODS.Atlas {
 SMODS.Blind {
 	key = "chance",
 	pos = { x = 0, y = 0 },
+	atlas = "blind",
 	boss = { min = 3 },
     mult = 0.5,
     boss_colour = HEX("709284"),
@@ -34,6 +35,7 @@ SMODS.Blind {
 SMODS.Blind {
 	key = "skill",
 	pos = { x = 0, y = 0 },
+	atlas = "blind",
 	boss = { min = 4 },
     mult = 2,
     boss_colour = HEX("709284"),
@@ -91,6 +93,7 @@ SMODS.Blind {
 SMODS.Blind {
 	key = "evil_plant",
 	pos = { x = 0, y = 0 },
+	atlas = "blind",
 	boss = { min = 2, max = 10 },
     mult = 2,
     boss_colour = HEX("709284"),
