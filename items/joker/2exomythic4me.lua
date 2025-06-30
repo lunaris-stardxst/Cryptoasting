@@ -196,10 +196,12 @@ SMODS.Joker {
 	}
 }
 
+-- there is so much wrong here
+--[[
 SMODS.Joker {
 	key = "eternity",
 	name = "Eternity",
-	config = { extra = { echipsmult = 1000000, echipsmultmod = 1, jokerpowmod = 0.1, jokerslots = 1e100, active = false, echipsmultold = 1000000, jokerexponentiation = 1 } },
+	config = { extra = { echipsmult = 1000000, echipsmultmod = 1, jokerpowmod = 1.1, jokerslots = 1e100, active = false, echipsmultold = 1000000, jokerexponentiation = 1 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholders",
 	pos = { x = 11, y = 0 },
@@ -207,7 +209,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmultmod), lenient_bignum(card.ability.extra.jokerpowmod), lenient_bignum(card.ability.extra.jokerslots), card.ability.extra.active, lenient_bignum(card.ability.extra.echipsmultold), lenient_bignum(card.ability.extra.jokerexponentiation) } }
+		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmultmod), lenient_bignum(card.ability.extra.jokerpowmod), lenient_bignum(card.ability.extra.jokerslots), card.ability.extra.active, lenient_bignum(card.ability.extra.echipsmultold), lenient_bignum(card.ability.extra.jokerexponentiation), colours = { { 0.78, 0.35, 0.52, 1 } } } }
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		card.ability.extra.active = true
@@ -236,7 +238,7 @@ SMODS.Joker {
 				Emult_mod = card.ability.extra.echipsmult,
 				Echip_mod = card.ability.extra.echipsmult,
 				message = "^" .. lenient_bignum(card.ability.extra.echipsmult) .. " Chips & Mult",
-				colour = G.C.EDITION,
+				colour = G.C.DARK_EDITION,
 			}
 		end
         if (context.ending_shop and not context.blueprint and not context.retrigger_joker) or context.forcetrigger then
@@ -267,4 +269,4 @@ SMODS.Joker {
 		code = { "Rainstar" }
 	}
 }
-
+]]--

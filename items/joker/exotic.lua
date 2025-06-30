@@ -31,11 +31,7 @@ SMODS.Joker {
 			return {
 				Echip_mod = lenient_bignum(card.ability.extra.Echips),
 				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				message = localize({
-					type = "variable",
-					key = "a_powmultchips",
-					vars = { number_format(lenient_bignum(card.ability.extra.Echips)) },
-				}),
+				message = "^" .. lenient_bignum(card.ability.extra.echipsmult) .. " Chips & Mult",
 				colour = G.C.DARK_EDITION
 			}
 		end
@@ -151,7 +147,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and next(context.poker_hands["Pair"])) or context.forcetrigger then
+		if (context.joker_main and context.scoring_name == "Pair") or context.forcetrigger then
 			return {
 				message = localize({
 					type = "variable",

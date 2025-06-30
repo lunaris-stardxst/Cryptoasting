@@ -190,17 +190,10 @@ return {
 					"Joker with the default {C:attention}Joker{}",
 				},
 			},
-			j_crp_joker_of_all_trades = {
-				name = "Joker of all Trades",
-				text = {
-					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
-					"Earn {C:money}$#3#{} at end of round",
-				},
-			},
 			j_crp_money_card = {
 				name = "Money Card",
 				text = {
-					"{C:white,X:money}X$1.1{} at end of round",
+					"{C:white,X:money}X$#1#{} at end of round",
 				},
 			},
 			j_crp_water_bottle = {
@@ -230,7 +223,24 @@ return {
 				text = {
 					"Gives {C:chips}+Chips{} and {C:mult}+Mult{}",
 					"equal to the number",
-					"of {C:attention}tags{} you have"
+					"of owned {C:attention}tags{}"
+				},
+			},
+			j_crp_all_trades = {
+				name = "Joker of all Trades",
+				text = {
+					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
+					"Earn {C:money}$#3#{} at end of round",
+				},
+			},
+			j_crp_scones_bones = {
+				name = "Scones, Bones, Skibidi Stones",
+				text = {
+					"{C:white,X:chips}X#3#{} Chip#<s>3#, {C:white,X:chips}-X#4#{} Chip#<s>4# when you click",
+					"Prevents death once if you score at least",
+					"{C:attention}#2#%{} of the required score",
+					"Creates {C:attention}#5# Stone{} card#<s>5# if played hand contains a {C:attention}Flush",
+					"{C:inactive}(Death prevention active: #1#)",
 				},
 			},
 			j_crp_millipede = {
@@ -250,7 +260,7 @@ return {
 			j_crp_12345 = {
 				name = "12345",
 				text = {
-					"{C:dark_edition}+#1# Joker{} slot#<s>1#",
+					"{C:dark_edition}+#1#{} {C:attention}Joker{} slot#<s>1#",
 					"{C:attention}+#2# consumable{} slot#<s>2#",
 					"Earn {C:money}$#3#{} at end of round",
 					"{C:mult}+4{} Mult",
@@ -315,19 +325,6 @@ return {
 					"{C:inactive}\"Fqt in MY milk?!\"{}",
 				},
 			},
-			j_crp_eternity = {
-				name = "Eternity",
-				text = {
-					"{C:edition, X:dark_edition}^#1#{} Chips & Mult",
-					"Every frame, a {C:attention}little bird{} comes to sharpen its beak,",
-					"removing {C:edition, X:dark_edition}^#2#{}, but giving {C:edition, X:dark_edition}+^#3#{} to all joker values",
-					"at the end of round",
-					"When it reaches {C:edition, X:dark_edition}^0{}, resets back to {C:edition, X:dark_edition}^#6#{}",
-					"{C:mult}and a single day of eternity passes...{}",
-					"{C:inactive}(Active: #5#)",
-					"{C:inactive}(Currently {C:edition, X:dark_edition}+^#7#{})"
-				},
-			},
 			j_crp_joker_2 = {
 				name = "Joker 2",
 				text = {
@@ -374,7 +371,7 @@ return {
 			j_crp_joker_9 = {
 				name = "Joker 9",
 				text = {
-					"{C:attention}+#1#{} Levels to played hand",
+					"{C:planet}+#1#{} Level#<s>1#",
 				},
 			},
 			["j_crp_joker?"] = {
@@ -475,8 +472,8 @@ return {
 			j_crp_jolly_of_joker = {
 				name = "The Jolly of Joker",
 				text = {
-					"{C:white,X:dark_edition}^#1#{} Mult if played hand",
-					"contains a {C:attention}Pair{}",
+					"{C:white,X:dark_edition}^#1#{} Mult if played",
+					"hand is a {C:attention}Pair{}",
 				},
 			},
 			j_crp_victoriam = {
@@ -586,13 +583,11 @@ return {
 					"cost extra",
 				},
 			},
-			j_crp_jean_antoine = {
-				name = "Jean-Antoine d'Anglerais",
+			j_crp_fiorello_giraud = {
+				name = "Fiorello Giraud",
 				text = {
-					"Disables {C:white,X:dark_edition}ALL{} blinds (excluding Cursed blinds) {C:attention}#1#{} times",
-					"{C:inactive}14 fucking chicots{}",
-					"{C:inactive}this is technically wip since literally none of the{}",
-					"{C:inactive}rarity blinds exist{}",
+					"Gains {C:dark_edition,X:edition}^^^#2#{} Mult per destroyed face card",
+					"{C:inactive}(Currently {C:dark_edition,X:edition}^^^#1#{C:inactive} Mult)",
 				},
 			},
 			j_crp_fevrial = {
@@ -609,11 +604,12 @@ return {
 					"{C:inactive}(Currently {C:edition,X:dark_edition}^^#1#{C:inactive} Mult)",
 				},
 			},
-			j_crp_fiorello_giraud = {
-				name = "Fiorello Giraud",
+			j_crp_jean_antoine = {
+				name = "Jean-Antoine d'Anglerais",
 				text = {
-					"Gains {C:edition,X:dark_edition}^^^#2#{} Mult per destroyed face card",
-					"{C:inactive}(Currently {C:edition,X:dark_edition}^^^#1#{C:inactive} Mult)",
+					"Disables {C:white,X:dark_edition}all{} {C:attention}Blinds {C:attention}#1#{} times",
+					"{C:inactive}14 fucking Chicots{}",
+					"{C:inactive,s:0.8}WIP since none of the Rarity Blinds exist"
 				},
 			},
 			j_crp_infinitum = {
@@ -640,6 +636,20 @@ return {
 					"{C:attention}Cryptposting Jokers{} owned",
 				},
 			},
+			--[[
+			j_crp_eternity = {
+				name = "Eternity",
+				text = {
+					"{C:white,X:dark_edition}^#1#{} Chips & Mult",
+					"Every frame, a {C:attention}little bird{} comes to sharpen its beak,",
+					"taking {C:white,X:dark_edition}^#2#{}, but giving {C:white,X:attention}^#3#{} at the end of round",
+					"When {C:white,X:dark_edition}^0{} reached, resets back to {C:white,X:dark_edition}^#6#{}",
+					"{C:red}and a single day of {V:1}eternity {C:red}passes...",
+					"{C:inactive}(Active: #5#)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}+^#7#{})"
+				},
+			},
+			]]--
 			j_crp_quetta_m = {
 				name = "Quetta M",
 				text = {
@@ -1154,7 +1164,7 @@ return {
 		dictionary = {
 			k_crp_abysmal = "Abysmal",
 			k_crp_trash = "Trash",
-			k_crp_m = "M",
+			["k_crp_:3"] = ":3",
 			k_crp_common_2 = "Common 2",
 			k_crp_2common4me = "2Common4me",
 			k_crp_uncommon_2 = "Uncommon 2",
@@ -1162,6 +1172,7 @@ return {
 			k_crp_rare_2 = "Rare 2",
 			k_crp_meat = "Meat",
 			k_crp_joker = "Joker",
+			k_crp_m = "M",
 			k_crp_cipe = "cipE",
 			k_crp_incredible = "Incredible",
 			k_crp_extraordinary = "Extraordinary",

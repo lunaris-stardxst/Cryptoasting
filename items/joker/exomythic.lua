@@ -110,6 +110,47 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "fiorello_giraud",
+	name = "Fiorello Giraud",
+	config = { extra = { EEEmult = 1, EEEmult_mod = 1 } },
+	rarity = "crp_exomythic",
+	atlas = "crp_placeholder",
+	pos = { x = 9, y = 0 },
+	cost = 200,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.EEEmult), lenient_bignum(card.ability.extra.EEEmult_mod) } }
+	end,
+	calculate = function(self, card, context)
+        if context.remove_playing_cards then
+            for k, v in ipairs(context.removed) do
+                if v:is_face() then
+					card.ability.extra.EEEmult = lenient_bignum(card.ability.extra.EEEmult) + lenient_bignum(card.ability.extra.EEEmult_mod)
+                end
+            end
+			return {
+				message = localize("k_upgrade_ex"),
+				colour = G.C.DARK_EDITION,
+				card = card
+			}
+		end
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+				EEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
+				colour = G.C.EDITION,
+				card = card
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "SageSeraph" },
+		code = { "Rainstar" },
+	}
+}
+
+SMODS.Joker {
 	key = "fevrial",
 	name = "Fevrial",
 	config = { extra = { EEEmult = 2 } },
@@ -173,47 +214,6 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "SageSeraph" },
 		code = { "wilfredlam0418" },
-	}
-}
-
-SMODS.Joker {
-	key = "fiorello_giraud",
-	name = "Fiorello Giraud",
-	config = { extra = { EEEmult = 1, EEEmult_mod = 1 } },
-	rarity = "crp_exomythic",
-	atlas = "crp_placeholder",
-	pos = { x = 9, y = 0 },
-	cost = 200,
-	blueprint_compat = true,
-	demicoloncompat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEEmult), lenient_bignum(card.ability.extra.EEEmult_mod) } }
-	end,
-	calculate = function(self, card, context)
-        if context.remove_playing_cards then
-            for k, v in ipairs(context.removed) do
-                if v:is_face() then
-					card.ability.extra.EEEmult = lenient_bignum(card.ability.extra.EEEmult) + lenient_bignum(card.ability.extra.EEEmult_mod)
-                end
-            end
-			return {
-				message = localize("k_upgrade_ex"),
-				colour = G.C.DARK_EDITION,
-				card = card
-			}
-		end
-		if (context.joker_main) or context.forcetrigger then
-			return {
-				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
-				colour = G.C.EDITION,
-				card = card
-			}
-		end
-	end,
-	crp_credits = {
-		idea = { "SageSeraph" },
-		code = { "Rainstar" },
 	}
 }
 
