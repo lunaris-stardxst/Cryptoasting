@@ -15,13 +15,13 @@ SMODS.Atlas {
 SMODS.Booster{
     key = "very_rare_pack",
     name = "Very Rare Pack",
-    atlas = "placeholders", 
+    atlas = "placeholder", 
     pos = { x = 8, y = 2 },
     discovered = true,
     draw_hand = false,
-    config = { extra = { choose = 1, extra = 3 } },
+    config = { choose = 1, extra = 3 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.choose, card.ability.extra.extra } }
+        return { vars = { lenient_bignum(card.ability.choose), lenient_bignum(card.ability.extra) } }
     end,
     weight = 0.1,
     cost = 50,
@@ -69,9 +69,9 @@ SMODS.Booster{
     pos = { x = 8, y = 2 },
     discovered = true,
     draw_hand = false,
-    config = { extra = { choose = 1, extra = 5 } },
+    config = { choose = 1, extra = 5 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.choose, card.ability.extra.extra } }
+        return { vars = { lenient_bignum(card.ability.choose), lenient_bignum(card.ability.extra) } }
     end,
     weight = 1 / 9827,
     cost = 0.69,
