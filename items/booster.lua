@@ -25,7 +25,7 @@ SMODS.Booster{
             { key = 'c_crp_path_of_solstice', weight = 10 },
             { key = 'c_crp_reckoning', weight = 10 },
             { key = 'c_crp_all_or_nothing', weight = 10 },
-            { key = 'c_soul', weight = 20 } -- Default case gets higher weight
+            { key = 'c_soul', weight = 10 }
         }
         
         local total_weight = 0
@@ -43,13 +43,12 @@ SMODS.Booster{
             end
         end
         
-        -- Fallback (should never reach here)
+        -- fallback (should never reach here)
         return create_card('Spectral', G.pack_cards, nil, nil, true, nil, 'c_soul', 'very_rare')
     end,
     select_card = 'consumeables',
     in_pool = function() return true end
 }
-
 
 SMODS.Booster{
     key = 'very_balanced_pack',
