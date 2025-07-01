@@ -705,3 +705,25 @@ SMODS.Consumable {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Consumable {
+	key = "decrement",
+	set = "Code",
+	pos = { x = 9, y = 2 }, -- to do: add the sprite
+	config = { extra = { ante = 1 } },
+	atlas = "crp_placeholders",
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.ante } }
+	end,
+	can_use = function()
+		return G.GAME.round_resets.ante % G.hand.config.card_limit == 0
+	end,
+	use = function(self, card)
+		ease_ante(-card.ability.extra.ante)
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wlfredlam0418" }
+	}
+}
+}
