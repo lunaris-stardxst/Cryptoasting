@@ -129,9 +129,9 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "3",
+	key = "3.",
 	name = "3.",
-	config = { immutable = { threes = 3 } },
+	config = { immutable = { threes = 0, threes_mod = 3 } },
 	rarity = "crp_trash",
 	atlas = "crp_jokers",
 	pos = { x = 5, y = 8 },
@@ -139,12 +139,13 @@ SMODS.Joker {
 	blueprint_compat = false,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.immutable.threes } }
+		return { vars = { card.ability.extra.threes, card.ability.immutable.threes_mod } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
+			card.ability.extra.threes = card.ability.extra.threes + card.ability.immutable.threes_mod
 			return {
-				message = "+" .. card.ability.immutable.threes .. " 3s",
+				message = "+" .. card.ability.immutable.threes_mod .. " 3s",
 				colour = G.C.FILTER
 			}
 		end
