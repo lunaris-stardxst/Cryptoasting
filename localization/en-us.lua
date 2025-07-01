@@ -276,7 +276,6 @@ return {
 					"Grants {C:white,X:chips}X10{} Chips, {C:white,X:chips}X10{} Chips, and randomizes screen rotation whenever any card is scored.",
 					"Does NOT give {C:white,X:mult}X10{} Mult when the screen is clicked, even if {C:attention}The Man{} tells you otherwise. Do not follow {C:attention}The Man's{} orders.",
 					"Forces CRT effect intensity to {C:attention}200{}. Game speed is reduced by {C:green}1%{} per click. Rerolling causes exponential duplication of this Joker's values.",
-					"Sends a very real missile to your home for every card played. Selling this {C:attention}Joker{} permanently deletes {C:attention}System32{} from your hard drive.",
 					"{C:white,X:chips}X10{} Chips. {C:white,X:chips}X10{} more Chips",
 					"If the player forgets about the {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips. If the player does not forget about the amount of {C:white,X:chips}XChips{} on this Joker, {C:white,X:chips}X10{} Chips",
 					"Grants {C:white,X:chips}X10{} Chips. Also provides {C:dark_edition,X:edition}#1#69#2#{}2 Chips and {C:dark_edition,X:edition}#1#69#2#{}2 Mult.",
@@ -1009,6 +1008,12 @@ return {
 					"Next base edition shop",
 					"{C:attention}Joker{} is free and",
 					"becomes {C:dark_edition}Four-Dimensional{}",
+				}
+			},
+			["tag_crp_top-up_everything"] = {
+				name = "Top-up Everything",
+				text = {
+					"Create {C:crp_all}All",
 				}
 			},
 		},

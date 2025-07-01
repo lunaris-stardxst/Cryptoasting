@@ -33,6 +33,7 @@ SMODS.Atlas {
 
 SMODS.Voucher {
     key = "patience",
+    name = "Patience",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -40,11 +41,16 @@ SMODS.Voucher {
         return { vars = {  } }
     end,
     redeem = function(self, card)
-    end
+    end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "patience_2",
+    name = "More Patience",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -53,11 +59,16 @@ SMODS.Voucher {
     end,
 	requires = { "v_crp_patience" },
     redeem = function(self, card)
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "patience_3",
+    name = "Even More Patience",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -66,11 +77,16 @@ SMODS.Voucher {
     end,
 	requires = { "v_crp_patience_2" },
     redeem = function(self, card)
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "patience_4",
+    name = "Even More Patience Again",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -79,11 +95,16 @@ SMODS.Voucher {
     end,
 	requires = { "v_crp_patience_3" },
     redeem = function(self, card)
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "patience_5",
+    name = "So Much Patience",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -92,11 +113,16 @@ SMODS.Voucher {
     end,
 	requires = { "v_crp_patience_4" },
     redeem = function(self, card)
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "payoff",
+    name = "Payoff",
     atlas = "crp_placeholders",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -105,11 +131,16 @@ SMODS.Voucher {
     end,
 	requires = { "v_crp_patience_5" },
     redeem = function(self, card)
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
 
 SMODS.Voucher {
     key = "just_kidding",
+    name = "Just Kidding, This Is the Real Payoff",
     atlas = "crp_placeholders",
     pos = { x = 7, y = 2 },
     config = { extra = { exomythic_count = 3, twoexomythic4me_count = 2 } },
@@ -119,16 +150,20 @@ SMODS.Voucher {
 	requires = { "v_crp_payoff" },
     redeem = function(self, card)
         for i = 1, card.ability.extra.exomythic_count do
-			local card = create_card("Joker", G.jokers, nil, "crp_exomythic", nil, nil, nil, "truly_fair")
+			local card = create_card("Joker", G.jokers, nil, "crp_exomythic", nil, nil, nil, "just_kidding")
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()
 			G.jokers:emplace(card)
         end
         for i = 1, card.ability.extra.twoexomythic4me_count do
-			local card = create_card("Joker", G.jokers, nil, "crp_2exomythic4me", nil, nil, nil, "truly_fair")
+			local card = create_card("Joker", G.jokers, nil, "crp_2exomythic4me", nil, nil, nil, "just_kidding")
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()
 			G.jokers:emplace(card)
         end
-    end
+    end,
+    crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "Rainstar" }
+	}
 }
