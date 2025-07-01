@@ -15,11 +15,11 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "one_mans_trash",
 	name = "One Man's Trash",
-	pos = { x = 2, y = 0 }
+	pos = { x = 0, y = 1 },
 	config = { extra = { mult = 7 } },
 	rarity = "crp_2common4me",
 	cost = 5,
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)

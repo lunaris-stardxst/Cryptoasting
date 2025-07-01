@@ -272,7 +272,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "joker_slot_guy",
+	key = "slot_guy",
 	name = "Joker Slot Guy",
 	config = { extra = { mult = 3, Xmult = 1 } },
 	rarity = 3,
@@ -282,18 +282,20 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult, card.ability.extra.Xmult } }
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			if #G.jokers.cards >= G.jokers.config.card_limit then
 				return {
-					mult = card.ability.extra.mult * #G.jokers.cards
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards)
 				}
 			else
 				return {
-					mult = card.ability.extra.mult * #G.jokers.cards
-					Xmult = card.ability.extra.Xmult * (G.jokers.config.card_limit - #G.jokers.cards)
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards),
+					extra = {
+						Xmult = lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(G.jokers.config.card_limit - #G.jokers.cards)
+					}
 				}
 			end
 		end

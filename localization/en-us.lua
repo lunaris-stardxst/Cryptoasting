@@ -174,6 +174,14 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
+			j_crp_one_mans_trash = {
+				name = "One Man's Trash",
+				text = {
+					"{C:crp_trash}Trash{} {C:attention}Jokers{} give",
+					"{C:mult}+#1#{} Mult"
+				},
+			},
+			--[[
 			j_crp_dead_joker = {
 				name = "Dead Joker",
 				text = {
@@ -182,6 +190,7 @@ return {
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
+			]]--
 			j_crp_vermillion = {
 				name = "Vermillion Joker",
 				text = {
@@ -284,13 +293,13 @@ return {
 					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
-			j_crp_joker_slot_guy = {
+			j_crp_slot_guy = {
 				name = "Joker Slot Guy",
 				text = {
-					"{C:mult}+#1#{} Mult for every full Joker slot you have",
-					"{C:white,X:mult}X#2#{} Mult for every empty Joker slot you have"
+					"{C:mult}+#1#{} Mult for every full {C:attention}Joker{} slot",
+					"{C:white,X:mult}X#2#{} Mult for every empty {C:attention}Joker{} slot"
 				}
-			}
+			},
 			j_crp_two_for_some = {
 				name = "Two for Some",
 				text = {
