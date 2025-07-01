@@ -215,3 +215,44 @@ SMODS.Joker {
 		custom = { key = "alt",text = "Iterum" }
 	}
 }
+SMODS.Joker {
+	key = "resurgo",
+	name = "Resurgo",
+	config = {
+		extra = {
+			Emult = 1
+		}
+	},
+	rarity = "crp_exotic_2",
+	atlas = "crp_placeholder",
+	pos = { x = 7,
+			y = 0 },
+	cost = 50,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				lenient_bignum(G.GAME.round_resets.ante)
+			}
+		}
+	end,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if context.setting_blind then
+			card.ability.extra.Emult = lenient_bignum(G.GAME.round_resets.ante)
+		end
+		if context.joker_main or context.forcetrigger then
+			return {
+				Emult_mod = lenient_bignum(card.ability.extra.Emult),
+				message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
+				colour = G.C.DARK_EDITION
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle", "Glitchkat10" },
+		code = { "ScarredOut" },
+		custom = {key = "alt",
+				  text = "Redeo"}
+	}
+}
