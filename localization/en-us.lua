@@ -1014,6 +1014,7 @@ return {
 				name = "Top-up Everything",
 				text = {
 					"Create {C:crp_all}All",
+					"{C:inactive}(Must have room)"
 				}
 			},
 		},
