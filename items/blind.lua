@@ -19,6 +19,7 @@ SMODS.Atlas {
 
 SMODS.Blind {
 	key = "chance",
+	name = "The Chance",
 	pos = { x = 0, y = 0 },
 	atlas = "blind",
 	boss = { min = 3 },
@@ -44,6 +45,7 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "skill",
+	name = "The Skill",
 	pos = { x = 0, y = 0 },
 	atlas = "blind",
 	boss = { min = 4 },
@@ -51,17 +53,17 @@ SMODS.Blind {
     boss_colour = HEX("709284"),
 	set_blind = function(self, card, from_blind)
         for k, v in pairs(G.GAME.probabilities) do 
-            G.GAME.probabilities[k] = v / 1000000
+            G.GAME.probabilities[k] = v / 1.79769e308
         end
 	end,
 	defeat = function(self, card, from_blind)
         for k, v in pairs(G.GAME.probabilities) do 
-            G.GAME.probabilities[k] = v * 1000000
+            G.GAME.probabilities[k] = v * 1.79769e308
         end
 	end,
 	disable = function(self, card, from_blind)
         for k, v in pairs(G.GAME.probabilities) do 
-            G.GAME.probabilities[k] = v * 1000000
+            G.GAME.probabilities[k] = v * 1.79769e308
         end
 	end,
     crp_credits = {
@@ -72,6 +74,7 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "dice",
+	name = "The Dice",
 	pos = { x = 0, y = 2 },
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
@@ -89,6 +92,7 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "the",
+	name = "The",
 	pos = { x = 0, y = 1 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
@@ -102,8 +106,8 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "evil_plant",
-	pos = { x = 0, y = 0 },
-	atlas = "blind",
+	name = "The EVIL Plant",
+	pos = { x = 0, y = 19 },
 	boss = { min = 2, max = 10 },
     mult = 2,
     boss_colour = HEX("709284"),
@@ -134,6 +138,7 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "small...?",
+	name = "Small Blind...?",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
     mult = -1,
@@ -147,6 +152,7 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "big...?",
+	name = "Big Blind...?",
 	pos = { x = 0, y = 1 },
 	boss = { min = 2, max = 10 },
     mult = -1.5,
@@ -159,6 +165,7 @@ SMODS.Blind {
 }
 SMODS.Blind {
 	key = "joker",
+	name = "Joker",
 	pos = { x = 0, y = 0 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
@@ -177,6 +184,7 @@ SMODS.Blind {
 }
 SMODS.Blind {
 	key = "gloom",
+	name = "Gloom",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
 	atlas = "blind",
@@ -194,7 +202,8 @@ SMODS.Blind {
 	}
 }
 SMODS.Blind {
-	key = "monochromem",
+	key = "monochrome_m",
+	name = "Monochrome M",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10, showdown = true},
 	atlas = "blind",
@@ -216,7 +225,7 @@ SMODS.Blind {
 		return false
 	end,
 	get_loc_debuff_text = function(self) -- we do a little cryptid stealing
-		return localize("bl_crp_debuff_monochromem")
+		return localize("bl_crp_debuff_monochrome_m")
 	end,
 	boss_colour = HEX("000000"),
     crp_credits = {
@@ -224,10 +233,12 @@ SMODS.Blind {
 		code = { "ScarredOut" }
 	}
 }
+
 SMODS.Blind {
-	key = "eternaleclipse",
+	key = "eternal_eclipse",
+	name = "Eternal Eclipse",
 	pos = { x = 0, y = 0 },
-	boss = { min = 2, max = 10, showdown = true},
+	boss = { min = 2, max = 10, showdown = true },
 	atlas = "blind",
 	mult = 2,
 	set_blind = function(self)
@@ -238,8 +249,7 @@ SMODS.Blind {
 		else
 			planets_used = 0
 		end
-		local totalsize = 1 + (planets_used * sizeperplanet)
-		G.GAME.blind.chips = G.GAME.blind.chips * totalsize
+		G.GAME.blind.chips = G.GAME.blind.chips * (1 + (planets_used * sizeperplanet))
 	end,
 	disable = function(self)
 		local planets_used -- set variable up
@@ -249,8 +259,7 @@ SMODS.Blind {
 		else
 			planets_used = 0
 		end
-		local totalsize = 1 + (planets_used * sizeperplanet) 
-		G.GAME.blind.chips = G.GAME.blind.chips / totalsize -- NOTE: this will probably reduce further if you use a planet card during a blind, but the only way i can think of to do that is luchador so i don't feel like fixing it rn
+		G.GAME.blind.chips = G.GAME.blind.chips / (1 + (planets_used * sizeperplanet)) -- NOTE: this will probably reduce further if you use a planet card during a blind, but the only way i can think of to do that is luchador so i don't feel like fixing it rn
 	end,
 	boss_colour = HEX("4fb1db"),
     crp_credits = {
@@ -259,25 +268,27 @@ SMODS.Blind {
 	}
 }
 
--- Legendary Blinds (Only appear when a joker of greater than Legendary is owned)
+-- Legendary Blinds (Only appear when a Legendary+ Joker is owned)
 
 local valid_leg_blind_keys = { -- List of rarities that will allow these to spawn
+	[4] = true,
+	["crp_awesome"] = true,
 	["cry_exotic"] = true,
+	["crp_exotic_2"] = true,
 	["crp_mythic"] = true,
 	["crp_exomythic"] = true,
 	["crp_2exomythic4me"] = true,
 	["crp_22exomythic4mecipe"] = true,
 	["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
 	["crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe"] = true,
-	["crp_awesome"] = true,
-	["crp_exotic_2"] = true,
 }
 
 SMODS.Blind {
 	key = "roadblock",
+	name = "The Roadblock (L+)",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
-	blindrarity = "Legendary",
+	blindrarity = "Legendary",	
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -310,7 +321,7 @@ SMODS.Blind {
 }
 
 -- ExoMythic Blinds
-local valid_exomyth_blind_keys = { -- List of rarities that will allow these to spawn
+local valid_exomyth_blind_keys = { -- ist of rarities that will allow these to spawn
 	["crp_exomythic"] = true,
 	["crp_2exomythic4me"] = true,
 	["crp_22exomythic4mecipe"] = true,
@@ -320,6 +331,7 @@ local valid_exomyth_blind_keys = { -- List of rarities that will allow these to 
 
 SMODS.Blind {
 	key = "epioxus",
+	name = "Epioxus (EM+)",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
@@ -346,11 +358,12 @@ SMODS.Blind {
 	boss_colour = HEX("b8bf11"),
     crp_credits = {
 		idea = { "Grahkon" },
-		code = {"ScarredOut"}
+		code = { "ScarredOut" }
 	}
 }
 SMODS.Blind {
 	key = "calamitus",
+	name = "Calamitus (EM+)",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",

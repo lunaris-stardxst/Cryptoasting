@@ -29,7 +29,8 @@ return {
 			bl_crp_evil_plant = {
 				name = "The EVIL Plant",
 				text = {
-					"Debuffs everything but face cards",
+					"Debuffs everything but",
+					"face cards",
 				},
 			},
 			["bl_crp_small...?"] = {
@@ -47,7 +48,7 @@ return {
 			bl_crp_joker = {
 				name = "The Joker",
 				text = {
-					"+4 blind chips"
+					"+4 blind requirement"
 				}
 			},
 			bl_crp_gloom = {
@@ -56,34 +57,34 @@ return {
 					"All Jolly Jokers are debuffed"
 				}
 			},
-			bl_crp_monochromem = {
+			bl_crp_monochrome_m = {
 				name = "Monochrome M",
 				text = {
-					"All non-Jolly jokers are debuffed",
+					"All non-Jolly Jokers are debuffed",
 					"Must play only Pairs"
 				}
 			},
-			bl_crp_eternaleclipse = {
+			bl_crp_eternal_eclipse = {
 				name = "Eternal Eclipse",
 				text = {
-					"+X0.1 Blind size for each",
+					"+X0.1 blind requirement for each",
 					"Planet card used this run"
 				}
 			},
 			bl_crp_roadblock = {
-				name = "The Roadblock",
+				name = "The Roadblock (L+)",
 				text = {
-					"Comically large blind"
+					"Comically large blind requirement"
 				},
 			},
 			bl_crp_epioxus = {
-				name = "Epioxus",
+				name = "Epioxus (EM+)",
 				text = {
 					"X10 Ante when defeated"
 				},
 			},
 			bl_crp_calamitus = {
-				name = "Calamitus",
+				name = "Calamitus (EM+)",
 				text = {
 					"All Diamond, Heart, Spade and Club",
 					"cards are debuffed"
