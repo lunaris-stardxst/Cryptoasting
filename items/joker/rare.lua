@@ -272,6 +272,41 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "slot_guy",
+	name = "Joker Slot Guy",
+	config = { extra = { mult = 3, Xmult = 1 } },
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = false,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			if #G.jokers.cards >= G.jokers.config.card_limit then
+				return {
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards)
+				}
+			else
+				return {
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards),
+					extra = {
+						Xmult = lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(G.jokers.config.card_limit - #G.jokers.cards)
+					}
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" },
+	}
+}
+
+SMODS.Joker {
 	key = "two_for_some",
 	name = "Two for Some",
 	config = { extra = { hand_size = 2, consumeableslots = 2, boosterpackslots = 2 } },

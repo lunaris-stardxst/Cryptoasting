@@ -701,7 +701,7 @@ SMODS.Edition {
 	end,
 	config = { card_limit = 2^1024 },
 	loc_vars = function(self, info_queue)
-		return { vars = { self.config,card_limit } }
+		return { vars = { self.config.card_limit } }
 	end,
 	crp_credits = {
 		idea = { "Grahkon" },

@@ -174,6 +174,14 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
+			j_crp_one_mans_trash = {
+				name = "One Man's Trash",
+				text = {
+					"{C:crp_trash}Trash{} {C:attention}Jokers{} give",
+					"{C:mult}+#1#{} Mult"
+				},
+			},
+			--[[
 			j_crp_dead_joker = {
 				name = "Dead Joker",
 				text = {
@@ -182,6 +190,7 @@ return {
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
+			]]--
 			j_crp_vermillion = {
 				name = "Vermillion Joker",
 				text = {
@@ -282,6 +291,13 @@ return {
 					"Clicks have a {C:green}32%{} chance to fail. After entering a shop, rerolls will occur non-stop, permanently.",
 					"{C:planet}Celestial Packs{} have a {C:green}98.27%{} chance to have {C:attention}300000000{} {C:spectral}Black Holes{} in them. {C:spectral}Spectral Packs{} have a {C:green}27.98%{} chance to overheat your device when opened.",
 					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
+				}
+			},
+			j_crp_slot_guy = {
+				name = "Joker Slot Guy",
+				text = {
+					"{C:mult}+#1#{} Mult for every full {C:attention}Joker{} slot",
+					"{C:white,X:mult}X#2#{} Mult for every empty {C:attention}Joker{} slot"
 				}
 			},
 			j_crp_two_for_some = {
