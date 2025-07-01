@@ -196,3 +196,65 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
+
+SMODS.Joker {
+	key = "splittum",
+	name = "Splittum",
+	rarity = "cry_exotic",
+	atlas = "crp_placeholders", -- to do: add the sprite (can be found on the cid)
+	pos = { x = 7, y = 0 },
+	cost = 50,
+	blueprint_compat = false,
+	demicoloncompat = false,
+	calculate = function(self, card, context)
+		if context.selling_card then
+			local last_rarity = {
+				crp_abysmal = nil,
+				cry_cursed = nil,
+				crp_trash = nil,
+				["crp_:3"] = nil,
+				crp_weak = nil,
+				[1] = nil,
+				crp_common2 = nil,
+				crp_2common4me = "Common",
+				[2] = "Common",
+				crp_uncommon2 = "crp_common2",
+				crp_unrare = "Uncommon",
+				[3] = "Uncommon",
+				crp_rare2 = "crp_uncommon2",
+				cry_candy = "Rare",
+				crp_meat = "crp_rare2",
+				crp_joker = "Rare",
+				crp_m = "Rare",
+				cry_epic = "Rare",
+				crp_cipe = "crp_rare2",
+				crp_incredible = "cry_epic",
+				crp_extraordinary = "crp_cipe",
+				[4] = "cry_epic",
+				crp_awesome = "crp_cipe",
+				cry_exotic = "Legendary",
+				crp_exotic2 = "crp_awesome",
+				crp_mythic = "crp_exotic",
+				crp_exomythic = "crp_mythic",
+				crp_2exomythic4me = "crp_mythic",
+				crp_22exomythic4mecipe = "crp_2exomythic4me",
+				crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe = "crp_22exomythic4mecipe",
+				crp_supa_rare = "crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe",
+				crp_all = "crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe",
+			}
+			if last_rarity[context.card.config.center.rarity] then
+				for i = 1, 2 do
+					SMODS.add_card({
+						set = "Joker",
+						rarity = last_rarity[context.card.config.center.rarity],
+						key_append = "crp_splittum",
+					})
+				end
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		code = { "wilfredlam0418" }
+	}
+}
