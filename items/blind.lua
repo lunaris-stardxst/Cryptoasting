@@ -199,9 +199,12 @@ SMODS.Blind {
 	boss = { min = 2, max = 10, showdown = true},
 	atlas = "blind",
 	mult = 0.13,
+	disable = function(self)
+		
+	end,
 	recalc_debuff = function(self, card, from_blind)
-		if (card.area == G.jokers) and not G.GAME.blind.disabled and not (card:is_jolly()) then -- since this is a cryptid addon we'll use cryptids function for this
-			return true
+		if (card.area == G.jokers) and not G.GAME.blind.disabled and not (card:is_jolly()) and not card.key == "j_chicot" and not card.key == "j_crp_jean_antoine" then -- since this is a cryptid addon we'll use cryptids function for this
+			return true -- also manually doing that sucks but whatever
 		end
 		return false
 	end,
@@ -247,7 +250,7 @@ SMODS.Blind {
 			planets_used = 0
 		end
 		local totalsize = 1 + (planets_used * sizeperplanet) 
-		G.GAME.blind.chips = G.GAME.blind.chips * totalsize -- NOTE: this will probably reduce further if you use a planet card during a blind, but the only way i can think of to do that is luchador so i don't feel like fixing it rn
+		G.GAME.blind.chips = G.GAME.blind.chips / totalsize -- NOTE: this will probably reduce further if you use a planet card during a blind, but the only way i can think of to do that is luchador so i don't feel like fixing it rn
 	end,
 	boss_colour = HEX("4fb1db"),
     crp_credits = {
