@@ -512,6 +512,13 @@ return {
 					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} retrigger#<s>3#)",
 				},
 			},
+			j_crp_resurgo = {
+				name = "Resurgo",
+				text = {
+					"{C:white,X:dark_edition}^Ante{} Mult",
+					"{C:inactive}(Currently{} {C:white,X:dark_edition}^#1#{} {C:inactive}Mult){}",
+				}
+			},
 			j_crp_weather_machine = {
 				name = "Weather Machine",
 				text = {
