@@ -101,6 +101,13 @@ return {
 					"",
 				},
 			},
+			["j_crp_three"] = {
+				name = "3.",
+				text = {
+					"{C:attention}+#2#{} 3s",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive} 3s)",
+				},
+			},
 			["j_crp_:3"] = {
 				name = ":3",
 				text = {
@@ -174,6 +181,16 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
+			--[[
+			j_crp_bulgoelatro = {
+				name = "{C:edition}Bulgoe{}latro",
+				text = {
+					"{C:mult}+#1#{} Mult for every owned",
+					"{C:edition}Bulgoe{}-themed Joker",
+					"(Currently {C:mult}+#2#{} Mult)",
+				},
+			},
+			]]
 			j_crp_one_mans_trash = {
 				name = "One Man's Trash",
 				text = {
@@ -460,8 +477,7 @@ return {
 				name = "Chibidoki",
 				text = {
 					"{C:crp_unrare}Unrare{} and higher rarity {C:attention}Jokers{}",
-					"give {C:white,B:1}X#1#{} Chips and Mult", -- plasma deck colors
-					"{C:inactive,s:0.8}This Joker is currently slightly unfinished{}"
+					"give {C:white,B:1}X#1#{} Chips and Mult"
 				}
 			},
 			j_crp_normalis = {
@@ -497,6 +513,15 @@ return {
 					"{C:white,X:dark_edition}^0.1{} Mult for every {C:edition,X:grey}win{} on this profile",
 					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
+				},
+			},
+			j_crp_splittum = {
+				name = "Splittum",
+				text = {
+					"When a {C:attention}Joker{} is sold, create {C:attention}#1# {C:dark_edition}Negative{}",
+					"{C:attention}Jokers{} of one rarity below the sold {C:attention}Joker{}",
+					"{C:inactive}(Some rarities do not apply)",
+					"{C:inactive}\"generic video game slime enemy\""
 				},
 			},
 			j_crp_duplex = {
@@ -791,6 +816,15 @@ return {
 					"{C:red}Destroy{} all {C:attention}Jokers{} and {C:attention}consumables{}, bypassing {C:red}all effects{}",
 					"Reset deck to a standard {C:attention}52{} card deck",
 					"Decrease {C:blue}hands{} and {C:red}discards{} by {C:attention}27{}"
+				}
+			},
+		},
+		Code = {
+			c_crp_decrement = {
+				name = "://DECREMENT",
+				text = {
+					"{C:attention}-#1#{} Ante if current {C:attention}Ante{}",
+					"is a multiple of hand size"
 				}
 			},
 		},
