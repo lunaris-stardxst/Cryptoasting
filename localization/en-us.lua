@@ -101,7 +101,7 @@ return {
 					"",
 				},
 			},
-			["j_crp_3."] = {
+			["j_crp_three"] = {
 				name = "3.",
 				text = {
 					"{C:attention}+#2#{} 3s",
@@ -477,8 +477,7 @@ return {
 				name = "Chibidoki",
 				text = {
 					"{C:crp_unrare}Unrare{} and higher rarity {C:attention}Jokers{}",
-					"give {C:white,B:1}X#1#{} Chips and Mult", -- plasma deck colors
-					"{C:inactive,s:0.8}This Joker is currently slightly unfinished{}"
+					"give {C:white,B:1}X#1#{} Chips and Mult"
 				}
 			},
 			j_crp_normalis = {
@@ -519,11 +518,12 @@ return {
 			j_crp_splittum = {
 				name = "Splittum",
 				text = {
-					"When a {C:attention}Joker{} is sold, create {C:attention}2 {C:dark_edition}Negative {C:attention}Jokers{} of one rarity below the sold {C:attention}Joker
-					"{C:inactive}(Some rarities do not apply)"
+					"When a {C:attention}Joker{} is sold, create {C:attention}#1# {C:dark_edition}Negative{}",
+					"{C:attention}Jokers{} of one rarity below the sold {C:attention}Joker{}",
+					"{C:inactive}(Some rarities do not apply)",
 					"{C:inactive}\"generic video game slime enemy\""
 				},
-			}
+			},
 			j_crp_duplex = {
 				name = "Duplex",
 				text = {

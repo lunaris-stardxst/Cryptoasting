@@ -208,11 +208,12 @@ SMODS.Joker {
                     }))
                 end
                 return {
-					message = "X" .. lenient_bignum(card.ability.extra.Xchipsmult) .. " Chips and Mult",
+					message = "X" .. number_format(lenient_bignum(card.ability.extra.Xchipsmult)) .. " Chips and Mult",
 					sound = "xchips",
-					Xchip_mod = lenient_bignum(card.ability.extra.Xchipsmult),
-					Xmult_mod = lenient_bignum(card.ability.extra.Xchipsmult),
-					colour = { 0.8, 0.45, 0.85, 1 }, -- plasma deck colors
+					Xchips = lenient_bignum(card.ability.extra.Xchipsmult),
+					Xmult = lenient_bignum(card.ability.extra.Xchipsmult),
+					remove_default_message = true,
+					colour = { 0.8, 0.45, 0.85, 1 } -- plasma deck colors
                 }
             end
         end

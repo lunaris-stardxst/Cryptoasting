@@ -310,7 +310,7 @@ SMODS.Joker {
 		for i = 1, #G.jokers.cards do
 			if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
 		end
-		return { vars = { lenient_bignum(bulgoe_jokers * card.ability.extra.mult) } }
+		return { vars = { lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult)) } }
 	end
 	cost = 4,
 	calculate = function(self, card, context)
@@ -320,7 +320,7 @@ SMODS.Joker {
 				if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
 			end
 			return {
-				mult = lenient_bignum(bulgoe_jokers * card.ability.extra.mult)
+				mult = lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult))
 			}
 		end
 	end,

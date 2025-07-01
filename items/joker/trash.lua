@@ -129,23 +129,23 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "3.",
+	key = "three",
 	name = "3.",
-	config = { immutable = { threes = 0, threes_mod = 3 } },
+	config = { extra = { threes = 0, threes_mod = 3 } },
 	rarity = "crp_trash",
-	atlas = "crp_jokers",
-	pos = { x = 5, y = 8 },
+	atlas = "crp_joker",
+	pos = { x = 4, y = 2 },
 	cost = 0,
 	blueprint_compat = false,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.threes, card.ability.immutable.threes_mod } }
+		return { vars = { lenient_bignum(card.ability.extra.threes), lenient_bignum(card.ability.extra.threes_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			card.ability.extra.threes = card.ability.extra.threes + card.ability.immutable.threes_mod
+			card.ability.extra.threes = lenient_bignum(card.ability.extra.threes) + lenient_bignum(card.ability.extra.threes_mod)
 			return {
-				message = "+" .. card.ability.immutable.threes_mod .. " 3s",
+				message = "+" .. lenient_bignum(card.ability.extra.threes_mod) .. " 3s",
 				colour = G.C.FILTER
 			}
 		end
