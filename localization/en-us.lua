@@ -284,6 +284,13 @@ return {
 					"Lastly, divides this description by {C:attention,s:7.2}0{}, then adds the total number of {C:attention}approved suggestions{} in the {C:attention}CSL{} to {C:mult}Mult{}."
 				}
 			},
+			j_crp_joker_slot_guy = {
+				name = "Joker Slot Guy",
+				text = {
+					"{C:mult}+#1#{} Mult for every full Joker slot you have",
+					"{C:white,X:mult}X#2#{} Mult for every empty Joker slot you have"
+				}
+			}
 			j_crp_two_for_some = {
 				name = "Two for Some",
 				text = {
