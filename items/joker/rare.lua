@@ -207,11 +207,11 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.jokerslots,
-				card.ability.extra.consumeableslots,
-				card.ability.extra.money,
-				card.ability.extra.mult,
-				card.ability.extra.chips
+				lenient_bignum(card.ability.extra.jokerslots),
+				lenient_bignum(card.ability.extra.consumeableslots),
+				lenient_bignum(card.ability.extra.money),
+				lenient_bignum(card.ability.extra.mult),
+				lenient_bignum(card.ability.extra.chips)
 			}
 		}
 	end,
@@ -260,7 +260,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				mult = card.ability.immutable.mult
+				mult = lenient_bignum(card.ability.immutable.mult)
 			}
 		end
 	end,
@@ -268,6 +268,41 @@ SMODS.Joker {
 		idea = { "Glitchkat10" },
 		art = { "MarioFan597" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "slot_guy",
+	name = "Joker Slot Guy",
+	config = { extra = { mult = 3, Xmult = 1 } },
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = false,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			if #G.jokers.cards >= G.jokers.config.card_limit then
+				return {
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards)
+				}
+			else
+				return {
+					mult = lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards),
+					extra = {
+						Xmult = lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(G.jokers.config.card_limit - #G.jokers.cards)
+					}
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" },
 	}
 }
 
@@ -282,17 +317,17 @@ SMODS.Joker {
 	blueprint_compat = false,
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.hand_size, card.ability.extra.consumeableslots, card.ability.extra.boosterpackslots } }
+		return { vars = { lenient_bignum(card.ability.extra.hand_size), lenient_bignum(card.ability.extra.consumeableslots), lenient_bignum(card.ability.extra.boosterpackslots) } }
 	end,
 	add_to_deck = function(self, card, from_debuff)
-		SMODS.change_booster_limit(card.ability.extra.boosterpackslots)
-		G.hand:change_size(card.ability.extra.hand_size)
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumeableslots
+		SMODS.change_booster_limit(lenient_bignum(card.ability.extra.boosterpackslots))
+		G.hand:change_size(lenient_bignum(card.ability.extra.hand_size))
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit + lenient_bignum(card.ability.extra.consumeableslots)
 	end,
 	remove_from_deck = function(self, card, from_debuff)
-		SMODS.change_booster_limit(-card.ability.extra.boosterpackslots)
-		G.hand:change_size(-card.ability.extra.hand_size)
-		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumeableslots
+		SMODS.change_booster_limit(-lenient_bignum(card.ability.extra.boosterpackslots))
+		G.hand:change_size(-lenient_bignum(card.ability.extra.hand_size))
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - lenient_bignum(card.ability.extra.consumeableslots)
 	end,
 	crp_credits = {
 		idea = { "aqrlr" },
@@ -315,7 +350,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.end_of_round and not context.individual and not context.repetition) or context.forcetrigger then
-			local odds = card.ability.extra.odds or 20
+			local odds = lenient_bignum(card.ability.extra.odds) or 20
 			local create = lenient_bignum(card.ability.extra.create)
 			local rare_create = lenient_bignum(card.ability.extra.rare_create)
 			local roll = pseudorandom("crp_dumpster_diver")

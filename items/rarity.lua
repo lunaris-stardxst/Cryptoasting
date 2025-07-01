@@ -135,13 +135,9 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "edgy",
-	badge_colour = HEX("606060"),
+	key = "weak",
+	badge_colour = HEX("073763"),
 	pools = { ["Joker"] = true },
-	default_weight = 0.004, -- at some point, this will be as common as, well, common, but it will be very low for the time being due to there not being very many common 2 jokers
-	get_weight = function(self, weight, object_type)
-		return weight
-	end
 })
 
 SMODS.Rarity({

@@ -1,3 +1,5 @@
+
+
 SMODS.Atlas {
 	key = "joker",
 	path = "atlas_joker.png",
@@ -293,3 +295,37 @@ SMODS.Joker {
 		code = { "Poker The Poker", "Glitchkat10" },
 	}
 }
+
+--[[ SMODS.Joker {
+	key = "bulgoelatro",
+	name = "Bulgoelatro",
+	config = { extra = { mult = 2.7 } },
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		local bulgoe_jokers = 0
+		for i = 1, #G.jokers.cards do
+			if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
+		end
+		return { vars = { lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult)) } }
+	end
+	cost = 4,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			local bulgoe_jokers = 0
+			for i = 1, #G.jokers.cards do
+				if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
+			end
+			return {
+				mult = lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult))
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418" },
+	}
+} ]]

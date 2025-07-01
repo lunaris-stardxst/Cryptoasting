@@ -15,7 +15,7 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "heptation_henry",
 	name = "heptation henry",
-	config = { immutable = { arrows = 7 }, extra = { hypermult = 1.1 } },
+	config = { immutable = { arrows = 5 }, extra = { hypermult = 1.1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
