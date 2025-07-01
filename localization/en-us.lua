@@ -101,6 +101,13 @@ return {
 					"",
 				},
 			},
+			j_crp_3 = {
+				name = "3.",
+				text = {
+					"{C:attention}+#1#{} 3s",
+					"{C:inactive}(Currently {C:attention}#2#{C:inactive} 3s)",
+				},
+			},
 			["j_crp_:3"] = {
 				name = ":3",
 				text = {
@@ -174,6 +181,16 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
+			--[[
+			j_crp_bulgoelatro = {
+				name = "{C:edition}Bulgoe{}latro",
+				text = {
+					"{C:mult}+#1#{} Mult for every owned",
+					"{C:edition}Bulgoe{}-themed Joker",
+					"(Currently {C:mult}+#2#{} Mult)",
+				},
+			},
+			]]
 			j_crp_one_mans_trash = {
 				name = "One Man's Trash",
 				text = {
