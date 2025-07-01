@@ -296,7 +296,7 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+--[[ SMODS.Joker {
 	key = "bulgoelatro",
 	name = "Bulgoelatro",
 	config = { extra = { mult = 2.7 } },
@@ -332,4 +332,4 @@ SMODS.Joker {
 		idea = { "wilfredlam0418" },
 		code = { "wilfredlam0418" },
 	}
-}
+} ]]
