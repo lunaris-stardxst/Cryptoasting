@@ -127,3 +127,31 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "3",
+	name = "3.",
+	config = { immutable = { threes = 3 } },
+	rarity = "crp_trash",
+	atlas = "crp_jokers",
+	pos = { x = 5, y = 8 },
+	cost = 0,
+	blueprint_compat = false,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.immutable.threes } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "+" .. card.ability.immutable.threes .. " 3s",
+				colour = G.C.FILTER
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "lunarisillustratez" },
+		art = { "lunarisillustratez" },
+		code = { "wilfredlam0418" }
+	}
+}
