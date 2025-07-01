@@ -101,11 +101,11 @@ return {
 					"",
 				},
 			},
-			j_crp_3 = {
+			["j_crp_3."] = {
 				name = "3.",
 				text = {
-					"{C:attention}+#1#{} 3s",
-					"{C:inactive}(Currently {C:attention}#2#{C:inactive} 3s)",
+					"{C:attention}+#2#{} 3s",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive} 3s)",
 				},
 			},
 			["j_crp_:3"] = {
