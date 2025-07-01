@@ -308,14 +308,11 @@ SMODS.Blind {
 
 -- ExoMythic Blinds
 local valid_exomyth_blind_keys = { -- List of rarities that will allow these to spawn
-	["cry_exotic"] = true,
-	["crp_mythic"] = true,
 	["crp_exomythic"] = true,
 	["crp_2exomythic4me"] = true,
 	["crp_22exomythic4mecipe"] = true,
 	["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
 	["crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe"] = true,
-	["crp_exotic_2"] = true,
 }
 
 SMODS.Blind {
