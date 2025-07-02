@@ -507,6 +507,15 @@ return {
 					"{C:red}not{} give {C:white,X:dark_edition}^#3#{} Mult"
 				},
 			},
+			j_crp_sine_wave = {
+				name = "Sine Wave",
+				text = {
+					"{C:white,X:mult}X(Sum[sin(i)+1,{i,1,r}]){} Mult, where", -- wolframalpha syntax
+					"r={C:attention}current round",
+					"{C:inactive}(Measued in radians)",
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
+				}
+			},
 			--[[
 			j_crp_quantum = {
 				name = "Quantum Joker",
