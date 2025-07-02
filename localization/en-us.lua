@@ -877,7 +877,16 @@ return {
 					"{C:attention}-#1#{} Ante if {C:attention}Ante{} is",
 					"a multiple of hand size"
 				}
-			}
+			},
+			["c_crp_ip_192.168.1.1"] = {
+				name = "://IP_192.168.1.1",
+				text = {
+					"Fill all open Joker slots with {C:edition}Bulgoe",
+					"{C:inactive}(Max of 100)",
+					"{C:red}Fixed {C:green}1 in #1#{} chance for each individual",
+					"{C:edition}Bulgoe{} to be replaced with {C:attention}Normalis"
+				}
+			},
 		},
 		Back = {
 			b_crp_cyan = {
