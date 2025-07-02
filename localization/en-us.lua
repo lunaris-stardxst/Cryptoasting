@@ -218,6 +218,13 @@ return {
 					"{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}Flush{}"
 				}
 			},
+			j_crp_bulgoelatro = {
+				name = "{C:edition}Bulgoe{}latro",
+				text = {
+					"{C:mult}+#1#{} Mult for every owned {C:edition]Bulgoe{}-themed Joker",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+				}
+			},
 			j_crp_sprinter = {
 				name = "Sprinter",
 				text = {
@@ -293,6 +300,14 @@ return {
 				text = {
 					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
 					"Earn {C:money}$#3#{} at end of round",
+				},
+			},
+			j_crp_one_bulgoe_bill = {
+				name = "One {C:edition}Bulgoe{} Bill",
+				text = {
+					"Earn {C:money}+$2.7{} at end of round",
+					"Earn {C:money}+$27{} instead if you have",
+					"another {C:edition}Bulgoe{}-themed {C:attention}Joker",
 				},
 			},
 			j_crp_scones_bones = {
