@@ -746,3 +746,32 @@ SMODS.Consumable {
 		code = { "wlfredlam0418" }
 	}
 }
+
+SMODS.Consumeable {
+	key = "ip_192.168.1.1",
+	name = "IP 192.168.1.1",
+	set = "Code",
+	pos = { x = 9, y = 2 },
+	config = { immutable = { odds = 2727 } },
+	atlas = "crp_placeholders",
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.immutable.odds } }
+	end,
+	can_use = function()
+		return #G.jokers.cards < G.jokers.config.card_limit
+	end,
+	use = function(self, card)
+		for i = 1, math.max(G.jokers.config.card_limit - #G.jokers.cards, 100) do
+			if pseudorandom("crp_ip_192.168.1.1") < 1 / card.ability.immutable.odds then
+				SMODS.add_card("j_crp_normalis")
+			else
+				SMODS.add_card("j_crp_bulgoe")
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+	
