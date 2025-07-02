@@ -24,6 +24,7 @@ SMODS.Joker {
 	demicoloncompat = true,
 	pos = { x = 0, y = 0 },
 	cost = 1,
+	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
@@ -203,6 +204,7 @@ SMODS.Joker {
 	cost = 3,
 	blueprint_compat = true,
 	demicoloncompat = true,
+	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
@@ -296,7 +298,7 @@ SMODS.Joker {
 	}
 }
 
---[[ SMODS.Joker {
+SMODS.Joker {
 	key = "bulgoelatro",
 	name = "Bulgoelatro",
 	config = { extra = { mult = 2.7 } },
@@ -313,6 +315,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult)) } }
 	end
 	cost = 4,
+	pools = { Bulgoe = true },
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			local bulgoe_jokers = 0
@@ -328,4 +331,4 @@ SMODS.Joker {
 		idea = { "wilfredlam0418" },
 		code = { "wilfredlam0418" },
 	}
-} ]]
+}
