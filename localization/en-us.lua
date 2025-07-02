@@ -350,7 +350,8 @@ return {
 				name = "Joker Slot Guy",
 				text = {
 					"{C:mult}+#1#{} Mult for every full {C:attention}Joker{} slot",
-					"{C:white,X:mult}X#2#{} Mult for every empty {C:attention}Joker{} slot"
+					"{C:white,X:mult}X#2#{} Mult for every empty {C:attention}Joker{} slot",
+					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult and {C:white,X:mult}X#4#{C:inactive} Mult)"
 				}
 			},
 			j_crp_two_for_some = {
@@ -550,6 +551,15 @@ return {
 					"{C:white,X:dark_edition}^0.1{} Mult for every {C:edition,X:grey}win{} on this profile",
 					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
+				},
+			},
+			j_crp_splittum = {
+				name = "Splittum",
+				text = {
+					"When a {C:attention}Joker{} is sold, create {C:attention}#1# {C:dark_edition}Negative{}",
+					"{C:attention}Jokers{} of one rarity below the sold {C:attention}Joker{}",
+					"{C:inactive}(Some rarities do not apply)",
+					"{C:inactive}\"generic video game slime enemy\""
 				},
 			},
 			j_crp_duplex = {
@@ -841,7 +851,7 @@ return {
 				text = {
 					"{C:red}Fixed{} {C:green}50%{} chance to create {C:white,X:crp_all}All{}",
 					"Otherwise:",
-					"{C:red}Destroy{} all {C:attention}Jokers{} and {C:attention}consumables{}, bypassing {C:red}all effects{}",
+					"{C:red}Destroy{} all {C:attention}items{}, bypassing {C:red}all effects{}",
 					"Reset deck to a standard {C:attention}52{} card deck",
 					"Decrease {C:blue}hands{} and {C:red}discards{} by {C:attention}27{}"
 				}
@@ -864,11 +874,18 @@ return {
 					"{C:red}-#2#{} discard#<s>2#"
 				}
 			},
+			b_crp_brown = {
+				name = "Brown Deck",
+				text = {
+					"{C:blue}-#1#{} hand",
+					"{C:attention}+#2#{} card selection limit"
+				}
+			},
 			b_crp_gray = {
 				name = "Gray Deck",
 				text = {
 					"Start with {C:money}$0",
-					"Start with {C:attention}Money Tree"
+					"Start with {C:attention,T:v_seed_money}Money Tree"
 				}
 			},
 			b_crp_white = {
@@ -887,6 +904,13 @@ return {
 					"{C:attention}#6#% Blind{} size"
 				}
 			},
+			b_crp_creativemode = {
+				name = "Creative Mode Deck",
+				text = {
+					"Start with",
+					"{C:attention}1 {C:spectral,T:c_cry_pointer}Pointer{}"
+				}
+			},
 			b_crp_adult = {
 				name = "Adult Deck",
 				text = {
@@ -894,20 +918,6 @@ return {
 					"{C:attention}+#3# Joker{} slot#<s>3#, {C:attention}+#4#{} {C:attention}consumable{} slot#<s>4#",
 					"{C:attention}+#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
-				}
-			},
-			b_crp_brown = {
-				name = "Brown Deck",
-				text = {
-					"{C:blue}-#1#{} hand",
-					"{C:attention}+#2#{} card selection limit"
-				}
-			},
-			b_crp_creativemode = {
-				name = "Creative Mode Deck",
-				text = {
-					"Start with",
-					"{C:attention}1 {C:spectral}Pointer{}"
 				}
 			}
 		},
