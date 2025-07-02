@@ -59,8 +59,8 @@ SMODS.Joker {
 		end
 	end,
 	calc_dollar_conus - function(self, card)
-		for i = 1, #G.jokers.card do
-			if G.jokers.card[i].config.center.pools.Bulgoe then
+		for i = 1, #G.jokers.cards do
+			if G.jokers.cards[i].config.center.pools.Bulgoe and not G.jokers.cards[i] == card then
 				return lenient_bignum(card.ability.extra.money_bonus)
 			end
 			return lenient_bignum(card.ability.extra.money)
