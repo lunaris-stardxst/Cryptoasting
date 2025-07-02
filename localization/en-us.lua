@@ -295,6 +295,13 @@ return {
 					"of owned {C:attention}tags{}"
 				},
 			},
+			j_crp_oops_all_3s = {
+				name = "Oops! All 3s",
+				text = {
+					"Halves all {C:attention}listed {C:green}probabilities",
+					"{C:inactive}(ex: {C:green}2 in 3 {C:inactive}to {C:green}1 in 3{C:inactive})"
+				}
+			},
 			j_crp_all_trades = {
 				name = "Joker of all Trades",
 				text = {
