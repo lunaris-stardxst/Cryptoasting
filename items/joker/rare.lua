@@ -453,6 +453,7 @@ SMODS.Joker {
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
+	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,
