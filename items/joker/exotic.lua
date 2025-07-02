@@ -23,6 +23,7 @@ SMODS.Joker {
 	pos = { x = 1, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 3, y = 0 } },
 	cost = 50,
+	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Echips), } }
 	end,
