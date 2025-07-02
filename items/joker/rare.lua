@@ -25,11 +25,10 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.death_prevention_enabled, card.ability.extra.score_percentage, card.ability.extra.xchips, card.ability.extra.xchips_mod, card.ability.extra.stones } }
+		return { vars = { card.ability.extra.death_prevention_enabled, lenient_bignum(card.ability.extra.score_percentage), lenient_bignum(card.ability.extra.xchips), lenient_bignum(card.ability.extra.xchips_mod), lenient_bignum(card.ability.extra.stones) } }
 	end,
 	calculate = function(self, card, context)
-		-- ill be honest i just stole like most of the things here from cryptid lmao
-		if context.game_over and to_big(G.GAME.chips / G.GAME.blind.chips) <= to_big(card.ability.extra.score_percentage / 100) and card.ability.extra.death_prevention_enabled == true then
+		if context.game_over and to_big(G.GAME.chips) / to_big(G.GAME.blind.chips) <= to_big(card.ability.extra.score_percentage) / to_big(100) and card.ability.extra.death_prevention_enabled == true then
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					G.hand_text_area.blind_chips:juice_up()
@@ -52,7 +51,7 @@ SMODS.Joker {
 			return {
 				card = card,
 				Xchip_mod = lenient_bignum(card.ability.extra.xchips),
-				message = "X" .. number_format(card.ability.extra.xchips),
+				message = "X" .. number_format(lenient_bignum(card.ability.extra.xchips)),
 				colour = G.C.CHIPS,
 			}
 		end
@@ -113,7 +112,7 @@ SMODS.Joker {
 				)
 			else
 				card.ability.extra.xchips =
-					lenient_bignum(to_big(card.ability.extra.xchips) - card.ability.extra.xchips_mod)
+					to_big(card.ability.extra.xchips) - to_big(card.ability.extra.xchips_mod)
 				card_eval_status_text(
 					card,
 					"extra",
@@ -145,7 +144,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and context.full_hand and #context.full_hand == lenient_bignum(card.ability.extra.full_hand)) or context.forcetrigger then
+		if (context.joker_main and context.full_hand and to_big(#context.full_hand) == to_big(card.ability.extra.full_hand)) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips)
 			}
@@ -346,18 +345,13 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.create), cry_prob(card.ability.cry_prob, card.ability.extra.odds, card.ability.cry_rigged), card.ability.extra.odds, lenient_bignum(card.ability.extra.rare_create) } }
+		return { vars = { lenient_bignum(card.ability.extra.create), cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged), card.ability.extra.odds, lenient_bignum(card.ability.extra.rare_create) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.end_of_round and not context.individual and not context.repetition) or context.forcetrigger then
-			local odds = lenient_bignum(card.ability.extra.odds) or 20
-			local create = lenient_bignum(card.ability.extra.create)
-			local rare_create = lenient_bignum(card.ability.extra.rare_create)
-			local roll = pseudorandom("crp_dumpster_diver")
-			local chance = cry_prob(card.ability.cry_prob, odds, card.ability.cry_rigged) / odds
-			if roll < chance or context.forcetrigger then
-				G.GAME.joker_buffer = G.GAME.joker_buffer + rare_create
-				for i = 1, rare_create do
+		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+			if to_big(pseudorandom("crp_dumpster_diver")) < to_big((cry_prob(card.ability.cry_prob, to_big(card.ability.extra.odds), card.ability.cry_rigged) / to_big(card.ability.extra.odds))) or context.forcetrigger then
+				G.GAME.joker_buffer = G.GAME.joker_buffer + math.ceil(lenient_bignum(card.ability.extra.rare_create))
+				for i = 1, math.ceil(lenient_bignum(card.ability.extra.rare_create)) do
 					local rare = create_card("Joker", G.jokers, nil, 3, nil, nil, nil, "crp_dumpster_diver")
 					rare:set_edition({ negative = true })
 					rare:add_to_deck()
@@ -365,12 +359,12 @@ SMODS.Joker {
 					rare:start_materialize()
 				end
 				return {
-					message = "+" .. lenient_bignum(card.ability.extra.rare_create) .. " Rare Joker",
+					message = "+" .. number_format(lenient_bignum(card.ability.extra.rare_create)) .. " Rare Joker",
 					colour = G.C.RARITY[3],
 				}
 			else
-				G.GAME.joker_buffer = G.GAME.joker_buffer + create
-				for i = 1, create do
+				G.GAME.joker_buffer = G.GAME.joker_buffer + lenient_bignum(card.ability.extra.create)
+				for i = 1, math.ceil(lenient_bignum(card.ability.extra.create)) do
 					local trash = create_card("Joker", G.jokers, nil, "crp_trash", nil, nil, nil, "crp_dumpster_diver")
 					trash:set_edition({ negative = true })
 					trash:add_to_deck()
@@ -378,7 +372,7 @@ SMODS.Joker {
 					trash:start_materialize()
 				end
 				return {
-					message = "+" .. lenient_bignum(card.ability.extra.create) .. " Trash Jokers",
+					message = "+" .. number_format(lenient_bignum(card.ability.extra.create)) .. " Trash Jokers",
 					colour = HEX("606060"),
 				}
 			end
@@ -413,7 +407,7 @@ SMODS.Joker {
 		end
 		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) / 2
-			if lenient_bignum(card.ability.extra.mult) <= 8 then
+			if to_big(card.ability.extra.mult) <= to_big(8) then
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						play_sound("tarot1")

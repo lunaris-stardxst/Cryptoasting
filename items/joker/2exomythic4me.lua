@@ -176,7 +176,8 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			card.ability.immutable.arrows = 0
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center.mod.id == "cryptposting" then
+				local joker = G.jokers.cards[i]
+				if joker and joker.config and joker.config.center and joker.config.center.mod and joker.config.center.mod.id == "cryptposting" then
 					card.ability.immutable.arrows = lenient_bignum(card.ability.immutable.arrows) + 1
 				end
 			end

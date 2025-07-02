@@ -45,11 +45,11 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "pillaring",
 	name = "Pillaring Joker",
-	pos = { x = 2, y = 0 },
+	pos = { x = 7, y = 2 },
 	config = { extra = { mult = 4 } },
 	rarity = 1,
 	cost = 4,
-	atlas = "crp_placeholders",
+	atlas = "crp_joker",
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
@@ -71,7 +71,7 @@ SMODS.Joker {
 	name = "Participation Trophy",
 	config = { extra = { mult_mod = 0.1 } },
 	rarity = 1,
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 2, y = 0 },
 	cost = 3,
 	blueprint_compat = true,

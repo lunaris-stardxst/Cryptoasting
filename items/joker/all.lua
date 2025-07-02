@@ -130,6 +130,9 @@ SMODS.Joker { -- IT'S ALIVE
 			G.consumeables.config.card_limit = G.consumeables.config.card_limit - (card.ability.extra.total_consumable_slots_added or 0)
 		end
 	end,
+	in_pool = function(self, args)
+		return true, { allow_duplicates = true }
+	end,
 	crp_credits = {
 		idea = { "lunarisIllustratez", "Glitchkat10" },
 		art = { "thingifithinker" },

@@ -147,6 +147,13 @@ return {
 					"",
 				},
 			},
+			j_crp_three = {
+				name = "3.",
+				text = {
+					"{C:attention}+#2#{} 3s",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive} 3s)",
+				},
+			},
 			["j_crp_:3"] = {
 				name = ":3",
 				text = {
@@ -832,13 +839,22 @@ return {
 			c_crp_all_or_nothing = {
 				name = "All or Nothing",
 				text = {
-					"{C:red}Fixed{} {C:green}50%{} chance to create {C:crp_all}All{}",
+					"{C:red}Fixed{} {C:green}50%{} chance to create {C:white,X:crp_all}All{}",
 					"Otherwise:",
 					"{C:red}Destroy{} all {C:attention}Jokers{} and {C:attention}consumables{}, bypassing {C:red}all effects{}",
 					"Reset deck to a standard {C:attention}52{} card deck",
 					"Decrease {C:blue}hands{} and {C:red}discards{} by {C:attention}27{}"
 				}
 			},
+		},
+		Code = {
+			c_crp_decrement = {
+				name = "://DECREMENT",
+				text = {
+					"{C:attention}-#1#{} Ante if {C:attention}Ante{} is",
+					"a multiple of hand size"
+				}
+			}
 		},
 		Back = {
 			b_crp_cyan = {
@@ -1082,7 +1098,7 @@ return {
 			["tag_crp_top-up_everything"] = {
 				name = "Top-up Everything",
 				text = {
-					"Create {C:crp_all}All",
+					"Create {C:white,X:crp_all}All",
 					"{C:inactive}(Must have room)"
 				}
 			},
@@ -1212,8 +1228,7 @@ return {
 			v_crp_just_kidding = {
 				name = "Just Kidding, This Is The Real Payoff",
 				text = {
-					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_exomythic}ExoMythic{} {C:attention}Joker#<s>1#{}",
-					"and {C:attention}#2#{} {C:dark_edition}Negative{} {C:crp_2exomythic4me}2ExoMythic4Me{} {C:attention}Joker#<s>2#{}",
+					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:white,X:crp_all}All{}",
 					"{C:inactive}\"Took ya long enough.\""
 				},
 			},

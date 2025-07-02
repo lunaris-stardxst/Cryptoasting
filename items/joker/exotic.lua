@@ -106,11 +106,11 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			if card.ability.extra.current_retriggers >= card.ability.extra.retrigger_requirement - 1 then
+			if to_big(card.ability.extra.current_retriggers) >= to_big(lenient_bignum(card.ability.extra.retrigger_requirement) - 1) then
 				card.ability.extra.current_retriggers = 0
 				card.ability.extra.Emult = card.ability.extra.Emult + card.ability.extra.Emult_mod
 				return {
-					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.Emult)) .. " Mult",
 					Emult_mod = lenient_bignum(card.ability.extra.Emult),
 					colour = G.C.DARK_EDITION,
 					card = card
@@ -118,7 +118,7 @@ SMODS.Joker {
 			else
 				card.ability.extra.current_retriggers = card.ability.extra.current_retriggers + 1
 				return {
-					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.Emult)) .. " Mult",
 					Emult_mod = lenient_bignum(card.ability.extra.Emult),
 					colour = G.C.DARK_EDITION,
 					card = card
@@ -171,7 +171,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "victoriam",
 	name = "Victoriam",
-	config = { extra = { Emult_mod = 0.1 } },
+	config = { extra = { Echip_mod = 0.1 } },
 	rarity = "cry_exotic",
 	atlas = "crp_placeholders",
 	pos = { x = 7, y = 0 },
@@ -179,13 +179,13 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod) } }
+		return { vars = { lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod)) } }
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main or context.forcetrigger then
 			return {
-				message = "^" .. lenient_bignum( 1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod ) .. " Mult",
-				Emult_mod = lenient_bignum( 1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * card.ability.extra.Emult_mod ),
+				message = "^" .. number_format(lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod))) .. " Chips",
+				Echip_mod = lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod)),
 				colour = G.C.DARK_EDITION,
 				card = card
 			}

@@ -23,7 +23,7 @@ SMODS.Atlas {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.immutable.mult } }
+		return { vars = { lenient_bignum(card.ability.immutable.mult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -161,14 +161,10 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			local roll = pseudorandom("gamblecore")
-			local chance = lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)
-
-			if roll <= chance or context.forcetrigger then
+			if to_big(pseudorandom("gamblecore")) <= to_big(lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)) or context.forcetrigger then
 				return {
 					message = "+nane0 Mult",
 					mult_mod = 1.79769e308,
-					colour = G.C.MULT,
 					card = card
 				}
 			end
@@ -195,7 +191,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main and context.full_hand and #context.full_hand == lenient_bignum(card.ability.extra.full_hand)) or context.forcetrigger then
+		if (context.joker_main and context.full_hand and to_big(#context.full_hand) == to_big(card.ability.extra.full_hand)) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips)
 			}
