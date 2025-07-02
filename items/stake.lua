@@ -12,7 +12,11 @@ SMODS.Stake {
 	above_stake = "cry_diamond",
 	modifiers = function()
 		G.GAME.starting_params.ante_scaling = 2
-	end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" },
+	}
 }
 
 SMODS.Stake {
@@ -27,7 +31,11 @@ SMODS.Stake {
 	shiny = true,
 	modifiers = function()
 		G.hand.config.highlighted_limit = G.hand.config.highlighted_limit - 1
-	end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" },
+	}
 }
 
 SMODS.Stake {
@@ -43,5 +51,9 @@ SMODS.Stake {
 	colour = HEX("bccacc"),
 	modifiers = function()
 		G.jokers.config.card_limit = G.jokers.config.card.limit - 1
-	end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" },
+	}
 }
