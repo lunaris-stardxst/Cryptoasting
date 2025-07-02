@@ -851,6 +851,14 @@ return {
 					"to all {C:attention}cards in hand{}"
 				}
 			},
+			c_crp_gambway = {
+				name = "Gambway",
+				text = {
+					"Uses the effect of {C:attention}The Soul{}, {C:attention}Gateway{}, {C:attention}Prayer{},",
+					"{C:attention}Stairway to Heaven{}, {C:attention}Path of Solstice{}, or {C:attention}Reckoning",
+					"{C:inactive}\"Let's go gambling!\""
+				}
+			},
 			c_crp_all_or_nothing = {
 				name = "All or Nothing",
 				text = {
@@ -1247,6 +1255,29 @@ return {
 					"{C:inactive}\"Took ya long enough.\""
 				},
 			},
+		},
+		Stake = {
+			stake_crp_violet = {
+				name = "Violet Stake",
+				colour = "Violet",
+				text = {
+					"{C:attention}X2{} Blind size"
+				}
+			},
+			stake_crp_square = {
+				name = "Square Stake",
+				colour = "Square",
+				text = {
+					"{C:attention}-1{} card selection limit"
+				}
+			},
+			stake_crp_stencil = {
+				name = "Stencil Stake",
+				colour = "Stencil",
+				text = {
+					"{C:attention}-1{} Joker slot"
+				}
+			}
 		},
 		Other = {
 			p_crp_very_rare_pack = {
