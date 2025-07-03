@@ -221,7 +221,8 @@ return {
 			j_crp_bulgoelatro = {
 				name = "{C:edition}Bulgoe{}latro",
 				text = {
-					"{C:mult}+#1#{} Mult for every owned {C:edition,X:grey}Bulgoe{}-themed Joker",
+					"{C:mult}+#1#{} Mult for every owned",
+					"{C:edition,X:grey}Bulgoe{}-themed {C:attention}Joker",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
 				}
 			},
