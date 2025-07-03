@@ -64,6 +64,9 @@ SMODS.Joker {
 			return { Xmult = lenient_bignum(card.ability.extra.Xmult) }
 		end
 	end,
+	in_pool = function(self, args)
+		return next(SMODS.find_card("j_crp_one_mans_trash"))
+	end,
 	crp_credits = {
 		idea = { "BobGames" },
 		code = { "wilfredlam0418" }
