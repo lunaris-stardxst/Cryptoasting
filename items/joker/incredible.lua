@@ -45,3 +45,32 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
+
+SMODS.Joker {
+	key = "another_mans_treasure",
+	name = "Another Man's Treasure",
+	config = { extra = { Xmult = 7 } },
+	rarity = "crp_incredible",
+	atlas = "crp_placeholder",
+	pos = { x = 1, y = 1 },
+	cost = 15,
+	blueprint_compat = true,
+	demicolon_compat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
+	end,
+	calculate = function(self, card, context)
+		if ((context.other_joker) and context.other_joker.config.center.rarity == 4) or context.forcetrigger then
+			return { 
+				Xmult = lenient_bignum(card.ability.extra.Xmult)
+			}
+		end
+	end,
+	in_pool = function(self, args)
+		return next(SMODS.find_card("j_crp_one_mans_trash"))
+	end,
+	crp_credits = {
+		idea = { "BobGames" },
+		code = { "wilfredlam0418" }
+	}
+}

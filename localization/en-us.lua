@@ -235,6 +235,12 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
+			j_crp_pennant = {
+				name = "Pennant",
+				text = {
+					"{C:mult}+4{} Mult for every remaining {C:attention}hand"
+				}
+			},
 			j_crp_one_mans_trash = {
 				name = "One Man's Trash",
 				text = {
@@ -295,6 +301,13 @@ return {
 					"equal to the number",
 					"of owned {C:attention}tags{}"
 				},
+			},
+			j_crp_loss = {
+				name = "Loss",
+				text = {
+					"{C:money}#1# {C:mult}#2#",
+					"{C:attention}#3# {C:chips}#4#"
+				}
 			},
 			j_crp_snake_eyes = {
 				name = "Snake Eyes",
@@ -536,6 +549,12 @@ return {
 					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
 				}
 			},
+			j_crp_another_mans_treasure = {
+				name = "Another Man's Treasure",
+				text = {
+					"{C:legendary}Legendary{} Jokers give {C:white,X:mult}X7{} Mult"
+				}
+			},
 			--[[
 			j_crp_quantum = {
 				name = "Quantum Joker",
@@ -640,6 +659,14 @@ return {
 				text = {
 					"{C:white,X:dark_edition}^[ante]{} Mult",
 					"{C:inactive}(Currently{} {C:white,X:dark_edition}^#1#{} {C:inactive}Mult){}",
+				}
+			},
+			j_crp_peripheria_ad_diametrum = {
+				name = "Peripheria ad Diametrum",
+				text = {
+					"{C:white,X:dark_edition}^#1#{} Chips on first hand of round",
+					"At end of round, switches to the next {C:attention}digit{} of {C:attention}pi",
+					"{C:inactive}(#2#, #3#, #4#, #5#, #6#...)"
 				}
 			},
 			j_crp_weather_machine = {

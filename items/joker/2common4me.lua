@@ -27,7 +27,9 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if ((context.other_joker) and context.other_joker.config.center.rarity == "crp_trash") or context.forcetrigger then
-			return { mult = lenient_bignum(card.ability.extra.mult) }
+			return {
+				mult = lenient_bignum(card.ability.extra.mult)
+			}
 		end
 	end,
 	crp_credits = {

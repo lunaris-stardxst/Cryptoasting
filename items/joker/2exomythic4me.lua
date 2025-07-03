@@ -15,11 +15,7 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "infinitum",
 	name = "Infinitum",
-	config = {
-		extra = {
-			chipsmult = 2
-		}
-	},
+	config = { extra = { chipsmult = 2 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_jokers",
 	pos = { x = 0, y = 8 },
