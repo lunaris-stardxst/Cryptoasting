@@ -59,7 +59,11 @@ SMODS.Booster{
         return create_card("Spectral", G.pack_cards, nil, nil, true, nil, "c_soul", "very_rare")
     end,
     select_card = "consumeables",
-    in_pool = function() return true end
+    in_pool = function() return true end,
+    crp_credits = {
+        idea = { "Grahkon" },
+        code = { "Rainstar", "Glitchkat10" }
+    }
 }
 
 SMODS.Booster{
@@ -79,5 +83,9 @@ SMODS.Booster{
          return create_card("Joker", G.pack_cards, nil, "crp_exomythic", true, nil, nil, "totally_balanced")
     end,
     select_card = "jokers",
-    in_pool = function() return true end
+    in_pool = function() return true end,
+    crp_credits = {
+        idea = { "PurplePickle" },
+        code = { "Rainstar" }
+    }
 }

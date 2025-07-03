@@ -240,13 +240,13 @@ SMODS.Joker {
 				crp_awesome = "crp_cipe",
 				cry_exotic = "Legendary",
 				crp_exotic_2 = "crp_awesome",
-				crp_mythic = "crp_exotic",
+				crp_mythic = "cry_exotic",
 				crp_exomythic = "crp_mythic",
 				crp_2exomythic4me = "crp_exomythic",
 				crp_22exomythic4mecipe = "crp_2exomythic4me",
-				crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe = "crp_22exomythic4mecipe",
-				crp_supa_rare = "crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe",
-				crp_all = "crp_exomythicawesomeuncommon2mexotic22exomythic4mecipe",
+				crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "crp_22exomythic4mecipe",
+				crp_supa_rare = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
+				crp_all = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
 			}
 			if last_rarity[context.card.config.center.rarity] then
 				for i = 1, lenient_bignum(card.ability.extra.split) do

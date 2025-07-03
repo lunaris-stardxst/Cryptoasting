@@ -164,7 +164,7 @@ SMODS.Joker {
 	rarity = 3,
 	atlas = "crp_joker",
 	pos = { x = 1, y = 3 },
-	cost = 10,
+	cost = 9,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
@@ -281,7 +281,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(card.ability.extra.Xmult), lenient_bignum(lenient_bignum(card.ability.extra.mult) * lenient_bignum(#G.jokers.cards)), lenient_bignum(lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(G.jokers.config.card_limit - #G.jokers.cards)) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then

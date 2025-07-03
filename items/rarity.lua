@@ -80,33 +80,6 @@ local exomythicepicawesomeuncommon2mexotic22exomythic4mecipe_gradient = SMODS.Gr
 	cycle = 2
 })
 
-local hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient = SMODS.Gradient({
-	key="hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
-	colours = {
-		HEX("989898"),
-		HEX("272727"),
-		HEX("ff6600"),
-		HEX("708b91"), 
-		HEX("1e9eba"),
-		HEX("ffff00"),
-		HEX("ef0098"),
-		HEX("00ffff"),
-		HEX("4bc292"),
-		HEX("708b91"), 
-		HEX("1e9eba"),
-		HEX("708b91"), 
-		HEX("1e9eba"),
-		HEX("989898"),
-		HEX("272727"),
-		HEX("ff6600"),
-		HEX("708b91"), 
-		HEX("1e9eba"),
-		HEX("ffff00"),
-		HEX("ef0098")
-	},
-	cycle = 1
-})
-
 SMODS.Rarity({
 	key = "abysmal",
 	badge_colour = HEX("49011c"),
@@ -268,11 +241,6 @@ SMODS.Rarity({
 SMODS.Rarity({
 	key = "exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
 	badge_colour = exomythicepicawesomeuncommon2mexotic22exomythic4mecipe_gradient,
-})
-
-SMODS.Rarity({
-	key = "hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe",
-	badge_colour = hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe_gradient,
 })
 
 SMODS.Rarity({

@@ -13,6 +13,7 @@ SMODS.Atlas {
 
 SMODS.Consumable {
 	key = "prayer",
+	name = "Prayer",
 	set = "Spectral",
 	pos = { x = 0, y = 0 },
 	config = { extra = { money = 0 } },
@@ -70,6 +71,7 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "gate_of_prayers",
+	name = "Gate of Prayers",
 	set = "Spectral",
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
@@ -121,6 +123,7 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "stairway_to_heaven",
+	name = "Stairway to Heaven",
 	set = "Spectral",
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
@@ -199,6 +202,7 @@ SMODS.Consumable {
 }
 SMODS.Consumable{
 	key = "happiness",
+	name = "Happiness",
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
@@ -230,6 +234,7 @@ SMODS.Consumable{
 
 SMODS.Consumable {
     key = "sadness",
+    name = "Sadness",
     set = "Spectral",
     unlocked = true,
     discovered = true,
@@ -265,6 +270,7 @@ SMODS.Consumable {
 
 SMODS.Consumable{
 	key = "neutrality",
+	name = "Neutrality",
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
@@ -296,12 +302,13 @@ SMODS.Consumable{
 
 SMODS.Consumable{
 	key = "prospect",
+	name = "Wheel of Prospect",
 	set = "Tarot",
 	unlocked = true,
 	discovered = true,
 	config = { extra = { odds = 10 } },
 	loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+        return { vars = { cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged), lenient_bignum(card.ability.extra.odds) } }
     end,
 	atlas = "crp_placeholders",
 	pos = { x = 1, y = 2 },
@@ -309,7 +316,7 @@ SMODS.Consumable{
 		return true
 	end,
 	use = function(self, card, area)
-		if pseudorandom("wheelofprospect") < G.GAME.probabilities.normal / card.ability.extra.odds then
+		if pseudorandom("wheelofprospect") < cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged) / lenient_bignum(card.ability.extra.odds) then
 			local pickedrarity = pseudorandom_element({1, "cry_epic"}, pseudoseed("chessbattleadvanced")) -- picking the joker rarity, 50/50 for either Rare or Epic
 			local hittable = {
 				set = "Joker",
@@ -390,6 +397,7 @@ end
 
 SMODS.Consumable {
     key = "path_of_solstice",
+    name = "Path of Solstice",
     set = "Spectral",
     pos = { x = 0, y = 0 },
     soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 } },
@@ -469,6 +477,7 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "reckoning",
+	name = "Reckoning",
 	set = "Spectral",
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
@@ -634,6 +643,7 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "all_or_nothing",
+	name = "All or Nothing",
 	set = "Spectral",
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
