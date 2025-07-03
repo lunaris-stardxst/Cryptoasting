@@ -38,8 +38,8 @@ SMODS.Atlas {
 		code = { "Glitchkat10" }
 	}
 }
+]]
 
--- joker replacement doesn't work
 SMODS.Joker {
 	key = "vermillion",
 	name = "Vermillion Joker",
@@ -55,14 +55,14 @@ SMODS.Joker {
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
+			eligible_cards = {}
 			for i = 1, #G.jokers.cards do
-				eligible_cards = {}
-				if not G.jokers.cards[i] == card and not G.jokers.cards[i].ability.eternal then
+				if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal then
 					eligible_cards[#eligible_cards+1] = G.jokers.cards[i]
 				end
 			end
 			if #eligible_cards > 0 then
-				local option = pseudorandom_element(eligible_cards, pseudoseed("crp_vermillion"))
+				option = pseudorandom_element(eligible_cards, pseudoseed("crp_vermillion"))
 			end
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] == option then idx = i end
@@ -72,6 +72,7 @@ SMODS.Joker {
 				G.jokers.cards[idx]:remove_from_deck()
 				SMODS.add_card({key = "j_joker"})
 			end
+			option = nil
 		end
 	end,
 	calculate = function(self, card, context)
@@ -85,7 +86,6 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
-]]--
 
 SMODS.Joker {
 	key = "money_card",
