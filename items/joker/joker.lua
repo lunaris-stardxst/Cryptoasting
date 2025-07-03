@@ -321,6 +321,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_joker
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
 	calculate = function(self, card, context)
