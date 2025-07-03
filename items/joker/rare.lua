@@ -399,6 +399,77 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+--[[
+SMODS.Joker {
+	key = "my_first_joker",
+	name = "Hdbceifvf sj kjkhiooh jhiiohiouytc",
+	config = { extra = { mult = 70.5, redeemed_vouchers = 0, chip_mod = 49, odds = 9, Xmult = 1.87, randommoney1 = 2.5, randommoney2 = 3 } },
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		local redeemed = card.ability.extra.redeemed_vouchers or 0
+		return { 
+			vars = { 
+				lenient_bignum(card.ability.extra.mult),
+				lenient_bignum(card.ability.extra.chip_mod),
+				0,
+				lenient_bignum(card.ability.extra.randommoney1),
+				lenient_bignum(card.ability.extra.randommoney2),
+
+				redeemed,
+				redeemed * (card.ability.extra.chip_mod or 0)
+			} 
+		}
+	end,
+	calculate = function(self, card, context)
+		if context.setting_blind and not context.blueprint then -- update redeemed vouchers count
+			local redeemed = 0
+			for k,v in pairs(G.GAME.used_vouchers or {}) do
+				if v == true then
+					redeemed = redeemed + 1
+				end
+			end
+			card.ability.extra.redeemed_vouchers = redeemed
+		end
+		if context.joker_main then
+			local chip_bonus = 0
+			if card.ability.extra.redeemed_vouchers and card.ability.extra.chip_mod then
+				chip_bonus = card.ability.extra.redeemed_vouchers * card.ability.extra.chip_mod
+			end
+			
+			return {
+				mult = lenient_bignum(card.ability.extra.mult),
+				extra = {
+					chips = chip_bonus
+				}
+			}
+		end
+		if context.selling_self and not context.blueprint then
+			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_jolly")
+			card:add_to_deck()
+			G.jokers:emplace(card)
+			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_gros_michel")
+			card:add_to_deck()
+			G.jokers:emplace(card)
+		end
+	end,
+	calc_dollar_bonus = function(self, card)
+		return math.random(card.ability.extra.randommoney1, card.ability.extra.randommoney2)
+	end,
+	in_pool = function(self, args)
+		return true, { allow_duplicates = true }
+	end,
+	crp_credits = {
+		idea = { "PurplePickle" },
+		art = { "ottermatter" },
+		code = { "Glitchkat10" }
+	}
+}
+]]--
 
 SMODS.Joker {
 	key = "low-fat_milk",
