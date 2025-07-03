@@ -308,7 +308,7 @@ SMODS.Consumable{
 	discovered = true,
 	config = { extra = { odds = 10 } },
 	loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+        return { vars = { cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged), lenient_bignum(card.ability.extra.odds) } }
     end,
 	atlas = "crp_placeholders",
 	pos = { x = 1, y = 2 },
@@ -316,7 +316,7 @@ SMODS.Consumable{
 		return true
 	end,
 	use = function(self, card, area)
-		if pseudorandom("wheelofprospect") < G.GAME.probabilities.normal / card.ability.extra.odds then
+		if pseudorandom("wheelofprospect") < cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged) / lenient_bignum(card.ability.extra.odds) then
 			local pickedrarity = pseudorandom_element({1, "cry_epic"}, pseudoseed("chessbattleadvanced")) -- picking the joker rarity, 50/50 for either Rare or Epic
 			local hittable = {
 				set = "Joker",

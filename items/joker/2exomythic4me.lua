@@ -196,8 +196,6 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
-
--- there is so much wrong here
 --[[
 SMODS.Joker {
 	key = "eternity",

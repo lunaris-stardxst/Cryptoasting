@@ -721,7 +721,6 @@ return {
 					"{C:attention}Cryptposting Jokers{} owned",
 				},
 			},
-			--[[
 			j_crp_eternity = {
 				name = "Eternity",
 				text = {
@@ -734,7 +733,6 @@ return {
 					"{C:inactive}(Currently {C:white,X:dark_edition}+^#7#{})"
 				},
 			},
-			]]--
 			j_crp_quetta_m = {
 				name = "Quetta M",
 				text = {
