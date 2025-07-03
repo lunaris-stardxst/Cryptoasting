@@ -62,6 +62,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "ottermatter", "Glitchkat10" },
 		code = { "wilfredlam0418" }
 	}
 }
@@ -204,6 +205,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
 	calculate = function(self, card, context)

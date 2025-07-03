@@ -196,7 +196,7 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
---[[
+
 SMODS.Joker {
 	key = "eternity",
 	name = "Eternity",
@@ -208,7 +208,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmultmod), lenient_bignum(card.ability.extra.jokerpowmod), lenient_bignum(card.ability.extra.jokerslots), card.ability.extra.active, lenient_bignum(card.ability.extra.echipsmultold), lenient_bignum(card.ability.extra.jokerexponentiation), colours = { { 0.78, 0.35, 0.52, 1 } } } }
+		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmultmod), lenient_bignum(card.ability.extra.jokerpowmod), lenient_bignum(card.ability.extra.jokerslots), lenient_bignum(card.ability.extra.echipsmultold), lenient_bignum(card.ability.extra.jokerexponentiation), colours = { { 0.78, 0.35, 0.52, 1 } } } }
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		card.ability.extra.active = true
@@ -240,12 +240,12 @@ SMODS.Joker {
 				colour = G.C.DARK_EDITION,
 			}
 		end
-        if (context.ending_shop and not context.blueprint and not context.retrigger_joker) or context.forcetrigger then
+        if (context.ending_shop and not context.blueprint and not context.retrigger_joker and not context.individual) or context.forcetrigger then
             for i, v in pairs(G.jokers.cards) do
                 local check = false
                 if not Card.no(G.jokers.cards[i], "immutable", true) and (G.jokers.cards[i].config.center.key ~= "j_crp_eternity" or context.forcetrigger) then
                     Cryptid.with_deck_effects(v, function(card2)
-                        Cryptid.misprintize(card2, { min=card.ability.extra.jokerexponentiation, max=card.ability.extra.jokerexponentiation }, nil, true, "^", 1)
+                        Cryptid.misprintize(card2, { min = card.ability.extra.jokerexponentiation, max = card.ability.extra.jokerexponentiation }, nil, true, "^", 1)
                     end)
                     check = true
                 end
@@ -268,4 +268,3 @@ SMODS.Joker {
 		code = { "Rainstar" }
 	}
 }
-]]--
