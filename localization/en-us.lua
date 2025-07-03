@@ -577,7 +577,8 @@ return {
 			j_crp_perdurantes = {
 				name = "Perdurantes",
 				text = {
-					"Gains {C:white,X:dark_edition}^#2#{} Mult for every {C:attention}#3#{} triggers",
+					"Gains {C:white,X:dark_edition}^#2#{} Mult for every",
+					"{C:attention}#3#{} triggers of this {C:attention}Joker",
 					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
 				},
 			},
@@ -771,7 +772,7 @@ return {
 					"taking {C:white,X:dark_edition}^#2#{}, but gaining {C:white,X:attention}^#3#{} to use when shop exited",
 					"When {C:white,X:dark_edition}^0{} reached, resets back to {C:white,X:dark_edition}^#5#",
 					"{C:red}and a single day of {V:1}eternity {C:red}passes...",
-					"{C:inactive}(Currently giving {C:white,X:dark_edition}^#6#{C:inactive} at end of shop)"
+					"{C:inactive}(Currently giving {C:white,X:attention}^#6#{C:inactive} at end of shop)"
 				},
 			},
 			j_crp_quetta_m = {

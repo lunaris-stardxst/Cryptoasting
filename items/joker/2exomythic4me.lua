@@ -127,7 +127,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "exodiac",
 	name = "Exodiac",
-	config = { extra = { EEEmult = 1.13 }, immutable = { arrows = 5 } },
+	config = { extra = { hypermult = 1.13 }, immutable = { arrows = 5 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholder",
 	pos = { x = 11, y = 0 },
@@ -167,8 +167,9 @@ SMODS.Joker {
 	name = "Cryptposted Joker",
 	config = { immutable = { arrows = 0 }, extra = { hypermult = 2 } },
 	rarity = "crp_2exomythic4me",
-	atlas = "crp_placeholders",
-	pos = { x = 11, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 3, y = 9 },
+	soul_pos = { x = 5, y = 9, extra = { x = 4, y = 9 } },
 	cost = 400,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -189,13 +190,14 @@ SMODS.Joker {
 					lenient_bignum(card.ability.immutable.arrows),
 					lenient_bignum(card.ability.extra.hypermult)
 				},
-				message = "{" .. tostring(lenient_bignum(card.ability.immutable.arrows)) .. "}" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
+				message = "{" .. number_format(lenient_bignum(card.ability.immutable.arrows)) .. "}" .. number_format(lenient_bignum(card.ability.extra.hypermult)) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "Tatteredlurker" },
 		code = { "wilfredlam0418" }
 	}
 }
