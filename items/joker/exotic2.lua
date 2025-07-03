@@ -272,7 +272,7 @@ SMODS.Joker {
 		}
 	end,
 	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
+		if (context.joker_main and G.GAME.current_round.hands_played == 0) or context.forcetrigger then
 			return {
 				Echips_mod = lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit])) or 1,
 				message = "^" .. number_format(lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit] or 1))) .. " Chips",
