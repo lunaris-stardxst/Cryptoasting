@@ -233,3 +233,44 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
+
+SMODS.Joker {
+	key = "loss",
+	name = "Loss",
+	config = { extra = { money = 1, mult = 2, hand_size = 2, chips = 50 } },
+	rarity = 2,
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0},
+	cost = 7,
+	pools = { Meme = true },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return {
+			Cryptid.safe_get(center, "edition", "cry_oversat") and vars = {
+				"II", "IV", "IV", "C"
+			} or vars = {
+				"I", "II", "II", "L"
+			}
+		}
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		G.hand.config.card_limit = G.hand.config.card_limit + card.ability.extra.hand_size
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.hand.config.card_limit = G.hand.config.card_limit - card.ability.extra.hand_size
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			ease_dollars(lenient_bignum(card.ability.extra.money))
+			return {
+				mult = lenient_bignum(card.ability.extra.mult),
+				chips = lenient_bignum(card.ability.extra.chips)
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418" }
+	}
+}
