@@ -41,10 +41,13 @@ SMODS.Joker {
 			}
 		end
 	end,
+	in_pool = function(self, args)
+		return true, { allow_duplicates = true }
+	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
 		art = { "MarioFan597" },
 		code = { "Glitchkat10" },
-		custom = { key = "alt",text = "Runner" }
+		custom = { key = "alt", text = "Runner" }
 	}
 }

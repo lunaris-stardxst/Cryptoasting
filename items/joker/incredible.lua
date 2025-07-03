@@ -36,7 +36,7 @@ SMODS.Joker {
 				total_mult = lenient_bignum(total_mult + math.sin(i) + 1)
 			end
 			return {
-				mult = lenient_bignum(total_mult)
+				Xmult = lenient_bignum(total_mult)
 			}
 		end
 	end,

@@ -638,7 +638,7 @@ return {
 			j_crp_resurgo = {
 				name = "Resurgo",
 				text = {
-					"{C:white,X:dark_edition}^Ante{} Mult",
+					"{C:white,X:dark_edition}^[ante]{} Mult",
 					"{C:inactive}(Currently{} {C:white,X:dark_edition}^#1#{} {C:inactive}Mult){}",
 				}
 			},
@@ -1343,6 +1343,7 @@ return {
 			k_crp_uncommon_2 = "Uncommon 2",
 			k_crp_unrare = "Unrare",
 			k_crp_rare_2 = "Rare 2",
+			k_crp_refined = "Refined",
 			k_crp_meat = "Meat",
 			k_crp_joker = "Joker",
 			k_crp_m = "M",

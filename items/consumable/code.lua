@@ -42,7 +42,7 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "ip_192",
-	name = "IP 192.168.1.1",
+	name = "://IP_192.168.1.1",
 	set = "Code",
 	pos = { x = 9, y = 2 },
 	config = { immutable = { odds = 2727 } },
