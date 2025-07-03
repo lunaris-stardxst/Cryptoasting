@@ -38,6 +38,7 @@ SMODS.Atlas {
 		code = { "Glitchkat10" }
 	}
 }
+]]--
 
 SMODS.Joker {
 	key = "vermillion",
@@ -76,7 +77,9 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			return { Xmult = lenient_bignum(card.ability.extra.Xmult) }
+			return {
+				Xmult = lenient_bignum(card.ability.extra.Xmult)
+			}
 		end
 	end,
 	crp_credits = {
@@ -85,7 +88,6 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
-]]
 
 SMODS.Joker {
 	key = "money_card",
