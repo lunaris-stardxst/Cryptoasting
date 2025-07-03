@@ -13,11 +13,11 @@ SMODS.Atlas {
 }
 
 SMODS.Joker {
-	key = "oops_all_3s",
-	name = "Oops! All 3s",
+	key = "snake_eyes",
+	name = "Snake Eyes",
 	rarity = "crp_uncommon_2",
-	atlas = "crp_joker",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0 },
 	cost = 5,
 	blueprint_compat = false,
 	demicoloncompat = false,
@@ -25,7 +25,7 @@ SMODS.Joker {
 		for k, v in pairs(G.GAME.probabilities) do
 			G.GAME.probabilities[k] = v / 2
 		end
-	end
+	end,
 	remove_from_deck = function(self, card, from_debuff)
 		for k, v in pairs(G.GAME.probabilities) do
 			G.GAME.probabilities[k] = v * 2

@@ -308,22 +308,26 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		local bulgoe_jokers = 0
-		for i = 1, #G.jokers.cards do
-			if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
+		local bulgoe_jokers = lenient_bignum(0)
+		if G.jokers and G.jokers.cards then
+			for i = 1, #G.jokers.cards do
+				if G.jokers.cards[i].config.center.pools.Bulgoe then 
+					bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) 
+				end
+			end
 		end
-		return { vars = { lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult)) } }
-	end
+		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(lenient_bignum(bulgoe_jokers) * lenient_bignum(card.ability.extra.mult or 0)) } }
+	end,
 	cost = 4,
 	pools = { Bulgoe = true },
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			local bulgoe_jokers = 0
+			local bulgoe_jokers = lenient_bignum(0)
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = bulgoe_jokers + 1 end
+				if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) end
 			end
 			return {
-				mult = lenient_bignum(bulgoe_jokers * lenient_bignum(card.ability.extra.mult))
+				mult = lenient_bignum(lenient_bignum(bulgoe_jokers) * lenient_bignum(card.ability.extra.mult))
 			}
 		end
 	end,

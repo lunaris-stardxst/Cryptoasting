@@ -1,11 +1,11 @@
 SMODS.Atlas {
-	key = "consumables",
+	key = "consumable",
 	path = "atlas_consumable.png",
 	px = 71,
 	py = 95
 }
 SMODS.Atlas {
-	key = "placeholders",
+	key = "placeholder",
 	path = "atlas_placeholder.png",
 	px = 71,
 	py = 95
@@ -21,7 +21,7 @@ SMODS.Consumable {
 	cost = 15,
 	unlocked = true,
 	discovered = true,
-	atlas = 'crp_consumables',
+	atlas = "crp_consumable",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.money), colours = { { 0.78, 0.35, 0.52, 1 } } } }
 	end,
@@ -78,7 +78,7 @@ SMODS.Consumable {
 	cost = 30,
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_consumables",
+	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
 		return true
@@ -130,7 +130,7 @@ SMODS.Consumable {
 	cost = 60,
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_consumables",
+	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
 		return true
@@ -206,7 +206,7 @@ SMODS.Consumable{
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
 		if G.hand.cards and #G.hand.cards > 0 then
@@ -238,7 +238,7 @@ SMODS.Consumable {
     set = "Spectral",
     unlocked = true,
     discovered = true,
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = {
         x = 2,
         y = 2
@@ -274,7 +274,7 @@ SMODS.Consumable{
 	set = "Spectral",
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
 		if G.hand.cards and #G.hand.cards > 0 then
@@ -310,7 +310,7 @@ SMODS.Consumable{
 	loc_vars = function(self, info_queue, card)
         return { vars = { cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged), lenient_bignum(card.ability.extra.odds) } }
     end,
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 1, y = 2 },
 	can_use = function(self, card)
 		return true
@@ -325,20 +325,20 @@ SMODS.Consumable{
 			}
 			SMODS.add_card(hittable)
 		else -- stolen from the Wheel of Fortune basegame code
-			G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+			G.E_MANAGER:add_event(Event({trigger = "after", delay = 0.4, func = function()
                 attention_text({
-                    text = localize('k_nope_ex'),
+                    text = localize("k_nope_ex"),
                     scale = 1.3, 
                     hold = 1.4,
                     major = card,
                     backdrop_colour = G.C.SECONDARY_SET.Tarot,
-                    align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+                    align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and "tm" or "cm",
                     offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
                     silent = true
                     })
-                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
-                        play_sound('tarot2', 0.76, 0.4);return true end}))
-                    play_sound('tarot2', 1, 0.4)
+                    G.E_MANAGER:add_event(Event({trigger = "after", delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
+                        play_sound("tarot2", 0.76, 0.4);return true end}))
+                    play_sound("tarot2", 1, 0.4)
                     card:juice_up(0.3, 0.5)
             return true
 			end }))
@@ -365,11 +365,11 @@ local function createfulldeck(enhancement, edition, amount, emplacement)
                             playing_card = G.playing_card
                         })
                     if edition then
-                        card:set_edition(type(edition) == 'table' and edition or {
+                        card:set_edition(type(edition) == "table" and edition or {
                             [edition] = true
                         }, true, true)
                     end
-                    play_sound('card1')
+                    play_sound("card1")
                     table.insert(G.playing_cards, card)
                     card:add_to_deck()
                     if emplacement then
@@ -405,7 +405,7 @@ SMODS.Consumable {
     unlocked = true,
     discovered = true,
 	hidden = true,
-    atlas = "crp_consumables",
+    atlas = "crp_consumable",
 	can_use = function(self, card)
 		return true
 	end,
@@ -484,7 +484,7 @@ SMODS.Consumable {
 	cost = 120,
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_consumables",
+	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
 		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
@@ -495,25 +495,25 @@ SMODS.Consumable {
 			delay = 0.4,
 			func = function()
 				if pseudorandom("crp_reckoning") < 0.27 then
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0, func = function()
+					G.E_MANAGER:add_event(Event({trigger = "after", delay = 0, func = function()
 						attention_text({
-							text = localize('k_nope_ex'),
+							text = localize("k_nope_ex"),
 							scale = 1.3, 
 							hold = 1.4,
 							major = card,
 							backdrop_colour = G.C.SECONDARY_SET.Tarot,
-							align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and 'tm' or 'cm',
+							align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and "tm" or "cm",
 							offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
 							silent = true
 						})
-						G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
-							play_sound('tarot2', 0.76, 0.4)
+						G.E_MANAGER:add_event(Event({trigger = "after", delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
+							play_sound("tarot2", 0.76, 0.4)
 							delay(3);return true end}))
-						play_sound('tarot2', 1, 0.4)
+						play_sound("tarot2", 1, 0.4)
 						card:juice_up(0.3, 0.5)
 						return true 
 					end}))
-					G.E_MANAGER:add_event(Event({trigger = 'after', delay = 2, func = function()
+					G.E_MANAGER:add_event(Event({trigger = "after", delay = 2, func = function()
 						delay(0.5)
 						G.STATE = G.STATES.GAME_OVER
 						G.STATE_COMPLETE = false
@@ -540,9 +540,11 @@ SMODS.Consumable {
 
 SMODS.Consumable {
 	key = "gambway",
+	name = "Gambway",
 	set = "Spectral",
-	atlas = "crp_placeholders",
-	pos = { x = 1, y = 2 },
+	atlas = "crp_consumable",
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
 	cost = 120,
 	unlocked = true,
 	discovered = true,
@@ -576,7 +578,6 @@ SMODS.Consumable {
 				SMODS.add_card({ set = "Joker", rarity = "crp_mythic", key_append = "crp_gambway_prayer" })
 			end,
 			
-			--[[ ability not approved yet
 			function() -- Gate of Prayers
 				for i = 1, #G.jokers.cards do
 					G.jokers.cards[i]:start_dissolve()
@@ -584,7 +585,6 @@ SMODS.Consumable {
 				end
 				SMODS.add_card({ set = "Joker", rarity = "crp_exomythic", key_append = "crp_gambway_gate_of_prayers" })
 			end,
-			]]
 			
 			function() -- Stairway to Heaven
 				for i = 1, #G.jokers.cards do
@@ -651,7 +651,7 @@ SMODS.Consumable {
 	config = { extra = { hands = -27, discards = -27 } },
 	unlocked = true,
 	discovered = true,
-	atlas = "crp_consumables",
+	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
 		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
@@ -735,7 +735,7 @@ SMODS.Consumable {
 	set = "Code",
 	pos = { x = 9, y = 2 },
 	config = { extra = { ante = 1 } },
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	loc_vars = function(self, info_queue, card)
 		if not card or not card.ability or not card.ability.extra or not card.ability.extra.ante then
 			return { vars = { 0 } } 
@@ -757,22 +757,25 @@ SMODS.Consumable {
 	}
 }
 
-SMODS.Consumeable {
-	key = "ip_192.168.1.1",
+SMODS.Consumable {
+	key = "ip_192",
 	name = "IP 192.168.1.1",
 	set = "Code",
 	pos = { x = 9, y = 2 },
 	config = { immutable = { odds = 2727 } },
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.immutable.odds } }
+		if not card or not card.ability or not card.ability.immutable or not card.ability.immutable.odds then
+			return { vars = { 0 } }
+		end
+		return { vars = { lenient_bignum(card.ability.immutable.odds) } }
 	end,
 	can_use = function()
 		return #G.jokers.cards < G.jokers.config.card_limit
 	end,
 	use = function(self, card)
 		for i = 1, math.max(G.jokers.config.card_limit - #G.jokers.cards, 100) do
-			if pseudorandom("crp_ip_192.168.1.1") < 1 / card.ability.immutable.odds then
+			if pseudorandom("crp_ip_192.168.1.1") < 1 / lenient_bignum(card.ability.immutable.odds) then
 				SMODS.add_card("j_crp_normalis")
 			else
 				SMODS.add_card("j_crp_bulgoe")

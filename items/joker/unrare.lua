@@ -58,7 +58,7 @@ SMODS.Joker {
 			ease_dollars(lenient_bignum(card.ability.extra.money_bonus))
 		end
 	end,
-	calc_dollar_conus - function(self, card)
+	calc_dollar_bonus = function(self, card)
 		for i = 1, #G.jokers.cards do
 			if G.jokers.cards[i].config.center.pools.Bulgoe and not G.jokers.cards[i] == card then
 				return lenient_bignum(card.ability.extra.money_bonus)

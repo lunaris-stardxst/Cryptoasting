@@ -221,7 +221,7 @@ return {
 			j_crp_bulgoelatro = {
 				name = "{C:edition}Bulgoe{}latro",
 				text = {
-					"{C:mult}+#1#{} Mult for every owned {C:edition]Bulgoe{}-themed Joker",
+					"{C:mult}+#1#{} Mult for every owned {C:edition,X:grey}Bulgoe{}-themed Joker",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
 				}
 			},
@@ -295,8 +295,8 @@ return {
 					"of owned {C:attention}tags{}"
 				},
 			},
-			j_crp_oops_all_3s = {
-				name = "Oops! All 3s",
+			j_crp_snake_eyes = {
+				name = "Snake Eyes",
 				text = {
 					"Halves all {C:attention}listed {C:green}probabilities",
 					"{C:inactive}(ex: {C:green}2 in 3 {C:inactive}to {C:green}1 in 3{C:inactive})"
@@ -312,9 +312,9 @@ return {
 			j_crp_one_bulgoe_bill = {
 				name = "One {C:edition}Bulgoe{} Bill",
 				text = {
-					"Earn {C:money}+$2.7{} at end of round",
-					"Earn {C:money}+$27{} instead if you have",
-					"another {C:edition}Bulgoe{}-themed {C:attention}Joker",
+					"Earn {C:money}+$#1#{} at end of round",
+					"Earn {C:money}+$#2#{} instead if you have",
+					"another {C:edition,X:gray}Bulgoe{}-themed {C:attention}Joker",
 				},
 			},
 			j_crp_scones_bones = {
@@ -518,9 +518,9 @@ return {
 			j_crp_sine_wave = {
 				name = "Sine Wave",
 				text = {
-					"{C:white,X:mult}X(Sum[sin(i)+1,{i,1,r}]){} Mult, where", -- wolframalpha syntax
-					"r={C:attention}current round",
-					"{C:inactive}(Measued in radians)",
+					"{C:white,X:mult}X(Sum[sin(i)+1,#2#i,1,r#3#]){} Mult,", -- wolframalpha syntax
+					"where {C:attention}r{} = current round",
+					"{C:inactive}(Measured in radians)",
 					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
 				}
 			},
@@ -902,13 +902,13 @@ return {
 					"a multiple of hand size"
 				}
 			},
-			["c_crp_ip_192.168.1.1"] = {
+			c_crp_ip_192 = {
 				name = "://IP_192.168.1.1",
 				text = {
-					"Fill all open Joker slots with {C:edition}Bulgoe",
+					"Fill all open {C:attention}Joker{} slots with {C:edition,X:gray}Bulgoe",
 					"{C:inactive}(Max of 100)",
 					"{C:red}Fixed {C:green}1 in #1#{} chance for each individual",
-					"{C:edition}Bulgoe{} to be replaced with {C:attention}Normalis"
+					"{C:edition,X:gray}Bulgoe{} to be replaced with {C:attention}Normalis"
 				}
 			},
 		},
