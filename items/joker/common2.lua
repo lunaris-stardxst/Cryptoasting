@@ -45,11 +45,11 @@ SMODS.Joker {
 		idea = { "Poker The Poker" },
 		art = { "MarioFan597" },
 		code = { "Glitchkat10" },
-		custom = { key = "alt",text = "Runner" }
+		custom = { key = "alt", text = "Runner" }
 	}
 }
 
-SMODS.Joker = {
+SMODS.Joker {
 	key = "pennant",
 	name = "Pennant",
 	config = { extra = { mult = 4 } },
@@ -60,12 +60,12 @@ SMODS.Joker = {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult } }
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				mult = lenient_bignum(G.GAME.current_round.hands_left * card.ability.extra.mult)
+				mult = lenient_bignum(lenient_bignum(G.GAME.current_round.hands_left) * lenient_bignum(card.ability.extra.mult))
 			}
 		end
 	end,

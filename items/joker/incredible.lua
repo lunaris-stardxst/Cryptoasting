@@ -57,11 +57,13 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicolon_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.Xmult } }
+		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	calculate = function(self, card, context)
-		if ((context.other_joker) and context.other_joker.config.center.rarity == "crp_trash") or context.forcetrigger then
-			return { Xmult = lenient_bignum(card.ability.extra.Xmult) }
+		if ((context.other_joker) and context.other_joker.config.center.rarity == 4) or context.forcetrigger then
+			return { 
+				Xmult = lenient_bignum(card.ability.extra.Xmult)
+			}
 		end
 	end,
 	in_pool = function(self, args)

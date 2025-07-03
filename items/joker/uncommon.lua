@@ -38,7 +38,6 @@ SMODS.Atlas {
 		code = { "Glitchkat10" }
 	}
 }
-]]
 
 SMODS.Joker {
 	key = "vermillion",
@@ -77,7 +76,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			return { xmult = lenient_bignum(card.ability.extra.Xmult) }
+			return { Xmult = lenient_bignum(card.ability.extra.Xmult) }
 		end
 	end,
 	crp_credits = {
@@ -86,6 +85,7 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
+]]
 
 SMODS.Joker {
 	key = "money_card",
@@ -246,19 +246,16 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return {
-			Cryptid.safe_get(center, "edition", "cry_oversat") and vars = {
-				"II", "IV", "IV", "C"
-			} or vars = {
-				"I", "II", "II", "L"
-			}
-		}
+		local vars = Cryptid.safe_get(center, "edition", "cry_oversat") and 
+			{ "II", "IV", "IV", "C" } or 
+			{ "I", "II", "II", "L" }
+		return { vars = vars }
 	end,
 	add_to_deck = function(self, card, from_debuff)
-		G.hand.config.card_limit = G.hand.config.card_limit + card.ability.extra.hand_size
+		G.hand.config.card_limit = G.hand.config.card_limit + lenient_bignum(card.ability.extra.hand_size)
 	end,
 	remove_from_deck = function(self, card, from_debuff)
-		G.hand.config.card_limit = G.hand.config.card_limit - card.ability.extra.hand_size
+		G.hand.config.card_limit = G.hand.config.card_limit - lenient_bignum(card.ability.extra.hand_size)
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
