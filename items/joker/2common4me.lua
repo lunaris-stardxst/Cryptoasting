@@ -32,6 +32,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "ottermatter" },
 		code = { "wilfredlam0418" },
 	}
 }

@@ -128,6 +128,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_splash
 		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.splash), lenient_bignum(card.ability.immutable.max_spawn))) } }
 	end,
 	calculate = function(self, card, context)
