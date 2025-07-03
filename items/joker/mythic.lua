@@ -246,6 +246,7 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = true,
 	perishable_compat = false,
+	pools = { Bulgoe = true },
     loc_vars = function(self, info_queue, card)
         return { vars = { number_format(card.ability.extra.EEmult_mod), number_format(card.ability.extra.EEmult_mod) * Cryptposting.member_count, }, }
     end,

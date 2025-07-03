@@ -283,12 +283,14 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		local joker_count = G.jokers and G.jokers.cards and #G.jokers.cards or 0
 		local card_limit = G.jokers and G.jokers.config and G.jokers.config.card_limit or 1
-		return { vars = { 
-			lenient_bignum(card.ability.extra.mult), 
-			lenient_bignum(card.ability.extra.Xmult), 
-			lenient_bignum(lenient_bignum(card.ability.extra.mult) * lenient_bignum(joker_count)), 
-			lenient_bignum(lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(math.max(0, card_limit - joker_count))) 
-		} }
+		return { 
+			vars = { 
+				lenient_bignum(card.ability.extra.mult),
+				lenient_bignum(card.ability.extra.Xmult),
+				lenient_bignum(lenient_bignum(card.ability.extra.mult) * lenient_bignum(joker_count)),
+				lenient_bignum(lenient_bignum(card.ability.extra.Xmult) * lenient_bignum(math.max(0, card_limit - joker_count)))
+			} 
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -352,7 +354,14 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.create), cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged), card.ability.extra.odds, lenient_bignum(card.ability.extra.rare_create) } }
+		return { 
+			vars = { 
+				lenient_bignum(card.ability.extra.create),
+				cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged),
+				card.ability.extra.odds,
+				lenient_bignum(card.ability.extra.rare_create) 
+			} 
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
@@ -531,6 +540,7 @@ SMODS.Joker {
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
+	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
 	end,

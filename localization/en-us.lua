@@ -218,6 +218,14 @@ return {
 					"{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}Flush{}"
 				}
 			},
+			j_crp_bulgoelatro = {
+				name = "{C:edition}Bulgoe{}latro",
+				text = {
+					"{C:mult}+#1#{} Mult for every owned",
+					"{C:edition,X:grey}Bulgoe{}-themed {C:attention}Joker",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+				}
+			},
 			j_crp_sprinter = {
 				name = "Sprinter",
 				text = {
@@ -288,11 +296,26 @@ return {
 					"of owned {C:attention}tags{}"
 				},
 			},
+			j_crp_snake_eyes = {
+				name = "Snake Eyes",
+				text = {
+					"Halves all {C:attention}listed {C:green}probabilities",
+					"{C:inactive}(ex: {C:green}2 in 3 {C:inactive}to {C:green}1 in 3{C:inactive})"
+				}
+			},
 			j_crp_all_trades = {
 				name = "Joker of all Trades",
 				text = {
 					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
 					"Earn {C:money}$#3#{} at end of round",
+				},
+			},
+			j_crp_one_bulgoe_bill = {
+				name = "One {C:edition}Bulgoe{} Bill",
+				text = {
+					"Earn {C:money}+$#1#{} at end of round",
+					"Earn {C:money}+$#2#{} instead if you have",
+					"another {C:edition,X:gray}Bulgoe{}-themed {C:attention}Joker",
 				},
 			},
 			j_crp_scones_bones = {
@@ -503,6 +526,15 @@ return {
 					"{C:green}#1# in #2#{} chance to",
 					"{C:red}not{} give {C:white,X:dark_edition}^#3#{} Mult"
 				},
+			},
+			j_crp_sine_wave = {
+				name = "Sine Wave",
+				text = {
+					"{C:white,X:mult}X(Sum[sin(i)+1,#2#i,1,r#3#]){} Mult,", -- wolframalpha syntax
+					"where {C:attention}r{} = current round",
+					"{C:inactive}(Measured in radians)",
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
+				}
 			},
 			--[[
 			j_crp_quantum = {
@@ -847,6 +879,14 @@ return {
 					"to all {C:attention}cards in hand"
 				}
 			},
+			c_crp_gambway = {
+				name = "Gambway",
+				text = {
+					"Uses the effect of {C:attention}The Soul{}, {C:attention}Gateway{}, {C:attention}Prayer{},",
+					"{C:attention}Stairway to Heaven{}, {C:attention}Path of Solstice{}, or {C:attention}Reckoning",
+					"{C:inactive}\"Let's go gambling!\""
+				}
+			},
 			c_crp_all_or_nothing = {
 				name = "All or Nothing",
 				text = {
@@ -865,7 +905,16 @@ return {
 					"{C:attention}-#1#{} Ante if {C:attention}Ante{} is",
 					"a multiple of hand size"
 				}
-			}
+			},
+			c_crp_ip_192 = {
+				name = "://IP_192.168.1.1",
+				text = {
+					"Fill all open {C:attention}Joker{} slots with {C:edition,X:gray}Bulgoe",
+					"{C:inactive}(Max of 100)",
+					"{C:red}Fixed {C:green}1 in #1#{} chance for each individual",
+					"{C:edition,X:gray}Bulgoe{} to be replaced with {C:attention}Normalis"
+				}
+			},
 		},
 		Back = {
 			b_crp_cyan = {
@@ -1243,6 +1292,29 @@ return {
 					"{C:inactive}\"Took ya long enough.\""
 				},
 			},
+		},
+		Stake = {
+			stake_crp_violet = {
+				name = "Violet Stake",
+				colour = "Violet",
+				text = {
+					"{C:attention}X2{} Blind size"
+				}
+			},
+			stake_crp_square = {
+				name = "Square Stake",
+				colour = "Square",
+				text = {
+					"{C:attention}-1{} card selection limit"
+				}
+			},
+			stake_crp_stencil = {
+				name = "Stencil Stake",
+				colour = "Stencil",
+				text = {
+					"{C:attention}-1{} Joker slot"
+				}
+			}
 		},
 		Other = {
 			p_crp_very_rare_pack = {
