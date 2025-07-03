@@ -248,3 +248,47 @@ SMODS.Joker {
 		custom = { key = "alt", text = "Redeo" }
 	}
 }
+
+SMODS.Joker {
+	key = "peripheria_ad_diametrum",
+	name = "Peripheria ad Diametrum",
+	config = { immutable = { digit = 1, pi = "314159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127" } }, -- i memorized all 300 digits of pi - wilfredlam0418
+	rarity = "crp_exotic_2",
+	atlas = "crp_placeholder",
+	pos = { x = 7, y = 0 },
+	cost = 31,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit]) or 1),
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit + 1]) or 1),
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit + 2]) or 1),
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit + 3]) or 1),
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit + 4]) or 1),
+				lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit + 5]) or 1)
+			}
+		}
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				Echips_mod = lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit])) or 1,
+				message = "^" .. number_format(lenient_bignum(tostring(card.ability.immutable.pi[card.ability.immutable.digit] or 1))) .. " Chips",
+				colour = G.C.DARK_EDITION
+			}
+		end
+		if (context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker) or context.forcetrigger then
+			card.ability.immutable.digit = card.ability.immutable.digit + 1
+			return {
+				message = "Next digit",
+				colour = G.C.FILTER
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown", "Glitchkat10" },
+		code = { "wilfredlam0418" }
+	}
+}
