@@ -127,7 +127,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "exodiac",
 	name = "Exodiac",
-	config = { extra = { EEEmult = 1.13 } },
+	config = { extra = { EEEmult = 1.13 }, immutable = { arrows = 5 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholder",
 	pos = { x = 11, y = 0 },
@@ -136,7 +136,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
+		return { vars = { "{", lenient_bignum(card.ability.immutable.arrows), "}", lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.ending_shop then
@@ -147,8 +147,11 @@ SMODS.Joker {
 		end
 		if context.other_joker and context.other_joker.config.center.rarity == "cry_exotic" then
 			return {
-				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
-				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+				hypermult_mod = {
+					lenient_bignum(card.ability.immutable.arrows),
+					lenient_bignum(card.ability.extra.hypermult)
+				},
+				message = "{" .. number_format(lenient_bignum(card.ability.immutable.arrows)) .. "}" .. number_format(lenient_bignum(card.ability.extra.hypermult)) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end

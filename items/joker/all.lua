@@ -32,10 +32,10 @@ SMODS.Joker { -- IT'S ALIVE
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				math.min(25, card.ability.extra.jokers),
-				math.min(25, card.ability.extra.consumables),
-				math.min(25, card.ability.extra.tags),
-				math.min(25, card.ability.extra.vouchers),
+				math.min(10, card.ability.extra.jokers),
+				math.min(10, card.ability.extra.consumables),
+				math.min(10, card.ability.extra.tags),
+				math.min(10, card.ability.extra.vouchers),
 				card.ability.extra.increase,
 				card.ability.extra.joker_slots,
 				card.ability.extra.consumable_slots,
@@ -53,7 +53,7 @@ SMODS.Joker { -- IT'S ALIVE
 
 			local jokers_added, consumables_added = 0, 0
 
-			for _ = 1, math.min(25, card.ability.extra.jokers) do
+			for _ = 1, math.min(10, card.ability.extra.jokers) do
 				if G.GAME.all_joker_key < 1 then G.GAME.all_joker_key = #G.P_CENTER_POOLS.Joker end
 				local key = G.P_CENTER_POOLS.Joker[G.GAME.all_joker_key].key
 				-- Skip creating this joker if it's the "all" joker
@@ -66,7 +66,7 @@ SMODS.Joker { -- IT'S ALIVE
 				G.GAME.all_joker_key = G.GAME.all_joker_key - 1
 			end
 
-			for _ = 1, math.min(25, card.ability.extra.consumables) do
+			for _ = 1, math.min(10, card.ability.extra.consumables) do
 				if G.GAME.all_consumable_key < 1 then G.GAME.all_consumable_key = #G.P_CENTER_POOLS.Consumeables end
 				local key = G.P_CENTER_POOLS.Consumeables[G.GAME.all_consumable_key].key
 				local c = create_card("Consumeable", G.consumeables, nil, nil, nil, nil, key, "literally_fucking_everything")
@@ -76,14 +76,14 @@ SMODS.Joker { -- IT'S ALIVE
 				consumables_added = consumables_added + 1
 			end
 
-			for _ = 1, math.min(25, card.ability.extra.tags) do
+			for _ = 1, math.min(10, card.ability.extra.tags) do
 				if G.GAME.all_tag_key < 1 then G.GAME.all_tag_key = #G.P_CENTER_POOLS.Tag end
 				local key = G.P_CENTER_POOLS.Tag[G.GAME.all_tag_key].key
 				add_tag(Tag(key))
 				G.GAME.all_tag_key = G.GAME.all_tag_key - 1
 			end
 
-			for _ = 1, math.min(25, card.ability.extra.vouchers) do
+			for _ = 1, math.min(10, card.ability.extra.vouchers) do
 				if G.GAME.all_voucher_key < 1 then G.GAME.all_voucher_key = #G.P_CENTER_POOLS.Voucher end
 				local key = G.P_CENTER_POOLS.Voucher[G.GAME.all_voucher_key].key
 				local area = (G.STATE == G.STATES.HAND_PLAYED and (G.redeemed_vouchers_during_hand or CardArea(G.play.T.x, G.play.T.y, G.play.T.w, G.play.T.h, { type = "play", card_limit = 5 }))) or G.play

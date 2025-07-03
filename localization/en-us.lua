@@ -689,10 +689,10 @@ return {
 					"at end of round",
 				},
 			},
-			j_crp_heptation_henry = {
-				name = "heptation henry",
+			j_crp_hexation_hank = {
+				name = "hexation hank",
 				text = {
-					"{C:dark_edition,X:edition}^^^^^#1#{} Mult",
+					"{C:dark_edition,X:edition}^^^^#1#{} Mult",
 				},
 			},
 			j_crp_morble = {
@@ -737,7 +737,6 @@ return {
 				text = {
 					"Disables {C:white,X:dark_edition}all{} {C:attention}Blinds {C:attention}#1#{} times",
 					"{C:inactive}14 fucking Chicots{}",
-					"{C:inactive,s:0.8}WIP since none of the Rarity Blinds exist"
 				},
 			},
 			j_crp_infinitum = {
@@ -751,7 +750,7 @@ return {
 				name = "Exodiac",
 				text = {
 					"{C:cry_exotic}Exotic{} Jokers each give",
-					"{C:dark_edition,X:edition}^^^#1#{} Mult when triggered,",
+					"{C:dark_edition,X:edition}#1##2##3##4#{} Mult when triggered,",
 					"create a random {C:dark_edition}Negative{} {C:cry_exotic}Exotic{}",
 					"{C:attention}Joker{} at the end of shop",
 				},

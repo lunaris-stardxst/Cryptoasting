@@ -13,9 +13,9 @@ SMODS.Atlas {
 }
 
 SMODS.Joker {
-	key = "heptation_henry",
-	name = "heptation henry",
-	config = { immutable = { arrows = 5 }, extra = { hypermult = 1.1 } },
+	key = "hexation_hank",
+	name = "hexation hank",
+	config = { immutable = { arrows = 4 }, extra = { hypermult = 1.1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
@@ -33,7 +33,7 @@ SMODS.Joker {
 					lenient_bignum(card.ability.immutable.arrows),
 					lenient_bignum(card.ability.extra.hypermult)
 				},
-				message = "^^^^^" .. lenient_bignum(card.ability.extra.hypermult) .. " Mult",
+				message = "^^^^" .. number_format(lenient_bignum(card.ability.extra.hypermult)) .. " Mult",
 				colour = G.C.EDITION,
 			}
 		end
@@ -62,7 +62,7 @@ SMODS.Joker {
 		if (context.other_joker) or context.forcetrigger then
 			G.GAME.dollars = G.GAME.dollars ^ lenient_bignum(card.ability.extra.Emoney)
 			return {
-				message = "^" .. lenient_bignum(card.ability.extra.Emoney) .. "$",
+				message = "^" .. number_format(lenient_bignum(card.ability.extra.Emoney)) .. "$",
 				colour = G.C.MONEY,
 			}
 		end
@@ -131,13 +131,13 @@ SMODS.Joker {
             end
 			return {
 				message = localize("k_upgrade_ex"),
-				colour = G.C.DARK_EDITION,
+				colour = G.C.EDITION,
 				card = card
 			}
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+				message = "^^^" .. number_format(lenient_bignum(card.ability.extra.EEEmult)) .. " Mult",
 				EEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
 				colour = G.C.EDITION,
 				card = card
@@ -166,7 +166,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.individual and context.cardarea == G.play and context.other_card and (context.other_card:get_id() == 12 or context.other_card:get_id() == 13)) or context.forcetrigger then
 			return {
-				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
+				message = "^^^" .. number_format(lenient_bignum(card.ability.extra.EEEmult)) .. " Mult",
 				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
 				colour = G.C.EDITION,
 				card = card
@@ -197,14 +197,14 @@ SMODS.Joker {
 			card.ability.extra.EEmult = lenient_bignum(card.ability.extra.EEmult) + lenient_bignum(card.ability.extra.EEmult_mod)
 			return {
 				message = localize("k_upgrade_ex"),
-				colour = G.C.DARK_EDITION,
+				colour = G.C.EDITION,
 				card = card
 			}
 		end
 
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
+				message = "^^" .. number_format(lenient_bignum(card.ability.extra.EEmult)) .. " Mult",
 				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
 				colour = G.C.EDITION,
 				card = card
