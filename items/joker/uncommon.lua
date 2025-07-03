@@ -37,8 +37,9 @@ SMODS.Atlas {
 		art = { "GudUsername" },
 		code = { "Glitchkat10" }
 	}
-} ]]--
+}
 
+-- joker replacement doesn't work
 SMODS.Joker {
 	key = "vermillion",
 	name = "Vermillion Joker",
@@ -84,6 +85,7 @@ SMODS.Joker {
 		code = { "wilfredlam0418" }
 	}
 }
+]]--
 
 SMODS.Joker {
 	key = "money_card",
