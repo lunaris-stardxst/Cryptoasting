@@ -73,12 +73,18 @@ SMODS.Consumable {
 	name = "Pot of Gold",
 	set = "Pot",
 	pos = { x = 10, y = 2 },
+	config = { extra = { cards = 1 } }
 	atlas = "crp_placeholder",
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.cards) } }
+	end,
 	can_use = function()
 		return true
 	end,
-	use = function()
-		SMODS.add_card({ set = "Playing Card", enhancement = "m_gold" })
+	use = function(self, card)
+		for i = 1, card.ability.extra.cards do
+			SMODS.add_card({ set = "Playing Card", enhancement = "m_gold" })
+		end
 	end,
 	crp_credits = {
 		idea = { "Psychomaniac14" },
@@ -91,13 +97,19 @@ SMODS.Consumable {
 	name = "Potluck",
 	set = "Pot",
 	pos = { x = 10, y = 2 },
-	config = { max_highlighted = 1 },
+	config = { max_highlighted = 1, extra = { jokers = 1 } },
 	atlas = "crp_placeholder",
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.max_highlighted) } }
+		return { vars = { lenient_bignum(card.ability.max_highlighted), lenient_bignum(card.ability.extra.jokers) } }
 	end,
-	use = function()
-		SMODS.add_card({ set = "Food" })
+	use = function(self, card)
+		for i = 1, #G.hand.highlighted do
+			G.hand.highlighted[i]:start_dissolve()
+			G.hand.highlighted[i]:remove_from_deck()
+		end
+		for i = 1, card.ability.extra.jokers do
+			SMODS.add_card({ set = "Food" })
+		end
 	end,
 	crp_credits = {
 		idea = { "Psychomaniac14" },
