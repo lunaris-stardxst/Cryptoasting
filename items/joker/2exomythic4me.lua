@@ -135,11 +135,21 @@ SMODS.Joker {
 		return { vars = { "{", lenient_bignum(card.ability.immutable.arrows), "}", lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)
-		if context.ending_shop then
-			local card = create_card("Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment") -- this is true
-			card:set_edition({ negative = true }, true)
-			card:add_to_deck()
-			G.jokers:emplace(card)
+		if context.ending_shop and G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+			local success, new_card = pcall(create_card, "Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment")
+			if success and new_card and type(new_card) == 'table' then
+				if new_card.set_edition then 
+					pcall(new_card.set_edition, new_card, { negative = true }, true)
+				end
+				if new_card.add_to_deck then 
+					pcall(new_card.add_to_deck, new_card)
+				end
+				if G.jokers and G.jokers.emplace then
+					pcall(function() 
+						G.jokers:emplace(new_card)
+					end)
+				end
+			end
 		end
 		if context.other_joker and context.other_joker.config.center.rarity == "cry_exotic" then
 			return {
@@ -154,7 +164,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
@@ -209,7 +219,17 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmultmod), lenient_bignum(card.ability.extra.jokerpowmod), lenient_bignum(card.ability.extra.jokerslots), lenient_bignum(card.ability.extra.echipsmultold), lenient_bignum(card.ability.extra.jokerexponentiation), colours = { { 0.78, 0.35, 0.52, 1 } } } }
+		return {
+			vars = {
+				lenient_bignum(card.ability.extra.echipsmult),
+				lenient_bignum(card.ability.extra.echipsmultmod),
+				lenient_bignum(card.ability.extra.jokerpowmod),
+				lenient_bignum(card.ability.extra.jokerslots),
+				lenient_bignum(card.ability.extra.echipsmultold),
+				lenient_bignum(card.ability.extra.jokerexponentiation),
+				colours = { { 0.78, 0.35, 0.52, 1 } }
+			}
+		}
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		card.ability.extra.active = true

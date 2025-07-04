@@ -63,7 +63,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		art = { "ottermatter", "Glitchkat10" },
+		art = { "ottermatter" },
 		code = { "wilfredlam0418" }
 	}
 }
@@ -231,6 +231,33 @@ SMODS.Joker {
 		idea = { "Unknown" },
 		art = { "Lexi" },
 		code = { "Lexi", "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "centipede",
+	name = "Centipede",
+	config = { extra = { chips = 100, full_hand = 1 } },
+	rarity = 1,
+	atlas = "crp_joker",
+	pos = { x = 5, y = 2 },
+	cost = 4,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.full_hand) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main and context.full_hand and to_big(#context.full_hand) == to_big(card.ability.extra.full_hand)) or context.forcetrigger then
+			return {
+				chips = lenient_bignum(card.ability.extra.chips)
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		art = { "Tatteredlurker" },
+		code = { "Glitchkat10" }
 	}
 }
 

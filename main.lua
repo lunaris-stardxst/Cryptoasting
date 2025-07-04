@@ -43,6 +43,7 @@ local files = {
 	"lib/https",
 	"lib/misc",
 	"lib/modbadge",
+	"lib/music",
 	"lib/pointerblist",
 }
 for i, v in pairs(files) do
