@@ -138,7 +138,7 @@ return {
 			j_crp_googologist = {
 				name = "Googologist",
 				text = {
-					"{C:white,X:dark_edition}#1#Mult, 1(1)1.7e308#2#",
+					"{C:white,X:dark_edition}#1#Mult,{C:dark_edition,X:dark_edition}M{C:white,X:dark_edition}1(1)1.7e308#2#", -- insane workarounds
 				},
 			},
 			j_crp_none = {
@@ -1417,7 +1417,7 @@ return {
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
 			k_crp_supa_rare = "supa rare",
 			k_crp_all = "All",
-			bl_crp_debuff_monochromem = "Must play Pairs"
+			bl_crp_debuff_monochrome_m = "Must play Pairs"
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
@@ -1438,6 +1438,7 @@ return {
 			colon_3 = ":3",
 			placeholder = "Placeholder Art: #1#",
 			alt = "~ #1#",
+			music = "Music: #1#"
 		}
 	}
 }
