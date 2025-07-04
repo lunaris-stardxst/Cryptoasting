@@ -998,6 +998,34 @@ return {
 				}
 			}
 		},
+		Pot = {
+			c_crp_desires = {
+				name = "Pot of Desires",
+				text = {
+					"{C:red}Destroy{} up to {C:attention}#1#{} selected cards, then",
+					"{C:attention}draw{} that many cards from your deck"
+				}
+			},
+			c_crp_greed = {
+				name = "Pot of Greed",
+				text = {
+					"{C:attention}Draw #1#{} additional cards from your deck"
+				}
+			},
+			c_crp_gold = {
+				name = "Pot of Gold",
+				text = {
+					"Create {C:attention}#1# Gold{} card and {C:attention}draw{} it to hand"
+				}
+			},
+			c_crp_potluck = {
+				name = "Potluck",
+				text = {
+					"{C:red}Destroy {C:attention}#1#{} selected card,",
+					"then create {C:attention}#2# Food Joker#<s>2#{}"
+				}
+			}
+		},
 		Tarot = {
 			c_crp_prospect = {
 				name = "Wheel of Prospect",
@@ -1362,6 +1390,8 @@ return {
 	},
 	misc = {
 		dictionary = {
+			b_pot_cards = "Pot Cards",
+			k_pot = "Pot",
 			k_crp_abysmal = "Abysmal",
 			k_crp_trash = "Trash",
 			["k_crp_:3"] = ":3",
