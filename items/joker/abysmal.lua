@@ -68,4 +68,29 @@ SMODS.Joker {
 		code = { "wilfredlam0418" },
 	}
 }
-      
+
+SMODS.Joker {
+	key = "evil_riff_raff",
+	name = "EVIL Riff-Raff",
+	config = { extra = { cards = 2 } },
+	rarity = "crp_abysmal",
+	atlas = "crp_placeholder",
+	pos = { x = 0, y = 0 },
+	cost = 0,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.cards } }
+	end,
+	calculate = function(self, card)
+		if context.setting_blind or context.forcetrigger then
+			for i = 1, card.ability.extra.cards do
+				SMODS.add_card({ set = "Joker", rarity = "cry_cursed" })
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418" }
+	}
+}
