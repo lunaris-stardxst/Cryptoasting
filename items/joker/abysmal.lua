@@ -80,12 +80,14 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.cards } }
+		return { vars = { card.ability.extra.cards, colours = { G.C.RARITY.cry_cursed } } }
 	end,
 	calculate = function(self, card)
 		if context.setting_blind or context.forcetrigger then
 			for i = 1, card.ability.extra.cards do
-				SMODS.add_card({ set = "Joker", rarity = "cry_cursed" })
+				if #G.jokers.cards < G.jokers.config.card_limit or context.forcetrigger then
+					SMODS.add_card({ set = "Joker", rarity = "cry_cursed" })
+				end
 			end
 		end
 	end,
