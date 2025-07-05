@@ -284,7 +284,7 @@ SMODS.Joker {
 		if context.before or context.forcetrigger then
 			ease_dollars(card.ability.gain and pseudorandom("crp_fun_coin") > 0.5 or cars.ability.loss)
 		end
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main and G.GAME.dollars < 0) or context.forcetrigger then
 			return {
 				xmult = card.ability.extra.xmult
 			}
