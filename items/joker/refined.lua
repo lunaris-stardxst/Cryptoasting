@@ -19,10 +19,10 @@ SMODS.Joker {
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				mult_mod = lenient_bignum(card.ability.extra.mult),
-				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-				message = "Progressum!",
-				colour = G.C.MULT,
+				mult = lenient_bignum(card.ability.extra.mult),
+				extra = {
+					Xmult = lenient_bignum(card.ability.extra.Xmult)
+				},
 				card = card
 			}
 		end
