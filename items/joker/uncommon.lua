@@ -89,6 +89,26 @@ SMODS.Joker {
 	}
 }
 
+SMOS.Joker {
+	key = "q_big",
+	name = "Q",
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function()
+		if context.setting_blind or context.forcetrigger then
+			SMODS.add_card({ key = "j_zany", edition = "e_negative" })
+		end
+	end,
+	crp_credits = {
+		idea = { "Superb_thing" },
+		code = { "wilfredlam0418" }
+	}
+}
+
 SMODS.Joker {
 	key = "money_card",
 	name = "Money Card",
