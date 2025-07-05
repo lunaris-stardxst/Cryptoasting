@@ -103,6 +103,13 @@ return {
 					"self when {C:attention}Blind{} selected"
 				},
 			},
+			j_crp_evil_riff_raff = {
+				name = "{C:red}EVIL{} Riff-Raff",
+				text = {
+					"When {C:attention}Blind{} is selected, create {C:attention}#1# {V:1}Cursed {C:attention}Jokers",
+					"{C:inactive}(Must have room)"
+				}
+			},
 			j_crp_evil_jolly_joker = {
 				name = "{C:red}EVIL{} Jolly Joker",
 				text = {
@@ -111,13 +118,13 @@ return {
 				},
 			},
 			j_crp_evil_joker = {
-				name = "{C:red}EVIL{}Joker",
+				name = "{C:red}EVIL{} Joker",
 				text = {
 					"{C:white,X:mult}÷#1#{} Mult",
 				},
 			},
 			j_crp_evil_bulgoe = {
-				name = "{C:red}EVIL{} {C:edition}Bulgoe{}",
+				name = "{C:red}EVIL {C:edition}Bulgoe",
 				text = {
 					"{C:white,X:chips}÷#1#{} Chip#<s>1#",
 				},
@@ -266,6 +273,13 @@ return {
 					"Joker with the default {C:attention}Joker{}",
 				},
 			},
+			j_crp_q_big = {
+				name = "Q",
+				text = {
+					"Create {C:attention}1 {C:dark_edition}Negative {C:attention}Zany Joker",
+					"when {C:attention}Boss Blind{} is selected"
+				}
+			},
 			j_crp_money_card = {
 				name = "Money Card",
 				text = {
@@ -307,6 +321,14 @@ return {
 				text = {
 					"{C:money}#1# {C:mult}#2#",
 					"{C:attention}#3# {C:chips}#4#"
+				}
+			},
+			j_crp_fun_coin = {
+				name = "fun coin",
+				text = {
+					"When hand played, either earn {C:money}$#1#{} or lose {C:red}-$#2#",
+					"If in debt, {C:white,X:mult}X#3{} Mult",
+					"{C:inactive}\"OH GOD I'M HAVING SO MUCH FUN LOOKING AT THIS\""
 				}
 			},
 			j_crp_snake_eyes = {
@@ -354,6 +376,13 @@ return {
 					"{C:white,X:chips}Xpi{} Chips",
 					"{C:white,X:mult}Xpi{} Mult",
 				},
+			},
+			j_crp_c_big = {
+				name = "C",
+				text = {
+					"Create {C:attention}1 {C:dark_edition}Negative {C:attention}Mad Joker",
+					"when {C:attention}Blind{} is selected"
+				}
 			},
 			j_crp_12345 = {
 				name = "12345",
