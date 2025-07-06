@@ -121,8 +121,9 @@ return {
 			j_crp_evil_riff_raff = {
 				name = "{C:red}EVIL{} Riff-Raff",
 				text = {
-					"When {C:attention}Blind{} is selected, create {C:attention}#1# {V:1}Cursed {C:attention}Jokers",
-					"{C:inactive}(Must have room)"
+					"When {C:attention}Blind{} is selected, create {C:attention}#1# {C:cry_cursed}Cursed {C:attention}Jokers",
+					"{C:inactive}(Must have room)",
+					"Destroyed when {C:attention}10{} {C:cry_cursed}Cursed {C:attention}Jokers{} owned"
 				}
 			},
 			j_crp_evil_jolly_joker = {
@@ -240,7 +241,16 @@ return {
 				}
 			},
 			j_crp_the_joker_that_decided = {
-				name = "The Joker That Decided He Wanted to Test the Limits for How Long a Joker Name Could Be by Putting His Effect in His Name With Said Effect Being That He Gives One Mult When Any Playing Card Is Scored Also He Wanted to Let You Know That He Wants You to Have a Nice Day So He Put That in His Name Too Just to Inflate How Long His Name Is",
+				name = {
+					"The Joker That Decided He Wanted to",
+					"Test the Limits for How Long a Joker Name",
+					"Could Be by Putting His Effect in His Name",
+					"With Said Effect Being That He Gives One",
+					"Mult When Any Playing Card Is Scored Also He",
+					"Wanted to Let You Know That He Wants You to",
+					"Have a Nice Day So He Put That in His Name",
+					"Too Just to Inflate How Long His Name Is"
+				},
 				text = {
 					"Read the name"
 				}
@@ -354,7 +364,7 @@ return {
 				name = "fun coin",
 				text = {
 					"When hand played, either earn {C:money}$#1#{} or lose {C:red}-$#2#",
-					"If in debt, {C:white,X:mult}X#3{} Mult",
+					"If in debt, {C:white,X:mult}X#3#{} Mult",
 					"{C:inactive}\"OH GOD I'M HAVING SO MUCH FUN LOOKING AT THIS\""
 				}
 			},
@@ -690,8 +700,8 @@ return {
 			j_crp_average_cryptid_experience = {
 				name = "average cryptid experience",
 				text = {
-					"be me, go to shop, order {C:attention}one quadrillion jolly jokers,",
-					"laugh since they can't possibly have {C:attention}one quadrillion jolly jokers,",
+					"be me, go to shop, order {C:attention}one quadrillion jolly jokers{},",
+					"laugh since they can't possibly have {C:attention}one quadrillion jolly jokers{},",
 					"five minutes later they call my name, {C:attention}one quadrillion jolly jokers"
 				}
 			},
@@ -1073,26 +1083,28 @@ return {
 				name = "Pot of Desires",
 				text = {
 					"{C:red}Destroy{} up to {C:attention}#1#{} selected cards, then",
-					"{C:attention}draw{} that many cards from your deck"
+					"{C:attention}draw{} that many cards from deck"
 				}
 			},
 			c_crp_greed = {
 				name = "Pot of Greed",
 				text = {
-					"{C:attention}Draw #1#{} additional cards from your deck"
+					"{C:attention}Draw #1#{} card#<s>1#",
+					"from deck"
 				}
 			},
 			c_crp_gold = {
 				name = "Pot of Gold",
 				text = {
-					"Create {C:attention}#1# Gold{} card and {C:attention}draw{} it to hand"
+					"Create {C:attention}#1# Gold{} card#<s>1#",
+					"and {C:attention}draw{} it to hand"
 				}
 			},
 			c_crp_potluck = {
 				name = "Potluck",
 				text = {
-					"{C:red}Destroy {C:attention}#1#{} selected card,",
-					"then create {C:attention}#2# Food Joker#<s>2#{}"
+					"{C:red}Destroy {C:attention}#1#{} selected card#<s>1#",
+					"and create {C:attention}#2#{} random {C:attention}Food Joker#<s>2#"
 				}
 			}
 		},

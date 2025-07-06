@@ -90,13 +90,13 @@ SMODS.Joker {
 	}
 }
 
-SMOS.Joker {
+SMODS.Joker {
 	key = "q_big",
 	name = "Q",
 	rarity = 3,
 	atlas = "crp_placeholder",
 	pos = { x = 4, y = 0 },
-	cost = 8
+	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function()
@@ -268,18 +268,26 @@ SMODS.Joker {
 	}
 }
 
+SMODS.Atlas {
+	key = "fun_coin",
+	path = "fun_coin.png",
+	px = 71,
+	py = 71
+}
+
 SMODS.Joker {
 	key = "fun_coin",
 	name = "fun coin",
-	config = { extra = { gain = 4, loss = 3, xmult = 2 } },
+	config = { extra = { gain = 4, loss = 3, Xmult = 2 } },
 	rarity = 2,
-	atlas = "crp_placeholder",
-	pos = { x = 3, y = 0 },
+	atlas = "crp_fun_coin",
+	pos = { x = 0, y = 0 },
+	display_size = { w = 1 * 71, h = 0.75 * 95 },
 	cost = 7,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.gain, card.ability.extra.loss, card.ability.extra.xmult } }
+		return { vars = { lenient_bignum(card.ability.extra.gain), lenient_bignum(card.ability.extra.loss), lenient_bignum(card.ability.extra.Xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.before or context.forcetrigger then
@@ -287,12 +295,13 @@ SMODS.Joker {
 		end
 		if (context.joker_main and G.GAME.dollars < 0) or context.forcetrigger then
 			return {
-				xmult = card.ability.extra.xmult
+				Xmult = card.ability.extra.Xmult
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
-		code = { "wilfredlam0418" }
+		art = { "PurplePickle" },
+		code = { "wilfredlam0418", "Glitchkat10" }
 	}
 }

@@ -85,8 +85,8 @@ SMODS.Joker {
 	cost = 20,
 	blueprint_compat = false,
 	demicoloncompat = false,
-	loc_vars = function(self, info-queue, card)
-		return { vars = { card.ability.extra.EEmult } }
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main and G.GAME.blind.config.blind.key == "bl_small") or context.forcetrigger then

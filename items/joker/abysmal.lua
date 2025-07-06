@@ -69,6 +69,8 @@ SMODS.Joker {
 	}
 }
 
+-- tries to kill itself like a thousand times when cursed jokers detected, even in the collection
+--[[
 SMODS.Joker {
 	key = "evil_riff_raff",
 	name = "EVIL Riff-Raff",
@@ -80,9 +82,9 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.cards, colours = { G.C.RARITY.cry_cursed } } }
+		return { vars = { lenient_bignum(card.ability.extra.cards) } }
 	end,
-	calculate = function(self, card)
+	calculate = function(self, card, context)
 		if context.setting_blind or context.forcetrigger then
 			for i = 1, card.ability.extra.cards do
 				if #G.jokers.cards < G.jokers.config.card_limit or context.forcetrigger then
@@ -91,8 +93,15 @@ SMODS.Joker {
 			end
 		end
 	end,
+	update = function(self, card)
+		if #Cryptid.advanced_find_joker(nil, "cry_cursed", nil, nil, true) >= 10 then
+			card:start_dissolve()
+			card:remove_from_deck()
+		end
+	end,
 	crp_credits = {
 		idea = { "wilfredlam0418" },
 		code = { "wilfredlam0418" }
 	}
 }
+]]--

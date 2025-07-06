@@ -73,7 +73,7 @@ SMODS.Consumable {
 	name = "Pot of Gold",
 	set = "Pot",
 	pos = { x = 10, y = 2 },
-	config = { extra = { cards = 1 } }
+	config = { extra = { cards = 1 } },
 	atlas = "crp_placeholder",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.cards) } }

@@ -193,13 +193,13 @@ SMODS.Joker {
 	}
 }
 
-SMOS.Joker {
+SMODS.Joker {
 	key = "c_big",
 	name = "C",
 	rarity = 3,
 	atlas = "crp_placeholder",
 	pos = { x = 4, y = 0 },
-	cost = 8
+	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	calculate = function()
