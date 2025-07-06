@@ -13,7 +13,8 @@ SMODS.Atlas {
 }
 
 -- commented out due to the current effect being graveyarded
---[[ SMODS.Joker {
+--[[
+SMODS.Joker {
 	key = "dead_joker",
 	config = { immutable = { mult = 107 } },
 	rarity = 2,
@@ -40,7 +41,7 @@ SMODS.Atlas {
 }
 ]]--
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "vermillion",
 	name = "Vermillion Joker",
 	pos = { x = 0, y = 6 },
@@ -89,7 +90,7 @@ SMODS.Atlas {
 	}
 }
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "money_card",
 	name = "Money Card",
 	config = { extra = { Xmoney = 1.1 } },
@@ -120,7 +121,7 @@ SMODS.Atlas {
 	}
 }
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "water_bottle",
 	name = "Water Bottle",
 	config = { extra = { splash = 5 }, immutable = { max_spawn = 100 } },
@@ -151,7 +152,7 @@ SMODS.Atlas {
 	}
 }
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "gamblecore",
 	name = "Gamblecore",
 	config = { immutable = { numerator = 1, denominator = 255, mult = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368 } },
@@ -182,7 +183,7 @@ SMODS.Atlas {
 	}
 }
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "tag_hoarder",
 	name = "Tag Hoarder",
 	rarity = 2,
@@ -209,7 +210,7 @@ SMODS.Atlas {
 	}
 }
 
-    SMODS.Joker {
+SMODS.Joker {
 	key = "loss",
 	name = "Loss",
 	config = { extra = { money = 1, mult = 2, hand_size = 2, chips = 50 } },
