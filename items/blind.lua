@@ -184,21 +184,18 @@ SMODS.Blind {
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
 	mult = 1,
-	jok = false,
-	cry_ante_base_mod = function(self, dt)
-		if not self.jok then
-			self.jok = true
-			return get_blind_amount(G.GAME.round_resets.ante)*G.P_BLINDS.bl_crp_joker.mult*G.GAME.starting_params.ante_scaling
-		end
-		return nil
+	set_blind = function(self)
+		G.GAME.blind.chips = G.GAME.blind.chips + 4
+		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
 	disable = function(self)
-		self.jok = false
+		G.GAME.blind.chips = G.GAME.blind.chips - 4
+		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
 	boss_colour = HEX("f7343e"),
     crp_credits = {
 		idea = { "Unknown" },
-		code = { "ScarredOut", "Glitchkat10" }
+		code = { "ScarredOut" }
 	}
 }
 
