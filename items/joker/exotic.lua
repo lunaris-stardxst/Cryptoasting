@@ -266,3 +266,27 @@ SMODS.Joker {
 		code = { "wilfredlam0418", "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "average_cryptid_experience",
+	name = "average cryptid experience",
+	config = { immutable = { mult = 8000000000000000 } },
+	atlas = "crp_joker",
+	pos = { x = 0, y = 9 },
+	soul_pos = { x = 2, y = 9, extra = { x = 1, y = 9 } },
+	rarity = "cry_exotic",
+	cost = 50,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function(self, card, context)
+		if (context.joker_main and next(context.poker_hands["Pair"])) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(card.ability.immutable.mult)
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "j man the f-zero/weezer fan" },
+		code = { "wilfredlam048", "Glitchkat10" }
+	}
+}

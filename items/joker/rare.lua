@@ -194,6 +194,26 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "c_big",
+	name = "C",
+	rarity = 3,
+	atlas = "crp_placeholder",
+	pos = { x = 4, y = 0 },
+	cost = 8,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	calculate = function()
+		if context.setting_blind or context.forcetrigger then
+			SMODS.add_card({ key = "j_mad", edition = "e_negative" })
+		end
+	end,
+	crp_credits = {
+		idea = { "lord.ruby" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Joker {
 	key = "12345",
 	name = "12345",
 	config = { extra = { jokerslots = 1, consumeableslots = 2, money = 3, mult = 4, chips = 5 } },
