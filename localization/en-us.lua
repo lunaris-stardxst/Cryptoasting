@@ -54,13 +54,13 @@ return {
 			bl_crp_gloom = {
 				name = "The Gloom",
 				text = {
-					"All Jolly Jokers are debuffed"
+					"All Jolly or M Jokers are debuffed"
 				}
 			},
 			bl_crp_monochrome_m = {
 				name = "Monochrome M",
 				text = {
-					"All non-Jolly Jokers are debuffed",
+					"All non-Jolly and non-M Jokers are debuffed",
 					"Must play only Pairs"
 				}
 			},
@@ -88,6 +88,21 @@ return {
 				text = {
 					"All Diamond, Heart, Spade and Club",
 					"cards are debuffed"
+				},
+			},
+			bl_crp_pokios = {
+				name = "Pokios (EM+)",
+				text = {
+					"^2 Blind size",
+					"every frame"
+				},
+			},
+			bl_crp_quettus = {
+				name = "Quettus (S, EM+)",
+				text = {
+					"^10 Blind size",
+					"Destroys all Legendary+",
+					"jokers upon entering blind"
 				},
 			}
 		},
@@ -145,7 +160,7 @@ return {
 			j_crp_googologist = {
 				name = "Googologist",
 				text = {
-					"{C:white,X:dark_edition}#1#Mult,{C:dark_edition,X:dark_edition}M{C:white,X:dark_edition}1(1)1.7e308#2#", -- insane workarounds
+					"{C:white,X:dark_edition}#1#Mult, 1(1)1.7e308#2#",
 				},
 			},
 			j_crp_none = {
@@ -1472,7 +1487,8 @@ return {
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
 			k_crp_supa_rare = "supa rare",
 			k_crp_all = "All",
-			bl_crp_debuff_monochrome_m = "Must play Pairs"
+			bl_crp_debuff_monochrome_m = "Must play Pairs",
+			k_crp_saved = "Saved by #1#"
 		},
 		labels = {
 			crp_overloaded = "Overloaded",
@@ -1493,7 +1509,6 @@ return {
 			colon_3 = ":3",
 			placeholder = "Placeholder Art: #1#",
 			alt = "~ #1#",
-			music = "Music: #1#"
 		}
 	}
 }

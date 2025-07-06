@@ -470,9 +470,9 @@ SMODS.Edition {
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
 	end,
-	config = { eee_chips = 1.03, eee_mult = 1.03, trigger = nil },
+	config = { EEEchips = 1.03, EEEmult = 1.03, trigger = nil },
 	loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.eee_chips), lenient_bignum(self.config.eee_mult) } }
+		return { vars = { lenient_bignum(self.config.EEEchips), lenient_bignum(self.config.EEEmult) } }
 	end,
 	calculate = function(self, card, context)
 		if
@@ -480,12 +480,19 @@ SMODS.Edition {
 				context.edition -- for when on jokers
 				and context.cardarea == G.jokers -- checks if should trigger
 				and card.config.trigger -- fixes double trigger
-			) or (
+			)
+			or
+			(
 				context.main_scoring -- for when on playing cards
 				and context.cardarea == G.play
 			)
 		then
-			return { eee_chips = lenient_bignum(self.config.eee_chips), eee_mult = lenient_bignum(self.config.eee_mult) }
+			return {
+				EEEchips = lenient_bignum(self.config.EEE_chips),
+				extra = {
+					EEEmult = lenient_bignum(self.config.EEEmult)
+				}
+			}
 		end
 		if context.joker_main then
 			card.config.trigger = true -- context.edition triggers twice, this makes it only trigger once (only for jokers)

@@ -13,7 +13,8 @@ SMODS.Atlas {
 }
 
 -- commented out due to the current effect being graveyarded
---[[ SMODS.Joker {
+--[[
+SMODS.Joker {
 	key = "dead_joker",
 	config = { immutable = { mult = 107 } },
 	rarity = 2,

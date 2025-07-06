@@ -39,7 +39,7 @@ SMODS.Stake {
 }
 
 SMODS.Stake {
-	key = "violet",
+	key = "stencil",
 	applied_stakes = { "cry_square" },
 	--[[
 	atlas = "?",
