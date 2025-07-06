@@ -137,7 +137,7 @@ SMODS.Joker {
 	cost = 0,
 	blueprint_compat = false,
 	demicoloncompat = false,
-	calculate = function()
+	calculate = function(self, card, context)
 		if context.setting_blind and G.GAME.blind.config.blind.key == "bl_small" then
 			G.GAME.blind:disable()
 			return {
