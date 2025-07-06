@@ -176,6 +176,7 @@ SMODS.Blind {
 		code = { "Glitchkat10" }
 	}
 }
+
 SMODS.Blind {
 	key = "joker",
 	name = "Joker",
@@ -183,26 +184,31 @@ SMODS.Blind {
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
 	mult = 1,
-	set_blind = function(self)
-		G.GAME.blind.chips = G.GAME.blind.chips + 4
-		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+	jok = false,
+	cry_ante_base_mod = function(self, dt)
+		if not self.jok then
+			self.jok = true
+			return get_blind_amount(G.GAME.round_resets.ante)*G.P_BLINDS.bl_crp_joker.mult*G.GAME.starting_params.ante_scaling
+		end
+		return nil
 	end,
 	disable = function(self)
-		G.GAME.blind.chips = G.GAME.blind.chips - 4
-		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+		self.jok = false
 	end,
 	boss_colour = HEX("f7343e"),
     crp_credits = {
 		idea = { "Unknown" },
-		code = { "ScarredOut" }
+		code = { "ScarredOut", "Glitchkat10" }
 	}
 }
+
 SMODS.Blind {
 	key = "gloom",
 	name = "Gloom",
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
 	atlas = "blind",
+	boss_colour = HEX("a66943"), -- complementary color of cryptid's jolly color
 	mult = 2,
 	recalc_debuff = function(self, card, from_blind)
 		if (card.area == G.jokers) and not G.GAME.blind.disabled and (card:is_jolly() or (Cryptid.safe_get(card.config.center, "pools", "M"))) then -- since this is a cryptid addon we'll use cryptids function for this
@@ -210,7 +216,6 @@ SMODS.Blind {
 		end
 		return false
 	end,
-	boss_colour = HEX("364961"),
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
@@ -219,8 +224,8 @@ SMODS.Blind {
 SMODS.Blind {
 	key = "monochrome_m",
 	name = "Monochrome M",
-	pos = { x = 0, y = 0 },
-	boss = { min = 2, max = 10, showdown = true},
+	pos = { x = 0, y = 8 },
+	boss = { min = 2, max = 10, showdown = true },
 	atlas = "blind",
 	mult = 0.13,
 	recalc_debuff = function(self, card, from_blind)
@@ -242,7 +247,7 @@ SMODS.Blind {
 	get_loc_debuff_text = function(self) -- we do a little cryptid stealing
 		return localize("bl_crp_debuff_monochrome_m")
 	end,
-	boss_colour = HEX("000000"),
+	boss_colour = HEX("4f6367"),
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
@@ -303,8 +308,9 @@ local valid_leg_blind_keys = { -- List of rarities that will allow these to spaw
 SMODS.Blind {
 	key = "roadblock",
 	name = "The Roadblock (L+)",
-	pos = { x = 0, y = 0 },
+	pos = { x = 0, y = 3 },
 	boss = { min = 2, max = 10 },
+	boss_colour = HEX("98a1b2"),
 	blindrarity = "Legendary",	
 	in_pool = function(self)
 		if G.jokers then
@@ -330,7 +336,6 @@ SMODS.Blind {
 		G.GAME.blind.chips = math.sqrt(G.GAME.blind.chips) -- reverse the effect
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips) -- make sure it shows up
 	end,
-	boss_colour = HEX("404215"),
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut", "Psychomaniac14" }

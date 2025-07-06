@@ -1402,7 +1402,8 @@ return {
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
 			k_crp_supa_rare = "supa rare",
 			k_crp_all = "All",
-			bl_crp_debuff_monochrome_m = "Must play Pairs"
+			bl_crp_debuff_monochrome_m = "Must play Pairs",
+			k_crp_saved = "Saved by #1#"
 		},
 		labels = {
 			crp_overloaded = "Overloaded",

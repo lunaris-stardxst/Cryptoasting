@@ -244,7 +244,7 @@ SMODS.Tag {
 	atlas = "crp_tags",
 	pos = { x = 2, y = 1 },
 	min_ante = 27,
-	config = { extra = { amount = 2 } },
+	config = { extra = { amount = 1 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { lenient_bignum(tag.config.extra.amount) } }
 	end,
@@ -279,7 +279,7 @@ SMODS.Tag {
 	atlas = "crp_tags",
 	pos = { x = 3, y = 1 },
 	min_ante = 39,
-	config = { extra = { amount = 2 } },
+	config = { extra = { amount = 1 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { lenient_bignum(tag.config.extra.amount) } }
 	end,
@@ -314,7 +314,7 @@ SMODS.Tag {
     atlas = "crp_tags",
     pos = { x = 5, y = 1 },
 	min_ante = 69,
-    config = { extra = { amount = 2 } },
+    config = { extra = { amount = 1 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { lenient_bignum(tag.config.extra.amount) } }
     end,
@@ -349,7 +349,7 @@ SMODS.Tag {
 	atlas = "crp_tags",
 	pos = { x = 2, y = 2 },
 	min_ante = 98,
-	config = { extra = { amount = 2 } },
+	config = { extra = { amount = 1 } },
 	loc_vars = function(self, info_queue, tag)
 		return { vars = { lenient_bignum(tag.config.extra.amount) } }
 	end,
@@ -384,7 +384,7 @@ SMODS.Tag {
     atlas = "crp_tags",
     pos = { x = 4, y = 2 },
 	min_ante = 270,
-    config = { extra = { amount = 2 } },
+    config = { extra = { amount = 1 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { lenient_bignum(tag.config.extra.amount) } }
     end,
@@ -419,7 +419,7 @@ SMODS.Tag {
     atlas = "crp_tags",
     pos = { x = 0, y = 2 },
 	min_ante = 420,
-    config = { extra = { amount = 2 } },
+    config = { extra = { amount = 1 } },
     loc_vars = function(self, info_queue, tag)
         return { vars = { lenient_bignum(tag.config.extra.amount) } }
     end,
@@ -703,7 +703,7 @@ SMODS.Tag {
     end,
 	crp_credits = {
 		idea = { "aqrlr" },
-		art = { "aqrlr" },
+		art = { "Grahkon", "aqrlr" },
 		code = { "Glitchkat10" }
 	},
 }
