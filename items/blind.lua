@@ -490,7 +490,7 @@ SMODS.Blind {
 	atlas = "blind",
 	boss_colour = HEX("000000"),
     crp_credits = {
-		idea = { "Unknown" },
+		idea = { "superb_thing" },
 		code = { "ScarredOut" }
 	}
 }
