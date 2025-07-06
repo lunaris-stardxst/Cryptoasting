@@ -154,6 +154,12 @@ return {
 					"",
 				},
 			},
+			j_crp_chi_cot = {
+				name = "Chi Cot",
+				text = {
+					"Disables effects of all {C:attention}Small Blinds"
+				}
+			},
 			j_crp_three = {
 				name = "3.",
 				text = {
