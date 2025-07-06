@@ -30,30 +30,40 @@ SMODS.Joker {
 		if context.game_over and to_big(lenient_bignum(G.GAME.chips) / lenient_bignum(G.GAME.blind.chips)) < to_big(1) and card.ability.extra.death_prevention_enabled == true then
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					G.hand_text_area.blind_chips:juice_up()
-					G.hand_text_area.game_chips:juice_up()
 					play_sound("tarot1")
+					card:start_dissolve()
 					return true
-				end,
+				end
 			}))
-		card.ability.extra.death_prevention_enabled = false
-		card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) + lenient_bignum(card.ability.extra.mult_mod)
-		return {
-			message = "Saved & Upgraded!",
-			saved = true,
-			colour = G.C.RED,
-		}
-		end
-		if context.selling_self then
 			card.ability.extra.death_prevention_enabled = false
+			return {
+				saved = true,
+				message = localize({
+					type = "variable",
+					key = "k_saved",
+					vars = { "Weather Machine" }
+				}),
+			}
+		end
+		if context.end_of_round and context.game_over and card.ability.extra.death_prevention_enabled == true then
+			return {
+				message = "Saved & Upgraded!",
+				colour = G.C.RED,
+			}
 		end
 		if context.joker_main and card.ability.extra.death_prevention_enabled == false or context.forcetrigger then
+			card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) + lenient_bignum(card.ability.extra.mult_mod)
 			return {
 				card = card,
 				mult_mod = lenient_bignum(card.ability.extra.mult),
 				message = "+" .. number_format(lenient_bignum(card.ability.extra.mult)) .. "Mult",
 				colour = G.C.MULT,
 			}
+		end
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		if not context.from_debuff then
+			card.ability.extra.death_prevention_enabled = false
 		end
 	end,
 	crp_credits = {

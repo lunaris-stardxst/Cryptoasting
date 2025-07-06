@@ -1,5 +1,4 @@
 
-
 SMODS.Atlas {
 	key = "joker",
 	path = "atlas_joker.png",
@@ -71,7 +70,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "participation_trophy",
 	name = "Participation Trophy",
-	config = { extra = { mult_mod = 0.1 } },
+	config = { extra = { mult_mod = 0.25 } },
 	rarity = 1,
 	atlas = "crp_placeholder",
 	pos = { x = 2, y = 0 },
@@ -306,10 +305,9 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "skibidi_toilet",
 	name = "Skibidi Toilet",
-	config = {},
 	rarity = 1,
-	atlas = "crp_placeholder",
-	pos = { x = 2, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 6, y = 4 },
 	blueprint_compat = true,
 	demicoloncompat = true,
 	cost = 4,
@@ -323,6 +321,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "superb_thing" },
 		code = { "Poker The Poker", "Glitchkat10" },
 	}
 }
@@ -332,15 +331,15 @@ SMODS.Joker {
 	name = "Bulgoelatro",
 	config = { extra = { mult = 2.7 } },
 	rarity = 1,
-	atlas = "crp_placeholder",
-	pos = { x = 2, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 6, y = 9 },
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		local bulgoe_jokers = lenient_bignum(0)
 		if G.jokers and G.jokers.cards then
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center.pools.Bulgoe then 
+				if G.jokers.cards[i].config.center.pools.Bulgoe then
 					bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) 
 				end
 			end
@@ -362,6 +361,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "wilfredlam0418" },
+		art = { "ottermatter" },
 		code = { "wilfredlam0418" },
 	}
 }

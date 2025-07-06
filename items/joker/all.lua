@@ -64,9 +64,9 @@ SMODS.Joker { -- IT'S ALIVE
 						local success, j = pcall(create_card, "Joker", G.jokers, nil, nil, nil, nil, key, "literally_fucking_everything")
 						if success and j and type(j) == 'table' then
 							if j.add_to_deck then pcall(j.add_to_deck, j) end
-							if G.jokers and G.jokers.emplace then 
+							if G.jokers and G.jokers.emplace then
 								pcall(function() G.jokers:emplace(j) end)
-								jokers_added = jokers_added + 1 
+								jokers_added = jokers_added + 1
 							end
 						end
 					end
