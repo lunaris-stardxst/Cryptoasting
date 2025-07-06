@@ -300,6 +300,7 @@ local valid_leg_blind_keys = { -- List of rarities that will allow these to spaw
 	["crp_22exomythic4mecipe"] = true,
 	["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
 	["crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe"] = true,
+	["crp_all"] = true,
 }
 
 SMODS.Blind {
@@ -340,12 +341,13 @@ SMODS.Blind {
 }
 
 -- ExoMythic Blinds
-local valid_exomyth_blind_keys = { -- ist of rarities that will allow these to spawn
+local valid_exomyth_blind_keys = { -- list of rarities that will allow these to spawn
 	["crp_exomythic"] = true,
 	["crp_2exomythic4me"] = true,
 	["crp_22exomythic4mecipe"] = true,
 	["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
 	["crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe"] = true,
+	["crp_all"] = true,
 }
 
 SMODS.Blind {
@@ -355,7 +357,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 1e100, -- a miniscule amount of trolling
-	dollars = 1222,
+	dollars = 16,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -387,7 +389,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 1e100, -- a miniscule amount of trolling
-	dollars = 1600,
+	dollars = 16,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -420,6 +422,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 2,
+	dollars = 16,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -447,6 +450,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10, showdown = true },
 	blindrarity = "ExoMythic",
 	mult = 1,
+	dollars = 32,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
