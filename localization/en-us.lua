@@ -672,6 +672,14 @@ return {
 					"{C:inactive}\"generic video game slime enemy\""
 				},
 			},
+			j_crp_average_cryptid_experience = {
+				name = "average cryptid experience",
+				text = {
+					"be me, go to shop, order {C:attention}one quadrillion jolly jokers,",
+					"laugh since they can't possibly have {C:attention}one quadrillion jolly jokers,",
+					"five minutes later they call my name, {C:attention}one quadrillion jolly jokers"
+				}
+			},
 			j_crp_duplex = {
 				name = "Duplex",
 				text = {
