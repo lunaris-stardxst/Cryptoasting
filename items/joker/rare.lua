@@ -364,6 +364,43 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "photo_of_grouchy",
+	name = "Photo of Grouchy Jimbo",
+	config = { extra = { Xmult = 30 } },
+	rarity = 3,
+	atlas = "crp_joker",
+	pos = { x = 8, y = 9 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
+	end,
+	cost = 6,
+	calculate = function(self, card, context)
+		if (context.cardarea == G.jokers and context.joker_main) or context.forcetrigger then
+			if ((function()
+				for i = 1, #G.jokers.cards do
+					if G.jokers.cards[i].config.center.key == "j_crp_grouchy_jimbo" then
+						return true
+					end
+				end
+				return false
+			end)()) or context.forcetrigger
+			then
+				return {
+					Xmult = card.ability.extra.Xmult
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		art = { "BuilderBosc", "Psychomaniac14", "Glitchkat10" },
+		code = { "Glitchkat10" },
+	}
+}
+
+SMODS.Joker {
 	key = "dumpster_diver",
 	name = "Dumpster Diver",
 	config = { extra = { create = 2, rare_create = 1, odds = 20 } },

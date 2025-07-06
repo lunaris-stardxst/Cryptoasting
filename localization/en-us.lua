@@ -240,6 +240,13 @@ return {
 					"or a {C:crp_trash}Trash{} {C:attention}Joker{}",
 				}
 			},
+			j_crp_grouchy = {
+				name = "Grouchy Jimbo",
+				text = {
+					"{C:mult}+#1#{} Mult if this is",
+					"the {C:attention}only{} owned {C:attention}Joker",
+				},
+			},
 			j_crp_the_joker_that_decided = {
 				name = {
 					"The Joker That Decided He Wanted to",
@@ -351,6 +358,14 @@ return {
 					"Gives {C:chips}+Chips{} and {C:mult}+Mult{}",
 					"equal to the number",
 					"of owned {C:attention}tags{}"
+				},
+			},
+			j_crp_ancient_debris = {
+				name = "Ancient Debris",
+				text = {
+					"Earn {C:money}$#1#{} at end of round",
+					"Increase payout by {C:money}$#2#{} if",
+					"played hand contains a {C:attention}Stone{} card"
 				},
 			},
 			j_crp_loss = {
@@ -469,6 +484,13 @@ return {
 					"{C:attention}+#2# consumable{} slot#<s>2#",
 					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}",
 				}
+			},
+			j_crp_photo_of_grouchy = {
+				name = "Photo of Grouchy Jimbo",
+				text = {
+					"{C:white,X:mult}X#1#{} Mult if",
+					"{C:attention}Grouchy Jimbo{} is owned",
+				},
 			},
 			j_crp_dumpster_diver = {
 				name = "Dumpster Diver",

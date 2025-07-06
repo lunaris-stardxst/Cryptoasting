@@ -93,9 +93,9 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "q_big",
 	name = "Q",
-	rarity = 3,
+	rarity = 2,
 	atlas = "crp_placeholder",
-	pos = { x = 4, y = 0 },
+	pos = { x = 3, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -223,6 +223,41 @@ SMODS.Joker {
 				mult = lenient_bignum(bonus),
 			}
 		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Joker {
+	key = "ancient_debris",
+	name = "Ancient Debris",
+	config = { extra = { hasStone = 0, payout = 1, increase = 0.5 } },
+	rarity = 2,
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0 },
+	cost = 6,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.payout), lenient_bignum(card.ability.extra.increase) } }
+	end,
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play and not context.blueprint then -- apply hasstone = 1
+            if SMODS.get_enhancements(context.other_card)["m_stone"] == true then
+                card.ability.extra.hasStone = 1
+            end
+        end
+		if context.after then -- payout increase
+            if card.ability.extra.hasStone == 1 then
+                card.ability.extra.payout = lenient_bignum(card.ability.extra.payout) + lenient_bignum(card.ability.extra.increase)
+				card.ability.extra.hasStone = 0
+            end
+        end
+	end,
+	calc_dollar_bonus = function(self, card)
+		return lenient_bignum(card.ability.extra.payout) -- actual payout
 	end,
 	crp_credits = {
 		idea = { "Psychomaniac14" },

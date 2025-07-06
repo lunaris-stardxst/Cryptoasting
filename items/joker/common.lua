@@ -303,6 +303,33 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "grouchy",
+	name = "Grouchy Jimbo",
+	config = { extra = { mult = 30 } },
+	rarity = 1,
+	atlas = "crp_joker",
+	pos = { x = 7, y = 9 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	cost = 6,
+	calculate = function(self, card, context)
+		if (context.joker_main and #G.jokers.cards == 1) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(card.ability.extra.mult)
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "BuilderBosc" },
+		art = { "BuilderBosc" },
+		code = { "Glitchkat10" },
+	}
+}
+
+SMODS.Joker {
 	key = "the_joker_that_decided",
 	name = "The Joker That Decided He Wanted to Test the Limits for How Long a Joker Name Could Be by Putting His Effect in His Name With Said Effect Being That He Gives One Mult When Any Playing Card Is Scored Also He Wanted to Let You Know That He Wants You to Have a Nice Day So He Put That in His Name Too Just to Inflate How Long His Name Is",
 	config = { immutable = { mult = 1 } },
