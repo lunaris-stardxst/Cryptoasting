@@ -218,6 +218,12 @@ return {
 					"or a {C:crp_trash}Trash{} {C:attention}Joker{}",
 				}
 			},
+			j_crp_the_joker_that_decided = {
+				name = "The Joker That Decided He Wanted to Test the Limits for How Long a Joker Name Could Be by Putting His Effect in His Name With Said Effect Being That He Gives One Mult When Any Playing Card Is Scored Also He Wanted to Let You Know That He Wants You to Have a Nice Day So He Put That in His Name Too Just to Inflate How Long His Name Is",
+				text = {
+					"Read the name"
+				}
+			},
 			j_crp_skibidi_toilet = {
 				name = "Skibidi Toilet",
 				text = {
@@ -392,6 +398,12 @@ return {
 					"Earn {C:money}$#3#{} at end of round",
 					"{C:mult}+4{} Mult",
 					"{C:chips}+5{} Chip#<s>5#",
+				}
+			},
+			j_crp_coughing_baby_vs_hydrogen_bomb = {
+				name = "Coughing Baby vs. Hydrogen Bomb",
+				text = {
+					"{C:edition,X:dark_edition}^^#1#{} Mult against {C:attention}Small Blinds{}"
 				}
 			},
 			j_crp_playerrkillerr = {
