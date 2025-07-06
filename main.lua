@@ -1,10 +1,10 @@
 -- a file specifically to load all other lua files in the mod (and for config stuff)
 
 local files = {
+	"items/consumable/tarot",
+	"items/consumable/spectral",
 	"items/consumable/code",
 	"items/consumable/pot",
-	"items/consumable/spectral",
-	"items/consumable/tarot",
 	"items/joker/abysmal",
 	"items/joker/cursed",
 	"items/joker/trash",

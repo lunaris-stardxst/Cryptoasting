@@ -410,7 +410,7 @@ SMODS.Blind {
 	boss_colour = HEX("ff0055"),
     crp_credits = {
 		idea = { "Grahkon" },
-		code = {"ScarredOut"}
+		code = { "ScarredOut" }
 	}
 }
 SMODS.Blind {
@@ -437,7 +437,7 @@ SMODS.Blind {
 	boss_colour = HEX("2b7037"),
     crp_credits = {
 		idea = { "Unknown" },
-		code = {"ScarredOut"}
+		code = { "ScarredOut" }
 	}
 }
 SMODS.Blind {
@@ -491,6 +491,6 @@ SMODS.Blind {
 	boss_colour = HEX("000000"),
     crp_credits = {
 		idea = { "Unknown" },
-		code = {"ScarredOut"}
+		code = { "ScarredOut" }
 	}
 }
