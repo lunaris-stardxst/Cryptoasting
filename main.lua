@@ -41,6 +41,7 @@ local files = {
 	"items/challenge",
 	"lib/cardanim",
 	"lib/cardanim_macros/skim",
+	"lib/abysmal",
 	"lib/https",
 	"lib/misc",
 	"lib/modbadge",
