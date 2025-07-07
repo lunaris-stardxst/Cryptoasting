@@ -26,6 +26,19 @@ return {
 					"0% chance of occuring",
 				},
 			},
+			bl_crp_garbage = {
+				name = "The Garbage",
+				text = {
+					"Destroy all held consumables"
+				}
+			},
+			bl_crp_evil = {
+				name = "The EVIL",
+				text = {
+					"All compatible Jokers turn",
+					"into their Evil variants"
+				}
+			},
 			bl_crp_evil_plant = {
 				name = "The EVIL Plant",
 				text = {
@@ -49,6 +62,24 @@ return {
 				name = "The Joker",
 				text = {
 					"+4 blind requirement"
+				}
+			},
+			bl_crp_serious = {
+				name = "The Serious",
+				text = {
+					"All Cryptposting Jokers are debuffed"
+				}
+			},
+			bl_crp_balance = {
+				name = "The Balance",
+				text = {
+					"All Cryptid Jokers are debuffed"
+				}
+			},
+			bl_crp_offset = {
+				name = "The Offset",
+				text = {
+					"All non-Cryptid Jokers are debuffed"
 				}
 			},
 			bl_crp_gloom = {

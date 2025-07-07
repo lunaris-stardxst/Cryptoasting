@@ -37,7 +37,7 @@ SMODS.Blind {
 	atlas = "blind",
 	boss = { min = 3 },
     mult = 0.5,
-    boss_colour = HEX("709284"),
+    boss_colour = HEX("6f9e00"), -- the needle's main art color with saturation at 100
 	set_blind = function(self, card, from_blind)
         ease_discard(-G.GAME.current_round.discards_left, nil, true)
     	ease_hands_played(-G.GAME.current_round.hands_left + 1, nil, true)
@@ -62,8 +62,8 @@ SMODS.Blind {
 	pos = { x = 0, y = 0 },
 	atlas = "blind",
 	boss = { min = 4 },
+	boss_colour = HEX("1a515f"), -- border color of the doctor's cap in the "diagnosis: skill issue" meme
     mult = 2,
-    boss_colour = HEX("709284"),
 	set_blind = function(self, card, from_blind)
         for k, v in pairs(G.GAME.probabilities) do 
             G.GAME.probabilities[k] = v / 1.79769e308
@@ -85,21 +85,65 @@ SMODS.Blind {
 	}
 }
 
+--[[
+SMODS.Blind {
+	key = "evil",
+	name = "The EVIL",
+	pos = { x = 0, y = 0 },
+	atlas = "blind",
+	boss = { min = 5 },
+	boss_colour = HEX("ff0000"), -- yeah idk what this could POSSIBLY be referencing
+	set_blind = function(self, card, from_blind)
+		if (card.area == G.jokers) and not G.GAME.blind.disabled and card.config.center.evil then
+			local card_id = card.config.center.evil
+			card:start_dissolve()
+			card:remove_from_deck()
+			SMODS.add_card({ key = card_id })
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" }
+	}
+}
+]]--
+
 SMODS.Blind {
 	key = "dice",
 	name = "The Dice",
 	pos = { x = 0, y = 2 },
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
-    mult = math.random(1, 6),
-	boss_colour = HEX("26bc55"),
+	mult = math.random(1, 6), -- i really wish this could use pseudoseed, but the game crashes if i try
+	boss_colour = HEX("4bc292"), -- oops! all 6s main color
 	disable = function(self, card, from_blind)
 		G.GAME.blind.chips = G.GAME.blind.chips / self.mult
 	end,
     crp_credits = {
 		idea = { "Poker The Poker" },
-        art = { "George The Rat" },
+        art = { "George The Rat", "Glitchkat10" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Blind {
+	key = "garbage",
+	name = "The Garbage",
+	pos = { x = 0, y = 0 },
+	boss = { min = 3 },
+	atlas = "blind",
+	boss_colour = HEX("606060"), -- average of trash's gradient
+	set_blind = function(self, card, from_blind)
+		if not G.GAME.blind_disabled then
+			for i = 1, #G.consumeables.cards do
+				G.consumeables.cards[i]:start_disssolve()
+				G.consumeables.cards[i]:remove_from_deck()
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
 	}
 }
 
@@ -109,7 +153,7 @@ SMODS.Blind {
 	pos = { x = 0, y = 1 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
-	boss_colour = HEX("757575"),
+	boss_colour = HEX("757575"), -- was the main color of the pre-existing art
     crp_credits = {
 		idea = { "Poker The Poker" },
         art = { "SolvLyi" },
@@ -123,7 +167,7 @@ SMODS.Blind {
 	pos = { x = 0, y = 19 },
 	boss = { min = 2, max = 10 },
     mult = 2,
-    boss_colour = HEX("709284"),
+    boss_colour = HEX("709284"), -- same color as the plant
 	recalc_debuff = function(self, card, from_blind)
 		if card.area ~= G.jokers and not G.GAME.blind.disabled then
 			if
@@ -155,7 +199,7 @@ SMODS.Blind {
 	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
     mult = -1,
-    boss_colour = HEX("3a55ab"),
+    boss_colour = HEX("3a55ab"), -- same color as small blinds
     crp_credits = {
 		idea = { "superb_thing" },
         art = { "LocalThunk" },
@@ -169,7 +213,7 @@ SMODS.Blind {
 	pos = { x = 0, y = 1 },
 	boss = { min = 2, max = 10 },
     mult = -1.5,
-    boss_colour = HEX("e0a23a"),
+    boss_colour = HEX("e0a23a"), -- same color as big blinds
     crp_credits = {
 		idea = { "aqrlr" },
         art = { "LocalThunk" },
@@ -179,10 +223,11 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "joker",
-	name = "Joker",
+	name = "The Joker",
 	pos = { x = 0, y = 0 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
+	boss_colour = HEX("fd812b"), -- joker rarity color (which in of itself is the average of jimbo's red and orange hat colors)
 	mult = 1,
 	set_blind = function(self)
 		G.GAME.blind.chips = G.GAME.blind.chips + 4
@@ -192,10 +237,69 @@ SMODS.Blind {
 		G.GAME.blind.chips = G.GAME.blind.chips - 4
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
-	boss_colour = HEX("f7343e"),
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
+	}
+}
+
+SMODS.Blind {
+	key = "serious",
+	name = "The Serious",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	boss_colour = HEX("a0a0a0"), -- just a general gray color
+	mult = 1.75,
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "cryptposting" then
+			return true
+		end
+		return false
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
+	key = "balance",
+	name = "The Balance",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	mult = 1.75,
+	boss_colour = HEX("8924d2"), -- main color of cryptid's purple scalae
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "Cryptid" then
+			return true
+		end
+		return false
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
+	key = "offset",
+	name = "The Offset",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	mult = 0.75,
+	boss_colour = HEX("96ffb0"), -- border color of code cards (referencing ://OFF_BY_ONE)
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "Cryptid" then
+			return false
+		end
+		return true
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
 	}
 }
 
@@ -244,7 +348,7 @@ SMODS.Blind {
 	get_loc_debuff_text = function(self) -- we do a little cryptid stealing
 		return localize("bl_crp_debuff_monochrome_m")
 	end,
-	boss_colour = HEX("4f6367"),
+	boss_colour = HEX("4f6367"), -- balatro black (*monochrome* m)
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
@@ -280,7 +384,7 @@ SMODS.Blind {
 		G.GAME.blind.chips = G.GAME.blind.chips / (1 + (planets_used * sizeperplanet)) -- NOTE: this will probably reduce further if you use a planet card during a blind, but the only way i can think of to do that is luchador so i don't feel like fixing it rn
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
-	boss_colour = HEX("4fb1db"),
+	boss_colour = HEX("4fb1db"), -- yeah idk
     crp_credits = {
 		idea = { "lunarisillustratez" },
 		code = { "ScarredOut" }
@@ -308,7 +412,7 @@ SMODS.Blind {
 	name = "The Roadblock (L+)",
 	pos = { x = 0, y = 3 },
 	boss = { min = 2, max = 10 },
-	boss_colour = HEX("98a1b2"),
+	boss_colour = HEX("98a1b2"), -- same color as the pre-existing art
 	blindrarity = "Legendary",	
 	in_pool = function(self)
 		if G.jokers then
