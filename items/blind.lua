@@ -156,7 +156,7 @@ SMODS.Blind {
 	boss_colour = HEX("757575"), -- was the main color of the pre-existing art
     crp_credits = {
 		idea = { "Poker The Poker" },
-        art = { "SolvLyi" },
+        art = { "SolvLyi", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -440,6 +440,7 @@ SMODS.Blind {
 	end,
     crp_credits = {
 		idea = { "Unknown" },
+		art = { "yahooyowza", "Glitchkat10" },
 		code = { "ScarredOut", "Psychomaniac14" }
 	}
 }
