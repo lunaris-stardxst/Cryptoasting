@@ -343,7 +343,7 @@ SMODS.Joker {
 
 SMODS.Joker{ --Piano Falling from the Jolly Moon
     name = "Piano Falling from the Jolly Moon",
-    key = "pianofallingfromthejollymoon",
+    key = "jollymoon",
     config = {
         extra = {
             Pair = 0,
