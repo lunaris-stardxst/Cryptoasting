@@ -376,6 +376,7 @@ loc_vars = function(self, info_queue, card)
 	crp_credits={
 	idea = { "Glitchkat10" },
 	code = { "lunarisillustratez" }
+	}			
 }
 
 
@@ -403,5 +404,9 @@ demicoloncompat = true,
                     mult = card.ability.extra.mult
                 }
         end
-    end
+    end,
+crp_credits={
+	idea = { "aqrlr" },
+	code = { "lunarisillustratez" }
+	}
 }
