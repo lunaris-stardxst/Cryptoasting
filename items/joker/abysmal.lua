@@ -77,6 +77,7 @@ SMODS.Joker {
 	config = { extra = { cards = 2 } },
 	rarity = "crp_abysmal",
 	atlas = "crp_placeholder",
+	evil = "j_riff_raff",
 	pos = { x = 0, y = 0 },
 	cost = 0,
 	blueprint_compat = true,
