@@ -39,6 +39,7 @@ SMODS.Consumable {
 			G.hand.highlighted[i]:start_dissolve()
 			G.hand.highlighted[i]:remove_from_deck()
 		end
+		SMODS.draw_cards(#G.hand.highlighted)
 	end,
 	crp_credits = {
 		idea = { "Psychomaniac14" },
