@@ -85,6 +85,7 @@ SMODS.Blind {
 	}
 }
 
+--[[
 SMODS.Blind {
 	key = "evil",
 	name = "The EVIL",
@@ -105,6 +106,7 @@ SMODS.Blind {
 		code = { "wilfredlam0418" }
 	}
 }
+]]--
 
 SMODS.Blind {
 	key = "dice",
