@@ -421,6 +421,36 @@ SMODS.Joker {
 	}
 }
 
+
+SMODS.Joker {
+	key = "double_negative",
+	name = "Double Negative",
+	config = { extra = { Xchipsmult = -1.2 } },
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	cost = 4,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.Xchipsmult, colours = { 0.8, 0.45, 0.85, 1 } } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				Xchip_mod = card.ability.extra.Xchipsmult,
+				Xmult_mod = card.ability.extra.Xchipsmult,
+				message = "X" .. card.ability.extra.Xchipsmult .. " Chips and Mult",
+				colour = { 0.8, 0.45, 0.85, 1 }
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418" }
+	}
+}
+
 SMODS.Joker {
 	key = "goblin",
 	name = "Goblin",
