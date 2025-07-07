@@ -340,3 +340,27 @@ SMODS.Joker {
 		code = { "wilfredlam0418", "Glitchkat10" }
 	}
 }
+
+SMODS.Joker {
+	key = "gomble",
+	name = "Gomble",
+	rarity = 2,
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	cost = 8,
+	calculate = function(self, card, context)
+		if (context.joker_main and pseudorandom("crp_gomble") < 0.5) or context.forcetrigger then
+			SMODS.add_card({ key = "crp_goblin" })
+			return {
+				message = "Created!",
+				colour = G.C.FILTER
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "wilfredlam0418" }
+	}
+}
