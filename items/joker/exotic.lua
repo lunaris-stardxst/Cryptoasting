@@ -15,7 +15,7 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "normalis", -- hd bulgoe :fire:
 	name = "Normalis",
-	config = { extra = { Echips = 2.7, Emult = 2.7 } },
+	config = { extra = { Echipsmult = 2.7 } },
 	rarity = "cry_exotic",
 	atlas =  "crp_joker",
 	blueprint_compat = true,
@@ -25,14 +25,14 @@ SMODS.Joker {
 	cost = 50,
 	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Echips), } }
+		return { vars = { lenient_bignum(card.ability.extra.Echipsmult), } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Echip_mod = lenient_bignum(card.ability.extra.Echips),
-				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				message = "^" .. lenient_bignum(card.ability.extra.echipsmult) .. " Chips & Mult",
+				Echip_mod = lenient_bignum(card.ability.extra.Echipsmult),
+				Emult_mod = lenient_bignum(card.ability.extra.Echipsmult),
+				message = "^" .. lenient_bignum(card.ability.extra.Echipsmult) .. " Chips & Mult",
 				colour = G.C.DARK_EDITION
 			}
 		end
