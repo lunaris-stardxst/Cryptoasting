@@ -15,14 +15,13 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "sine_wave",
 	name = "Sine Wave",
-	config = {},
 	rarity = "crp_incredible",
 	atlas = "crp_placeholder",
 	pos = { x = 1, y = 1 },
 	cost = 15,
 	blueprint_compat = true,
 	demicoloncompat = true,
-	loc_vars = function()
+	loc_vars = function(self, info_queue, card)
 		local total_mult = 0
 		for i = 1, G.GAME.round do
 			total_mult = lenient_bignum(total_mult + math.sin(i) + 1)

@@ -389,25 +389,30 @@ SMODS.Joker {
 		local bulgoe_jokers = lenient_bignum(0)
 		if G.jokers and G.jokers.cards then
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center.pools.Bulgoe then
+				local joker = G.jokers.cards[i]
+				if joker and joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then
 					bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) 
 				end
 			end
 		end
 		return { vars = { lenient_bignum(card.ability.extra.mult), lenient_bignum(lenient_bignum(bulgoe_jokers) * lenient_bignum(card.ability.extra.mult or 0)) } }
 	end,
-	cost = 4,
+	cost = 5,
 	pools = { Bulgoe = true },
 	calculate = function(self, card, context)
-		if (context.joker_main) or context.forcetrigger then
+		if (context.joker_main or context.forcetrigger) and G.jokers and G.jokers.cards then
 			local bulgoe_jokers = lenient_bignum(0)
 			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center.pools.Bulgoe then bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) end
+				local joker = G.jokers.cards[i]
+				if joker and joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then 
+					bulgoe_jokers = lenient_bignum(bulgoe_jokers + 1) 
+				end
 			end
 			return {
-				mult = lenient_bignum(lenient_bignum(bulgoe_jokers) * lenient_bignum(card.ability.extra.mult))
+				mult = lenient_bignum(lenient_bignum(bulgoe_jokers) * lenient_bignum(card.ability.extra.mult or 0))
 			}
 		end
+		return nil
 	end,
 	crp_credits = {
 		idea = { "wilfredlam0418" },
