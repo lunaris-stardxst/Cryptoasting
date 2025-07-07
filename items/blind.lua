@@ -89,8 +89,9 @@ SMODS.Blind {
 	key = "evil",
 	name = "The EVIL",
 	pos = { x = 0, y = 0 },
+	atlas = "blind",
 	boss = { min = 5 },
-	boss_colour = HEX("ff0000"), -- yeah idk what this could possibly be referencing
+	boss_colour = HEX("ff0000"), -- yeah idk what this could POSSIBLY be referencing
 	set_blind = function(self, card, from_blind)
 		if (card.area == G.jokers) and not G.GAME.blind.disabled and card.config.center.evil then
 			local card_id = card.config.center.evil
@@ -112,13 +113,13 @@ SMODS.Blind {
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
 	mult = math.random(1, 6), -- i really wish this could use pseudoseed, but the game crashes if i try
-	boss_colour = HEX("4bc292"), -- oops! all 6s color
+	boss_colour = HEX("4bc292"), -- oops! all 6s main color
 	disable = function(self, card, from_blind)
 		G.GAME.blind.chips = G.GAME.blind.chips / self.mult
 	end,
     crp_credits = {
 		idea = { "Poker The Poker" },
-        art = { "George The Rat" },
+        art = { "George The Rat", "Glitchkat10" },
 		code = { "Glitchkat10" }
 	}
 }
@@ -220,10 +221,11 @@ SMODS.Blind {
 
 SMODS.Blind {
 	key = "joker",
-	name = "Joker",
+	name = "The Joker",
 	pos = { x = 0, y = 0 },
 	boss = { min = 1, max = 10 },
 	atlas = "blind",
+	boss_colour = HEX("fd812b"), -- joker rarity color (which in of itself is the average of jimbo's red and orange hat colors)
 	mult = 1,
 	set_blind = function(self)
 		G.GAME.blind.chips = G.GAME.blind.chips + 4
@@ -233,7 +235,6 @@ SMODS.Blind {
 		G.GAME.blind.chips = G.GAME.blind.chips - 4
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
-	boss_colour = HEX("f7343e"), -- jimbo's red hat color
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
