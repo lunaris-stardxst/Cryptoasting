@@ -1552,6 +1552,8 @@ return {
 			k_crp_hyperexomythicepicawesomeuncommon2mexotic2gigaomegaalphaomnipotranscendant2exomythic4mecipe = "HyperExoMythicEpicAwesomeUncommon2MExotic2GigaOmegaAlphaOmnipotranscendant2ExoMythic4meCipe",
 			k_crp_supa_rare = "supa rare",
 			k_crp_all = "All",
+
+			k_crp_bulgoe_spawn = "+1 Bulgoe",
 			bl_crp_debuff_monochrome_m = "Must play Pairs",
 			k_crp_saved = "Saved by #1#"
 		},
@@ -1567,7 +1569,7 @@ return {
 			crp_photon_readings_negative = "Photon Readings Negative",
 			crp_photon_readings_really_negative = "Photon Readings are REALLY FUCKING NEGATIVE",
 			crp_photon_readings_gone = "Photon Readings are Gone.",
-			--[[ crp_psychic = "Psychic", ]]--
+			-- crp_psychic = "Psychic",
 		},
 		v_dictionary = {
 			everything = "Everything: #1#",
