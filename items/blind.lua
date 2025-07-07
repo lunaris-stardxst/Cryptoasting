@@ -86,12 +86,32 @@ SMODS.Blind {
 }
 
 SMODS.Blind {
+	key = "evil",
+	name = "The EVIL",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	boss_colour = HEX("666665"),
+	set_blind = function(self, card, from_blind)
+		if (card.area == G.jokers) and not G.GAME.blind.disabled and card.config.center.evil then
+			local card_id = card.config.center.evil
+			card:start_dissolve()
+			card:remove_from_deck()
+			SMODS.add_card({ key = card_id })
+		end
+	end,
+	crp_credits = {
+		idea = { "Poker The Poker" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
 	key = "dice",
 	name = "The Dice",
 	pos = { x = 0, y = 2 },
 	boss = { min = 3, max = 10 },
 	atlas = "blind",
-    mult = math.random(1, 6),
+	mult = math.ceil(pseudorandom("crp_dice") * 6),
 	boss_colour = HEX("26bc55"),
 	disable = function(self, card, from_blind)
 		G.GAME.blind.chips = G.GAME.blind.chips / self.mult
@@ -100,6 +120,27 @@ SMODS.Blind {
 		idea = { "Poker The Poker" },
         art = { "George The Rat" },
 		code = { "Glitchkat10" }
+	}
+}
+
+SMODS.Blind {
+	key = "garbage",
+	name = "The Garbage",
+	pos = { x = 0, y = 0 },
+	boss = { min = 3 },
+	atlas = "blind",
+	boss_colour = HEX("666665"),
+	set_blind = function(self, card, from_blind)
+		if not G.GAME.blind_disabled then
+			for i = 1, #G.consumeables.cards do
+				G.consumeables.cards[i]:start_disssolve()
+				G.consumeables.cards[i]:remove_from_deck()
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
 	}
 }
 
@@ -196,6 +237,63 @@ SMODS.Blind {
     crp_credits = {
 		idea = { "Unknown" },
 		code = { "ScarredOut" }
+	}
+}
+
+SMODS.Blind {
+	key = "serious",
+	name = "The Serious",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	boss_colour = HEX("666665").
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "cryptposting" then
+			return true
+		end
+		return false
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
+	key = "balance",
+	name = "The Balance",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	boss_colour = HEX("666665").
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "Cryptid" then
+			return true
+		end
+		return false
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
+	key = "offset",
+	name = "The Offset",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	boss_colour = HEX("666665").
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "Cryptid" then
+			return false
+		end
+		return true
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
 	}
 }
 
