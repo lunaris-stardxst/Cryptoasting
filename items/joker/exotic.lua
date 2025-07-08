@@ -1,21 +1,7 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "normalis", -- hd bulgoe :fire:
 	name = "Normalis",
-	config = { extra = { Echipsmult = 2.7 } },
+	config = { extra = { echipsmult = 2.7 } },
 	rarity = "cry_exotic",
 	atlas =  "crp_joker",
 	blueprint_compat = true,
@@ -25,15 +11,18 @@ SMODS.Joker {
 	cost = 50,
 	pools = { Bulgoe = true },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Echipsmult), } }
+		return { vars = { lenient_bignum(card.ability.extra.echipsmult), } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Echip_mod = lenient_bignum(card.ability.extra.Echipsmult),
-				Emult_mod = lenient_bignum(card.ability.extra.Echipsmult),
-				message = "^" .. lenient_bignum(card.ability.extra.Echipsmult) .. " Chips & Mult",
-				colour = G.C.DARK_EDITION
+				echips = lenient_bignum(card.ability.extra.echipsmult),
+				Emult_mod = lenient_bignum(card.ability.extra.echipsmult),
+				echip_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_echip"
+				}
 			}
 		end
 	end,
@@ -44,17 +33,10 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Atlas {
-	key = "timmy",
-	path = "timmy.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
     key = "tetration_timmy",
 	name = "tetration timmy",
-    config = { extra = { EEmult = 1.1 } },
+    config = { extra = { eemult = 1.1 } },
     rarity = "cry_exotic",
     atlas = "timmy",
     pos = { x = 0, y = 0 },
@@ -63,16 +45,18 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
-        return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
+        return { vars = { lenient_bignum(card.ability.extra.eemult) } }
     end,
     calculate = function(self, card, context)
         if (context.joker_main) or context.forcetrigger then
-            return {
-                message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-                EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-                colour = G.C.DARK_EDITION,
-                card = card
-            }
+			return {
+				eemult = lenient_bignum(card.ability.extra.eemult),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
+			}
         end
     end,
     animation = {
@@ -94,7 +78,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "perdurantes",
 	name = "Perdurantes",
-	config = { extra = { Emult = 1, Emult_mod = 1, retrigger_requirement = 50, current_retriggers = 0 } },
+	config = { extra = { emult = 1, emult_mod = 1, retrigger_requirement = 50, current_retriggers = 0 } },
 	rarity = "cry_exotic",
 	atlas = "crp_placeholder",
 	pos = { x = 7, y = 0 },
@@ -103,40 +87,51 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Emult), lenient_bignum(card.ability.extra.Emult_mod), lenient_bignum(card.ability.extra.retrigger_requirement), lenient_bignum(card.ability.extra.current_retriggers) } }
+		return {
+			vars = {
+				lenient_bignum(card.ability.extra.emult),
+				lenient_bignum(card.ability.extra.emult_mod),
+				lenient_bignum(card.ability.extra.retrigger_requirement),
+				lenient_bignum(card.ability.extra.current_retriggers)
+			}
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			if to_big(card.ability.extra.current_retriggers) >= to_big(lenient_bignum(card.ability.extra.retrigger_requirement) - 1) then
 				card.ability.extra.current_retriggers = 0
-				card.ability.extra.Emult = card.ability.extra.Emult + card.ability.extra.Emult_mod
+				card.ability.extra.emult = card.ability.extra.emult + card.ability.extra.emult_mod
 				return {
-					message = "^" .. number_format(lenient_bignum(card.ability.extra.Emult)) .. " Mult",
-					Emult_mod = lenient_bignum(card.ability.extra.Emult),
-					colour = G.C.DARK_EDITION,
-					card = card
+					emult = lenient_bignum(card.ability.extra.emult),
+					emult_message = {
+						message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			else
 				card.ability.extra.current_retriggers = card.ability.extra.current_retriggers + 1
 				return {
-					message = "^" .. number_format(lenient_bignum(card.ability.extra.Emult)) .. " Mult",
-					Emult_mod = lenient_bignum(card.ability.extra.Emult),
-					colour = G.C.DARK_EDITION,
-					card = card
+					emult = lenient_bignum(card.ability.extra.emult),
+					emult_message = {
+						message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			end
 		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
 SMODS.Joker {
 	key = "jolly_of_joker",
 	name = "The Jolly of Joker",
-	config = { extra = { Emult = 8 } },
+	config = { extra = { emult = 8 } },
 	rarity = "cry_exotic",
 	atlas = "crp_joker",
 	pos = { x = 1, y = 5 },
@@ -145,56 +140,55 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Emult) } }
+		return { vars = { lenient_bignum(card.ability.extra.emult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main and context.scoring_name == "Pair") or context.forcetrigger then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_powmult",
-					vars = {
-						number_format(lenient_bignum(card.ability.extra.Emult)),
-					},
-				}),
-				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				colour = G.C.DARK_EDITION,
+				emult = lenient_bignum(card.ability.extra.emult),
+				emult_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_emult"
+				}
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
 		art = { "Tatteredlurker" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
 SMODS.Joker {
 	key = "victoriam",
 	name = "Victoriam",
-	config = { extra = { Echip_mod = 0.1 } },
+	config = { extra = { echips = 0.1 } },
 	rarity = "cry_exotic",
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 7, y = 0 },
 	cost = 50,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod)) } }
+		return { vars = { lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.echips)) } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main or context.forcetrigger then
+		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^" .. number_format(lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod))) .. " Chips",
-				Echip_mod = lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.Echip_mod)),
-				colour = G.C.DARK_EDITION,
-				card = card
+				echips = lenient_bignum(card.ability.extra.echips),
+				echips_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.echips)) .. " Chips",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_echip"
+				}
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker", "Glitchkat10" },
-		code = { "wilfredlam0418" }
+		code = { "wilfredlam0418", "Glitchkat10" }
 	}
 }
 

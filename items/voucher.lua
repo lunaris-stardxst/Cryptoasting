@@ -1,21 +1,7 @@
-SMODS.Atlas {
-	key = "vouchers",
-	path = "atlas_voucher.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholders",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 -- commented out due to crashing on use cuz i don't think change_ante_scaling exists and idk how to fix it :sob: - glitch
 --[[ SMODS.Voucher {
     key = "reduction",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = { ante_scaling = 0.8 } },
     loc_vars = function(self, info_queue, card)
@@ -34,7 +20,7 @@ SMODS.Atlas {
 SMODS.Voucher {
     key = "patience",
     name = "Patience",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -51,7 +37,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "patience_2",
     name = "More Patience",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -69,7 +55,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "patience_3",
     name = "Even More Patience",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -87,7 +73,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "patience_4",
     name = "Even More Patience Again",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -105,7 +91,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "patience_5",
     name = "So Much Patience",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -123,7 +109,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "payoff",
     name = "Payoff",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
     loc_vars = function(self, info_queue, card)
@@ -141,7 +127,7 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "just_kidding",
     name = "Just Kidding, This Is the Real Payoff",
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 7, y = 2 },
     config = { extra = { all_count = 1 } },
     loc_vars = function(self, info_queue, card)

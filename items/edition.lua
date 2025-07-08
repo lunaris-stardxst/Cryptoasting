@@ -1,13 +1,3 @@
-SMODS.Shader {
-	key = "overloaded",
-	path = "overloaded.fs",
-}
-
-SMODS.Sound {
-	key = "e_overloaded",
-	path = "e_overloaded.ogg",
-}
-
 SMODS.Edition {
 	key = "zany",
 	weight = 0,
@@ -470,9 +460,9 @@ SMODS.Edition {
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
 	end,
-	config = { EEEchips = 1.03, EEEmult = 1.03, trigger = nil },
+	config = { eeechips = 1.03, eee_mult = 1.03, trigger = nil },
 	loc_vars = function(self, info_queue)
-		return { vars = { lenient_bignum(self.config.EEEchips), lenient_bignum(self.config.EEEmult) } }
+		return { vars = { lenient_bignum(self.config.eeechips), lenient_bignum(self.config.eee_mult) } }
 	end,
 	calculate = function(self, card, context)
 		if
@@ -488,9 +478,9 @@ SMODS.Edition {
 			)
 		then
 			return {
-				EEEchips = lenient_bignum(self.config.EEE_chips),
+				eeechips = lenient_bignum(self.config.eeechips),
 				extra = {
-					EEEmult = lenient_bignum(self.config.EEEmult)
+					eee_mult = lenient_bignum(self.config.eee_mult)
 				}
 			}
 		end
@@ -508,15 +498,7 @@ SMODS.Edition {
 	},
 }
 
-SMODS.Shader {
-	key = "fourdimensional",
-	path = "fourdimensional.fs",
-}
 
-SMODS.Sound {
-	key = "e_four-dimensional",
-	path = "e_four-dimensional.ogg",
-}
 
 SMODS.Edition {
 	disable_base_shader = true,

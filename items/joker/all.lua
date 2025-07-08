@@ -1,10 +1,3 @@
-SMODS.Atlas {
-    key = "joker",
-    path = "atlas_joker.png",
-    px = 71,
-    py = 95
-}
-
 SMODS.Joker { -- IT'S ALIVE
 	key = "all",
 	name = "All",

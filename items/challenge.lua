@@ -34,8 +34,8 @@ SMODS.Challenge {
         }
     },
     jokers = {
-        { id = "j_crp_sprinter", stickers = { "eternal" } },
-        { id = "j_cry_sync_catalyst", stickers = { "eternal" } },
+        { id = "j_crp_sprinter", stickers = { "cry_absolute" } },
+        { id = "j_cry_sync_catalyst", stickers = { "cry_absolute" } },
     },
     deck = {
         type = "Challenge Deck"

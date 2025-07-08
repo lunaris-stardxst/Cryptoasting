@@ -1,21 +1,7 @@
-SMODS.Atlas {
-	key = "decks",
-	path = "atlas_deck.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholders",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Back {
 	key = "cyan",
     config = { hand_size = 2, discards = -1 },
-	atlas = "crp_decks",
+	atlas = "crp_deck",
 	pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue)
 		return { vars = { lenient_bignum(self.config.hand_size), lenient_bignum(self.config.discards) * -1 } }
@@ -44,9 +30,10 @@ SMODS.Back {
                     SMODS.change_discard_limit(self.config.cardselectionlimit)
                     return true
                 end
-            }))
+            }
+		))
     end,
-    atlas = "crp_decks",
+    atlas = "crp_deck",
     pos = {
         x = 3,
         y = 0
@@ -61,7 +48,7 @@ SMODS.Back {
 SMODS.Back {
 	key = "gray",
 	config = { vouchers = { "v_seed_money", "v_money_tree" }, dollars = -4 },
-	atlas = "crp_decks",
+	atlas = "crp_deck",
 	pos = { x = 1, y = 0 },
     loc_vars = function(self, info_queue)
 		return { vars = {  } }
@@ -76,7 +63,7 @@ SMODS.Back {
 SMODS.Back {
 	key = "white",
     config = { joker_slot = -1, hands = 1 },
-	atlas = "crp_decks",
+	atlas = "crp_deck",
 	pos = { x = 2, y = 0 },
     loc_vars = function(self, info_queue)
 		return { vars = { lenient_bignum(self.config.joker_slot) * -1, lenient_bignum(self.config.hands) } }
@@ -91,7 +78,7 @@ SMODS.Back {
 SMODS.Back {
     key = "creativemode",
     config = { consumables = { "c_cry_pointer" } },
-    atlas = "crp_placeholders",
+    atlas = "crp_placeholder",
     pos = { x = 4, y = 2 },
     crp_credits = {
         idea = { "Psychomaniac14", "Glitchkat10" },
@@ -102,7 +89,7 @@ SMODS.Back {
 SMODS.Back {
 	key = "kiddie",
     config = { hands = -2, discards = -1, joker_slot = -2, consumable_slot = -1, hand_size = -1, ante_scaling = 0.3 },
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 4, y = 2 },
     loc_vars = function(self, info_queue)
 		return { vars = { lenient_bignum(self.config.hands) * -1, lenient_bignum(self.config.discards) * -1, lenient_bignum(self.config.joker_slot) * -1, lenient_bignum(self.config.consumable_slot) * -1, lenient_bignum(self.config.hand_size) * -1, lenient_bignum(self.config.ante_scaling) * 100 } }
@@ -116,7 +103,7 @@ SMODS.Back {
 SMODS.Back {
 	key = "adult",
     config = { hands = 2, discards = 1, joker_slot = 2, consumable_slot = 1, hand_size = 1, ante_scaling = 3 },
-	atlas = "crp_placeholders",
+	atlas = "crp_placeholder",
 	pos = { x = 4, y = 2 },
     loc_vars = function(self, info_queue)
 		return { vars = { lenient_bignum(self.config.hands), lenient_bignum(self.config.discards), lenient_bignum(self.config.joker_slot), lenient_bignum(self.config.consumable_slot), lenient_bignum(self.config.hand_size), lenient_bignum(self.config.ante_scaling) * 100 } }

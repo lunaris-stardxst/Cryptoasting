@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "bulgoes_hiking_journey",
 	name = "Bulgoe's Hiking Journey",
@@ -78,7 +64,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "coughing_baby_vs_hydrogen_bomb",
 	name = "Coughing Baby vs. Hydrogen Bomb",
-	config = { extra = { EEmult = 2 } },
+	config = { extra = { eemult = 2 } },
 	rarity = "cry_epic",
 	atlas = "crp_placeholder",
 	pos = { x = 5, y = 0 },
@@ -86,19 +72,22 @@ SMODS.Joker {
 	blueprint_compat = false,
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.eemult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main and G.GAME.blind.config.blind.key == "bl_small") or context.forcetrigger then
 			return {
-				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-				colour = G.C.DARK_EDITION
+				eemult = lenient_bignum(card.ability.extra.eemult),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "PurplePickle" },
-		code = { "wilfredlam0418" },
+		code = { "wilfredlam0418", "Glitchkat10" },
 	}
 }

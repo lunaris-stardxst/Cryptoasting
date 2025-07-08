@@ -1,18 +1,3 @@
-
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "bulgoe",
 	name = "Bulgoe",
@@ -78,12 +63,17 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.mult_mod), lenient_bignum(G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod) } }
+		return {
+			vars = {
+				lenient_bignum(card.ability.extra.mult_mod),
+				lenient_bignum(G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * lenient_bignum(card.ability.extra.mult_mod))
+			}
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				mult = lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * card.ability.extra.mult_mod )
+				mult = lenient_bignum( G.PROFILES[G.SETTINGS.profile].career_stats.c_losses * lenient_bignum(card.ability.extra.mult_mod) )
 			}
 		end
 	end,
@@ -91,13 +81,6 @@ SMODS.Joker {
 		idea = { "Unknown" },
 		code = { "wilfredlam0418" }
 	}
-}
-
-SMODS.Sound {
-	key = "eat",
-	path = "eat.ogg",
-	loop = false,
-	volume = 0.5,
 }
 
 SMODS.Joker {
@@ -162,8 +145,8 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
-		art = { "Lexi" },
-		code = { "Lexi" }
+		art = { "Anonymous" },
+		code = { "Anonymous" }
 	}
 }
 
@@ -228,8 +211,8 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
-		art = { "Lexi" },
-		code = { "Lexi", "Glitchkat10" }
+		art = { "Anonymous" },
+		code = { "Anonymous", "Glitchkat10" }
 	}
 }
 

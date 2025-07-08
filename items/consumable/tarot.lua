@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "consumable",
-	path = "atlas_consumable.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Consumable{
 	key = "prospect",
 	name = "Wheel of Prospect",

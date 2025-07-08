@@ -1,21 +1,6 @@
-SMODS.Atlas {
-	key = "jokers",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholders",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
     key = "jonkler",
 	name = "Jonkler",
-    config = { immutable = { arrows = 25000, EEEmult = 1 } },
     rarity = "crp_trash",
     atlas = "crp_joker",
     pos = { x = 8, y = 3 },
@@ -26,18 +11,14 @@ SMODS.Joker {
         return { vars = { "{", "}", } }
     end,   
     calculate = function(self, card, context)
-        if (context.joker_main) or context.force_trigger then
+        if (context.joker_main) or context.forcetrigger then
             return {
-				EEEmult_mod = card.ability.immutable.EEEmult,
-                message = "{" .. card.ability.immutable.arrows .. "}" .. card.ability.immutable.EEEmult .. " Mult",
+                message = "{1}25000 Mult",
                 colour = G.C.EDITION,
-                card = card
+				sound = "crp_heptationalmult"
             }
 		end
     end,
-	in_pool = function(self, args)
-		return true, { allow_duplicates = true }
-	end,
     crp_credits = {
         idea = { "Unknown", "Glitchkat10" },
         code = { "Glitchkat10" }
@@ -75,9 +56,6 @@ SMODS.Joker {
 		end
 		return nil
 	end,
-	in_pool = function(self, args)
-		return true, { allow_duplicates = true }
-	end,
 	crp_credits = {
 		idea = { "lord.ruby", "Glitchkat10" },
 		art = { "Tatteredlurker" },
@@ -101,7 +79,7 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				message = "What does that even mean??",
-				colour = G.C.EDITION
+				colour = G.C.DARK_EDITION
 			}
 		end
 	end,

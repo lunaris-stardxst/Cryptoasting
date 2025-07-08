@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "consumable",
-	path = "atlas_consumable.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Consumable {
 	key = "decrement",
 	name = "Decrement",
@@ -66,7 +52,7 @@ SMODS.Consumable {
 		end
 	end,
 	crp_credits = {
-		idea = { "Unknown" },
+		idea = { "SolvLyi" },
 		code = { "wilfredlam0418" }
 	}
 }

@@ -72,8 +72,8 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
-		art = { "Lexi" },
-		code = { "Lexi" },
+		art = { "Anonymous" },
+		code = { "Anonymous" },
 		custom = { key = "alt",text = "Sob" }
 	},
 }
@@ -81,7 +81,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "amazon_gift_card",
 	name = "Amazon Gift Card",
-	config = { extra = { Emult = 7, odds = 16 } },
+	config = { extra = { emult = 7, odds = 16 } },
 	rarity = "crp_cipe",
 	atlas = "crp_placeholder",
 	pos = { x = 5, y = 0 },
@@ -90,15 +90,24 @@ SMODS.Joker {
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		local prob = cry_prob(lenient_bignum(card.ability.cry_prob), lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged)
-		return { vars = { card.ability.cry_rigged and lenient_bignum(card.ability.extra.odds) or lenient_bignum(card.ability.extra.odds) - prob, lenient_bignum(card.ability.extra.odds), lenient_bignum(card.ability.extra.Emult) } }
+		return {
+			vars = {
+				card.ability.cry_rigged and lenient_bignum(card.ability.extra.odds) or lenient_bignum(card.ability.extra.odds) - prob,
+				lenient_bignum(card.ability.extra.odds),
+				lenient_bignum(card.ability.extra.mult)
+			}
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			if (pseudorandom("amazon_gift_card") < cry_prob(lenient_bignum(card.ability.cry_prob), lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged) / lenient_bignum(card.ability.extra.odds)) or context.forcetrigger then
 				return {
-					Emult_mod = lenient_bignum(card.ability.extra.Emult),
-					message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
-					colour = G.C.DARK_EDITION
+					emult = lenient_bignum(card.ability.extra.emult),
+					emult_message = {
+						message = "^" .. lenient_bignum(card.ability.extra.emult) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			end
 		end

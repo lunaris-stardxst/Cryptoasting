@@ -1,20 +1,6 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
-	key = "hexation_hank",
-	name = "hexation hank",
+	key = "hexation_henry",
+	name = "hexation henry",
 	config = { immutable = { arrows = 4 }, extra = { hypermult = 1.1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
@@ -29,12 +15,12 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				hypermult_mod = {
-					lenient_bignum(card.ability.immutable.arrows),
-					lenient_bignum(card.ability.extra.hypermult)
-				},
-				message = "^^^^" .. number_format(lenient_bignum(card.ability.extra.hypermult)) .. " Mult",
-				colour = G.C.EDITION,
+				hypermult = {lenient_bignum(card.ability.immutable.arrows), lenient_bignum(card.ability.extra.hypermult)},
+				hypermult_message = {
+					message = "^^^^" .. number_format(lenient_bignum(card.ability.extra.hypermult)) .. " Mult",
+					colour = G.C.EDITION,
+					sound = "crp_hexationalmult"
+				}
 			}
 		end
 	end,
@@ -47,7 +33,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "morble",
 	name = "Morble",
-	config = { extra = { Emoney = 2 } },
+	config = { extra = { emoney = 2 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
@@ -56,14 +42,14 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Emoney) } }
+		return { vars = { lenient_bignum(card.ability.extra.emoney) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.other_joker) or context.forcetrigger then
-			G.GAME.dollars = G.GAME.dollars ^ lenient_bignum(card.ability.extra.Emoney)
+			G.GAME.dollars = G.GAME.dollars ^ lenient_bignum(card.ability.extra.emoney)
 			return {
-				message = "^" .. number_format(lenient_bignum(card.ability.extra.Emoney)) .. "$",
-				colour = G.C.MONEY,
+				message = "^$" .. number_format(lenient_bignum(card.ability.extra.emoney)),
+				colour = G.C.MONEY
 			}
 		end
 	end,
@@ -112,7 +98,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "fiorello_giraud",
 	name = "Fiorello Giraud",
-	config = { extra = { EEEmult = 1, EEEmult_mod = 1 } },
+	config = { extra = { eeemult = 1, eeemult_mod = 1 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
@@ -120,13 +106,13 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEEmult), lenient_bignum(card.ability.extra.EEEmult_mod) } }
+		return { vars = { lenient_bignum(card.ability.extra.eeemult), lenient_bignum(card.ability.extra.eeemult_mod) } }
 	end,
 	calculate = function(self, card, context)
         if context.remove_playing_cards then
             for k, v in ipairs(context.removed) do
                 if v:is_face() then
-					card.ability.extra.EEEmult = lenient_bignum(card.ability.extra.EEEmult) + lenient_bignum(card.ability.extra.EEEmult_mod)
+					card.ability.extra.eeemult = lenient_bignum(card.ability.extra.eeemult) + lenient_bignum(card.ability.extra.eeemult_mod)
                 end
             end
 			return {
@@ -137,23 +123,25 @@ SMODS.Joker {
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^^" .. number_format(lenient_bignum(card.ability.extra.EEEmult)) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
-				colour = G.C.EDITION,
-				card = card
+				eeemult = lenient_bignum(card.ability.extra.eeemult),
+				eeemult_message = {
+					message = "^^^" .. number_format(lenient_bignum(card.ability.extra.eeemult)) .. " Mult",
+					colour = G.C.EDITION,
+					sound = "talisman_eeemult"
+				}	
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
-		code = { "Rainstar" },
+		code = { "Rainstar", "Glitchkat10" },
 	}
 }
 
 SMODS.Joker {
 	key = "fevrial",
 	name = "Fevrial",
-	config = { extra = { EEEmult = 2 } },
+	config = { extra = { eeemult = 2 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
@@ -161,28 +149,30 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEEmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.eeemult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.individual and context.cardarea == G.play and context.other_card and (context.other_card:get_id() == 12 or context.other_card:get_id() == 13)) or context.forcetrigger then
 			return {
-				message = "^^^" .. number_format(lenient_bignum(card.ability.extra.EEEmult)) .. " Mult",
-				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
-				colour = G.C.EDITION,
-				card = card
+				eeemult = lenient_bignum(card.ability.extra.eeemult),
+				eeemult_message = {
+					message = "^^^" .. number_format(lenient_bignum(card.ability.extra.eeemult)) .. " Mult",
+					colour = G.C.EDITION,
+					sound = "talisman_eeemult"
+				}
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
-		code = { "wilfredlam0418" },
+		code = { "wilfredlam0418", "Glitchkat10" },
 	}
 }
 
 SMODS.Joker {
 	key = "richard_tarlton",
 	name = "Richard Tarlton",
-	config = { extra = { EEmult = 1, EEmult_mod = 23 } },
+	config = { extra = { eemult = 1, eemult_mod = 23 } },
 	rarity = "crp_exomythic",
 	atlas = "crp_placeholder",
 	pos = { x = 9, y = 0 },
@@ -190,30 +180,32 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
+		return { vars = { lenient_bignum(card.ability.extra.eemult), lenient_bignum(card.ability.extra.eemult_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.discard and not context.other_card.debuff and not context.blueprint) or context.forcetrigger then
-			card.ability.extra.EEmult = lenient_bignum(card.ability.extra.EEmult) + lenient_bignum(card.ability.extra.EEmult_mod)
+			card.ability.extra.eemult = lenient_bignum(card.ability.extra.eemult) + lenient_bignum(card.ability.extra.eemult_mod)
 			return {
 				message = localize("k_upgrade_ex"),
-				colour = G.C.EDITION,
+				colour = G.C.DARK_EDITION,
 				card = card
 			}
 		end
 
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^" .. number_format(lenient_bignum(card.ability.extra.EEmult)) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-				colour = G.C.EDITION,
-				card = card
+				eemult = lenient_bignum(card.ability.extra.eemult),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
 			}
 		end
 	end,
 	crp_credits = {
 		idea = { "SageSeraph" },
-		code = { "wilfredlam0418" },
+		code = { "wilfredlam0418", "Glitchkat10" },
 	}
 }
 
@@ -236,7 +228,7 @@ SMODS.Joker {
 			for i = 1, card.ability.extra.retriggers do
             	G.GAME.blind:disable()
             	play_sound('timpani')
-            	card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled')})
+            	card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('ph_boss_disabled') })
 			end
 		end
 	end,

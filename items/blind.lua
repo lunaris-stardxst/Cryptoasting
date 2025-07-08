@@ -21,14 +21,6 @@ function Game:update(dt)
 		end
 	end
 end
-SMODS.Atlas {
-	key = "blind",
-    atlas_table = "ANIMATION_ATLAS",
-	path = "atlas_blind.png",
-	px = 34,
-	py = 34,
-	frames = 21
-}
 
 SMODS.Blind {
 	key = "chance",
@@ -322,6 +314,7 @@ SMODS.Blind {
 		code = { "ScarredOut" }
 	}
 }
+
 SMODS.Blind {
 	key = "monochrome_m",
 	name = "Monochrome M",
@@ -330,11 +323,11 @@ SMODS.Blind {
 	atlas = "blind",
 	mult = 0.13,
 	recalc_debuff = function(self, card, from_blind)
-		if (card.area == G.jokers) and not G.GAME.blind.disabled and (card:is_jolly() or (Cryptid.safe_get(card.config.center, "pools", "M"))) then -- since this is a cryptid addon we'll use cryptids function for this
+		if ((card.area == G.jokers)
+		and not G.GAME.blind.disabled
+		and (card:is_jolly() or (Cryptid.safe_get(card.config.center, "pools", "M"))))
+		and (card.config.center.key ~= "j_chicot" and card.config.center.key ~= "j_crp_jean_antoine") then -- since this is a cryptid addon we'll use cryptids function for this
 			return false
-		end
-		if (card.area == G.jokers) and not card.key == "j_chicot" and not card.key == "j_crp_jean_antoine" then
-			return true
 		end
 		return false
 	end,

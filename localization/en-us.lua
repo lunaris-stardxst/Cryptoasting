@@ -425,16 +425,16 @@ return {
 				name = "Joker of all Trades",
 				text = {
 					"{C:chips}+#1#{} Chip#<s>1#, {C:mult}+#2#{} Mult",
-					"Earn {C:money}$#3#{} at end of round",
-				},
+					"Earn {C:money}$#3#{} at end of round"
+				}
 			},
 			j_crp_one_bulgoe_bill = {
 				name = "One {C:edition}Bulgoe{} Bill",
 				text = {
 					"Earn {C:money}+$#1#{} at end of round",
 					"Earn {C:money}+$#2#{} instead if you have",
-					"another {C:edition,X:gray}Bulgoe{}-themed {C:attention}Joker",
-				},
+					"another {C:edition,X:gray}Bulgoe{}-themed {C:attention}Joker"
+				}
 			},
 			j_crp_scones_bones = {
 				name = "Scones, Bones, Skibidi Stones",
@@ -443,22 +443,21 @@ return {
 					"Prevents death once if you score at least",
 					"{C:attention}#2#%{} of the required score",
 					"Creates {C:attention}#5# Stone{} card#<s>5# if played hand contains a {C:attention}Flush",
-					"{C:inactive}(Death prevention active: #1#)",
-				},
+					"{C:inactive}(Death prevention active: #1#)"
+				}
 			},
 			j_crp_millipede = {
 				name = "Millipede",
 				text = {
 					"{C:chips}+#1#{} Chip#<s>1# if played",
-					"hand has only {C:attention}#2#{} card#<s>2#",
-				},
+					"hand has only {C:attention}#2#{} card#<s>2#"
+				}
 			},
 			j_crp_pi_joker = {
 				name = "Pi Joker",
 				text = {
-					"{C:white,X:chips}Xpi{} Chips",
-					"{C:white,X:mult}Xpi{} Mult",
-				},
+					"{C:white,B:1}Xpi{} Chips and Mult"
+				}
 			},
 			j_crp_c_big = {
 				name = "C",
@@ -513,15 +512,15 @@ return {
 				text = {
 					"{C:attention}+#1#{} hand size",
 					"{C:attention}+#2# consumable{} slot#<s>2#",
-					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}",
+					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}"
 				}
 			},
 			j_crp_photo_of_grouchy = {
 				name = "Photo of Grouchy Jimbo",
 				text = {
 					"{C:white,X:mult}X#1#{} Mult if",
-					"{C:attention}Grouchy Jimbo{} is owned",
-				},
+					"{C:attention}Grouchy Jimbo{} is owned"
+				}
 			},
 			j_crp_dumpster_diver = {
 				name = "Dumpster Diver",
@@ -529,7 +528,7 @@ return {
 					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:crp_trash}Trash{} {C:attention}Joker#<s>1#{}",
 					"at end of round,",
 					"{C:green}#2# in #3#{} chance to instead create",
-					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker#<s>4#{}",
+					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker#<s>4#{}"
 				},
 			},
 			j_crp_my_first_joker = {
@@ -694,15 +693,14 @@ return {
 				name = "270° {C:edition}Bulgoe{}scope",
 				text = {
 					"{C:red}Fixed{} {C:green}1 in 27{} chance for scored",
-					"{C:attention}2s{} and {C:attention}7s{} to give {C:chips}+#1#{} Chips",
+					"{C:attention}2s{} and {C:attention}7s{} to give {C:chips}+27!{} Chips",
 				},
 			},
 			j_crp_chibidoki = {
 				name = "Chibidoki",
 				text = {
 					"{C:crp_unrare}Unrare{} and higher rarity {C:attention}Jokers{}",
-					"give {C:white,B:1}X#1#{} Chips and Mult", -- plasma deck colors
-					"{C:inactive,s:0.8}This Joker is currently slightly unfinished{}"
+					"give {C:white,B:1}X#1#{} Chips and Mult" -- plasma deck colors
 				}
 			},
 			j_crp_normalis = {
@@ -736,9 +734,9 @@ return {
 			j_crp_victoriam = {
 				name = "Victoriam",
 				text = {
-					"{C:white,X:dark_edition}^0.1{} Mult for every {C:edition,X:grey}win{} on this profile",
+					"{C:white,X:dark_edition}^0.1{} Chip for every {C:edition,X:grey}win{} on this profile",
 					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
-					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Chip#<s>1#)",
 				},
 			},
 			j_crp_splittum = {
@@ -850,8 +848,8 @@ return {
 					"at end of round",
 				},
 			},
-			j_crp_hexation_hank = {
-				name = "hexation hank",
+			j_crp_hexation_henry = {
+				name = "hexation henry",
 				text = {
 					"{C:dark_edition,X:edition}^^^^#1#{} Mult",
 				},
@@ -1488,21 +1486,24 @@ return {
 				name = "Violet Stake",
 				colour = "Violet",
 				text = {
-					"{C:attention}X2{} Blind size"
+					"{C:attention}X2{} Blind size",
+					"{C:inactive}(Applies Diamond Stake)"
 				}
 			},
 			stake_crp_square = {
 				name = "Square Stake",
 				colour = "Square",
 				text = {
-					"{C:attention}-1{} card selection limit"
+					"{C:attention}-1{} card selection limit",
+					"{C:inactive}(Applies Ascendant Stake)"
 				}
 			},
 			stake_crp_stencil = {
 				name = "Stencil Stake",
 				colour = "Stencil",
 				text = {
-					"{C:attention}-1{} Joker slot"
+					"{C:attention}-1{} Joker slot",
+					"{C:inactive}(Applies Square Stake)"
 				}
 			}
 		},
@@ -1554,7 +1555,7 @@ return {
 			k_crp_all = "All",
 
 			k_crp_bulgoe_spawn = "+1 Bulgoe",
-			bl_crp_debuff_monochrome_m = "Must play Pairs",
+			bl_crp_debuff_monochrome_m = "Must play only Pairs",
 			k_crp_saved = "Saved by #1#"
 		},
 		labels = {
