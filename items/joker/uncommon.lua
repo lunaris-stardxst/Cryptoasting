@@ -356,7 +356,7 @@ SMODS.Joker{ --Piano Falling from the Jolly Moon
 demicolon_compat = true,
     eternal_compat = true,
 loc_vars = function(self, info_queue, card)
-        return {vars = {}}
+        return {vars = {card.ability.extra.mult}}
     end,
 
     calculate = function(self, card, context)
@@ -395,7 +395,7 @@ loc_vars = function(self, info_queue, card)
     eternal_compat = true,
 demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
-        return {vars = {}}
+        return {vars = {card.ability.extra.mult}}
     end,
 
     calculate = function(self, card, context)
