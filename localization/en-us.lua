@@ -409,14 +409,14 @@ return {
 			j_crp_jollymoon = {
 				name = "Piano Falling over the Jolly Moon",
 				text = {
-					"{C:mult}+#8# Mult{}",
+					"{C:mult}+#1# Mult{}",
 					"Levels up {C:attention}Pair{} when this Joker is triggered"
 				}
 			},
 			j_crp_waldo = {
 				name = "Waldo"
 				text = {
-					"{C:Mult}+#10# Mult{}"
+					"{C:Mult}+#1# Mult{}"
 					"{C:inactive}\"You found me!\""
 				}
 			}, --it;s official, we waldoing it.
