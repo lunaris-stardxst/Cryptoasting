@@ -420,3 +420,67 @@ SMODS.Joker {
 		code = { "wilfredlam0418" },
 	}
 }
+
+
+SMODS.Joker {
+	key = "double_negative",
+	name = "Double Negative",
+	config = { extra = { Xchipsmult = -1.2 } },
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	cost = 4,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.Xchipsmult, colours = { 0.8, 0.45, 0.85, 1 } } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				Xchip_mod = card.ability.extra.Xchipsmult,
+				Xmult_mod = card.ability.extra.Xchipsmult,
+				message = "X" .. card.ability.extra.Xchipsmult .. " Chips and Mult",
+				colour = { 0.8, 0.45, 0.85, 1 }
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Joker {
+	key = "goblin",
+	name = "Goblin",
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = false,
+	demicoloncompat = true,
+	cost = 6,
+	calculate = function(self, card, context)
+		if (context.joker_main and pseudorandom("crp_goblin") < 0.01) or context.forcetrigger then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+ 					G.E_MANAGER:add_event(Event({
+						func = function()
+							G.GAME.blind:disable()
+							play_sound("timpani")
+							delay(0.4)
+							return true
+						end
+					}))
+					SMODS.calculate_effect({ message = localize("ph_boss_disabled") }, card)
+					return true
+				end
+			}))
+			return nil, true
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "wilfredlam0418" }
+	}
+}
