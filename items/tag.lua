@@ -1,14 +1,7 @@
-SMODS.Atlas {
-	key = "tags",
-	path = "atlas_tags.png",
-	px = 34,
-	py = 34
-}
-
 SMODS.Tag {
 	key = "common_tag",
 	name = "Common Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 0, y = 0 },
 	config = { type = "store_joker_create" },
 	apply = function(self, tag, context)
@@ -48,7 +41,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "legendary_tag",
 	name = "Legendary Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 1, y = 0 },
 	min_ante = 3,
 	config = { type = "store_joker_create" },
@@ -89,7 +82,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "exotic_tag",
 	name = "Exotic Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 2, y = 0 },
 	min_ante = 4,
 	config = { type = "store_joker_create" },
@@ -130,7 +123,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "mythic_tag",
 	name = "Mythic Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 7, y = 0 },
 	min_ante = 5,
 	config = { type = "store_joker_create" },
@@ -171,7 +164,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "better_better_top-up_tag",
 	name = "Better Better Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 0, y = 1 },
 	config = { extra = { amount = 2 } },
 	min_ante = 8,
@@ -206,7 +199,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "better_better_better_top-up_tag",
 	name = "Better Better Better Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 1, y = 1 },
 	min_ante = 13,
 	config = { extra = { amount = 2 } },
@@ -241,7 +234,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "better_better_better_better_top-up_tag",
 	name = "Better Better Better Better Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 2, y = 1 },
 	min_ante = 27,
 	config = { extra = { amount = 1 } },
@@ -276,7 +269,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "better_better_better_better_better_top-up_tag",
 	name = "Better Better Better Better Better Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 3, y = 1 },
 	min_ante = 39,
 	config = { extra = { amount = 1 } },
@@ -311,7 +304,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "better_better_better_better_better_better_top-up_tag",
     name = "Better Better Better Better Better Better Top-Up Tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 5, y = 1 },
 	min_ante = 69,
     config = { extra = { amount = 1 } },
@@ -346,7 +339,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "better_better_better_better_better_better_better_top-up_tag",
 	name = "Better Better Better Better Better Better Better Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 2, y = 2 },
 	min_ante = 98,
 	config = { extra = { amount = 1 } },
@@ -381,7 +374,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "better_better_better_better_better_better_better_better_top-up_tag",
     name = "Better Better Better Better Better Better Better Better Top-Up Tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 4, y = 2 },
 	min_ante = 270,
     config = { extra = { amount = 1 } },
@@ -416,7 +409,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "better_better_better_better_better_better_better_better_better_top-up_tag",
     name = "Better Better Better Better Better Better Better Better Better Top-Up Tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 0, y = 2 },
 	min_ante = 420,
     config = { extra = { amount = 1 } },
@@ -451,7 +444,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = ":3_top-up_tag",
 	name = ":3 Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 0, y = 3 },
 	min_ante = 0,
 	config = { extra = { amount = 2 } },
@@ -486,7 +479,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "candy_top-up_tag",
 	name = "Candy Top-up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 4, y = 1 },
 	min_ante = 8,
 	config = { extra = { amount = 2 } },
@@ -521,7 +514,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "top-down_tag",
 	name = "Top-down Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 7, y = 2 },
 	min_ante = -1,
 	config = { extra = { amount = 2 } },
@@ -556,7 +549,7 @@ SMODS.Tag {
 SMODS.Tag {
 	key = "trash_top-up_tag",
 	name = "Trash Top-Up Tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 1, y = 3 },
 	min_ante = 0,
 	config = { extra = { amount = 2 } },
@@ -591,7 +584,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "overloaded_tag",
 	name = "Overloaded Tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 2, y = 3 },
     config = { type = "store_joker_modify", edition = "crp_overloaded" },
     min_ante = 8,
@@ -634,7 +627,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "four-dimensional_tag",
 	name = "Four-Dimensional Tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 3, y = 3 },
     config = { type = "store_joker_modify", edition = "crp_four-dimensional" },
     min_ante = 6,
@@ -677,7 +670,7 @@ SMODS.Tag {
 SMODS.Tag {
     key = "top-up_everything",
 	name = "Top-up Everything",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 5, y = 3 },
 	min_ante = 2798,
     config = {  },
@@ -710,7 +703,7 @@ SMODS.Tag {
 
 --[[ SMODS.Tag {
 	key = "uncommon_2_tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 3, y = 0 },
 	min_ante = 0,
 	config = { type = "store_joker_create" },
@@ -750,7 +743,7 @@ SMODS.Tag {
 
 SMODS.Tag {
 	key = "rare_2_tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 4, y = 0 },
 	min_ante = 0,
 	config = { type = "store_joker_create" },
@@ -790,7 +783,7 @@ SMODS.Tag {
 
  --[[ SMODS.Tag {
 	key = "awesome_tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 5, y = 0 },
 	min_ante = 0,
 	config = { type = "store_joker_create" },
@@ -825,7 +818,7 @@ SMODS.Tag {
 
 SMODS.Tag {
 	key = "m_tag",
-	atlas = "crp_tags",
+	atlas = "crp_tag",
 	pos = { x = 6, y = 0 },
 	min_ante = 0,
 	config = { type = "store_joker_create" },
@@ -860,7 +853,7 @@ SMODS.Tag {
 --[[
 SMODS.Tag {
     key = "worse_worse_top-up_tag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 5, y = 2 },
     config = { extra = { amount = 2 } },
     loc_txt = {
@@ -900,7 +893,7 @@ SMODS.Tag {
 }
 SMODS.Tag {
     key = "besttopuptag",
-    atlas = "crp_tags",
+    atlas = "crp_tag",
     pos = { x = 7, y = 1 },
     config = { extra = { amount = 2 } },
     loc_txt = {

@@ -42,7 +42,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_3",
 	name = "Joker 3",
-	config = { extra = { Xmult = 4 } },
+	config = { extra = { xmult = 4 } },
 	rarity = "crp_joker",
 	atlas = "crp_joker",
 	pos = { x = 8, y = 0 },
@@ -50,12 +50,12 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xmult = lenient_bignum(card.ability.extra.Xmult)
+				xmult = lenient_bignum(card.ability.extra.xmult)
 			}
 		end
 	end,
@@ -69,7 +69,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_4",
 	name = "Joker 4",
-	config = { extra = { Emult = 4 } },
+	config = { extra = { emult = 4 } },
 	rarity = "crp_joker",
 	atlas = "crp_joker",
 	pos = { x = 0, y = 1 },
@@ -83,15 +83,12 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_powmult",
-					vars = {
-						number_format(lenient_bignum(card.ability.extra.Emult)),
-					},
-				}),
-				Emult_mod = lenient_bignum(card.ability.extra.Emult),
-				colour = G.C.DARK_EDITION,
+				emult = lenient_bignum(card.ability.extra.emult),
+				emult_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = 'talisman_emult'
+				}
 			}
 		end
 	end,
@@ -105,7 +102,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_5",
 	name = "Joker 5",
-	config = { extra = { EEmult = 4 } },
+	config = { extra = { eemult = 4 } },
 	rarity = "crp_joker",
 	atlas = "crp_joker",
 	pos = { x = 0, y = 1 },
@@ -114,15 +111,17 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.eemult) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-				colour = G.C.DARK_EDITION,
-				card = card
+				eemult = lenient_bignum(card.ability.extra.eemult),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
 			}
 		end
 	end,
@@ -202,7 +201,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "joker_8",
 	name = "Joker 8",
-	config = { extra = { Xchips = 4 } },
+	config = { extra = { xchips = 4 } },
 	rarity = "crp_joker",
 	atlas = "crp_joker",
 	pos = { x = 0, y = 3 },
@@ -210,18 +209,17 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xchips) } }
+		return { vars = { lenient_bignum(card.ability.extra.xchips) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = localize({
-					type = "variable",
-					key = "a_xchips",
-					vars = { number_format(card.ability.extra.Xchips) },
-				}),
-				Xchip_mod = lenient_bignum(card.ability.extra.Xchips),
-				colour = G.C.CHIPS,
+				xchips = lenient_bignum(card.ability.extra.xchips),
+				xchip_message = {
+					message = "X" .. number_format(lenient_bignum(card.ability.extra.xchips)) .. " Chips",
+					colour = G.C.CHIPS,
+					sound = "talisman_xchip"
+				},
 			}
 		end
 	end,
@@ -293,8 +291,11 @@ SMODS.Joker {
 						4,
 						lenient_bignum(card.ability.extra.mult)
 					},
-					message = "{4}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.EDITION,
+					hypermult_message = {
+						message = "{4}" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			else
 				return {

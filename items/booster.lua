@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "booster",
-	path = "atlas_booster.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Booster{
     key = "very_rare_pack",
     name = "Very Rare Pack",

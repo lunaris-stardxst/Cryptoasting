@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 -- commented out due to the current effect being graveyarded
 --[[
 SMODS.Joker {
@@ -45,14 +31,14 @@ SMODS.Joker {
 	key = "vermillion",
 	name = "Vermillion Joker",
 	pos = { x = 0, y = 6 },
-	config = { extra = { Xmult = 3 } },
+	config = { extra = { xmult = 3 } },
 	rarity = 2,
 	cost = 6,
 	atlas = "crp_joker",
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult) } }
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
@@ -79,7 +65,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xmult = lenient_bignum(card.ability.extra.Xmult)
+				xmult = lenient_bignum(card.ability.extra.xmult)
 			}
 		end
 	end,
@@ -113,7 +99,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "money_card",
 	name = "Money Card",
-	config = { extra = { Xmoney = 1.1 } },
+	config = { extra = { xmoney = 1.1 } },
 	rarity = 2,
 	atlas = "crp_joker",
 	pos = { x = 5, y = 1 },
@@ -121,19 +107,19 @@ SMODS.Joker {
 	blueprint_compat = false,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmoney) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmoney) } }
 	end,
 	calculate = function(self, card, context)
 		if context.forcetrigger then
-			ease_dollars(math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.Xmoney)) - 1))
+			ease_dollars(math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.xmoney)) - 1))
 			return {
-				message = "$" .. number_format(lenient_bignum(card.ability.extra.Xmoney)),
+				message = "$" .. number_format(lenient_bignum(card.ability.extra.xmoney)),
 				colour = G.C.MONEY
 			}
 		end
 	end,
 	calc_dollar_bonus = function(self, card)
-		return math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.Xmoney) - 1))
+		return math.floor(lenient_bignum(G.GAME.dollars) * (lenient_bignum(card.ability.extra.xmoney) - 1))
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
@@ -168,7 +154,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Glitchkat10" },
 		art = { "Tatteredlurker" },
-		code = { "Lexi", "Glitchkat10" }
+		code = { "Anonymous", "Glitchkat10" }
 	}
 }
 
@@ -301,13 +287,6 @@ SMODS.Joker {
 		idea = { "wilfredlam0418" },
 		code = { "wilfredlam0418" }
 	}
-}
-
-SMODS.Atlas {
-	key = "fun_coin",
-	path = "fun_coin.png",
-	px = 71,
-	py = 71
 }
 
 SMODS.Joker {

@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "evil_jolly_joker",
 	name = "EVIL Jolly Joker",
@@ -97,7 +83,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Grahkon", "Glitchkat10" },
-		art = { "Lexi" },
+		art = { "Anonymous" },
 		code = { "Glitchkat10" }
 	}
 }

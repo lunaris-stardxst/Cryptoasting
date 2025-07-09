@@ -11,7 +11,7 @@ SMODS.Sound({
     end,
 })
 
--- hook into the music_exotic select_music_track function thing to add more of my rarities
+-- hook into the music_exotic select_music_track function thing to add more of cryptposting's rarities
 local original_select_music_track = SMODS.Sounds.cry_music_exotic.select_music_track
 SMODS.Sounds.cry_music_exotic.select_music_track = function()
     return (original_select_music_track and original_select_music_track())

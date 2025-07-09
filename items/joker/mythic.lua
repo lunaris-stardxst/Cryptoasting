@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "weather_machine",
 	name = "Weather Machine",
@@ -102,13 +88,6 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Atlas {
-	key = "peter",
-	path = "peter.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "pentation_peter",
 	name = "pentation peter",
@@ -135,11 +114,11 @@ SMODS.Joker {
 	end,
 	animation = {
         macro = {
-        type = "skim",
-        pos = {
-            include = { { x1=0,x2=3,y1=0,y2=6 } },
-            exclude = { { x1=0,x2=3,y1=7,y2=7 } },
-        },
+            type = "skim",
+            pos = {
+                include = { { x1 = 0, x2 = 3, y1 = 0, y2 = 6 } },
+                exclude = { { x1 = 0, x2 = 3, y1 = 7, y2 = 7 } }
+            }
         }
     },
 	crp_credits = {
@@ -180,11 +159,12 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
 	local ret = scie(effect, scored_card, key, amount, from_edition)
 	return ret
 end
+
  --[[
 SMODS.Joker {
 	key = "tetrationa",
 	name = "Tetrationa",
-	config = { extra = { EEmult = 1, EEmult_mod = 0.3 } },
+	config = { extra = { eemult = 1, eemult_mod = 0.3 } },
 	rarity = "crp_mythic",
 	atlas = "crp_placeholder",
 	pos = { x = 8, y = 0 },
@@ -193,15 +173,17 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.EEmult), lenient_bignum(card.ability.extra.EEmult_mod) } }
+		return { vars = { lenient_bignum(card.ability.extra.eemult), lenient_bignum(card.ability.extra.eemult_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				message = "^^" .. lenient_bignum(card.ability.extra.EEmult) .. " Mult",
-				EEmult_mod = lenient_bignum(card.ability.extra.EEmult),
-				colour = G.C.DARK_EDITION,
-				card = card
+				eemult = lenient_bignum(card.ability.extra.eemult),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
 			}
 		end
 	end,
@@ -221,15 +203,15 @@ SMODS.Joker {
 				and mult
 			then
 				for k, v in pairs(find_joker("j_crp_tetrationa")) do
-					local old = v.ability.extra.EEmult
-					v.ability.extra.EEmult = lenient_bignum(to_big(v.ability.extra.EEmult) + v.ability.extra.EEmult_mod)
+					local old = v.ability.extra.eemult
+					v.ability.extra.eemult = lenient_bignum(to_big(v.ability.extra.eemult) + v.ability.extra.eemult_mod)
 					card_eval_status_text(v, "extra", nil, nil, nil, {
-						message = '^^' .. number_format(v.ability.extra.EEmult) .. ' Mult',
+						message = '^^' .. number_format(v.ability.extra.eemult) .. ' Mult',
 					})
-					Cryptid.apply_scale_mod(v, v.ability.extra.EEmult_mod, old, v.ability.extra.EEmult, {
-						base = { { "extra", "EEmult" } },
-						scaler = { { "extra", "EEmult_mod" } },
-						scaler_base = { v.ability.extra.EEmult_mod },
+					Cryptid.apply_scale_mod(v, v.ability.extra.eemult_mod, old, v.ability.extra.eemult, {
+						base = { { "extra", "eemult" } },
+						scaler = { { "extra", "eemult_mod" } },
+						scaler_base = { v.ability.extra.eemult_mod },
 					})
 				end
 			end
@@ -239,7 +221,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 ]]--
@@ -247,7 +229,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "bulgoeship_card",
 	name = "Bulgoeship Card",
-    config = { extra = { EEmult_mod = 0.1 } },
+    config = { extra = { eemult_mod = 0.1 } },
     rarity = "crp_mythic",
     atlas = "crp_joker",
     pos = { x = 1, y = 7 },
@@ -258,16 +240,20 @@ SMODS.Joker {
 	perishable_compat = false,
 	pools = { Bulgoe = true },
     loc_vars = function(self, info_queue, card)
-        return { vars = { number_format(card.ability.extra.EEmult_mod), number_format(card.ability.extra.EEmult_mod) * Cryptposting.member_count, }, }
+        return { vars = { number_format(card.ability.extra.eemult_mod), number_format(card.ability.extra.eemult_mod) * Cryptposting.member_count, }, }
     end,
     calculate = function(self, card, context)
-        if (context.joker_main and lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)) > lenient_bignum(1)) or context.forcetrigger then
-            return {
-                message = "^^" .. number_format(lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count))) .. " Mult",
-                EEmult_mod = lenient_bignum(lenient_bignum(card.ability.extra.EEmult_mod) * lenient_bignum(Cryptposting.member_count)),
-                colour = G.C.DARK_EDITION,
-                card = card
-            }
+        if (context.joker_main
+		and to_big(lenient_bignum(card.ability.extra.eemult_mod) * lenient_bignum(Cryptposting.member_count)) > to_big(1))
+		or context.forcetrigger then
+			return {
+				eemult = lenient_bignum(card.ability.extra.eemult_mod) * lenient_bignum(Cryptposting.member_count),
+				eemult_message = {
+					message = "^^" .. number_format(lenient_bignum(card.ability.extra.eemult_mod) * lenient_bignum(Cryptposting.member_count)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_eemult"
+				}
+			}
         end
     end,
     crp_credits = {
@@ -280,7 +266,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "underflow",
 	name = "Underflow",
-	config = { extra = { Xmult = 1, Xmult_scale = 1 } },
+	config = { extra = { xmult = 1, xmult_scale = 1 } },
 	rarity = "crp_mythic",
 	atlas = "crp_joker",
 	pos = { x = 5, y = 6 },
@@ -290,20 +276,20 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Xmult_scale) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_scale) } }
 	end,
 	calculate = function(self, card, context)
-		if ((context.joker_main) or context.forcetrigger) and card.ability.extra.Xmult ~= 0 then
+		if ((context.joker_main) or context.forcetrigger) and card.ability.extra.xmult ~= 0 then
 			return {
-				Xmult = lenient_bignum(card.ability.extra.Xmult),
+				xmult = lenient_bignum(card.ability.extra.xmult),
 			}
 		end
 		if (context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker) or context.forcetrigger then
-			if card.ability.extra.Xmult > -1 then
-				card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) - lenient_bignum(card.ability.extra.Xmult_scale)
+			if card.ability.extra.xmult > -1 then
+				card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) - lenient_bignum(card.ability.extra.xmult_scale)
 			end
-			if card.ability.extra.Xmult <= -1 then
-				card.ability.extra.Xmult = 1.79769e308
+			if card.ability.extra.xmult <= -1 then
+				card.ability.extra.xmult = 1.79769e308
 			end
 		end
 	end,

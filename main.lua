@@ -37,6 +37,7 @@ local files = {
 	"items/deck",
 	"items/edition",
 	"items/rarity",
+	"items/stake",
 	"items/tag",
 	"items/voucher",
 	"items/challenge",
@@ -48,6 +49,7 @@ local files = {
 	"lib/modbadge",
 	"lib/music",
 	"lib/pointerblist",
+	"lib/smods.",
 }
 for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()

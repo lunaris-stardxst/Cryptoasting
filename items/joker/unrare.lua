@@ -15,7 +15,9 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			return {
 				chips = lenient_bignum(card.ability.extra.chips),
-				mult = lenient_bignum(card.ability.extra.mult)
+				extra = {
+					mult = lenient_bignum(card.ability.extra.mult)
+				}
 			}
 		end
 		if context.forcetrigger then

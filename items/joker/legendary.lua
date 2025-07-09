@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 --[[ commented out due to returns ending everything for some reason
 SMODS.Joker {
 	key = "quantum",
@@ -119,12 +105,16 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	pools = { Bulgoe = true },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { "27!" } }
-	end,
 	calculate = function(self, card, context)
-		if (context.individual and context.cardarea == G.play and (context.other_card:get_id() == 2 or context.other_card:get_id() == 7) and pseudorandom("crp_270_bulgoescope") < 1/27) or context.forcetrigger then
-			return { chips = card.ability.extra.chips }
+		if
+		(context.individual
+		and context.cardarea == G.play
+		and (context.other_card:get_id() == 2 or context.other_card:get_id() == 7)
+		and pseudorandom("crp_270_bulgoescope") < 1/27)
+		or context.forcetrigger then
+			return {
+				chips = lenient_bignum(card.ability.extra.chips)
+			}
 		end
 	end,
 	crp_credits = {
@@ -134,26 +124,19 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Sound {
-	key = "xchips",
-	path = "MultiplicativeChips.ogg",
-	loop = false,
-	volume = 0.5,
-}
-
 SMODS.Joker {
     key = "chibidoki",
 	name = "Chibidoki",
     pos = { x = 8, y = 6 },
 	soul_pos = { x = 9, y = 6 },
-    config = { extra = { Xchipsmult = 2.25 } },
+    config = { extra = { xchipsmult = 2.25 } },
     atlas = "crp_joker",
     rarity = 4,
     cost = 20,
     blueprint_compat = true,
     demicoloncompat = true,
     loc_vars = function(self, info_queue, center)
-        return { vars = { number_format(lenient_bignum(center.ability.extra.Xchipsmult)), colours = { { 0.8, 0.45, 0.85, 1 } } } }
+        return { vars = { number_format(lenient_bignum(center.ability.extra.xchipsmult)), colours = { { 0.8, 0.45, 0.85, 1 } } } }
     end,
     calculate = function(self, card, context)
         -- trigger when another qualifying joker triggers
@@ -164,7 +147,9 @@ SMODS.Joker {
 				["crp_rare_2"] = true,
 				["cry_candy"] = true,
 				["crp_meat"] = true,
+				["crp_refined"] = true,
 				["crp_joker"] = true,
+				["crp_m"] = true,
 				["cry_epic"] = true,
 				["crp_cipe"] = true,
 				["crp_incredible"] = true,
@@ -177,9 +162,7 @@ SMODS.Joker {
 				["crp_2exomythic4me"] = true,
                 ["crp_22exomythic4mecipe"] = true,
                 ["crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe"] = true,
-                ["crp_m"] = true,
-                
-				
+				["crp_all"] = true,
             }
             
             local rarity = context.other_joker.config.center.rarity
@@ -203,10 +186,10 @@ SMODS.Joker {
                     }))
                 end
                 return {
-					message = "X" .. number_format(lenient_bignum(card.ability.extra.Xchipsmult)) .. " Chips and Mult",
-					sound = "xchips",
-					Xchips = lenient_bignum(card.ability.extra.Xchipsmult),
-					Xmult = lenient_bignum(card.ability.extra.Xchipsmult),
+					message = "X" .. number_format(lenient_bignum(card.ability.extra.xchipsmult)) .. " Chips and Mult",
+					sound = "crp_multiplicativechipsmult",
+					x_chips = lenient_bignum(card.ability.extra.xchipsmult),
+					xmult = lenient_bignum(card.ability.extra.xchipsmult),
 					remove_default_message = true,
 					colour = { 0.8, 0.45, 0.85, 1 } -- plasma deck colors
                 }

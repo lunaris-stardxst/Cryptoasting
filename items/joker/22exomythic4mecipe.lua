@@ -5,13 +5,6 @@ SMODS.Atlas {
 	py = 95
 }
 
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "quetta_m",
 	name = "Quetta M",
@@ -31,38 +24,62 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			if to_big(card.ability.extra.operator) <= to_big(-1) then
 				return {
-					mult = lenient_bignum(card.ability.extra.mult),
+					mult = lenient_bignum(card.ability.extra.mult)
 				}
 			elseif to_big(card.ability.extra.operator) == to_big(0) then
 				return {
-					Xmult = lenient_bignum(card.ability.extra.mult),
+					Xmult = lenient_bignum(card.ability.extra.mult)
 				}
 			elseif to_big(card.ability.extra.operator) == to_big(1) then
 				return {
-					Emult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.DARK_EDITION
+					emult = lenient_bignum(card.ability.extra.mult),
+					emult_message = {
+						message = "^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			elseif to_big(card.ability.extra.operator) == to_big(2) then
 				return {
-					EEmult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.DARK_EDITION
+					eemult = lenient_bignum(card.ability.extra.mult),
+					eemult_message = {
+						message = "^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_eemult"
+					}
 				}
 			elseif to_big(card.ability.extra.operator) == to_big(3) then
 				return {
-					EEEmult_mod = lenient_bignum(card.ability.extra.mult),
-					message = "^^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
-					colour = G.C.EDITION
+					eeemult = lenient_bignum(card.ability.extra.mult),
+					eeemult_message = {
+						message = "^^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "talisman_eeemult"
+					}
 				}
-			else  -- guys the elseif chain isn't THAT massive syfm 🥀
+			elseif to_big(card.ability.extra.operator) == to_big(4) then
 				return {
-					hypermult_mod = {
+					hypermult = {
 						lenient_bignum(card.ability.extra.operator),
 						lenient_bignum(card.ability.extra.mult)
 					},
-					message = "{" .. number_format(lenient_bignum(card.ability.extra.operator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.mult)) .. " Mult",
-					colour = G.C.EDITION
+					hypermult_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.operator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.mult)) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "crp_hexationalmult"
+					}
+				}
+			elseif to_big(card.ability.extra.operator) >= to_big(5) then  -- guys the elseif chain isn't THAT massive syfm 🥀
+				return {
+					hypermult = {
+						lenient_bignum(card.ability.extra.operator),
+						lenient_bignum(card.ability.extra.mult)
+					},
+					hypermult_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.operator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.mult)) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "crp_heptationalmult"
+					}
 				}
 			end
 		end
@@ -70,8 +87,7 @@ SMODS.Joker {
 			if to_big(pseudorandom("quetta_m")) <= to_big(lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)) then
 				card.ability.extra.operator = lenient_bignum(card.ability.extra.operator) + lenient_bignum(card.ability.extra.operator_increase)
 				return {
-					message = "Upgraded!",
-					card = card
+					message = "Upgraded!"
 				}
 			end
 		end
@@ -86,7 +102,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "playerrwon",
 	name = "playerrWon",
-	config = { extra = { arrows = 1, placebo = 9, arrows_scale = 1, mult = 1e300 }, immutable = { max = 9827 } },
+	config = { extra = { arrows = 1, placebo = 9, arrows_scale = 1, mult = 9 }, immutable = { max = 9827 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholder",
 	pos = { x = 10, y = 0 },
@@ -103,19 +119,63 @@ SMODS.Joker {
 			if to_big(card.ability.extra.arrows) < to_big(100) then
 				card.ability.extra.mult = lenient_bignum(card.ability.extra.placebo)
 			end
-			return {
-				hypermult_mod = {
-					lenient_bignum(math.ceil(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))))), -- do you like parentheses
-					lenient_bignum(card.ability.extra.mult)
-				},
-				message = "{" .. number_format(lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max)))) .. "}" .. number_format(lenient_bignum(card.ability.extra.placebo)) .. " Mult",
-				colour = G.C.EDITION,
-			}
+			if to_big(card.ability.extra.operator) == to_big(1) then
+				return {
+					emult = lenient_bignum(card.ability.extra.mult),
+					emult_message = {
+						message = "^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
+				}
+			elseif to_big(card.ability.extra.operator) == to_big(2) then
+				return {
+					eemult = lenient_bignum(card.ability.extra.mult),
+					eemult_message = {
+						message = "^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_eemult"
+					}
+				}
+			elseif to_big(card.ability.extra.operator) == to_big(3) then
+				return {
+					eeemult = lenient_bignum(card.ability.extra.mult),
+					eeemult_message = {
+						message = "^^^" .. lenient_bignum(card.ability.extra.mult) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "talisman_eeemult"
+					}
+				}
+			elseif to_big(card.ability.extra.operator) == to_big(4) then
+				return {
+					hypermult = {
+						lenient_bignum(card.ability.extra.operator),
+						lenient_bignum(card.ability.extra.mult)
+					},
+					hypermult_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.operator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.mult)) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "crp_hexationalmult"
+					}
+				}
+			elseif to_big(card.ability.extra.operator) >= to_big(5) then
+				return {
+					hypermult = {
+						lenient_bignum(card.ability.extra.operator),
+						lenient_bignum(card.ability.extra.mult)
+					},
+					hypermult_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.operator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.mult)) .. " Mult",
+						colour = G.C.EDITION,
+						sound = "crp_heptationalmult"
+					}
+				}
+			end
 		end
 		if (context.end_of_round and not context.blueprint and not context.retrigger and not context.individual and not context.repetition) or context.forcetrigger then
 			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_scale)
 			if to_big(card.ability.extra.arrows) > to_big(100) then
-				card.ability.extra.mult = 1e300
+				card.ability.extra.mult = lenient_bignum(1e300)
 			end
 		end
 	end,

@@ -1,21 +1,7 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "duplex",
 	name = "Duplex",
-	config = { extra = { Xmult = 1, Xmult_gain = 0.25, retriggers = 1 } },
+	config = { extra = { xmult = 1, xmult_gain = 0.25, retriggers = 1 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_joker",
 	pos = { x = 7, y = 5 },
@@ -25,7 +11,7 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmult), lenient_bignum(card.ability.extra.Xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_gain), lenient_bignum(card.ability.extra.retriggers) } }
 	end,
 	calculate = function(self, card, context) 
 		if context.retrigger_joker_check and not context.retrigger_joker and context.other_card ~= card then
@@ -43,16 +29,16 @@ SMODS.Joker {
 			}
 		end
 		if context.post_trigger and context.other_joker ~= card then
-			card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) + lenient_bignum(card.ability.extra.Xmult_gain)
+			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if context.individual and context.cardarea == G.play then
-			card.ability.extra.Xmult = lenient_bignum(card.ability.extra.Xmult) + lenient_bignum(card.ability.extra.Xmult_gain)
+			card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) + lenient_bignum(card.ability.extra.xmult_gain)
 			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_upgrade_ex") })
 		end
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				Xmult = lenient_bignum(card.ability.extra.Xmult),
+				xmult = lenient_bignum(card.ability.extra.xmult),
 			}
 		end
 	end,
@@ -171,7 +157,7 @@ end
 SMODS.Joker {
 	key = "repetitio",
 	name = "Repetitio",
-	config = { extra = { Xmult = 1.05, retriggers = 10 }, immutable = { max_retriggers = 400 }, },
+	config = { extra = { xmult = 1.05, retriggers = 10 }, immutable = { max_retriggers = 400 }, },
 	rarity = "crp_exotic_2",
 	atlas = "crp_joker",
 	pos = { x = 4, y = 5 },
@@ -180,31 +166,28 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Xmult), math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers)), lenient_bignum(card.ability.immutable.max_retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.xmult), math.min(lenient_bignum(card.ability.immutable.max_retriggers), lenient_bignum(card.ability.extra.retriggers)), lenient_bignum(card.ability.immutable.max_retriggers) } }
 	end,
 	calculate = function(self, card, context)
 		if context.repetition then
 			if context.cardarea == G.play then
 				return {
 					message = localize("k_again_ex"),
-					repetitions = tonumber(math.min(to_big(card.ability.immutable.max_retriggers), to_big(card.ability.extra.retriggers))),
-					card = card,
+					repetitions = tonumber(
+						math.min(card.ability.immutable.max_retriggers, card.ability.extra.retriggers)
+					),
 				}
 			end
 		elseif context.individual then
 			if context.cardarea == G.play then
 				return {
-					message = "X" .. number_format(lenient_bignum(card.ability.extra.Xmult)) .. " Mult",
-					Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-					colour = G.C.MULT,
+					xmult = lenient_bignum(card.ability.extra.xmult),
 				}
 			end
 		end
 		if context.forcetrigger then
 			return {
-				message = "X" .. number_format(lenient_bignum(card.ability.extra.Xmult)) .. " Mult",
-				Xmult_mod = lenient_bignum(card.ability.extra.Xmult),
-				colour = G.C.MULT,
+				xmult = lenient_bignum(card.ability.extra.xmult),
 			}
 		end
 	end,
@@ -218,7 +201,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "resurgo",
 	name = "Resurgo",
-	config = { extra = { Emult = 1 } },
+	config = { extra = { emult = 1 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_placeholder",
 	pos = { x = 7, y = 0 },
@@ -230,14 +213,17 @@ SMODS.Joker {
 	demicoloncompat = true,
 	calculate = function(self, card, context)
 		if context.setting_blind then
-			card.ability.extra.Emult = lenient_bignum(G.GAME.round_resets.ante)
+			card.ability.extra.emult = lenient_bignum(G.GAME.round_resets.ante)
 		end
 		if (context.joker_main) or context.forcetrigger then
-			if to_big(card.ability.extra.Emult) > to_big(1) then
+			if to_big(card.ability.extra.emult) > to_big(1) then
 				return {
-					Emult_mod = lenient_bignum(card.ability.extra.Emult),
-					message = "^" .. number_format(lenient_bignum(card.ability.extra.Emult)) .. " Mult",
-					colour = G.C.DARK_EDITION
+					emult = lenient_bignum(card.ability.extra.emult),
+					emult_message = {
+						message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "talisman_emult"
+					}
 				}
 			end
 		end
@@ -276,9 +262,12 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main and G.GAME.current_round.hands_played == 0) or context.forcetrigger then
 			return {
-				Echip_mod = lenient_bignum(tonumber(card.ability.immutable.pi[card.ability.immutable.digit])) or 1,
-				message = "^" .. number_format(lenient_bignum(tonumber(card.ability.immutable.pi[card.ability.immutable.digit] or 1))) .. " Chips",
-				colour = G.C.DARK_EDITION
+				echips = lenient_bignum(tonumber(card.ability.immutable.pi[card.ability.immutable.digit])) or 1,
+				echip_message = {
+					message = "^" .. number_format(lenient_bignum(tonumber(card.ability.immutable.pi[card.ability.immutable.digit] or 1))) .. " Chips",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_echip"
+				}
 			}
 		end
 		if (context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker) or context.forcetrigger then
@@ -291,7 +280,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown", "Glitchkat10" },
-		code = { "wilfredlam0418" },
+		code = { "wilfredlam0418", "Glitchkat10" },
 		custom = { key = "alt", text = "Circulus Pistoris" }
 	}
 }
