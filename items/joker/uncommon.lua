@@ -313,7 +313,7 @@ SMODS.Atlas {
 SMODS.Joker {
 	key = "fun_coin",
 	name = "fun coin",
-	config = { extra = { gain = 4, loss = 3, Xmult = 2 } },
+	config = { extra = { gain = 4, loss = 3, xmult = 2 } },
 	rarity = 2,
 	atlas = "crp_fun_coin",
 	pos = { x = 0, y = 0 },
@@ -326,11 +326,11 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.before or context.forcetrigger then
-			ease_dollars(lenient_bignum(card.ability.extra.gain) and pseudorandom("crp_fun_coin") > 0.5 or -lenient_bignum(card.ability.extra.loss))
+			ease_dollars(card.ability.gain and pseudorandom("crp_fun_coin") > 0.5 or -card.ability.loss)
 		end
 		if (context.joker_main and G.GAME.dollars < 0) or context.forcetrigger then
 			return {
-				Xmult = lenient_bignum(card.ability.extra.Xmult)
+				xmult = card.ability.extra.xmult
 			}
 		end
 	end,
