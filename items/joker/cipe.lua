@@ -1,17 +1,3 @@
-SMODS.Atlas {
-	key = "joker",
-	path = "atlas_joker.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "placeholder",
-	path = "atlas_placeholder.png",
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
 	key = "sigma-man",
 	name = "Sigma-Man",
@@ -94,7 +80,7 @@ SMODS.Joker {
 			vars = {
 				card.ability.cry_rigged and lenient_bignum(card.ability.extra.odds) or lenient_bignum(card.ability.extra.odds) - prob,
 				lenient_bignum(card.ability.extra.odds),
-				lenient_bignum(card.ability.extra.mult)
+				lenient_bignum(card.ability.extra.emult)
 			}
 		}
 	end,

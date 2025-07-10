@@ -1,5 +1,5 @@
 SMODS.Challenge {
-    key = "cecilchallenge",
+    key = "cecilchallenge", -- SEA SALT!!! I NEED YOU SEA SALT!!!
     loc_txt = {
         name = "Sea Salt",
     },
@@ -27,7 +27,7 @@ SMODS.Challenge {
     },
     rules = {
         modifiers = {
-            { id = "joker_slots", value = -1e100 },
+            { id = "joker_slots", value = -1e100 }, -- no jokers womp womp
             { id = "hands", value = 1 },
             { id = "discards", value = 10 },
             { id = "hand_size", value = 6 },

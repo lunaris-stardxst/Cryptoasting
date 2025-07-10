@@ -100,9 +100,9 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "playerrwon",
-	name = "playerrWon",
-	config = { extra = { arrows = 1, placebo = 9, arrows_scale = 1, mult = 9 }, immutable = { max = 9827 } },
+	key = "generic_scaling_operator", -- goodbye playerrwon
+	name = "Generic Scaling Hyperoperator Joker",
+	config = { extra = { arrows = 1, placebo = 2, arrows_scale = 1, mult = 2 }, immutable = { max = 9827 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholder",
 	pos = { x = 10, y = 0 },
@@ -172,7 +172,7 @@ SMODS.Joker {
 				}
 			end
 		end
-		if (context.end_of_round and not context.blueprint and not context.retrigger and not context.individual and not context.repetition) or context.forcetrigger then
+		if (context.end_of_round and not context.blueprint and not context.retrigger and context.main_eval) or context.forcetrigger then
 			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_scale)
 			if to_big(card.ability.extra.arrows) > to_big(100) then
 				card.ability.extra.mult = lenient_bignum(1e300)

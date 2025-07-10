@@ -85,7 +85,7 @@ SMODS.Joker {
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
-	calculate = function()
+	calculate = function(self, card, context)
 		if (context.setting_blind and context.blind.boss) or context.forcetrigger then
 			SMODS.add_card({ key = "j_zany", edition = "e_negative" })
 		end

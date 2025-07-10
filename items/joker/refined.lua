@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "progressive",
+	key = "progressive", -- isn't there like an insurance company named progressive
 	name = "Progressive Joker",
 	config = { extra = { mult = 1, xmult = 1 } },
 	rarity = "crp_refined",

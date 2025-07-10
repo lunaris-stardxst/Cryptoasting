@@ -1,4 +1,4 @@
-SMODS.Joker {
+SMODS.Joker { -- hank is DEAD
 	key = "hexation_henry",
 	name = "hexation henry",
 	config = { immutable = { arrows = 4 }, extra = { hypermult = 1.1 } },
@@ -212,7 +212,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "jean_antoine",
 	name = "Jean-Antoine d'Anglerais",
-	config = { extra = { retriggers = math.min(14, 14) } },
+	config = { extra = { retriggers = math.min(14, 14) } }, -- what did rainstar mean by this
 	rarity = "crp_exomythic",
 	atlas = "crp_joker",
 	pos = { x = 3, y = 8 },

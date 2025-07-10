@@ -197,7 +197,7 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+SMODS.Joker { -- i counted to 5!!!!
 	key = "12345",
 	name = "12345",
 	config = { extra = { jokerslots = 1, consumeableslots = 2, money = 3, mult = 4, chips = 5 } },
@@ -244,8 +244,8 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "playerrkillerr",
-	name = "playerKillerr",
+	key = "inside_joker", -- goodbye playerkillerr
+	name = "Inside Joke r",
 	config = { immutable = { mult = 284 } },
 	rarity = 3,
 	atlas = "crp_joker",
@@ -399,7 +399,7 @@ SMODS.Joker {
 		}
 	end,
 	calculate = function(self, card, context)
-		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+		if (context.end_of_round and context.main_eval and not context.blueprint) or context.forcetrigger then
 			if to_big(pseudorandom("crp_dumpster_diver")) < to_big((cry_prob(card.ability.cry_prob, to_big(card.ability.extra.odds), card.ability.cry_rigged) / to_big(card.ability.extra.odds))) or context.forcetrigger then
 				G.GAME.joker_buffer = G.GAME.joker_buffer + math.ceil(lenient_bignum(card.ability.extra.rare_create))
 				for i = 1, math.ceil(lenient_bignum(card.ability.extra.rare_create)) do
@@ -527,7 +527,7 @@ SMODS.Joker {
 				mult = lenient_bignum(card.ability.extra.mult),
 			}
 		end
-		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+		if (context.end_of_round and context.main_eval and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) / 2
 			if to_big(card.ability.extra.mult) <= to_big(8) then
 				G.E_MANAGER:add_event(Event({
@@ -608,7 +608,7 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
 	end,
 	calculate = function(self, card, context)
-		if (context.end_of_round and not context.individual and not context.repetition) or context.forcetrigger then
+		if (context.end_of_round and context.main_eval) or context.forcetrigger then
 			local create = lenient_bignum(card.ability.extra.create)
 			G.GAME.joker_buffer = G.GAME.joker_buffer + create
 			for i = 1, create do

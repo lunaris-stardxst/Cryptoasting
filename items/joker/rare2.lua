@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "low-fqt_milk",
+	key = "low-fqt_milk", -- not a typo (but like originally was but then it was made real for some reason (yeah idk))
 	name = "Low-Fqt Milk",
 	config = { extra = { chips = 2048 } },
 	rarity = "crp_rare_2",
@@ -19,7 +19,7 @@ SMODS.Joker {
 				chips = lenient_bignum(card.ability.extra.chips),
 			}
 		end
-		if (context.end_of_round and not context.individual and not context.repetition and not context.blueprint) or context.forcetrigger then
+		if (context.end_of_round and context.main_eval and not context.blueprint) or context.forcetrigger then
 			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) * 0.8
 			if to_big(card.ability.extra.chips) <= to_big(512) then
 				G.E_MANAGER:add_event(Event({
