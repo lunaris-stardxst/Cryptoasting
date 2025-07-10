@@ -108,7 +108,7 @@ SMODS.Joker {
 						sound = "crp_hexationalchipsmult"
 					}
 				}
-			elseif to_big(arrow_number_cards) >= to_big(5) then
+			elseif to_big(arrow_number_cards) >= to_big(5) then -- big elseif
 				return {
 					hyperchips = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)},
 					hypermult_mod = {lenient_bignum(arrow_number_cards), lenient_bignum(card.ability.extra.chipsmult)},
@@ -144,7 +144,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.ending_shop and G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
-			local success, new_card = pcall(create_card, "Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment")
+			local success, new_card = pcall(create_card, "Joker", G.jokers, nil, "cry_exotic", nil, nil, nil, "exotic_generator_moment") -- exotic generator moment
 			if success and new_card and type(new_card) == 'table' then
 				if new_card.set_edition then 
 					pcall(new_card.set_edition, new_card, { negative = true }, true)

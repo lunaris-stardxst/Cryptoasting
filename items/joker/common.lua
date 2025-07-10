@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "bulgoe",
+	key = "bulgoe", -- my sweet little pumpkin
 	name = "Bulgoe",
 	config = { extra = { chips = 2.7 } },
 	rarity = 1,
@@ -15,7 +15,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			return {
-				chips = lenient_bignum(card.ability.extra.chips)
+				chips = lenient_bignum(card.ability.extra.chips) -- most overpowered shit you've ever seen
 			}
 		end
 	end,
@@ -23,7 +23,7 @@ SMODS.Joker {
 		idea = { "Poker The Poker" },
 		art = { "Poker The Poker" },
 		code = { "Glitchkat10" },
-		custom = { key = "everything",text = "Bulgoe" }
+		custom = { key = "everything", text = "Bulgoe" } -- everything is bulgoe
 	}
 }
 
@@ -53,7 +53,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "participation_trophy",
+	key = "participation_trophy", -- you tried
 	name = "Participation Trophy",
 	config = { extra = { mult_mod = 0.25 } },
 	rarity = 1,
@@ -84,7 +84,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "apple",
+	key = "apple", -- right now doesn't do anything that good but will be for THE HORSE.
 	name = "Apple",
 	config = { extra = { mult = 1, rounds_remaining = 10 } },
 	rarity = 1,
@@ -178,7 +178,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "bulgoe_prize",
+	key = "bulgoe_prize", -- he got a present
 	name = "Bulgoe Prize",
 	config = { extra = { create = 1 } },
 	rarity = 1,
@@ -217,7 +217,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "centipede",
+	key = "centipede", -- ts is so bad i had to nerf it from uncommon to common
 	name = "Centipede",
 	config = { extra = { chips = 100, full_hand = 1 } },
 	rarity = 1,
@@ -244,7 +244,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "bullshit",
+	key = "bullshit", -- this is glorpshit
 	name = "Bullshit",
 	config = { extra = { amount = 1 } },
 	rarity = 1,
@@ -286,7 +286,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "grouchy",
+	key = "grouchy", -- bro is just like me frfr
 	name = "Grouchy Jimbo",
 	config = { extra = { mult = 30 } },
 	rarity = 1,
@@ -313,7 +313,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "the_joker_that_decided",
+	key = "the_joker_that_decided", -- i'm not even gonna try
 	name = "The Joker That Decided He Wanted to Test the Limits for How Long a Joker Name Could Be by Putting His Effect in His Name With Said Effect Being That He Gives One Mult When Any Playing Card Is Scored Also He Wanted to Let You Know That He Wants You to Have a Nice Day So He Put That in His Name Too Just to Inflate How Long His Name Is",
 	config = { immutable = { mult = 1 } },
 	rarity = 1,
@@ -360,7 +360,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "bulgoelatro",
+	key = "bulgoelatro", -- balatro but it's bulgoe
 	name = "Bulgoelatro",
 	config = { extra = { mult = 2.7 } },
 	rarity = 1,

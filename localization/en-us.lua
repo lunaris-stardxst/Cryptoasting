@@ -476,7 +476,7 @@ return {
 			j_crp_pi_joker = {
 				name = "Pi Joker",
 				text = {
-					"{C:white,B:1}Xpi{} Chips and Mult"
+					"{C:white,B:1}Xpi{} Chips & Mult"
 				}
 			},
 			j_crp_c_big = {
@@ -509,8 +509,8 @@ return {
 					"{C:edition,X:dark_edition}^^#1#{} Mult against {C:attention}Small Blinds{}"
 				}
 			},
-			j_crp_playerrkillerr = {
-				name = "playerrKillerr",
+			j_crp_inside_joker = {
+				name = "Inside Joke r",
 				text = {
 					"Lowers the framerate to {C:attention}1{} FPS, randomizes resolution, disables fullscreen, and causes an instant {C:red,E:2}loss{} if game speed is above {C:attention}X0.5{}.",
 					"Changes game language every second, all rerolls are free, and redeems {C:attention}50000 unskippable {}{C:tarot}Arcana Packs{} after each {C:attention}Blind{} is revealed.",
@@ -556,7 +556,7 @@ return {
 					"at end of round,",
 					"{C:green}#2# in #3#{} chance to instead create",
 					"{C:attention}#4#{} {C:dark_edition}Negative{} {C:rare}Rare{} {C:attention}Joker#<s>4#{}"
-				},
+				}
 			},
 			j_crp_my_first_joker = {
 				name = "Hdbceifvf sj kjkhiooh jhiiohiouytc",
@@ -566,22 +566,22 @@ return {
 					"{C:inactive}(currentlY {C:chips}+#3#{} Chips)",
 					"{C:attention}Earn {C:money}#4#-#5#${} at the end of the {C:attention}round",
 					"When {C:attention}sold, create A {C:attention}Jolly joker{} and a gross Michael",
-					"{C:inactive}my firts jokre",
-				},
+					"{C:inactive}my firts jokre"
+				}
 			},
 			["j_crp_low-fat_milk"] = {
 				name = "Low-Fat Milk",
 				text = {
 					"{C:mult}+#1#{} Mult",
 					"{C:red}Halves{} at end of round",
-					"Destroyed at under {C:mult}8{} Mult",
-				},
+					"Destroyed at under {C:mult}8{} Mult"
+				}
 			},
 			j_crp_normalgoe = {
 				name = "{C:dark_edition}Normalgoe",
 				text = {
 					"{C:white,X:mult}X#1#{} Mult"
-				},
+				}
 			},
 			["j_crp_low-fqt_milk"] = {
 				name = "Low-Fqt Milk",
@@ -589,63 +589,63 @@ return {
 					"{C:chips}+#1#{} Chips",
 					"Value multiplied by {C:attention}0.8{} at end of round",
 					"Destroyed at under {C:chips}512{} Chips",
-					"{C:inactive}\"Fqt in MY milk?!\"{}",
-				},
+					"{C:inactive}\"Fqt in MY milk?!\"{}"
+				}
 			},
 			j_crp_joker_2 = {
 				name = "Joker 2",
 				text = {
-					"{C:chips}+#1#{} Chip#<s>1#",
-				},
+					"{C:chips}+#1#{} Chip#<s>1#"
+				}
 			},
 			j_crp_joker_3 = {
 				name = "Joker 3",
 				text = {
-					"{C:white,X:mult}X#1#{} Mult",
-				},
+					"{C:white,X:mult}X#1#{} Mult"
+				}
 			},
 			j_crp_joker_4 = {
 				name = "Joker 4",
 				text = {
-					"{C:white,X:dark_edition}^#1#{} Mult",
-				},
+					"{C:white,X:dark_edition}^#1#{} Mult"
+				}
 			},
 			j_crp_joker_5 = {
 				name = "Joker 5",
 				text = {
-					"{C:edition,X:dark_edition}^^#1#{} Mult",
-				},
+					"{C:edition,X:dark_edition}^^#1#{} Mult"
+				}
 			},
 			j_crp_joker_6 = {
 				name = "Joker 6",
 				text = {
-					"{C:money}+$#1#{}",
-				},
+					"{C:money}+$#1#{}"
+				}
 			},
 			j_crp_joker_7 = {
 				name = "Joker 7",
 				text = {
 					"{C:attention}+#1#{} {C:tarot}Tarot{} card#<s>1#",
-					"{C:inactive}(Does not require room)",
-				},
+					"{C:inactive}(Does not require room)"
+				}
 			},
 			j_crp_joker_8 = {
 				name = "Joker 8",
 				text = {
-					"{C:white,X:chips}X#1#{} Chip#<s>1#",
-				},
+					"{C:white,X:chips}X#1#{} Chip#<s>1#"
+				}
 			},
 			j_crp_joker_9 = {
 				name = "Joker 9",
 				text = {
-					"{C:planet}+#1#{} Level#<s>1#",
-				},
+					"{C:planet}+#1#{} Level#<s>1#"
+				}
 			},
 			["j_crp_joker?"] = {
 				name = "Joker?",
 				text = {
-					"{C:mult}+#1#{} Mult...{C:attention}?",
-				},
+					"{C:mult}+#1#{} Mult...{C:attention}?"
+				}
 			},
 			j_crp_joker_0 = {
 				name = "Joker 0",
@@ -727,7 +727,7 @@ return {
 				name = "Chibidoki",
 				text = {
 					"{C:crp_unrare}Unrare{} and higher rarity {C:attention}Jokers{}",
-					"give {C:white,B:1}X#1#{} Chips and Mult" -- plasma deck colors
+					"give {C:white,B:1}X#1#{} Chips & Mult" -- plasma deck colors
 				}
 			},
 			j_crp_normalis = {
@@ -735,13 +735,13 @@ return {
 				text = {
 					"{C:white,X:dark_edition}^#1#{} Chip#<s>1# and Mult",
 					"{C:inactive}hd bulgoe{}",
-				},
+				}
 			},
 			j_crp_tetration_timmy = {
 				name = "tetration timmy",
 				text = {
 					"{C:edition,X:dark_edition}^^#1#{} Mult",
-				},
+				}
 			},
 			j_crp_perdurantes = {
 				name = "Perdurantes",
@@ -749,14 +749,14 @@ return {
 					"Gains {C:white,X:dark_edition}^#2#{} Mult for every",
 					"{C:attention}#3#{} triggers of this {C:attention}Joker",
 					"{C:inactive}(Currently {C:attention}#4#{C:inactive} triggers and {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
-				},
+				}
 			},
 			j_crp_jolly_of_joker = {
 				name = "The Jolly of Joker",
 				text = {
 					"{C:white,X:dark_edition}^#1#{} Mult if played",
 					"hand is a {C:attention}Pair{}",
-				},
+				}
 			},
 			j_crp_victoriam = {
 				name = "Victoriam",
@@ -764,7 +764,7 @@ return {
 					"{C:white,X:dark_edition}^0.1{} Chip for every {C:edition,X:grey}win{} on this profile",
 					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Chip#<s>1#)",
-				},
+				}
 			},
 			j_crp_splittum = {
 				name = "Splittum",
@@ -970,11 +970,11 @@ return {
 					"{C:inactive}\"#4#0#5#\" = \"X\"",
 				},
 			},
-			j_crp_playerrwon = {
-				name = "playerrWon",
+			j_crp_generic_scaling_operator = {
+				name = "Obligatory Scaling Hypermult Joker",
 				text = {
-					"{C:dark_edition,X:edition}#4#N#5##2#{} Mult",
-					"{C:attention}N{} increases by {C:attention}#3#{} at",
+					"{C:dark_edition,X:edition}#4#X#5##2#{} Mult",
+					"{C:attention}X{} increases by {C:attention}#3#{} at",
 					"end of round",
 					"{C:inactive}(Currently {C:attention}#1#{C:inactive})",
 				},

@@ -264,7 +264,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "average_cryptid_experience",
 	name = "average cryptid experience",
-	config = { immutable = { mult = 8000000000000000 } },
+	config = { immutable = { mult = 8000000000000000 } }, -- 8 quadrillion jolly jokers
 	atlas = "crp_joker",
 	pos = { x = 0, y = 9 },
 	soul_pos = { x = 2, y = 9, extra = { x = 1, y = 9 } },

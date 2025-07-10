@@ -18,7 +18,7 @@ SMODS.Joker {
 		if (context.joker_main) or context.forcetrigger then
 			local total_mult = 0
 			for i = 1, G.GAME.round do
-				total_mult = lenient_bignum(total_mult + math.sin(i) + 1)
+				total_mult = lenient_bignum(total_mult + math.sin(i) + 1) -- what
 			end
 			return {
 				xmult = lenient_bignum(total_mult)
@@ -32,7 +32,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "another_mans_treasure",
+	key = "another_mans_treasure", -- is one man's treasure
 	name = "Another Man's Treasure",
 	config = { extra = { xmult = 7 } },
 	rarity = "crp_incredible",

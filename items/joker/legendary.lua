@@ -185,7 +185,7 @@ SMODS.Joker {
                         end,
                     }))
                 end
-                return {
+                return { -- the biggest return you've ever seen (maybe)
 					message = "X" .. number_format(lenient_bignum(card.ability.extra.xchipsmult)) .. " Chips and Mult",
 					sound = "crp_multiplicativechipsmult",
 					x_chips = lenient_bignum(card.ability.extra.xchipsmult),

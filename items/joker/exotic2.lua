@@ -270,7 +270,7 @@ SMODS.Joker {
 				}
 			}
 		end
-		if (context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker) or context.forcetrigger then
+		if (context.end_of_round and not context.blueprint and context.main_eval and not context.retrigger_joker) or context.forcetrigger then
 			card.ability.immutable.digit = card.ability.immutable.digit + 1
 			return {
 				message = "Next Digit!",

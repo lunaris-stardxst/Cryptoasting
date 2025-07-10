@@ -284,12 +284,12 @@ SMODS.Joker {
 				xmult = lenient_bignum(card.ability.extra.xmult),
 			}
 		end
-		if (context.end_of_round and not context.blueprint and not context.individual and not context.repetition and not context.retrigger_joker) or context.forcetrigger then
+		if (context.end_of_round and not context.blueprint and context.main_eval and not context.retrigger_joker) or context.forcetrigger then
 			if card.ability.extra.xmult > -1 then
 				card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) - lenient_bignum(card.ability.extra.xmult_scale)
 			end
 			if card.ability.extra.xmult <= -1 then
-				card.ability.extra.xmult = 1.79769e308
+				card.ability.extra.xmult = 1.79769e308 -- oops
 			end
 		end
 	end,

@@ -108,7 +108,7 @@ SMODS.Voucher {
 
 SMODS.Voucher {
     key = "payoff",
-    name = "Payoff",
+    name = "Payoff", -- +4 chips!!1!1!!!
     atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = {  } },
@@ -126,7 +126,7 @@ SMODS.Voucher {
 
 SMODS.Voucher {
     key = "just_kidding",
-    name = "Just Kidding, This Is the Real Payoff",
+    name = "Just Kidding, This Is the Real Payoff", -- oh
     atlas = "crp_placeholder",
     pos = { x = 7, y = 2 },
     config = { extra = { all_count = 1 } },

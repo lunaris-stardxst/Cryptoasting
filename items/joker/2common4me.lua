@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "one_mans_trash",
+	key = "one_mans_trash", -- is another man's trash
 	name = "One Man's Trash",
 	pos = { x = 9, y = 7 },
 	config = { extra = { mult = 7 } },

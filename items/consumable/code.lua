@@ -43,11 +43,11 @@ SMODS.Consumable {
 		return #G.jokers.cards < G.jokers.config.card_limit
 	end,
 	use = function(self, card)
-		for i = 1, math.max(G.jokers.config.card_limit - #G.jokers.cards, 100) do
+		for i = 1, math.min(G.jokers.config.card_limit - #G.jokers.cards, 100) do
 			if pseudorandom("crp_ip_192.168.1.1") < 1 / lenient_bignum(card.ability.immutable.odds) then
-				SMODS.add_card("j_crp_normalis")
+				SMODS.add_card{ key = "j_crp_normalis" }
 			else
-				SMODS.add_card("j_crp_bulgoe")
+				SMODS.add_card{ key = "j_crp_bulgoe" }
 			end
 		end
 	end,
