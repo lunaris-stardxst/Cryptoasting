@@ -18,14 +18,13 @@ SMODS.Joker {
 			return {
 				message = localize("k_again_ex"),
 				repetitions = lenient_bignum(card.ability.extra.retriggers),
-				card = card,
+				
 			}
 		end
 		if context.repetition and context.cardarea == G.play then
 			return {
 				message = localize("k_again_ex"),
 				repetitions = lenient_bignum(card.ability.extra.retriggers),
-				card = card,
 			}
 		end
 		if context.post_trigger and context.other_joker ~= card then
@@ -106,7 +105,7 @@ end
 --				message = "^" .. lenient_bignum(card.ability.extra.Emult) .. " Mult",
 --				Emult_mod = lenient_bignum(card.ability.extra.Emult),
 --				colour = G.C.DARK_EDITION,
---				card = card
+--				
 --			}
 --		end
 --	end,

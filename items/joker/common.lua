@@ -403,3 +403,69 @@ SMODS.Joker {
 		code = { "wilfredlam0418" },
 	}
 }
+
+
+SMODS.Joker {
+	key = "double_negative",
+	name = "Double Negative",
+	config = { extra = { xchipsmult = -1.2 } },
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	cost = 4,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.xchipsmult), colours = { { 0.8, 0.45, 0.85, 1 } } } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				message = "X" .. number_format(lenient_bignum(card.ability.extra.xchipsmult)) .. " Chips and Mult",
+				sound = "crp_multiplicativechipsmult",
+				x_chips = lenient_bignum(card.ability.extra.xchipsmult),
+				xmult = lenient_bignum(card.ability.extra.xchipsmult),
+				remove_default_message = true,
+				colour = { 0.8, 0.45, 0.85, 1 } -- plasma deck colors
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "wilfredlam0418" },
+		code = { "wilfredlam0418", "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "goblin",
+	name = "Goblin",
+	rarity = 1,
+	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
+	blueprint_compat = false,
+	demicoloncompat = true,
+	cost = 6,
+	calculate = function(self, card, context)
+		if (context.joker_main and pseudorandom("crp_goblin") < 0.01 and not context.blueprint) or context.forcetrigger then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+ 					G.E_MANAGER:add_event(Event({
+						func = function()
+							G.GAME.blind:disable()
+							play_sound("timpani")
+							delay(0.4)
+							return true
+						end
+					}))
+					SMODS.calculate_effect({ message = localize("ph_boss_disabled") }, card)
+					return true
+				end
+			}))
+			return nil, true
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "wilfredlam0418" }
+	}
+}

@@ -308,6 +308,19 @@ return {
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
 				}
 			},
+			j_crp_double_negative = {
+				name = "Double Negative",
+				text = {
+					"{C:white,B:1}X-1.2{} Chips and Mult"
+				}
+			},
+			j_crp_goblin = {
+				name = "Goblin",
+				text = {
+					"{C:red}Fixed {C:green}1 in 100{} chance",
+					"to disable {C:attention}Boss Blind"
+				}
+			},
 			j_crp_sprinter = {
 				name = "Sprinter",
 				text = {
@@ -414,6 +427,13 @@ return {
 					"{C:inactive}\"OH GOD I'M HAVING SO MUCH FUN LOOKING AT THIS\""
 				}
 			},
+			j_crp_gomble = {
+				name = "Gomble",
+				text = {
+					"{C:red}Fixed {C:green}1 in 2{} chance to spawn a {C:attention}Goblin",
+					"{C:inactive}(Does not require room)"
+				}
+			},
 			j_crp_snake_eyes = {
 				name = "Snake Eyes",
 				text = {
@@ -464,6 +484,13 @@ return {
 				text = {
 					"Create {C:attention}1 {C:dark_edition}Negative {C:attention}Mad Joker",
 					"when {C:attention}Blind{} is selected"
+				}
+			},
+			j_crp_bulgoe_candy = {
+				name = "{C:edition}Bulgoe{} Candy",
+				text = {
+					"Sell this Joker to create {C:attention}#1#",
+					"{C:edition,X:grey}Bulgoe{}-themed Joker#<s>1# and gain {C:money}+$#2#"
 				}
 			},
 			j_crp_12345 = {

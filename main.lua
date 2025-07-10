@@ -22,6 +22,7 @@ local files = {
     "items/joker/unrare",
     "items/joker/rare",
     "items/joker/rare2",
+    "items/joker/candy",
     "items/joker/refined",
     "items/joker/joker",
     "items/joker/epic",

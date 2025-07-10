@@ -34,7 +34,6 @@ SMODS.Joker {
         		context.other_card.ability.perma_x_mult = lenient_bignum(context.other_card.ability.perma_x_mult) + lenient_bignum(card.ability.extra.light_xmult_mod)
         		return {
         		    extra = { message = localize("k_upgrade_ex"), colour = G.C.MULT },
-        		    card = card
 				}
 			end
 			if card.ability.extra.lucky_mult_chance == math.random(1, card.ability.extra.lucky_mult_chance) then
@@ -69,7 +68,6 @@ SMODS.Joker {
 				return {
 					message = localize("k_again_ex"),
 					repetitions = lenient_bignum(card.ability.extra.echo_retriggers),
-					card = card,
 				}
 			end
 		end
