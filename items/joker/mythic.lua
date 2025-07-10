@@ -40,7 +40,6 @@ SMODS.Joker {
 		if context.joker_main and card.ability.extra.death_prevention_enabled == false or context.forcetrigger then
 			card.ability.extra.mult = lenient_bignum(card.ability.extra.mult) + lenient_bignum(card.ability.extra.mult_mod)
 			return {
-				card = card,
 				mult_mod = lenient_bignum(card.ability.extra.mult),
 				message = "+" .. number_format(lenient_bignum(card.ability.extra.mult)) .. "Mult",
 				colour = G.C.MULT,
@@ -108,7 +107,7 @@ SMODS.Joker {
 				message = "^^^" .. lenient_bignum(card.ability.extra.EEEmult) .. " Mult",
 				EEEmult_mod = lenient_bignum(card.ability.extra.EEEmult),
 				colour = G.C.EDITION,
-				card = card
+				
 			}
 		end
 	end,

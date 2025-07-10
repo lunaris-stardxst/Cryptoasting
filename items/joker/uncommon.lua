@@ -177,7 +177,6 @@ SMODS.Joker {
 				return {
 					message = "+nane0 Mult",
 					mult_mod = 1.79769e308,
-					card = card
 				}
 			end
 		end
@@ -301,7 +300,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.gain), lenient_bignum(card.ability.extra.loss), lenient_bignum(card.ability.extra.Xmult) } }
+		return { vars = { lenient_bignum(card.ability.extra.gain), lenient_bignum(card.ability.extra.loss), lenient_bignum(card.ability.extra.xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if context.before or context.forcetrigger then

@@ -23,7 +23,7 @@ SMODS.Joker {
 			return {
 				message = "Upgraded!",
 				colour = G.C.CHIPS,
-				card = card
+				
 			}
 		end
 	end,

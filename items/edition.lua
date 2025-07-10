@@ -534,7 +534,6 @@ SMODS.Edition {
             return {
                 message = localize("k_again_ex"),
                 repetitions = should_retrigger and lenient_bignum(self.config.extra.retriggers) or 0,
-                card = card,
             }
         end
     end,

@@ -18,7 +18,6 @@ SMODS.Joker {
             context.other_card.ability.perma_x_chips = lenient_bignum(context.other_card.ability.perma_x_chips) + lenient_bignum(card.ability.extra.perma_x_chips)
             return {
                 extra = { message = localize("k_upgrade_ex"), colour = G.C.CHIPS },
-                card = card
 			}
 		end
 	end,

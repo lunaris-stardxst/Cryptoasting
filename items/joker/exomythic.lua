@@ -118,7 +118,7 @@ SMODS.Joker {
 			return {
 				message = localize("k_upgrade_ex"),
 				colour = G.C.EDITION,
-				card = card
+				
 			}
 		end
 		if (context.joker_main) or context.forcetrigger then
@@ -188,7 +188,6 @@ SMODS.Joker {
 			return {
 				message = localize("k_upgrade_ex"),
 				colour = G.C.DARK_EDITION,
-				card = card
 			}
 		end
 
