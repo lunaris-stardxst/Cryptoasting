@@ -110,7 +110,7 @@ SMODS.Joker {
 			}
 		}
 	end,
-	remove_frm_deck = function(self, card, from_debuff)
+	remove_from_deck = function(self, card, from_debuff)
 		for i = 1, #G.jokers.cards do
 			if
 				G.jokers.cards[i].config.center.key == "j_crp_tetration_timmy" or
