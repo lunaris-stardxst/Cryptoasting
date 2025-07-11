@@ -286,7 +286,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "blank",
+	key = "blank", --
 	name = "Blank Joker",
 	rarity = 1,
 	atlas = "crp_placeholder",
@@ -299,7 +299,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "antimatter",
+	key = "antimatter", -- might be too op for a common joker but again cavendish exists
 	name = "Antimatter Joker",
 	config = { extra = { jokerslots = 1, jokerslots_mod = 1 } },
 	rarity = 1,
@@ -317,7 +317,7 @@ SMODS.Joker {
 }
 	end,
 	calculate = function(self, card, context)
-		if (context.end_of_round) or context.forcetrigger then
+		if (context.end_of_round and G.GAME.blind.boss) or context.forcetrigger then
 			card.ability.extra.jokerslots = card.ability.extra.jokerslots + lenient_bignum(card.ability.extra.jokerslots_mod)
 			G.jokers.config.card_limit = G.jokers.config.card_limit + lenient_bignum(card.ability.extra.jokerslots_mod)
 			return {
