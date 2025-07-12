@@ -1586,6 +1586,12 @@ return {
 					"{C:crp_exomythic}ExoMythic{} {C:attention}Jokers{}",
 				},
 			},
+			remove_negative = {
+				name = "n",
+				text = {
+					"{C:inactive,s:0.9}(Removes {C:dark_edition,s:0.9}Negative{C:inactive,s:0.9}-related Editions from copy)"
+				}
+			},
 		}
 	},
 	misc = {
