@@ -202,8 +202,8 @@ SMODS.Joker { -- i counted to 5!!!!
 	name = "12345",
 	config = { extra = { jokerslots = 1, consumeableslots = 2, money = 3, mult = 4, chips = 5 } },
 	rarity = 3,
-	atlas = "crp_placeholder",
-	pos = { x = 4, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 9, y = 0 },
 	cost = 10,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -239,6 +239,7 @@ SMODS.Joker { -- i counted to 5!!!!
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "Grahkon" },
 		code = { "wilfredlam0418" },
 	}
 }
@@ -344,6 +345,40 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "aqrlr" },
 		code = { "ScarredOut" }
+	}
+}
+
+SMODS.Joker {
+	key = "not_discovered",
+	name = "Not Discovered",
+	config = { extra = { }, discovered = false },
+	rarity = 3,
+	atlas = "crp_joker",
+	pos = { x = 1, y = 2 },
+	soul_pos = { x = 2, y = 2 },
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {  } }
+	end,
+	cost = 10,
+	add_to_deck = function(self, card, from_debuff)
+		local key = G.P_CENTER_POOLS.Joker[math.random(0, #G.P_CENTER_POOLS.Joker)].key
+		G.E_MANAGER:add_event(Event({func = function()
+			local card1 = create_card("Joker", G.jokers, nil, nil, nil, nil, key, "gotta_love_unweighted_possibilities")
+			card1:add_to_deck()
+			G.jokers:emplace(card1)
+			card1:juice_up(0.3, 0.5)
+			G.jokers:remove_card(card)
+			card:remove()
+			card = nil
+			return true
+		end }))
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		art = { "LocalThunk" },
+		code = { "Rainstar" },
 	}
 }
 

@@ -96,6 +96,50 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "inquisitio_hominis",
+	name = "Inquisitio Hominis Nomine Waldo",
+	config = { extra = { echipsmult = 1, echipsmult_mod = 23.112415 } },
+	rarity = "crp_exomythic",
+	atlas = "crp_placeholder",
+	pos = { x = 9, y = 0 },
+	cost = 200,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_waldo
+		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmult_mod) } }
+	end,
+	calculate = function(self, card, context)
+		card.ability.extra.echipsmult = 1 + (card.ability.extra.echipsmult_mod * #SMODS.find_card("j_crp_waldo"))
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				echips = lenient_bignum(card.ability.extra.echipsmult),
+				Emult_mod = lenient_bignum(card.ability.extra.echipsmult),
+				echip_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "crp_exponentialchipsmult"
+				}
+			}
+		end
+		if context.selling_card and 0.75 <= pseudorandom("crp_inquisitio_hominis") then	
+			G.E_MANAGER:add_event(Event({func = function()
+				local card1 = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_waldo", "inquisitio_hominis")
+				card1:add_to_deck()
+				G.jokers:emplace(card1)
+				card1:set_edition({ negative = true })
+				card1:juice_up(0.3, 0.5)
+				return true
+			end }))
+		end
+	end,
+	crp_credits = {
+		idea = { "aqrlr" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
 	key = "fiorello_giraud",
 	name = "Fiorello Giraud",
 	config = { extra = { eeemult = 1, eeemult_mod = 1 } },

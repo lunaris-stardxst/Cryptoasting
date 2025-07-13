@@ -57,8 +57,8 @@ SMODS.Joker {
 	name = "Participation Trophy",
 	config = { extra = { mult_mod = 0.25 } },
 	rarity = 1,
-	atlas = "crp_placeholder",
-	pos = { x = 2, y = 0 },
+	atlas = "crp_joker",
+	pos = { x = 9, y = 9 },
 	cost = 3,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -79,6 +79,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Unknown" },
+		art = { "Grahkon" },
 		code = { "wilfredlam0418" }
 	}
 }
@@ -248,8 +249,8 @@ SMODS.Joker {
 	name = "Bullshit",
 	config = { extra = { amount = 1 } },
 	rarity = 1,
-	atlas = "crp_placeholder",
-	pos = { x = 2, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 4, y = 0 },
 	cost = 5,
 	blueprint_compat = false,
 	demicoloncompat = true,
@@ -281,6 +282,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "Alien Banana" },
 		code = { "ScarredOut" }
 	}
 }

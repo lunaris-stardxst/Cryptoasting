@@ -16,10 +16,10 @@ SMODS.Joker {
 				lenient_bignum(card.ability.extra.chips),
 				cry_prob(
 					card.ability.cry_prob,
-					card.ability.extra.odds,
+					lenient_bignum(card.ability.extra.odds),
 					card.ability.cry_rigged
 				),
-				card.ability.extra.odds,
+				lenient_bignum(card.ability.extra.odds),
 			}
 		}
 	end,
@@ -36,7 +36,7 @@ SMODS.Joker {
 				},
 			}
 		end
-		if (context.setting_blind and pseudorandom("crp_bulgoe_bot") < cry_prob(card.ability.cry_prob, card.ability.extra.odds, card.ability.cry_rigged) / card.ability.extra.odds) or context.forcetrigger then
+		if (context.setting_blind and pseudorandom("crp_bulgoe_bot") < cry_prob(card.ability.cry_prob, lenient_bignum(card.ability.extra.odds), card.ability.cry_rigged) / lenient_bignum(card.ability.extra.odds)) or context.forcetrigger then
 			for i = 1, #G.jokers.cards do
 				if not G.jokers.cards[i] == card and not G.jokers.cards[i].ability.eternal then
 					G.jokers.cards[i]:start_dissolve()

@@ -46,7 +46,7 @@ SMODS.Joker {
 			}
 		end
 	end,
-	remove_from_deck = function(self, card, from_debuff)
+	remove_from_deck = function(self, card, context)
 		if not context.from_debuff then
 			card.ability.extra.death_prevention_enabled = false
 		end
@@ -130,6 +130,7 @@ SMODS.Joker {
 -- tetrationa's effect
 local scie = SMODS.calculate_individual_effect
 SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, from_edition)
+local ret = scie(effect, scored_card, key, amount, from_edition)
 	if
 		(
 			key == "e_mult"
@@ -140,26 +141,23 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
 			or key == "Emult_mod"
 		)
 		and amount ~= 1
-		and mult
 	then
-		for k, v in pairs(find_joker("j_crp_tetrationa")) do
-			local old = v.ability.extra.EEmult
-			v.ability.extra.EEmult = lenient_bignum(to_big(v.ability.extra.EEmult) + v.ability.extra.EEmult_mod)
+		for k, v in pairs(SMODS.find_card("j_crp_tetrationa")) do
+			local old = v.ability.extra.eemult
+			v.ability.extra.eemult = lenient_bignum(to_big(v.ability.extra.eemult) + v.ability.extra.eemult_mod)
 			card_eval_status_text(v, "extra", nil, nil, nil, {
-				message = '^^' .. number_format(v.ability.extra.EEmult) .. ' Mult',
+				message = "Upgraded!",
 			})
-			Cryptid.apply_scale_mod(v, v.ability.extra.EEmult_mod, old, v.ability.extra.EEmult, {
-				base = { { "extra", "EEmult" } },
-				scaler = { { "extra", "EEmult_mod" } },
-				scaler_base = { v.ability.extra.EEmult_mod },
+			Cryptid.apply_scale_mod(v, v.ability.extra.eemult_mod, old, v.ability.extra.eemult, {
+				base = { { "extra", "eemult" } },
+				scaler = { { "extra", "eemult_mod" } },
+				scaler_base = { v.ability.extra.eemult_mod },
 			})
 		end
 	end
-	local ret = scie(effect, scored_card, key, amount, from_edition)
 	return ret
 end
 
- --[[
 SMODS.Joker {
 	key = "tetrationa",
 	name = "Tetrationa",
@@ -186,44 +184,11 @@ SMODS.Joker {
 			}
 		end
 	end,
-	update = function(self, card, dt)
-		local scie = SMODS.calculate_individual_effect
-		SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, from_edition)
-			if
-				(
-					key == "e_mult"
-					or key == "emult"
-					or key == "Emult"
-					or key == "e_mult_mod"
-					or key == "emult_mod"
-					or key == "Emult_mod"
-				)
-				and amount ~= 1
-				and mult
-			then
-				for k, v in pairs(find_joker("j_crp_tetrationa")) do
-					local old = v.ability.extra.eemult
-					v.ability.extra.eemult = lenient_bignum(to_big(v.ability.extra.eemult) + v.ability.extra.eemult_mod)
-					card_eval_status_text(v, "extra", nil, nil, nil, {
-						message = '^^' .. number_format(v.ability.extra.eemult) .. ' Mult',
-					})
-					Cryptid.apply_scale_mod(v, v.ability.extra.eemult_mod, old, v.ability.extra.eemult, {
-						base = { { "extra", "eemult" } },
-						scaler = { { "extra", "eemult_mod" } },
-						scaler_base = { v.ability.extra.eemult_mod },
-					})
-				end
-			end
-			local ret = scie(effect, scored_card, key, amount, from_edition)
-			return ret
-		end
-	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
-		code = { "Rainstar", "Glitchkat10" }
+		code = { "Rainstar" }
 	}
 }
-]]--
 
 SMODS.Joker {
     key = "bulgoeship_card",
@@ -278,16 +243,16 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_scale) } }
 	end,
 	calculate = function(self, card, context)
-		if ((context.joker_main) or context.forcetrigger) and card.ability.extra.xmult ~= 0 then
+		if ((context.joker_main) or context.forcetrigger) and to_big(card.ability.extra.xmult) ~= to_big(0) then
 			return {
 				xmult = lenient_bignum(card.ability.extra.xmult),
 			}
 		end
 		if (context.end_of_round and not context.blueprint and context.main_eval and not context.retrigger_joker) or context.forcetrigger then
-			if card.ability.extra.xmult > -1 then
+			if to_big(card.ability.extra.xmult) > to_big(-1) then
 				card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) - lenient_bignum(card.ability.extra.xmult_scale)
 			end
-			if card.ability.extra.xmult <= -1 then
+			if to_big(card.ability.extra.xmult) <= to_big(-1) then
 				card.ability.extra.xmult = 1.79769e308 -- oops
 			end
 		end

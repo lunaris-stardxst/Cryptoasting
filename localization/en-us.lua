@@ -389,6 +389,13 @@ return {
 					"for {C:red}+nane0{} Mult",
 				},
 			},
+			j_crp_waldo = {
+				name = "Waldo",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"{C:inactive}\"You found me!\"",
+				},
+			},
 			j_crp_centipede = {
 				name = "Centipede",
 				text = {
@@ -540,6 +547,15 @@ return {
 					"{C:attention}+#1#{} hand size",
 					"{C:attention}+#2# consumable{} slot#<s>2#",
 					"{C:attention}+#3# Booster Pack{} slot#<s>3# in the {C:attention}shop{}"
+				}
+			},
+			j_crp_not_discovered = {
+				name = "Not Discovered",
+				text = {
+					"Purchase or use",
+					"this card in an",
+					"unseeded run to",
+					"learn what it does"
 				}
 			},
 			j_crp_photo_of_grouchy = {
@@ -766,6 +782,13 @@ return {
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Chip#<s>1#)",
 				}
 			},
+			j_crp_waldo_quaerere = {
+				name = "Waldo Quaerere",
+				text = {
+					"{C:white,X:dark_edition}^#1#{} Mult if {C:attention}Waldo{} is found",
+					"{C:inactive}\"Where is he?\""
+				}
+			},
 			j_crp_splittum = {
 				name = "Splittum",
 				text = {
@@ -773,7 +796,7 @@ return {
 					"{C:attention}Jokers{} of one rarity below the sold {C:attention}Joker{}",
 					"{C:inactive}(Some rarities do not apply)",
 					"{C:inactive}\"generic video game slime enemy\""
-				},
+				}
 			},
 			j_crp_average_cryptid_experience = {
 				name = "average cryptid experience",
@@ -791,8 +814,8 @@ return {
 					"{C:attention}playing card{} is triggered,",
 					"retrigger all {C:attention}Jokers{} and {C:attention}playing{}",
 					"{C:attention}cards #3#{} additional time#<s>3#",
-					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}",
-				},
+					"{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}"
+				}
 			},
 			j_crp_potentia = {
 				name = "Potentia",
@@ -800,7 +823,7 @@ return {
 					"This {C:attention}Joker{} gains {C:white,X:dark_edition}^#2#{} Mult",
 					"when {C:white,X:dark_edition}^Mult{} is triggered",
 					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult){}"
-				},
+				}
 			},
 			j_crp_repetitio = {
 				name = "Repetitio",
@@ -810,7 +833,7 @@ return {
 					"each played card gives",
 					"{C:white,X:mult}X#1#{} Mult when scored",
 					"{C:inactive}(Max {}{C:attention}#3#{}{C:inactive} retrigger#<s>3#)",
-				},
+				}
 			},
 			j_crp_resurgo = {
 				name = "Resurgo",
@@ -835,20 +858,20 @@ return {
 					"when death prevented",
 					"{C:inactive}(Death prevention active: #2#)",
 					"{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
-				},
+				}
 			},
 			j_crp_room_for_all = {
 				name = "Room For All",
 				text = {
 					"{C:attention}+#1#{} hand size, {C:attention}Joker{} slot#<s>1#,",
 					"and {C:attention}consumable{} slot#<s>1#"
-				},
+				}
 			},
 			j_crp_pentation_peter = {
 				name = "pentation peter",
 				text = {
 					"{C:dark_edition,X:edition}^^^#1#{} Mult",
-				},
+				}
 			},
 			j_crp_tetrationa = {
 				name = "Tetrationa",
@@ -895,6 +918,15 @@ return {
 					"{C:dark_edition}Overloaded{}",
 					"{C:dark_edition}Overloaded{} cards do not",
 					"cost extra",
+				},
+			},
+			j_crp_inquisitio_hominis = {
+				name = "Inquisitio Hominis Nomine Waldo",
+				text = {
+					"{C:white,X:dark_edition}^#2#{} Chips & Mult for every {C:attention}Waldo{} found",
+					"{C:attention}Waldo{} now has a {C:red}fixed {C:green}75%{} chance to appear",
+					"when selling any {C:attention}Joker{} and will always spawn {C:dark_edition}Negative",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Chips & Mult)",
 				},
 			},
 			j_crp_fiorello_giraud = {
@@ -952,12 +984,12 @@ return {
 			j_crp_eternity = {
 				name = "Eternity",
 				text = {
-					"{C:white,X:dark_edition}^#1#{} Chips & Mult",
+					"{C:white,X:dark_edition}#10##6##11##1#{} Chips & Mult",
 					"Every frame, a {C:attention}little bird{} comes to sharpen its beak,",
-					"taking {C:white,X:dark_edition}^#2#{}, but gaining {C:white,X:attention}^#3#{} to use when shop exited",
-					"When {C:white,X:dark_edition}^0{} reached, resets back to {C:white,X:dark_edition}^#5#",
+					"taking {C:white,X:dark_edition}#10##6##11##2#{}, but gaining {C:white,X:attention}#10##8##11##3#{} to use when shop exited",
+					"When {C:white,X:dark_edition}^0{} reached, resets back to {C:white,X:dark_edition}#10##6##11##4#",
 					"{C:red}and a single day of {V:1}eternity {C:red}passes...",
-					"{C:inactive}(Currently giving {C:white,X:attention}^#6#{C:inactive} at end of shop)"
+					"{C:inactive}(Currently giving {C:white,X:attention}#10##8##11##5#{C:inactive} at end of shop)"
 				},
 			},
 			j_crp_quetta_m = {

@@ -110,8 +110,8 @@ SMODS.Joker {
 	key = "chi_cot",
 	name = "Chi Cot",
 	rarity = "crp_trash",
-	atlas = "crp_placeholder",
-	pos = { x = 1, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 3, y = 0 },
 	cost = 0,
 	blueprint_compat = false,
 	demicoloncompat = false,
@@ -126,6 +126,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "ScarredOut" },
+		art = { "Grahkon" },
 		code = { "wilfredlam0418" }
 	}
 }
