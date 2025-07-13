@@ -189,6 +189,32 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
+	key = "waldo",
+	name = "Waldo",
+	config = { extra = { mult = 10 } },
+	rarity = 2,
+	atlas = "crp_placeholder",
+	pos = { x = 3, y = 0 },
+	cost = 5,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.mult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(card.ability.extra.mult),
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "aqrlr" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
 	key = "tag_hoarder",
 	name = "Tag Hoarder",
 	rarity = 2,
@@ -255,8 +281,8 @@ SMODS.Joker {
 	name = "Loss",
 	config = { extra = { money = 1, mult = 2, hand_size = 2, chips = 50 } },
 	rarity = 2,
-	atlas = "crp_placeholder",
-	pos = { x = 3, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 0, y = 0 },
 	cost = 7,
 	pools = { Meme = true },
 	blueprint_compat = true,

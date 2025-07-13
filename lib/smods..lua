@@ -15,6 +15,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+	key = "joker2",
+	path = "atlas_joker_2.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "placeholder",
 	path = "atlas_placeholder.png",
 	px = 71,
@@ -122,6 +129,27 @@ SMODS.Sound {
 SMODS.Sound {
 	key = "multiplicativechipsmult",
 	path = "MultiplicativeChipsMult.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
+SMODS.Sound {
+	key = "exponentialchipsmult",
+	path = "ExponentialChipsMult.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
+SMODS.Sound {
+	key = "tetrationalchipsmult",
+	path = "TetrationalChipsMult.ogg",
+	loop = false,
+	volume = 0.5,
+}
+
+SMODS.Sound {
+	key = "pentationalchipsmult",
+	path = "PentationalChipsMult.ogg",
 	loop = false,
 	volume = 0.5,
 }

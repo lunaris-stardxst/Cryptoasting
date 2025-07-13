@@ -21,7 +21,7 @@ SMODS.Joker {
 				echip_message = {
 					message = "^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
 					colour = G.C.DARK_EDITION,
-					sound = "talisman_echip"
+					sound = "crp_exponentialchipsmult"
 				}
 			}
 		end
@@ -166,8 +166,9 @@ SMODS.Joker {
 	name = "Victoriam",
 	config = { extra = { echips = 0.1 } },
 	rarity = "cry_exotic",
-	atlas = "crp_placeholder",
-	pos = { x = 7, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 6, y = 0 },
+	soul_pos = { x = 8, y = 0, extra = { x = 7, y = 0 } },
 	cost = 50,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -188,7 +189,69 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker", "Glitchkat10" },
+		art = { "Grahkon" },
 		code = { "wilfredlam0418", "Glitchkat10" }
+	}
+}
+
+SMODS.Joker {
+	key = "waldo_quaerere",
+	name = "Waldo Quaerere",
+	config = { extra = { emult = 3 } },
+	rarity = "cry_exotic",
+	atlas = "crp_placeholder",
+	pos = { x = 7, y = 0 },
+	cost = 50,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_waldo
+		return { vars = { lenient_bignum(card.ability.extra.emult) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main and next(SMODS.find_card("j_crp_waldo"))) or context.forcetrigger then
+			return {
+				emult = lenient_bignum(card.ability.extra.emult),
+				emult_message = {
+					message = "^" .. number_format(lenient_bignum(card.ability.extra.emult)) .. " Mult",
+					colour = G.C.DARK_EDITION,
+					sound = "talisman_emult"
+				}
+			}
+		end
+		local rarities = {
+			crp_rare_2 = "crp_rare_2",
+			crp_refined = "crp_refined",
+			crp_m = "crp_m",
+			crp_cipe = "crp_cipe",
+			crp_incredible = "crp_incredible",
+			crp_extraordinary = "crp_extraordinary",
+			crp_awesome = "crp_awesome",
+			crp_exotic_2 = "crp_exotic_2",
+			crp_mythic = "crp_mythic",
+			crp_2exomythic4me = "crp_2exomythic4me",
+			crp_22exomythic4mecipe = "crp_22exomythic4mecipe",
+			crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe = "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
+			crp_supa_rare = "crp_supa_rare",
+			crp_all = "crp_all",
+		}
+		if context.selling_card and
+		(rarities[context.card.config.center.rarity] or
+		(type(context.card.config.center.rarity) == "number" and
+		context.card.config.center.rarity >= 3)) and
+		0.25 < pseudorandom("crp_waldo_quaerere") then
+			G.E_MANAGER:add_event(Event({func = function()
+				local card1 = create_card('Joker', G.jokers, nil, nil, nil, nil, "j_crp_waldo", "waldo_quaerere")
+				card1:add_to_deck()
+				G.jokers:emplace(card1)
+				card1:juice_up(0.3, 0.5)
+				return true
+			end }))
+		end
+	end,
+	crp_credits = {
+		idea = { "aqrlr" },
+		code = { "Rainstar" }
 	}
 }
 

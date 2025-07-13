@@ -2,8 +2,9 @@ SMODS.Joker {
 	key = "sine_wave",
 	name = "Sine Wave",
 	rarity = "crp_incredible",
-	atlas = "crp_placeholder",
-	pos = { x = 1, y = 1 },
+	atlas = "crp_joker2",
+	pos = { x = 0, y = 1 },
+	soul_pos = { x = 1, y = 1 },
 	cost = 15,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -27,6 +28,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "wilfredlam0418" },
+		art = { "Grahkon" },
 		code = { "wilfredlam0418" }
 	}
 }

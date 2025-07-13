@@ -75,7 +75,7 @@ SMODS.Joker {
 					echip_message = {
 						message = "^" .. number_format(lenient_bignum(card.ability.extra.chipsmult)) .. " Chips & Mult",
 						colour = G.C.DARK_EDITION,
-						sound = "talisman_echip"
+						sound = "crp_exponentialchipsmult"
 					}
 				}
 			elseif to_big(arrow_number_cards) == to_big(2) then
@@ -85,7 +85,7 @@ SMODS.Joker {
 					eechip_message = {
 						message = "^^" .. number_format(lenient_bignum(card.ability.extra.chipsmult)) .. " Chips & Mult",
 						colour = G.C.DARK_EDITION,
-						sound = "talisman_eechip"
+						sound = "crp_tetrationalchipsmult"
 					}
 				}
 			elseif to_big(arrow_number_cards) == to_big(3) then
@@ -95,7 +95,7 @@ SMODS.Joker {
 					eechip_message = {
 						message = "^^^" .. number_format(lenient_bignum(card.ability.extra.chipsmult)) .. " Chips & Mult",
 						colour = G.C.EDITION,
-						sound = "talisman_eeechip"
+						sound = "crp_pentationalchipsmult"
 					}
 				}
 			elseif to_big(arrow_number_cards) == to_big(4) then
@@ -260,7 +260,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "eternity",
 	name = "Eternity",
-	config = { extra = { echipsmult = 1000000, echipsmultmod = 1, jokerpowmod = 1.1, jokerslots = 1e100, active = false, echipsmultold = 1000000, jokerexponentiation = 1 } },
+	config = { extra = { echipsmult = 1000000, echipsmultmod = 1, jokerpowmod = 0.1, jokerslots = 1e100, active = false, echipsmultold = 1000000, jokerexponentiation = 1, chipsmultoperator = 1, chipsmultoperatormod = 1, jokeroperator = 1, jokeroperatormod = 1 } },
 	rarity = "crp_2exomythic4me",
 	atlas = "crp_placeholder",
 	pos = { x = 11, y = 0 },
@@ -273,10 +273,15 @@ SMODS.Joker {
 				lenient_bignum(card.ability.extra.echipsmult),
 				lenient_bignum(card.ability.extra.echipsmultmod),
 				lenient_bignum(card.ability.extra.jokerpowmod),
-				lenient_bignum(card.ability.extra.jokerslots),
 				lenient_bignum(card.ability.extra.echipsmultold),
 				lenient_bignum(card.ability.extra.jokerexponentiation),
-				colours = { { 0.78, 0.35, 0.52, 1 } }
+				lenient_bignum(card.ability.extra.chipsmultoperator),
+				lenient_bignum(card.ability.extra.chipsmultoperatormod),
+				lenient_bignum(card.ability.extra.jokeroperator),
+				lenient_bignum(card.ability.extra.jokeroperatormod),
+				colours = { { 0.78, 0.35, 0.52, 1 } },
+				"{",
+				"}"
 			}
 		}
 	end,
@@ -288,39 +293,77 @@ SMODS.Joker {
 	end,
 	update = function(self, card, dtt)
 		if card.ability.extra.active == true and card.ability.extra.echipsmult >= 1 then
-			card.ability.extra.echipsmult = card.ability.extra.echipsmult - card.ability.extra.echipsmultmod
-			card.ability.extra.jokerexponentiation = card.ability.extra.jokerexponentiation + card.ability.extra.jokerpowmod
+			card.ability.extra.echipsmult = lenient_bignum(card.ability.extra.echipsmult) - lenient_bignum(card.ability.extra.echipsmultmod)
+			card.ability.extra.jokerexponentiation = lenient_bignum(card.ability.extra.jokerexponentiation) + lenient_bignum(card.ability.extra.jokerpowmod)
 		elseif card.ability.extra.active == true and card.ability.extra.echipsmult <= 0 then
-			card.ability.extra.echipsmult = card.ability.extra.echipsmultold
-			G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerslots
-			add_tag(Tag("tag_crp_better_better_better_better_better_better_better_better_top-up_tag"))
-			add_tag(Tag("tag_crp_better_better_better_better_better_better_better_better_better_top-up_tag"))
-			add_tag(Tag("tag_crp_better_better_better_better_better_better_better_better_better_top-up_tag"))
-			--add_tag(Tag(best_top-up_tag))
+			card.ability.extra.echipsmult = lenient_bignum(card.ability.extra.echipsmultold)
+			G.jokers.config.card_limit = lenient_bignum(G.jokers.config.card_limit) + lenient_bignum(card.ability.extra.jokerslots)
+			card.ability.extra.chipsmultoperator = lenient_bignum(card.ability.extra.chipsmultoperator) + lenient_bignum(card.ability.extra.chipsmultoperatormod)
+			card.ability.extra.jokeroperator = lenient_bignum(card.ability.extra.jokeroperator) + lenient_bignum(card.ability.extra.jokeroperatormod)
 		else
 			return
 		end
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
-			return {
-				emult = lenient_bignum(card.ability.extra.echipsmult),
-				echips_mod = lenient_bignum(card.ability.extra.echipsmult),
-				emult_message = {
-					message = "^" .. lenient_bignum(card.ability.extra.echipsmult) .. " Chips & Mult",
-					colour = G.C.DARK_EDITION,
-					sound = "talisman_emult"
+			if to_big(card.ability.extra.chipsmultoperator) == to_big(1) then
+				return {
+					echips = lenient_bignum(card.ability.extra.echipsmult),
+					Emult_mod = lenient_bignum(card.ability.extra.echipsmult),
+					echip_message = {
+						message = "^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "crp_exponentialchipsmult"
+					}
 				}
-			}
+			elseif to_big(card.ability.extra.chipsmultoperator) == to_big(2) then
+				return {
+					eechips = lenient_bignum(card.ability.extra.echipsmult),
+					EEmult_mod = lenient_bignum(card.ability.extra.echipsmult),
+					eechip_message = {
+						message = "^^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+						colour = G.C.DARK_EDITION,
+						sound = "crp_tetrationalchipsmult"
+					}
+				}
+			elseif to_big(card.ability.extra.chipsmultoperator) == to_big(3) then
+				return {
+					eechips = lenient_bignum(card.ability.extra.echipsmult),
+					EEEmult_mod = lenient_bignum(card.ability.extra.echipsmult),
+					eechip_message = {
+						message = "^^^" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+						colour = G.C.EDITION,
+						sound = "crp_pentationalchipsmult"
+					}
+				}
+			elseif to_big(card.ability.extra.chipsmultoperator) == to_big(4) then
+				return {
+					hyperchips = {lenient_bignum(card.ability.extra.chipsmultoperator), lenient_bignum(card.ability.extra.echipsmult)},
+					hypermult_mod = {lenient_bignum(card.ability.extra.chipsmultoperator), lenient_bignum(card.ability.extra.echipsmult)},
+					hyperchip_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.chipsmultoperator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+						colour = G.C.EDITION,
+						sound = "crp_hexationalchipsmult"
+					}
+				}
+			elseif to_big(card.ability.extra.chipsmultoperator) >= to_big(5) then -- big elseif
+				return {
+					hyperchips = {lenient_bignum(card.ability.extra.chipsmultoperator), lenient_bignum(card.ability.extra.echipsmult)},
+					hypermult_mod = {lenient_bignum(card.ability.extra.chipsmultoperator), lenient_bignum(card.ability.extra.echipsmult)},
+					hyperchip_message = {
+						message = "{" .. number_format(lenient_bignum(card.ability.extra.chipsmultoperator)) .. "}" .. number_format(lenient_bignum(card.ability.extra.echipsmult)) .. " Chips & Mult",
+						colour = G.C.EDITION,
+						sound = "crp_heptationalchipsmult"
+					}
+				}
+			end
 		end
         if (context.ending_shop and not context.blueprint and not context.retrigger_joker and not context.individual) or context.forcetrigger then
             for i, v in pairs(G.jokers.cards) do
                 local check = false
                 if not Card.no(G.jokers.cards[i], "immutable", true) and (G.jokers.cards[i].config.center.key ~= "j_crp_eternity" or context.forcetrigger) then
-                    Cryptid.with_deck_effects(v, function(card2)
-                        Cryptid.misprintize(card2, { min = card.ability.extra.jokerexponentiation, max = card.ability.extra.jokerexponentiation }, nil, true, "^", 1)
-                    end)
                     check = true
+					Cryptid.manipulate(G.jokers.cards[i], { value = { arrows = lenient_bignum(card.ability.extra.jokeroperator), height = lenient_bignum(card.ability.extra.jokerexponentiation) }, type = "hyper" })
                 end
 			    if check then
 				    card_eval_status_text(

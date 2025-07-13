@@ -69,8 +69,9 @@ SMODS.Joker {
 	name = "Amazon Gift Card",
 	config = { extra = { emult = 7, odds = 16 } },
 	rarity = "crp_cipe",
-	atlas = "crp_placeholder",
-	pos = { x = 5, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 1, y = 0 },
+	soul_pos = { x = 2, y = 0 },
 	cost = 10,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -100,6 +101,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "SolvLyi" },
+		art = { "Grahkon" },
 		code = { "Glitchkat10" },
 		custom = { key = "alt",text = "Googol Play Card" }
 	}
