@@ -316,7 +316,6 @@ SMODS.Joker {
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		G.jokers.config.card_limit = G.jokers.config.card_limit - lenient_bignum(card.ability.extra.jokerslots)
-}
 	end,
 	calculate = function(self, card, context)
 		if (context.end_of_round and G.GAME.blind.boss) or context.forcetrigger then
