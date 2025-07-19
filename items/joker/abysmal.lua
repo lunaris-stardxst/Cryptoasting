@@ -128,7 +128,7 @@ SMODS.Joker {
 				hypermult = {
 					lenient_bignum(card.ability.immutable.arrows),
 					lenient_bignum(card.ability.extra.mantissa)
-				}
+				},
 				hypermult_message = {
 					message = "^^^^^" .. lenient_bignum(card.ability.extra.mantissa) .. " Mult",
 					colour = G.C.EDITION,
