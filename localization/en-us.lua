@@ -296,7 +296,7 @@ return {
 			j_crp_antimatter = {
 				name = "Antimatter Joker",
 				text = {
-					"{C:dark_edition}+#1# {C:attention}Joker{} slot"
+					"{C:dark_edition}+#1# {C:attention}Joker{} slot",
 					"Increases by {C:dark_edition}+#2#{} at end of {C:attention}Ante"
 				}
 			},
