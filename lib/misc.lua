@@ -62,7 +62,7 @@ SMODS.Joker:take_ownership("invisible", {
 				end
 			end
 		end
-		return { vars = { card.ability.extra.total_rounds, card.ability.extra.invis_rounds }, main_end = main_end }
+		return { vars = { card.ability.extra, card.ability.invis_rounds }, main_end = main_end }
 	end,
 	calculate = function(self, card, context)
 		if (context.selling_self and (card.ability.extra.invis_rounds >= card.ability.extra.total_rounds) and not context.blueprint) or context.forcetrigger then
