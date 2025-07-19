@@ -222,7 +222,7 @@ return {
 				text = {
 					"{C:white,X:mult}X#1#{} for every {C:attention}Joker"
 				}
-			}
+			},
 			j_crp_three = {
 				name = "3.",
 				text = {
