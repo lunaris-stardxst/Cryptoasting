@@ -148,7 +148,7 @@ SMODS.Joker {
 				end
 			end
 		end
-		if context.after and (G.GAME.chips or 0) > card.ability.immutable.self_destruct then
+		if context.after and (to_big(G.GAME.chips or 0)) > to_big(card.ability.immutable.self_destruct) then
 			card:start_dissolve()
 			card:remove_from_deck()
 		end
