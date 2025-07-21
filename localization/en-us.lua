@@ -189,7 +189,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:dark_edition,X:edition}#1#Twenty-five thousand #2#one{} Mult",
+					"{C:dark_edition,B:1}#1#Twenty-five thousand #2#one{} Mult",
 				},
 			},
 			j_crp_semicolon = {
