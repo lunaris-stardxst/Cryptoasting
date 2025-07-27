@@ -325,7 +325,7 @@ SMODS.Blind {
 SMODS.Blind {
 	key = "monochrome_m",
 	name = "Monochrome M",
-	pos = { x = 0, y = 8 },
+	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10, showdown = true },
 	atlas = "blind",
 	mult = 0.13,
@@ -410,7 +410,7 @@ local valid_leg_blind_keys = { -- List of rarities that will allow these to spaw
 SMODS.Blind {
 	key = "roadblock",
 	name = "The Roadblock (L+)",
-	pos = { x = 0, y = 3 },
+	pos = { x = 0, y = 0 },
 	boss = { min = 2, max = 10 },
 	boss_colour = HEX("98a1b2"), -- same color as the pre-existing art
 	blindrarity = "Legendary",	
