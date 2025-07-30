@@ -1273,7 +1273,7 @@ return {
 				name = "Pot of Charms",
 				text = {
 					"{C:attention}Shuffle{} at least {C:attention}#1#{} selected card#<s>1# back",
-					"into the deck, then create {C:attention}#2# {C:tarot}Tarot{} card#<s>2#"
+					"into the deck, then create {C:attention}#2# {C:tarot}Tarot{} card#<s>2#",
 					"{C:inactive}(must have room)"
 				}
 			},
