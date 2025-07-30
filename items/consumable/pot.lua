@@ -125,7 +125,7 @@ SMODS.Consumable {
 		return { vars = { lenient_bignum(card.ability.extra.cards), lenient_bignum(card.ability.extra.money) } }
 	end,
 	can_use = function(self, card)
-		return #G.hand.highlighted >= card.ability.extra.cards_shuffled
+		return #G.hand.highlighted >= card.ability.extra.cards
 	end,
 	use = function(self, card)
 		shuffle_all_highlighted()
