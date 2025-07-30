@@ -78,11 +78,11 @@ SMODS.Consumable {
 		return { vars = { lenient_bignum(card.ability.extra.cards), lenient_bignum(card.ability.extra.jokers) } }
 	end,
 	can_use = function(self, card)
-		return #G.hand.highlighted >= card.ability.extra.cards and #G.jokers.cards < #G.jokers.config.card_limit
+		return #G.hand.highlighted >= card.ability.extra.cards and #G.jokers.cards < G.jokers.config.card_limit
 	end,
 	use = function(self, card)
 		shuffle_all_highlighted()
-		if #G.jokers.cards < #G.jokers.config.card_limit then
+		if #G.jokers.cards < G.jokers.config.card_limit then
 			SMODS.add_card({ set = "Joker", key_append = "crp_dichotomy" })
 		end
 	end,
@@ -254,10 +254,10 @@ SMODS.Consumable {
 		return true
 	end,
 	use = function(self, card)
-		shuffle_random(3, "crp_spirits1")
+		shuffle_random(3, "crp_spirits_1")
 		for i = 1, card.ability.extra.spectrals do
 			if #G.consumeables.cards < G.consumeables.config.card_limit then
-				SMODS.add_card({ set = "Spectral", key_append = "crp_spirits2" })
+				SMODS.add_card({ set = "Spectral", key_append = "crp_spirits_2" })
 			end
 		end
 	end,
