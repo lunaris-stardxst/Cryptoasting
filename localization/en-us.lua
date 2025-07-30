@@ -1281,7 +1281,7 @@ return {
 				name = "Pot of Worlds",
 				text = {
 					"{C:attention}Shuffle{} at least {C:attention}#1#{} selected card#<s>1# back",
-					"into the deck, then create {C:attention}#2# {C:planet}Planet{} card#<s>2#"
+					"into the deck, then create {C:attention}#2# {C:planet}Planet{} card#<s>2#",
 					"{C:inactive}(must have room)"
 				}
 			},
@@ -1289,7 +1289,7 @@ return {
 				name = "Pot of Spirits",
 				text = {
 					"{C:attention}Shuffle #1#{} random card#<s>1# back into the",
-					"deck, then create {C:attention}#2# {C:spectral}Spectral{} card#<s>2#"
+					"deck, then create {C:attention}#2# {C:spectral}Spectral{} card#<s>2#",
 					"{C:inactive}(must have room)"
 				}
 			}
