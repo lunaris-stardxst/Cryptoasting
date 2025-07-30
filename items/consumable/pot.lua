@@ -254,7 +254,7 @@ SMODS.Consumable {
 		return true
 	end,
 	use = function(self, card)
-		shuffle_random(3, "crp_spirits_1")
+		shuffle_random(card.ability.extra.cards, "crp_spirits_1")
 		for i = 1, card.ability.extra.spectrals do
 			if #G.consumeables.cards < G.consumeables.config.card_limit then
 				SMODS.add_card({ set = "Spectral", key_append = "crp_spirits_2" })
