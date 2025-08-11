@@ -1,6 +1,6 @@
 -- update the cryptposting member count using https
 Cryptposting = Cryptposting or {}
-local member_fallback = 150 -- fallback member count in case the request fails or is not available
+local member_fallback = 192 -- fallback member count in case the request fails or is not available
 local succ, https = pcall(require, "SMODS.https")
 Cryptposting.member_count = member_fallback
 

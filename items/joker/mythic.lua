@@ -263,3 +263,66 @@ SMODS.Joker {
 		code = { "Glitchkat10" }
 	}
 }
+
+
+SMODS.Joker {
+	key = "highest_chip",
+	name = "The Highest Chip",
+	config = { extra = { echips = 1 } },
+	rarity = "crp_mythic",
+	atlas = "crp_placeholder",
+	pos = { x = 8, y = 0 },
+	cost = 100,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.echips) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			card.ability.extra.echips = mult
+			return {
+				message = "^" .. lenient_bignum(card.ability.extra.echips) .. " Chips",
+				Echip_mod = lenient_bignum(card.ability.extra.echips),
+				colour = G.C.EDITION,
+				
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Joker {
+	key = "2048",
+	name = "2048",
+	config = { extra = { } },
+	rarity = "crp_mythic",
+	atlas = "crp_placeholder",
+	pos = { x = 8, y = 0 },
+	cost = 100,
+	blueprint_compat = true,
+	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			local current_mult = lenient_bignum(mult)
+			return {
+				xmult = 0,
+				extra = {
+					mult_mod = 2 ^ current_mult,
+					message = "=2^" .. current_mult .. " Mult",
+					colour = G.C.EDITION,
+				}
+			}
+		end
+	end,
+	crp_credits = {
+		idea = { "Psychomaniac14" },
+		code = { "Rainstar" }
+	}
+}

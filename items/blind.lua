@@ -18,7 +18,15 @@ function Game:update(dt)
 				G.GAME.blind.chips = G.GAME.blind.chips ^ 2 -- destroy the game
 				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			end
+		else if G.GAME.blind.name == "Hermes (S, EM+)" then -- if blind is hermes...
+			if not next(SMODS.find_card("j_crp_jean_antoine")) then -- and no jean...
+				local eeeblindchips = 1.00001
+				G.GAME.blind.chips = G.GAME.blind.chips:arrow(3, eeeblindchips) -- destroy the game even more
+				eeeblindchips = eeeblindchips + 0.00001
+				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+			end
 		end
+	end
 	end
 end
 
@@ -256,6 +264,26 @@ SMODS.Blind {
 }
 
 SMODS.Blind {
+	key = "shitpost",
+	name = "The Shitpost",
+	pos = { x = 0, y = 0 },
+	boss = { min = 5 },
+	atlas = "blind",
+	boss_colour = HEX("0a0a0a"), -- idk
+	mult = 0.75,
+	recalc_debuff = function(self, card, from_blind)
+		if (card.area == G.jokers) and card.config.center.mod and card.config.center.mod.id == "cryptposting" then
+			return false
+		end
+		return false
+	end,
+	crp_credits = {
+		idea = { "Unknown" },
+		code = { "wilfredlam0418" }
+	}
+}
+
+SMODS.Blind {
 	key = "balance",
 	name = "The Balance",
 	pos = { x = 0, y = 0 },
@@ -384,6 +412,38 @@ SMODS.Blind {
 	}
 }
 
+SMODS.Blind {
+	key = "hazard",
+	name = "The Hazard",
+	pos = { x = 0, y = 0 },
+	boss = { min = 2, max = 10 },
+	atlas = "blind",
+	mult = 2,
+	set_blind = function(self)
+        for i, v in pairs(G.jokers.cards) do
+            local check = false
+            if not Card.no(G.jokers.cards[i], "immutable", true) then
+                check = true
+				Cryptid.manipulate(G.jokers.cards[i], { value = 0.5 })
+            end
+        end
+	end,
+	disable = function(self)
+        for i, v in pairs(G.jokers.cards) do
+            local check = false
+            if not Card.no(G.jokers.cards[i], "immutable", true) then
+                check = true
+				Cryptid.manipulate(G.jokers.cards[i], { value = 2 })
+            end
+        end
+	end,
+	boss_colour = HEX("4fb1db"),
+    crp_credits = {
+		idea = { "Unknown" },
+		code = { "Rainstar" }
+	}
+}
+
 -- Legendary Blinds (Only appear when a Legendary+ Joker is owned)
 
 local valid_leg_blind_keys = { -- List of rarities that will allow these to spawn
@@ -438,6 +498,46 @@ SMODS.Blind {
 	}
 }
 
+
+SMODS.Blind {
+	key = "roulette",
+	name = "The Roulette (L+)",
+	pos = { x = 0, y = 3 },
+	boss = { min = 2, max = 10 },
+	boss_colour = HEX("98a1b2"),
+	blindrarity = "Legendary",
+	in_pool = function(self)
+		if G.jokers then
+			for _, joker in pairs(G.jokers.cards) do
+				local rarity = joker.config.center.rarity
+				if type(rarity) == "number" and rarity >= 4 then
+					return true
+				elseif type(rarity) == "string" and valid_leg_blind_keys[rarity] then
+					return true
+				end
+			end
+		end
+		return false
+	end,
+	atlas = "blind",
+	mult = 1,
+	set_blind = function(self)
+		G.GAME.blind.chips = G.GAME.blind.chips ^ math.random(1, 1.6)
+	end,
+	defeat = function(self, card, from_blind)
+		ease_dollars((G.GAME.dollars * 3.6) - G.GAME.dollars)
+	end,
+	disable = function(self)
+		G.GAME.blind.chips = G.GAME.blind.chips ^ math.random(1, 0.625) -- so like i had this funny idea where the blind size reduction when disabled is ALSO randomized
+		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+	end,
+    crp_credits = {
+		idea = { "Unknown" },
+		art = { "superb_thing" },
+		code = { "Rainstar" }
+	}
+}
+
 -- ExoMythic Blinds
 local valid_exomyth_blind_keys = { -- list of rarities that will allow these to spawn
 	["crp_exomythic"] = true,
@@ -455,7 +555,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 1e100, -- a miniscule amount of trolling
-	dollars = 16,
+	dollars = 5,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -487,7 +587,7 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 1e100, -- a miniscule amount of trolling
-	dollars = 16,
+	dollars = 5,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -520,7 +620,9 @@ SMODS.Blind {
 	boss = { min = 2, max = 10 },
 	blindrarity = "ExoMythic",
 	mult = 2,
-	dollars = 16,
+	defeat = function(self, card, from_blind)
+		ease_dollars((G.GAME.dollars ^ 22) - G.GAME.dollars)
+	end,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -548,7 +650,9 @@ SMODS.Blind {
 	boss = { min = 2, max = 10, showdown = true },
 	blindrarity = "ExoMythic",
 	mult = 1,
-	dollars = 32,
+	defeat = function(self, card, from_blind)
+		ease_dollars((G.GAME.dollars * 5e8) - G.GAME.dollars)
+	end,
 	in_pool = function(self)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
@@ -594,5 +698,80 @@ SMODS.Blind {
     crp_credits = {
 		idea = { "superb_thing" },
 		code = { "ScarredOut" }
+	}
+}
+
+
+SMODS.Blind {
+	key = "hermes",
+	name = "Hermes (S, EM+)",
+	pos = { x = 0, y = 0 },
+	boss = { min = 2, max = 10, showdown = true },
+	blindrarity = "ExoMythic",
+	mult = 1e100,
+	defeat = function(self, card, from_blind)
+		ease_dollars((G.GAME.dollars ^ 300) - G.GAME.dollars)
+	end,
+	in_pool = function(self)
+		if G.jokers then
+			for _, joker in pairs(G.jokers.cards) do
+				local rarity = joker.config.center.rarity -- stolen from chibidoki code
+				if type(rarity) == "string" and valid_exomyth_blind_keys[rarity] then
+					-- now we do a "is this a showdown ante" check
+					if G.GAME.round_resets.ante % G.GAME.win_ante == 0 then
+						return true
+					end
+				end
+			end
+		end
+		-- if we're out of the loop then there isn't a joker that allows this to spawn
+		return false
+	end,
+	-- effect is also in the hook at the top of the file (thanks scarred)
+	atlas = "blind",
+	boss_colour = HEX("000000"),
+    crp_credits = {
+		idea = { "Grahkon" },
+		code = { "Rainstar" }
+	}
+}
+
+SMODS.Blind {
+	key = "lacum_draconis",
+	name = "Lacum Draconis (S, EM+)",
+	pos = { x = 0, y = 0 },
+	boss = { min = 2, max = 10, showdown = true },
+	blindrarity = "ExoMythic",
+	mult = 1e100,
+	defeat = function(self, card, from_blind)
+		ease_dollars((G.GAME.dollars ^ 187.3) - G.GAME.dollars)
+	end,
+	in_pool = function(self)
+		if G.jokers then
+			for _, joker in pairs(G.jokers.cards) do
+				local rarity = joker.config.center.rarity -- stolen from chibidoki code
+				if type(rarity) == "string" and valid_exomyth_blind_keys[rarity] then
+					-- now we do a "is this a showdown ante" check
+					if G.GAME.round_resets.ante % G.GAME.win_ante == 0 then
+						return true
+					end
+				end
+			end
+		end
+		-- if we're out of the loop then there isn't a joker that allows this to spawn
+		return false
+	end,
+	set_blind = function(self)
+		G.GAME.blind.chips = G.GAME.blind.chips:arrow(4, math.random(1, 20))
+	end,
+	disable = function(self)
+		G.GAME.blind.chips = G.GAME.blind.chips:arrow(4, math.random(1, 0.05))
+		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips) -- make sure it shows up
+	end,
+	atlas = "blind",
+	boss_colour = HEX("000000"),
+    crp_credits = {
+		idea = { "Grahkon" },
+		code = { "Rainstar" }
 	}
 }

@@ -255,7 +255,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "jean_antoine",
 	name = "Jean-Antoine d'Anglerais",
-	config = { extra = { retriggers = math.min(14, 14) } }, -- what did rainstar mean by this
+	config = { extra = { disables = math.min(14, 14) } }, -- this is what i meant, john glitchkat10
 	rarity = "crp_exomythic",
 	atlas = "crp_joker",
 	pos = { x = 3, y = 8 },
@@ -264,11 +264,11 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.retriggers) } }
+		return { vars = { lenient_bignum(card.ability.extra.disables) } }
 	end,
 	calculate = function(self, card, context)
         if context.setting_blind and G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
-			for i = 1, card.ability.extra.retriggers do
+			for i = 1, card.ability.extra.disables do
             	G.GAME.blind:disable()
             	play_sound('timpani')
             	card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('ph_boss_disabled') })

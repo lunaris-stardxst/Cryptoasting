@@ -1,3 +1,43 @@
+
+SMODS.Joker {
+	key = "q",
+	name = "q",
+	config = { extra = { eqmult = 1200, eqmult_mod = 1200 } },
+	rarity = "cry_epic",
+	atlas = "crp_placeholder",
+	pos = { x = 5, y = 0 },
+	cost = 12,
+	blueprint_compat = false,
+	demicoloncompat = false,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { lenient_bignum(card.ability.extra.eqmult), lenient_bignum(card.ability.extra.eqmult_mod) } }
+	end,
+	calculate = function(self, card, context)
+		if (context.joker_main) or context.forcetrigger then
+			return {
+				xmult = 0,
+				extra = {
+					mult_mod = lenient_bignum(card.ability.extra.eqmult),
+					message = "=" .. card.ability.extra.eqmult .. " Mult",
+					colour = G.C.MULT,
+				}
+			}
+		end
+		if context.selling_card then
+			if (context.card.config.center.key == "j_zany" or (context.card.edition and context.card.edition.crp_zany == true)) or context.forcetrigger then
+				card.ability.extra.eqmult = card.ability.extra.eqmult + card.ability.extra.eqmult_mod
+				return {
+					message = "Upgraded!",
+				}
+			end
+		end
+	end,
+	crp_credits = {
+		idea = { "superb_thing" },
+		code = { "Rainstar" },
+	}
+}
+
 SMODS.Joker {
 	key = "bulgoes_hiking_journey",
 	name = "Bulgoe's Hiking Journey",
