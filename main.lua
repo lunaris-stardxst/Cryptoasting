@@ -12,6 +12,7 @@ local files = {
     "items/consumable/pot",
     "items/joker/abysmal",
     "items/joker/cursed",
+    "items/joker/self-insert",
     "items/joker/trash",
     "items/joker/colonthree",
     "items/joker/common",

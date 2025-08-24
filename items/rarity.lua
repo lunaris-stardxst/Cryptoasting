@@ -85,6 +85,11 @@ SMODS.Rarity({
 	badge_colour = HEX("49011c"),
 	pools = { ["Joker"] = true },
 })
+SMODS.Rarity({
+	key = "self-insert",
+	badge_colour = HEX("982700"),
+	pools = { ["Joker"] = true },
+})
 
 SMODS.Rarity({
 	key = "trash",
