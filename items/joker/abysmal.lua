@@ -97,6 +97,7 @@ SMODS.Joker {
 	key = "heptation_hank",
 	name = "Heptation Hank",
 	config = { immutable = { arrows = 5, self_destruct = 10 ^ 10 ^ 1.1 }, extra = { mantissa = 0.9 } },
+	rarity = "crp_abysmal",
 	atlas = "crp_placeholder",
 	pos = { x = 0, y = 0 },
 	cost = 0,

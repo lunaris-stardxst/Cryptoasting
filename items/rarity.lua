@@ -113,7 +113,7 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "common_2",
+	key = "plentiful",
 	badge_colour = G.C.RARITY[1],
 	pools = { ["Joker"] = true },
 	default_weight = 0.004, -- at some point, this will be as common as, well, common, but it will be very low for the time being due to there not being very many common 2 jokers
@@ -129,7 +129,7 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "uncommon_2",
+	key = "unplentiful",
 	badge_colour = HEX("4bc292"),
 	pools = { ["Joker"] = true },
 })
@@ -141,7 +141,7 @@ SMODS.Rarity({
 })
 
 SMODS.Rarity({
-	key = "rare_2",
+	key = "well-done",
 	badge_colour = G.C.RARITY[3],
 	pools = { ["Joker"] = true },
 	default_weight = 0.004, -- see: common 2

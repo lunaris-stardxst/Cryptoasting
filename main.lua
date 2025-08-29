@@ -16,13 +16,13 @@ local files = {
     "items/joker/trash",
     "items/joker/colonthree",
     "items/joker/common",
-    "items/joker/common2",
+    "items/joker/plentiful",
     "items/joker/2common4me",
     "items/joker/uncommon",
     "items/joker/uncommon2",
     "items/joker/unrare",
     "items/joker/rare",
-    "items/joker/rare2",
+    "items/joker/well-done",
     "items/joker/candy",
     "items/joker/refined",
     "items/joker/joker",
@@ -60,4 +60,5 @@ for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
 end
 
+-- very important do not delete
 -- https://gist.githubusercontent.com/MattIPv4/045239bc27b16b2bcf7a3a9a4648c08a/raw/2411e31293a35f3e565f61e7490a806d4720ea7e

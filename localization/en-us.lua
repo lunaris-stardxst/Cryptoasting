@@ -193,7 +193,7 @@ return {
 				text = {
 					"{C:dark_edition,X:edition}^^^^^#1#{} Mult",
 					"Debuffs the other hyperoperation brothers",
-					"{C:red}Self-destructs{} if score is >ee#2#",
+					"{C:red}Self-destructs{} if score is {C:attention}>ee#2#",
 					"{C:inactive}\"He's the estranged brother. Recently,",
 					"{C:inactive}he stole one of Henry’s arrows\""
 				}
@@ -245,7 +245,7 @@ return {
 			j_crp_jonkler = {
 				name = "Jonkler",
 				text = {
-					"{C:dark_edition,B:1}#1#Twenty-five thousand #2#one{} Mult",
+					"{C:dark_edition,B:1}#1#Twenty-five thousand#2#one{} Mult",
 				},
 			},
 			j_crp_semicolon = {
@@ -675,7 +675,7 @@ return {
 				text = {
 					"{C:mult}+#1#{} Mult",
 					"{C:red}Halves{} at end of round",
-					"Destroyed at under {C:mult}8{} Mult"
+					"Destroyed at under {C:mult}+8{} Mult"
 				}
 			},
 			j_crp_normalgoe = {
@@ -697,7 +697,7 @@ return {
 				text = {
 					"{C:chips}+#1#{} Chips",
 					"Value multiplied by {C:attention}0.8{} at end of round",
-					"Destroyed at under {C:chips}512{} Chips",
+					"Destroyed at under {C:chips}+512{} Chips",
 					"{C:inactive}\"Fqt in MY milk?!\"{}"
 				}
 			},
@@ -774,8 +774,9 @@ return {
 			j_crp_q = {
 				name = "q",
 				text = {
-					"{X:chips,C:white}=#1#{} Mult",
-					"Increases by {X:chips,C:white}#2#{} when a {C:attention}Zany Joker{} is sold",
+					"{X:dark_edition,C:white}=#1#{} Mult",
+					"Increases by {X:dark_edition,C:white}#2#{} when",
+					"a {C:attention}Zany Joker{} is sold",
 				},
 			},
 			j_crp_bulgoes_hiking_journey = {
@@ -1016,7 +1017,8 @@ return {
 			j_crp_2048 = {
 				name = "2048",
 				text = {
-					"{X:dark_edition,C:white}=2^x{} Mult, where x is your current Mult",
+					"{X:dark_edition,C:white}=2^x{} Mult, where",
+					"{C:attention}x{} is your current {C:mult}Mult{}",
 				},
 			},
 			j_crp_hexation_henry = {
@@ -1105,9 +1107,9 @@ return {
 			j_crp_bulgoelly_west = {
 				name = "Bulgoelly West",
 				text = {
-					"Creates a {C:edition}Negative{} {C:green}Global{} {C:attention}2 of Hearts{} and {C:attention}7 of Hearts{}",
-					"when bought, {C:mult}Hearts{} cannot be {C:attention}debuffed{}",
-					"If played hand contains a {C:attention}2{}, {C:edition,X:dark_edition}^#1#{} current Ante",
+					"Creates a {C:dark_edition}Negative{} {C:cry_code}Global{} {C:attention}2{} of {C:hearts}Hearts{} and {C:attention}7{} of {C:hearts}Hearts{}",
+					"when bought, {C:hearts}Hearts{} cannot be {C:attention}debuffed{}",
+					"If played hand contains a {C:attention}2{}, {C:white,X:dark_edition}^#1#{} current Ante",
 					"If played hand contains a {C:attention}7{}, {C:white,X:attention}X#2#{} current Ante",
 					"If played hand contains a {C:attention}2{} and a {C:attention}7{}, sets Ante to {C:attention}#3#{}"
 				},
@@ -1420,14 +1422,14 @@ return {
 					"{C:attention}Joker{} at double the price",
 				},
 			},
-			tag_crp_uncommon_2_tag = {
+			tag_crp_unplentiful_tag = {
 				name = "Uncommon 2 Tag",
 				text = {
 					"Shop has a free",
 					"{C:uncommon}Uncommon 2{} {C:attention}Joker",
 				},
 			},
-			tag_crp_rare_2_tag = {
+			["tag_crp_well-done_tag"] = {
 				name = "Rare 2 Tag",
 				text = {
 					"Shop has a free",
@@ -1693,7 +1695,8 @@ return {
 			v_crp_supremacy = {
 				name = "Supremacy",
 				text = {
-					"All blinds level up all hands by {C:attention}ceil(log64([Blind Size])){} when beaten"
+					"All blinds level up all hands by",
+					"{C:attention}ceil(log64([Blind Size])){} when beaten"
 				},
 			},
 			v_crp_godhood = {
@@ -1701,13 +1704,14 @@ return {
 				text = {
 					"Ante increases {C:attention}decrease Ante{} instead",
 					"(Can be toggled in Run Info)",
-					"{C:inactive}(currently doesnt do jack shite because idk how id code that lmao){}"
+					"{C:inactive}(currently doesnt do jack shit",
+					"{C:inactive}because idk how to code that lmao)"
 				},
 			},
 			v_crp_ascension = {
 				name = "Ascension",
 				text = {
-					"Sets Blind Size to {C:attention}1{}",
+					"Sets Blind size to {C:attention}1{}",
 					"All {C:attention}Boss Blinds{} are {C:attention}disabled{}"
 				},
 			},
@@ -1812,11 +1816,11 @@ return {
 			["k_crp_self-insert"] = "Self-Insert",
 			k_crp_trash = "Trash",
 			["k_crp_:3"] = ":3",
-			k_crp_common_2 = "Common 2",
+			k_crp_plentiful = "Plentiful",
 			k_crp_2common4me = "2Common4me",
-			k_crp_uncommon_2 = "Uncommon 2",
+			k_crp_unplentiful = "Uncommon 2",
 			k_crp_unrare = "Unrare",
-			k_crp_rare_2 = "Rare 2",
+			["k_crp_well-done"] = "Well-Done",
 			k_crp_refined = "Refined",
 			k_crp_meat = "Meat",
 			k_crp_joker = "Joker",
@@ -1861,4 +1865,3 @@ return {
 		}
 	}
 }
-

@@ -1,7 +1,7 @@
 SMODS.ConsumableType {
 	key = "Pot",
-	primary_colour = { 1, 1, 1, 1 },
-	secondary_colour = { 0.75, 0.75, 0.75, 1 },
+	primary_colour = { 1, 0.910, 0.537, 1 },
+	secondary_colour = { 0.75, 0.682, 0.403, 1 },
 	collection_rows = { 4, 4 },
 	shop_rate = 0,
 	loc_txt = {},

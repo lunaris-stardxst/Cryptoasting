@@ -702,7 +702,7 @@ SMODS.Tag {
 }
 
 --[[ SMODS.Tag {
-	key = "uncommon_2_tag",
+	key = "unplentiful_tag",
 	atlas = "crp_tag",
 	pos = { x = 3, y = 0 },
 	min_ante = 0,
@@ -711,14 +711,14 @@ SMODS.Tag {
 		if context.type == "store_joker_create" then
 			local rares_in_posession = { 0 }
 			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_uncommon_2" and not rares_in_posession[v.config.center.key] then
+				if v.config.center.rarity == "crp_unplentiful" and not rares_in_posession[v.config.center.key] then
 					rares_in_posession[1] = rares_in_posession[1] + 1
 					rares_in_posession[v.config.center.key] = true
 				end
 			end
 			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_uncommon_2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_uncommon_2", nil, nil, nil, "cry_eta")
+			if #G.P_JOKER_RARITY_POOLS.crp_unplentiful > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_unplentiful", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Uncommon, function()
@@ -742,7 +742,7 @@ SMODS.Tag {
 }
 
 SMODS.Tag {
-	key = "rare_2_tag",
+	key = "well-done_tag",
 	atlas = "crp_tag",
 	pos = { x = 4, y = 0 },
 	min_ante = 0,
@@ -751,14 +751,14 @@ SMODS.Tag {
 		if context.type == "store_joker_create" then
 			local rares_in_posession = { 0 }
 			for k, v in ipairs(G.jokers.cards) do
-				if v.config.center.rarity == "crp_rare_2" and not rares_in_posession[v.config.center.key] then
+				if v.config.center.rarity == "crp_well-done" and not rares_in_posession[v.config.center.key] then
 					rares_in_posession[1] = rares_in_posession[1] + 1
 					rares_in_posession[v.config.center.key] = true
 				end
 			end
 			local card
-			if #G.P_JOKER_RARITY_POOLS.crp_rare_2 > rares_in_posession[1] then
-				card = create_card("Joker", context.area, nil, "crp_rare_2", nil, nil, nil, "cry_eta")
+			if #G.P_JOKER_RARITY_POOLS.crp_well-done > rares_in_posession[1] then
+				card = create_card("Joker", context.area, nil, "crp_well-done", nil, nil, nil, "cry_eta")
 				create_shop_card_ui(card, "Joker", context.area)
 				card.states.visible = false
 				tag:yep("+", G.C.RARITY.Rare, function()

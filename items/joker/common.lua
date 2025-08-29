@@ -306,6 +306,7 @@ SMODS.Joker {
 	config = { extra = { jokerslots = 1, jokerslots_mod = 1 } },
 	rarity = 1,
 	atlas = "crp_placeholder",
+	pos = { x = 2, y = 0 },
 	cost = 10,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)

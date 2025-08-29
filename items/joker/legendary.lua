@@ -142,7 +142,7 @@ SMODS.Joker {
             local valid_rare_keys = {
 				["crp_unrare"] = true,
 				[3] = true,
-				["crp_rare_2"] = true,
+				["crp_well-done"] = true,
 				["cry_candy"] = true,
 				["crp_meat"] = true,
 				["crp_refined"] = true,

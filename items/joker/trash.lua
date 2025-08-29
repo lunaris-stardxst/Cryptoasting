@@ -130,19 +130,20 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "collection",
 	name = "Collection",
-	config = { immutable = { Xmult = 1 } },
+	config = { immutable = { xmult = 1 } },
 	rarity = "crp_trash",
-	pos = { x = 4, y = 2 },
+	atlas = "crp_placeholder",
+	pos = { x = 1, y = 0 },
 	cost = 0,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.immutable.Xmult) } }
+		return { vars = { lenient_bignum(card.ability.immutable.xmult) } }
 	end,
 	calculate = function(self, card, context)
 		if ((context.other_joker) and context.other_joker.config.center.rarity == "crp_trash") or context.forcetrigger then
 			return {
-				xmult = lenient_bignum(card.ability.immutable.Xmult)
+				xmult = lenient_bignum(card.ability.immutable.xmult)
 			}
 		end
 	end,

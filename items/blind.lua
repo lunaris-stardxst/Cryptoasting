@@ -18,7 +18,7 @@ function Game:update(dt)
 				G.GAME.blind.chips = G.GAME.blind.chips ^ 2 -- destroy the game
 				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			end
-		else if G.GAME.blind.name == "Hermes (S, EM+)" then -- if blind is hermes...
+		elseif G.GAME.blind.name == "Hermes (S, EM+)" then -- if blind is hermes...
 			if not next(SMODS.find_card("j_crp_jean_antoine")) then -- and no jean...
 				local eeeblindchips = 1.00001
 				G.GAME.blind.chips = G.GAME.blind.chips:arrow(3, eeeblindchips) -- destroy the game even more
@@ -26,7 +26,6 @@ function Game:update(dt)
 				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			end
 		end
-	end
 	end
 end
 

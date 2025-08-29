@@ -631,7 +631,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "usain_bolt",
 	name = "Usain Bolt",
-	config = { extra = { chips = 0, chips_mod = 50000 } },
+	config = { extra = { chips = 0, chips_mod = 1500 } },
 	rarity = 3,
 	atlas = "crp_placeholder",
 	pos = { x = 4, y = 0 },

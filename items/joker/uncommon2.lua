@@ -1,7 +1,7 @@
 SMODS.Joker {
 	key = "snake_eyes",
 	name = "Snake Eyes",
-	rarity = "crp_uncommon_2",
+	rarity = "crp_unplentiful",
 	atlas = "crp_placeholder",
 	pos = { x = 3, y = 0 },
 	cost = 5,

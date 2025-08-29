@@ -2,7 +2,7 @@ SMODS.Joker {
 	key = "low-fqt_milk", -- not a typo (but like originally was but then it was made real for some reason (yeah idk))
 	name = "Low-Fqt Milk",
 	config = { extra = { chips = 2048 } },
-	rarity = "crp_rare_2",
+	rarity = "crp_well-done",
 	atlas = "crp_joker",
 	pos = { x = 9, y = 4 },
 	cost = 8,
