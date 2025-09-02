@@ -43,6 +43,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+	key = "henry",
+	path = "henry.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "fun_coin",
 	path = "fun_coin.png",
 	px = 71,
