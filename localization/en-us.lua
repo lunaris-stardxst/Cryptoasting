@@ -217,6 +217,13 @@ return {
 					"{C:white,X:chips}÷#1#{} Chip#<s>1#",
 				},
 			},
+			j_crp_cryptoposting = {
+				name = "Cryptoposting",
+				text = {
+					"{C:white,X:money}X$#1#{} - {C:white,X:money}X$#2#{} when hand",
+					"played or discarded",
+				},
+			},
 			j_crp_glitchkat10 = {
 				name = "Glitchkat10",
 				text = {
@@ -1109,7 +1116,7 @@ return {
 				text = {
 					"Creates a {C:dark_edition}Negative{} {C:cry_code}Global{} {C:attention}2{} of {C:hearts}Hearts{} and {C:attention}7{} of {C:hearts}Hearts{}",
 					"when bought, {C:hearts}Hearts{} cannot be {C:attention}debuffed{}",
-					"If played hand contains a {C:attention}2{}, {C:white,X:dark_edition}^#1#{} current Ante",
+					"If played hand contains a {C:attention}2{}, {C:white,X:attention}^#1#{} current Ante",
 					"If played hand contains a {C:attention}7{}, {C:white,X:attention}X#2#{} current Ante",
 					"If played hand contains a {C:attention}2{} and a {C:attention}7{}, sets Ante to {C:attention}#3#{}"
 				},

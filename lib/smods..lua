@@ -179,21 +179,21 @@ SMODS.Sound {
 	key = "heptationalchips",
 	path = "HeptationalChips.ogg",
 	loop = false,
-	volume = 0.5,
+	volume = 0.4,
 }
 
 SMODS.Sound {
 	key = "heptationalmult",
 	path = "HeptationalMult.ogg",
 	loop = false,
-	volume = 0.5,
+	volume = 0.4,
 }
 
 SMODS.Sound {
 	key = "heptationalchipsmult",
 	path = "HeptationalChipsMult.ogg",
 	loop = false,
-	volume = 0.5,
+	volume = 0.4,
 }
 
 SMODS.Sound {

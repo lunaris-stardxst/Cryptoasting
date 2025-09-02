@@ -260,17 +260,17 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "bulgoelly_west",
 	name = "Bulgoelly West",
-	config = { extra = { Eante = 2, Xante = -7, Eqante = 0 } },
+	config = { extra = { eante = 2, xante = -7, eqante = 0 } },
 	rarity = "crp_2exomythic4me",
-	atlas = "crp_placeholder",
-	pos = { x = 11, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 5, y = 1 },
 	pools = { Bulgoe = true },
-	-- soul_pos = { x = 0, y = 0, extra = { x = 0, y = 0 } },
+	soul_pos = { x = 7, y = 1, extra = { x = 6, y = 1 } },
 	cost = 400,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.Eante), lenient_bignum(card.ability.extra.Xante), lenient_bignum(card.ability.extra.Eqante) } }
+		return { vars = { lenient_bignum(card.ability.extra.eante), lenient_bignum(card.ability.extra.xante), lenient_bignum(card.ability.extra.eqante) } }
 	end,
 	update = function(self, card, dt)
 		if G.deck and card.added_to_deck then
@@ -320,38 +320,38 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.before and context.full_hand then
-			local Eante_active = false
-			local Xante_active = false
+			local eante_active = false
+			local xante_active = false
 			for k, v in ipairs(context.full_hand) do
 				if v:get_id() == 2 then
-					Eante_active = true
+					eante_active = true
 					--print("eante active")
 				end
 				if v:get_id() == 7 then
-					Xante_active = true
+					xante_active = true
 					--print("xante active")
 				end
-				if Xante_active and Eante_active then
+				if xante_active and eante_active then
 					--print("eqante active")
 				end
 			end
-			if Eante_active and not Xante_active then
-				local antechange = (G.GAME.round_resets.ante ^ card.ability.extra.Eante) - G.GAME.round_resets.ante
+			if eante_active and not xante_active then
+				local antechange = (G.GAME.round_resets.ante ^ card.ability.extra.eante) - G.GAME.round_resets.ante
 				ease_ante(antechange)
 				return { 
-					message = "^" .. lenient_bignum(card.ability.extra.Eante) .. " Ante",
+					message = "^" .. lenient_bignum(card.ability.extra.eante) .. " Ante",
 				}
-			else if Xante_active and not Eante_active then
-				local antechange = (G.GAME.round_resets.ante * card.ability.extra.Xante) - G.GAME.round_resets.ante
+			else if xante_active and not eante_active then
+				local antechange = (G.GAME.round_resets.ante * card.ability.extra.xante) - G.GAME.round_resets.ante
 				ease_ante(antechange)
 				return {
-					message = "X" .. lenient_bignum(card.ability.extra.Xante) .. " Ante",
+					message = "X" .. lenient_bignum(card.ability.extra.xante) .. " Ante",
 				}
-			else if Xante_active and Eante_active then
-				local antechange = card.ability.extra.Eqante - G.GAME.round_resets.ante
+			else if xante_active and eante_active then
+				local antechange = card.ability.extra.eqante - G.GAME.round_resets.ante
 				ease_ante(antechange)
 				return {
-					message = "=" .. lenient_bignum(card.ability.extra.Eqante) .. " Ante",
+					message = "=" .. lenient_bignum(card.ability.extra.eqante) .. " Ante",
 				}
 			end
 			end
@@ -360,6 +360,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Grahkon" },
+		art = { "Grahkon" },
 		code = { "Rainstar" }
 	},
 }
