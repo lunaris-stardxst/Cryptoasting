@@ -132,7 +132,7 @@ SMODS.Joker {
 				}
 			}
 		end
-		if context.selling_card and 0.75 <= pseudorandom("crp_inquisitio_hominis") then	
+		if context.selling_card and 0.75 <= pseudorandom("crp_inquisitio_hominis") and context.cardarea == G.jokers then	
 			G.E_MANAGER:add_event(Event({func = function()
 				local card1 = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_waldo", "inquisitio_hominis")
 				card1:add_to_deck()

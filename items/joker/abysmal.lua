@@ -107,7 +107,7 @@ SMODS.Joker {
 		return {
 			vars = {
 				lenient_bignum(card.ability.extra.mantissa),
-				lenient_bignum(math.log10(math.log10(card.ability.immutable.self_destruct))),
+				lenient_bignum(math.log10(math.log10(card.ability.immutable.self_destruct)))
 			}
 		}
 	end,

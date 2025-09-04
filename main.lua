@@ -38,6 +38,7 @@ local files = {
     "items/joker/2exomythic4me",
     "items/joker/22exomythic4mecipe",
     "items/joker/exomythicepicawesomeuncommon2mexotic22exomythic4mecipe",
+    "items/joker/supa_rare",
     "items/joker/all",
     "items/blind",
     "items/booster",

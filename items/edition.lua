@@ -687,7 +687,7 @@ SMODS.Edition {
 	get_weight = function(self)
 		return G.GAME.edition_rate * self.weight
 	end,
-	config = { card_limit = 2^1024 },
+	config = { card_limit = 1e100 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.card_limit } }
 	end,

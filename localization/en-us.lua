@@ -141,6 +141,26 @@ return {
 					"requirement"
 				},
 			},
+			bl_crp_empty_pockets = {
+				name = "The Empty Pockets (E+)",
+				text = {
+					"Nothing here..."
+				},
+			},
+			bl_crp_nanny = {
+				name = "The Nanny (E+)",
+				text = {
+					"Score at least 1.79e308"
+				},
+			},
+			bl_crp_malevolent_mirror = {
+				name = "Malevolent Mirror (S, M+)",
+				text = {
+					"Score AT MOST ^^1.5 Base",
+					"Removes all discards, then",
+					"adds them to hands",
+				},
+			},
 			bl_crp_epioxus = {
 				name = "Epioxus (EM+)",
 				text = {
@@ -161,6 +181,12 @@ return {
 				text = {
 					"^2 blind size",
 					"every frame"
+				},
+			},
+			bl_crp_poseidon = {
+				name = "Poseidon (EM+)",
+				text = {
+					"All jokers become The Horse"
 				},
 			},
 			bl_crp_quettus = {
@@ -241,6 +267,19 @@ return {
 				text = {
 					"{C:white,X:money}X$#1#{} - {C:white,X:money}X$#2#{} when hand",
 					"played or discarded",
+				},
+			},
+			j_crp_the_horse = {
+				name = "The Horse",
+				text = {
+					"{X:dark_edition,C:white}^#1#{} Mult",
+					"Gains {X:dark_edition,C:white}^#2#{} Mult when {C:attention}Apple{} is sold",
+				},
+			},
+			j_crp_evil_joker = {
+				name = "{C:red}EVIL{} Joker",
+				text = {
+					"{C:white,X:mult}÷#1#{} Mult",
 				},
 			},
 			j_crp_glitchkat10 = {
@@ -545,6 +584,13 @@ return {
 					"{C:attention}#3# {C:chips}#4#"
 				}
 			},
+			j_crp_jollymoon = {
+				name = "Piano Falling over the Jolly Moon",
+				text = {
+					"{C:mult}+#1# Mult{}",
+					"Levels up {C:attention}Pair{} when this Joker is triggered"
+				}
+			},
 			j_crp_fun_coin = {
 				name = "fun coin",
 				text = {
@@ -627,6 +673,12 @@ return {
 					"Earn {C:money}$#3#{} at end of round",
 					"{C:mult}+4{} Mult",
 					"{C:chips}+5{} Chip#<s>5#",
+				}
+			},
+			j_crp_executioner = {
+				name = "Executioner",
+				text = {
+					"{C:attention}Destroys {}all scoring Face Cards"
 				}
 			},
 			j_crp_coughing_baby_vs_hydrogen_bomb = {
@@ -995,6 +1047,21 @@ return {
 					"{C:inactive}(#2#, #3#, #4#, #5#, #6#...)"
 				}
 			},
+			j_crp_difficile = {
+				name = "Difficile",
+				text = {
+					"{C:white,X:dark_edition}^#1#{} Mult if scoring cards",
+					"trigger {C:attention}#2#{} or fewer times"
+				}
+			},
+			j_crp_crustulum_2 = {
+				name = "Crustulum 2",
+				text = {
+					"All rerolls now cost {C:chips}-#1#{} Chips from all poker hands",
+					"Earn {C:money}+#3#${} at the end of round, increases by {C:money}+#2#${} per reroll",
+					"Resets when boss blind is defeated"
+				}
+			},
 			j_crp_weather_machine = {
 				name = "Weather Machine",
 				text = {
@@ -1191,6 +1258,18 @@ return {
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
 					"{C:dark_edition,X:edition}^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#1#{} Mult",
+				},
+			},
+			j_crp_expansion = {
+				name = "Expansion",
+				text = {
+					"{C:dark_edition,X:edition}#1#2{} Mult",
+				},
+			},
+			j_crp_supagoe = {
+				name = "Supagoe",
+				text = {
+					"Chips/Mult operator is set to {C:dark_edition,X:edition}#1#{}",
 				},
 			},
 			j_crp_all = {
@@ -1793,6 +1872,53 @@ return {
 				text = {
 					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:white,X:crp_all,E:1}All{}",
 					"{C:inactive}\"Took ya long enough.\""
+				},
+			},
+			v_crp_bulgoverstock = {
+				name = "Bulgoverstock",
+				text = {
+					"{C:attention}+#1#{} Shop Slot",
+					"Rightmost shop item is always a {C:attention}Bulgoe{}",
+				},
+			},
+			v_crp_bulgoestocks = {
+				name = "Bulgoestocks",
+				text = {
+					"Earn {C:money}+#1#${} when buying {C:attention}Bulgoe{}",
+				},
+			},
+			v_crp_bulgadicioe = {
+				name = "Bulgadicioe",
+				text = {
+					"When opening a booster pack,",
+					"gain a {C:attention}Bulgoe{} and {C:money}+#1#${}",
+				},
+			},
+			v_crp_rabbulgoe_hole = {
+				name = "Rabbulgoe Hole",
+				text = {
+					"{C:attention}Bulgoe-related{} jokers give {C:green}+X free rerolls{}",
+					"where {C:attention}X{} is the amount of {C:attention}Bulgoe-related{} jokers owned",
+				},
+			},
+			v_crp_bulgnation = {
+				name = "Bulgnation",
+				text = {
+					"{C:attention}Bulgoes{} are always {C:edition}Really Negative{}",
+				},
+			},
+			v_crp_bulgcrowd = {
+				name = "Bulgcrowd",
+				text = {
+					"{C:attention}Bulgnation{} and {C:attention}Bulgoestocks{} now apply to all {C:attention}Bulgoe-related{} jokers",
+					"Additionally, gain {C:attention}+#1#${} instead",
+				},
+			},
+			v_crp_bulgscension = {
+				name = "Bulgscension",
+				text = {
+					"{C:attention}Rightmost{} shop slot can now create any",
+					"{C:attention}Bulgoe-related{} joker at equal chances"
 				},
 			},
 		},
