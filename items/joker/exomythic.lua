@@ -117,6 +117,7 @@ SMODS.Joker {
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_waldo
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
 		return { vars = { lenient_bignum(card.ability.extra.echipsmult), lenient_bignum(card.ability.extra.echipsmult_mod) } }
 	end,
 	calculate = function(self, card, context)
@@ -301,10 +302,12 @@ SMODS.Joker {
 	pos = { x = 5, y = 1 },
 	pools = { Bulgoe = true },
 	soul_pos = { x = 7, y = 1, extra = { x = 6, y = 1 } },
-	cost = 400,
+	cost = 200,
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+		info_queue[#info_queue + 1] = G.P_CENTERS.cry_global
 		return { vars = { lenient_bignum(card.ability.extra.eante), lenient_bignum(card.ability.extra.xante), lenient_bignum(card.ability.extra.eqante) } }
 	end,
 	update = function(self, card, dt)
@@ -360,42 +363,39 @@ SMODS.Joker {
 			for k, v in ipairs(context.full_hand) do
 				if v:get_id() == 2 then
 					eante_active = true
-					--print("eante active")
 				end
 				if v:get_id() == 7 then
 					xante_active = true
-					--print("xante active")
 				end
 				if xante_active and eante_active then
-					--print("eqante active")
 				end
 			end
 			if eante_active and not xante_active then
-				local antechange = (G.GAME.round_resets.ante ^ card.ability.extra.eante) - G.GAME.round_resets.ante
-				ease_ante(antechange)
-				return { 
-					message = "^" .. lenient_bignum(card.ability.extra.eante) .. " Ante",
-				}
-			else if xante_active and not eante_active then
-				local antechange = (G.GAME.round_resets.ante * card.ability.extra.xante) - G.GAME.round_resets.ante
+				local antechange = (G.GAME.round_resets.ante ^ (card.ability.extra.eante or 2)) - G.GAME.round_resets.ante
 				ease_ante(antechange)
 				return {
-					message = "X" .. lenient_bignum(card.ability.extra.xante) .. " Ante",
+					message = "^" .. (card.ability.extra.eante or 2) .. " Ante",
 				}
-			else if xante_active and eante_active then
-				local antechange = card.ability.extra.eqante - G.GAME.round_resets.ante
+			elseif xante_active and not eante_active then
+				local xante = card.ability.extra.xante or -7
+				local antechange = (G.GAME.round_resets.ante * xante) - G.GAME.round_resets.ante
 				ease_ante(antechange)
 				return {
-					message = "=" .. lenient_bignum(card.ability.extra.eqante) .. " Ante",
+					message = "X" .. xante .. " Ante",
 				}
-			end
-			end
+			elseif xante_active and eante_active then
+				local eqante = card.ability.extra.eqante or 0
+				local antechange = eqante - G.GAME.round_resets.ante
+				ease_ante(antechange)
+				return {
+					message = "=" .. eqante .. " Ante",
+				}
 			end
 		end
 	end,
 	crp_credits = {
 		idea = { "Grahkon" },
 		art = { "Grahkon" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" } -- added a bunch of stuff to help with nil values
 	},
 }

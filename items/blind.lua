@@ -834,6 +834,7 @@ SMODS.Blind {
 			if G.jokers then
 				for _, joker in pairs(G.jokers.cards) do
 					joker:set_ability("j_crp_the_horse") -- these jokers are gonna be horsing around with this one
+					joker:juice_up(0.3, 0.5)
 				end
 			end
 		end

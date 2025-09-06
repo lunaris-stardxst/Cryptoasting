@@ -267,6 +267,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = false,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
 		return { vars = { lenient_bignum(card.ability.extra.split) } }
 	end,
 	calculate = function(self, card, context)
@@ -335,6 +336,10 @@ SMODS.Joker {
 	cost = 50,
 	blueprint_compat = true,
 	demicoloncompat = true,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_jolly
+		return { vars = {  } }
+	end,
 	calculate = function(self, card, context)
 		if (context.joker_main and next(context.poker_hands["Pair"])) or context.forcetrigger then
 			return {

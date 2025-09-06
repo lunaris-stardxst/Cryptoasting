@@ -13,7 +13,7 @@ SMODS.Joker {
 	config = { },
 	rarity = "crp_supa_rare",
 	atlas = "crp_placeholder",
-	pos = { x = 0, y = 0 },
+	pos = { x = 3, y = 1 },
 	cost = 2727272727272727272727272727,
 	blueprint_compat = true,
 	demicoloncompat = true,

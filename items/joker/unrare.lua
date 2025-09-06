@@ -53,6 +53,7 @@ SMODS.Joker {
 		end
 	end,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
 		return { vars = { lenient_bignum(card.ability.extra.money), lenient_bignum(card.ability.extra.money_bonus) } }
 	end,
 	calculate = function(self, card, context)

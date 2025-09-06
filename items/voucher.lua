@@ -277,6 +277,7 @@ SMODS.Voucher {
     pos = { x = 7, y = 2 },
     config = { extra = { all_count = 1 } },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
         return { vars = { lenient_bignum(card.ability.extra.all_count) } }
     end,
 	requires = { "v_crp_payoff" },
@@ -302,21 +303,20 @@ SMODS.Voucher {
     pos = { x = 5, y = 2 },
     config = { extra = { shop_slots = 1 } },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.shop_slots) } }
     end,
-    --redeem = function(self, card)
-	--	change_shop_size(lenient_bignum(card.ability.extra.shop_slots))
-    --end,
-    --unredeem = function(self, card)
-	--	change_shop_size(lenient_bignum(-card.ability.extra.shop_slots))
-    --end,
+    redeem = function(self, card)
+        local card = SMODS.create_card({key = "j_crp_bulgoe"})
+        create_shop_card_ui(card, "Joker", G.shop_jokers)
+        card:set_cost()
+        card:start_materialize()
+        G.shop_jokers:emplace(card)
+    end,
     calculate = function(self, card, context)
-        if context.reroll_shop then
-            local card
-		    card = create_card('Joker', G.shop_jokers, nil, 1, nil, nil, "j_crp_bulgoe", 'bulgoverstock')
+        if context.reroll_shop or context.starting_shop then
+            local card = SMODS.create_card({key = "j_crp_bulgoe"})
 		    create_shop_card_ui(card, "Joker", G.shop_jokers)
-		    --card.states.visible = false
-		    --card.misprint_cost_fac = 0
 		    card:set_cost()
 		    card:start_materialize()
             G.shop_jokers:emplace(card)
@@ -324,7 +324,7 @@ SMODS.Voucher {
     end,
     crp_credits = {
 		idea = { "ScarredOut" },
-		code = { "Rainstar" }
+		code = { "Rainstar", "Glitchkat10" }
 	}
 }
 
@@ -332,10 +332,11 @@ SMODS.Voucher {
     key = "bulgoestocks",
     name = "Bulgoestocks",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
+    pos = { x = 6, y = 2 },
     config = { extra = { money = 2.7 } },
 	requires = { "v_crp_bulgoverstock" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.money) } }
     end,
     calculate = function(self, card, context)
@@ -353,17 +354,16 @@ SMODS.Voucher {
     key = "bulgadicioe",
     name = "Bulgadicioe",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
+    pos = { x = 7, y = 2 },
     config = { extra = { money = 2.7 } },
 	requires = { "v_crp_bulgoestocks" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.money) } }
     end,
     calculate = function(self, card, context)
         if context.open_booster then
-			--[[local card1 = create_card("Joker", G.jokers, nil, "j_crp_bulgoe", nil, nil, nil, "bulgadicioe")
-			card1:add_to_deck()
-			G.jokers:emplace(card1)]]--
+			SMODS.add_card({key = "j_crp_bulgoe"})
             ease_dollars(lenient_bignum(card.ability.extra.money))
         end
     end,
@@ -377,26 +377,44 @@ SMODS.Voucher {
     key = "rabbulgoe_hole",
     name = "Rabbulgoe Hole",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
-    config = { extra = { bulgoes = 0 } },
+    pos = { x = 7, y = 2 },
+    config = { extra = { prev_bulgoes = 0, current_bulgoes = 0 } },
 	requires = { "v_crp_bulgadicioe" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
         return { vars = {  } }
     end,
-    update = function(self, card, dt)
-		for i = 1, #G.jokers.cards do
-			local joker = G.jokers.cards[i]
-			if joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then
-                card.ability.extra.bulgoes = card.ability.extra.bulgoes + 1
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra.prev_bulgoes = 0 -- store the previous count when added to deck
+        card.ability.extra.current_bulgoes = 0 -- store the current count when added to deck
+    end,
+    calculate = function(self, card, context)
+        if (context.end_of_round or context.buying_card) and not context.other_card and not context.repetition then
+            card.ability.extra.prev_bulgoes = card.ability.extra.current_bulgoes
+            card.ability.extra.current_bulgoes = 0
+            if G.jokers then
+                for i = 1, #G.jokers.cards do
+                    local joker = G.jokers.cards[i]
+                    if joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then
+                        card.ability.extra.current_bulgoes = card.ability.extra.current_bulgoes + 1
+                    end
+                end
+            end
+            if card.ability.extra.prev_bulgoes ~= card.ability.extra.current_bulgoes then -- only update if count changed
+                local diff = card.ability.extra.current_bulgoes - card.ability.extra.prev_bulgoes
+                if diff > 0 then
+                    SMODS.change_free_rerolls(diff) -- only add the difference so it doesn't reset and make big reroll numbers
+                end
+                card.ability.extra.prev_bulgoes = card.ability.extra.current_bulgoes -- update stored count
             end
         end
     end,
-    calculate = function(self, card, context)
-        G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + (lenient_bignum(card.ability.extra.bulgoes) * lenient_bignum(card.ability.extra.bulgoes))
+    remove_from_deck = function(self, card, from_debug)
+        SMODS.change_free_rerolls(-card.ability.extra.current_bulgoes)
     end,
     crp_credits = {
 		idea = { "Gudusername" },
-		code = { "Rainstar" }
+		code = { "Glitchkat10" }
 	}
 }
 
@@ -404,59 +422,65 @@ SMODS.Voucher {
     key = "bulgnation",
     name = "Bulgnation",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
+    pos = { x = 7,  y = 2 },
     config = { extra = { } },
-	requires = { "v_crp_rabbulgoe_hole" },
+    requires = { "v_crp_rabbulgoe_hole" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_crp_really_negative
         return { vars = {  } }
     end,
-    redeem = function(self, card)
-		for i = 1, #G.jokers.cards do
-			local joker = G.jokers.cards[i]
-			if joker.config.center.key == "j_crp_bulgoe" then
-                joker:set_edition("e_crp_really_negative")
-            end
-        end
-    end,
     calculate = function(self, card, context)
-        if context.buying_card then
-			if context.card.config.center.key == "j_crp_bulgoe" then
-                card:set_edition("e_crp_really_negative")
-            end
+        if context and context.buying_card and context.card and context.card.config and context.card.config.center and context.card.config.center.key == "j_crp_bulgoe" then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                blockable = false,
+                blockable_auto = true,
+                once = true,
+                func = function()
+                    if context.card and context.card.config and context.card.config.center and context.card.config.center.key == "j_crp_bulgoe" then
+                        context.card:set_edition("e_crp_really_negative")
+                        return true
+                    end
+                    return true
+                end
+            }))
         end
     end,
     crp_credits = {
-		idea = { "ScarredOut" },
-		code = { "Rainstar" }
-	}
+        idea = { "ScarredOut" },
+        code = { "Rainstar", "Glitchkat10" }
+    }
 }
 
 SMODS.Voucher {
     key = "bulgcrowd",
     name = "Bulgcrowd",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
+    pos = { x = 7, y = 2 },
     config = { extra = { money = 27} },
 	requires = { "v_crp_bulgnation" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.v_crp_bulgnation
+        info_queue[#info_queue + 1] = G.P_CENTERS.v_crp_bulgoestocks
+        info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
         return { vars = { lenient_bignum(card.ability.extra.money) } }
     end,
     redeem = function(self, card)
-		for i = 1, #G.jokers.cards do
-			local joker = G.jokers.cards[i]
-			if context.joker.config.center.pools.Bulgoe then
-                joker:set_edition("e_crp_really_negative")
+		if G.jokers then
+			for i = 1, #G.jokers.cards do
+				local joker = G.jokers.cards[i]
+				if joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then
+                    joker:set_edition("e_crp_really_negative")
+                end
             end
         end
     end,
     calculate = function(self, card, context)
         if context.buying_card and card.config and card.config.center and card.config.center.pools and card.config.center.pools.Bulgoe then
             ease_dollars(lenient_bignum(card.ability.extra.money))
-        end
-        if context.buying_card then
-			if context.card.config.center.pools.Bulgoe then
-                card:set_edition("e_crp_really_negative")
-            end
+            card:set_edition("e_crp_really_negative")
         end
     end,
     crp_credits = {
@@ -469,30 +493,28 @@ SMODS.Voucher {
     key = "bulgscension",
     name = "Bulgscension",
     atlas = "crp_placeholder",
-    pos = { x = 5, y = 2 },
+    pos = { x = 7, y = 2 },
     config = { extra = { } },
 	requires = { "v_crp_bulgcrowd" },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
         return { vars = { } }
     end,
+    redeem = function(self, card)
+        local card = SMODS.create_card({set = "Bulgoe"})
+        create_shop_card_ui(card, "Joker", G.shop_jokers)
+        card:set_cost()
+        card:start_materialize()
+        G.shop_jokers:emplace(card)
+    end,
     calculate = function(self, card, context)
-        --[[if context.reroll_shop then
-            local bulgoes = {}
-		    for i = 1, #G.P_CENTER_POOLS.Joker do
-		    	local joker = G.P_CENTER_POOLS.Joker[i]
-		    	if joker.config and joker.config.center and joker.config.center.pools and joker.config.center.pools.Bulgoe then
-                    bulgoes[i] = G.P_CENTER_POOLS.Joker[i].key
-                end
-            end
-            local card
-		    card = create_card('Joker', G.shop_jokers, nil, 1, nil, nil, bulgoes[math.random(0, #bulgoes)], 'bulgscension')
+        if context.reroll_shop or context.starting_shop then
+            local card = SMODS.create_card({set = "Bulgoe"})
 		    create_shop_card_ui(card, "Joker", G.shop_jokers)
-		    --card.states.visible = false
-		    --card.misprint_cost_fac = 0
 		    card:set_cost()
 		    card:start_materialize()
             G.shop_jokers:emplace(card)
-        end--]]
+        end
     end,
     crp_credits = {
 		idea = { "ScarredOut" },

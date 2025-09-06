@@ -193,7 +193,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "bulgoeship_card",
 	name = "Bulgoeship Card",
-    config = { extra = { eemult_mod = 0.1 } },
+    config = { extra = { eemult_mod = 0.27 } },
     rarity = "crp_mythic",
     atlas = "crp_joker",
     pos = { x = 1, y = 7 },

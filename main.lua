@@ -19,7 +19,7 @@ local files = {
     "items/joker/plentiful",
     "items/joker/2common4me",
     "items/joker/uncommon",
-    "items/joker/uncommon2",
+    "items/joker/unplentiful",
     "items/joker/unrare",
     "items/joker/rare",
     "items/joker/well-done",

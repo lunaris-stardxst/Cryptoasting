@@ -140,6 +140,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
 		return { vars = { "{", lenient_bignum(card.ability.immutable.arrows), "}", lenient_bignum(card.ability.extra.hypermult) } }
 	end,
 	calculate = function(self, card, context)

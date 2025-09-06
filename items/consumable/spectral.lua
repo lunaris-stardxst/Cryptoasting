@@ -593,14 +593,17 @@ SMODS.Consumable {
 	can_use = function(self, card)
 		return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
 	end,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_all
+		return { vars = {  } }
+	end,
 	use = function(self, card, area, copier)
 		if pseudorandom("all_or_nothing") < 0.5 then
 			-- 50% chance: destroy all items, reset deck, reset hands/discards
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.1,
-				func = function()
-					-- destroy jokers and consumables
+				func = function() -- destroy jokers and consumables
 					local deletable_jokers = {}
 					local deletable_consumeables = {}
 					for _, v in ipairs(G.jokers.cards) do
@@ -620,13 +623,9 @@ SMODS.Consumable {
 						v:start_dissolve(nil, _first_dissolve)
 						_first_dissolve = true
 					end
-
-					-- clear  deck
-					G.deck.cards = {}
+					G.deck.cards = {} -- clear deck
 					G.playing_cards = {}
-
-					-- clear tags
-					if G.GAME.tags then
+					if G.GAME.tags then -- clear tags
 						local tags_to_remove = {}
 						for k, v in pairs(G.GAME.tags) do
 							tags_to_remove[#tags_to_remove + 1] = v
@@ -636,15 +635,11 @@ SMODS.Consumable {
 						end
 						G.GAME.tags = {}
 					end
-
-					-- create new deck
-					createfulldeck()
-
+					createfulldeck() -- create new deck
 					G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
 					G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discards
 					ease_hands_played(card.ability.extra.hands)
 					ease_discard(card.ability.extra.discards)
-
 					return true
 				end,
 			}))

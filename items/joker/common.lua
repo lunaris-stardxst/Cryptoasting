@@ -426,6 +426,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
 		local bulgoe_jokers = lenient_bignum(0)
 		if G.jokers and G.jokers.cards then
 			for i = 1, #G.jokers.cards do

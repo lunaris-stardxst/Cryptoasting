@@ -11,6 +11,7 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
 		return { vars = { card.ability.extra.death_prevention_enabled, lenient_bignum(card.ability.extra.score_percentage), lenient_bignum(card.ability.extra.xchips), lenient_bignum(card.ability.extra.xchips_mod), lenient_bignum(card.ability.extra.stones) } }
 	end,
 	calculate = function(self, card, context)
@@ -186,7 +187,12 @@ SMODS.Joker {
 	cost = 8,
 	blueprint_compat = true,
 	demicoloncompat = true,
-	calculate = function()
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_mad
+		return { vars = {  } }
+	end,
+	calculate = function(self, card, context)
 		if context.setting_blind or context.forcetrigger then
 			SMODS.add_card({ key = "j_mad", edition = "e_negative" })
 		end
@@ -392,6 +398,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_grouchy_jimbo
 		return { vars = { lenient_bignum(card.ability.extra.xmult) } }
 	end,
 	cost = 6,
@@ -424,6 +431,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
 		return { 
 			vars = { 
 				lenient_bignum(card.ability.extra.create),
@@ -549,7 +557,7 @@ SMODS.Joker { --Executioner
         }
     },
 	pos = {
-        x = 1,
+        x = 4,
         y = 0
     },
     cost = 6,
@@ -557,6 +565,7 @@ SMODS.Joker { --Executioner
     blueprint_compat = true,
 	demicolon_compat = true,
     eternal_compat = true,
+
 	loc_vars = function(self, info_queue, card)
         return {vars = {}}
     end,
