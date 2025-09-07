@@ -203,6 +203,7 @@ SMODS.Joker {
     demicoloncompat = true,
 	perishable_compat = false,
 	pools = { Bulgoe = true },
+	pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         return { vars = { number_format(card.ability.extra.eemult_mod), number_format(card.ability.extra.eemult_mod) * Cryptposting.member_count, }, }
     end,
