@@ -46,6 +46,7 @@ SMODS.Joker {
 	blueprint_compat = false,
 	demicoloncompat = true,
 	pools = { Bulgoe = true },
+	pronouns = "bulgoe",
 	set_ability = function(self, card, initial, delay_sprites)
 		card.ability.extra.sprite = math.floor(pseudorandom("crp_one_bulgoe_bill") * 2)
 		if self.discovered and not (card.area and card.area.config.collection) then

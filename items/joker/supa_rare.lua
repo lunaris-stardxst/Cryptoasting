@@ -17,6 +17,7 @@ SMODS.Joker {
 	cost = 2727272727272727272727272727,
 	blueprint_compat = true,
 	demicoloncompat = true,
+	pronouns = "bulgoe",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { "{27272}" } }
 	end,

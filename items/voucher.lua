@@ -302,6 +302,7 @@ SMODS.Voucher {
     atlas = "crp_placeholder",
     pos = { x = 5, y = 2 },
     config = { extra = { shop_slots = 1 } },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.shop_slots) } }
@@ -335,6 +336,7 @@ SMODS.Voucher {
     pos = { x = 6, y = 2 },
     config = { extra = { money = 2.7 } },
 	requires = { "v_crp_bulgoverstock" },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.money) } }
@@ -357,6 +359,7 @@ SMODS.Voucher {
     pos = { x = 7, y = 2 },
     config = { extra = { money = 2.7 } },
 	requires = { "v_crp_bulgoestocks" },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         return { vars = { lenient_bignum(card.ability.extra.money) } }
@@ -377,6 +380,7 @@ SMODS.Voucher {
     key = "rabbulgoe_hole",
     name = "Rabbulgoe Hole",
     atlas = "crp_placeholder",
+    pronouns = "bulgoe",
     pos = { x = 7, y = 2 },
     config = { extra = { prev_bulgoes = 0, current_bulgoes = 0 } },
 	requires = { "v_crp_bulgadicioe" },
@@ -425,6 +429,7 @@ SMODS.Voucher {
     pos = { x = 7,  y = 2 },
     config = { extra = { } },
     requires = { "v_crp_rabbulgoe_hole" },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
         info_queue[#info_queue + 1] = G.P_CENTERS.e_crp_really_negative
@@ -461,6 +466,7 @@ SMODS.Voucher {
     pos = { x = 7, y = 2 },
     config = { extra = { money = 27} },
 	requires = { "v_crp_bulgnation" },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.v_crp_bulgnation
         info_queue[#info_queue + 1] = G.P_CENTERS.v_crp_bulgoestocks
@@ -496,6 +502,7 @@ SMODS.Voucher {
     pos = { x = 7, y = 2 },
     config = { extra = { } },
 	requires = { "v_crp_bulgcrowd" },
+    pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
         return { vars = { } }
