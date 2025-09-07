@@ -50,6 +50,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 7 },
 	cost = 13,
 	pools = { Bulgoe = true },
+	pronouns = "bulgoe",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.perma_x_chips) } }
 	end,

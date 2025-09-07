@@ -57,6 +57,7 @@ local files = {
     "lib/modbadge",
     "lib/music",
     "lib/pointerblist",
+    "lib/pronouns",
 }
 for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
