@@ -284,8 +284,8 @@ SMODS.Joker {
 
 
 SMODS.Joker {
-	key = "crustulum_2",
-	name = "Crustulum 2",
+	key = "libum",
+	name = "Libum",
 	config = { extra = { chips_loss = 4, money_per_reroll = 1, money = 0 } },
 	rarity = "crp_exotic_2",
 	atlas = "crp_placeholder",

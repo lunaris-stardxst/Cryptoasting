@@ -329,14 +329,15 @@ return {
 			j_crp_chi_cot = {
 				name = "Chi Cot",
 				text = {
-					"Disables effects of all",
-					"{C:attention}Small Blinds"
+					"Disables effects of",
+					"all {C:attention}Small Blinds"
 				}
 			},
 			j_crp_collection = {
 				name = "Collection",
 				text = {
-					"{C:attention}Jokers{} each give {C:white,X:mult}X#1#{} Mult"
+					"{C:attention}Jokers{} each",
+					"give {C:white,X:mult}X#1#{} Mult"
 				}
 			},
 			j_crp_three = {
@@ -493,8 +494,8 @@ return {
 			j_crp_one_mans_trash = {
 				name = "One Man's Trash",
 				text = {
-					"{C:crp_trash}Trash{} {C:attention}Jokers{} give",
-					"{C:mult}+#1#{} Mult"
+					"{C:crp_trash}Trash{} {C:attention}Jokers{}",
+					"each give {C:mult}+#1#{} Mult"
 				},
 			},
 			--[[
@@ -512,7 +513,7 @@ return {
 				text = {
 					"{C:white,X:mult}X#1#{} Mult",
 					"When bought, replace a random",
-					"Joker with the default {C:attention}Joker",
+					"{C:attention}Joker{} card with the default {C:attention}Joker",
 				},
 			},
 			j_crp_q_big = {
@@ -584,8 +585,8 @@ return {
 				name = "Piano Falling over the Jolly Moon",
 				text = {
 					"{C:mult}+#1#{} Mult",
-					"Upgrade {C:planet}level{} of {C:attention}Pair{} when this",
-					"{C:attention}Joker{} is triggered"
+					"Upgrade {C:planet}level{} of {C:attention}Pair{} when",
+					"this {C:attention}Joker{} is triggered"
 				}
 			},
 			j_crp_fun_coin = {
@@ -672,8 +673,8 @@ return {
 					"{C:dark_edition}+#1#{} {C:attention}Joker{} slot#<s>1#",
 					"{C:attention}+#2# consumable{} slot#<s>2#",
 					"Earn {C:money}$#3#{} at end of round",
-					"{C:mult}+4{} Mult",
-					"{C:chips}+5{} Chip#<s>5#",
+					"{C:mult}+#4#{} Mult",
+					"{C:chips}+#5#{} Chip#<s>5#",
 				}
 			},
 			j_crp_executioner = {
@@ -1057,12 +1058,15 @@ return {
 					"trigger {C:attention}#2#{} or fewer times"
 				}
 			},
-			j_crp_crustulum_2 = {
-				name = "Crustulum 2",
+			j_crp_libum = {
+				name = "Libum",
 				text = {
-					"All rerolls now cost {C:chips}-#1#{} Chips from all poker hands",
-					"Earn {C:money}+#3#${} at the end of round, increases by {C:money}+#2#${} per reroll",
-					"Resets when boss blind is defeated"
+					"Rerolls cost {C:chips}-#1#{} Chips",
+					"from all {C:attention}poker hands",
+					"{C:inactive,s:0.8}(Minimum of {C:chips,s:0.8}1{C:inactive,s:0.8} Chip)",
+					"Earn {C:money}+#3#${} at the end of round,",
+					"increases by {C:money}+#2#${} when shop rerolled",
+					"Resets when {C:attention}Boss Blind{} is defeated"
 				}
 			},
 			j_crp_weather_machine = {
@@ -1217,9 +1221,9 @@ return {
 				text = {
 					"Creates a {C:dark_edition}Negative{} {C:cry_code}Global{} {C:attention}2{} of {C:hearts}Hearts{} and {C:attention}7{} of {C:hearts}Hearts",
 					"when bought, {C:hearts}Hearts{} cannot be {C:attention}debuffed",
-					"If played hand contains a {C:attention}2{}, {C:white,X:attention}^#1#{} current Ante",
-					"If played hand contains a {C:attention}7{}, {C:white,X:attention}X#2#{} current Ante",
-					"If played hand contains a {C:attention}2{} and a {C:attention}7{}, sets Ante to {C:attention}#3#"
+					"If played hand contains a {C:attention}2{}, {C:white,X:attention}^#1#{} current {C:attention}Ante",
+					"If played hand contains a {C:attention}7{}, {C:white,X:attention}X#2#{} current {C:attention}Ante",
+					"If played hand contains a {C:attention}2{} and a {C:attention}7{}, sets {C:attention}Ante{} to {C:attention}#3#"
 				},
 			},
 			j_crp_eternity = {
@@ -1455,7 +1459,7 @@ return {
 				text = {
 					"{C:attention}Shuffle{} at least {C:attention}#1#{} selected card#<s>1#",
 					"back into the deck, then create {C:attention}#2# Joker#<s>2#",
-					"{C:inactive}(must have room)"
+					"{C:inactive}(Must have room)"
 				}
 			},
 			c_crp_greed = {
@@ -1491,7 +1495,7 @@ return {
 				text = {
 					"{C:attention}Shuffle{} at least {C:attention}#1#{} selected card#<s>1# back",
 					"into the deck, then create {C:attention}#2# {C:tarot}Tarot{} card#<s>2#",
-					"{C:inactive}(must have room)"
+					"{C:inactive}(Must have room)"
 				}
 			},
 			c_crp_worlds = {
@@ -1499,7 +1503,7 @@ return {
 				text = {
 					"{C:attention}Shuffle{} at least {C:attention}#1#{} selected card#<s>1# back",
 					"into the deck, then create {C:attention}#2# {C:planet}Planet{} card#<s>2#",
-					"{C:inactive}(must have room)"
+					"{C:inactive}(Must have room)"
 				}
 			},
 			c_crp_spirits = {
@@ -1507,7 +1511,7 @@ return {
 				text = {
 					"{C:attention}Shuffle #1#{} random card#<s>1# back into the",
 					"deck, then create {C:attention}#2# {C:spectral}Spectral{} card#<s>2#",
-					"{C:inactive}(must have room)"
+					"{C:inactive}(Must have room)"
 				}
 			}
 		},
@@ -1828,7 +1832,7 @@ return {
 				text = {
 					"Ante increases {C:attention}decrease Ante{} instead",
 					"{C:inactive}(Can be toggled in Run Info)",
-					"{C:inactive,s:0.8}(currently does nothing bc idk how to code that lmao)",
+					"{C:inactive,s:0.8}currently does nothing bc idk how to code that lmao",
 				},
 			},
 			v_crp_ascension = {

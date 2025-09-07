@@ -314,7 +314,7 @@ SMODS.Voucher {
         G.shop_jokers:emplace(card)
     end,
     calculate = function(self, card, context)
-        if context.reroll_shop or context.starting_shop then
+        if (context.reroll_shop or context.starting_shop) and not G.GAME.used_vouchers.bulgscension then
             local card = SMODS.create_card({key = "j_crp_bulgoe"})
 		    create_shop_card_ui(card, "Joker", G.shop_jokers)
 		    card:set_cost()
@@ -480,7 +480,20 @@ SMODS.Voucher {
     calculate = function(self, card, context)
         if context.buying_card and card.config and card.config.center and card.config.center.pools and card.config.center.pools.Bulgoe then
             ease_dollars(lenient_bignum(card.ability.extra.money))
-            card:set_edition("e_crp_really_negative")
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                blockable = false,
+                blockable_auto = true,
+                once = true,
+                func = function()
+                    if context.card and context.card.config and context.card.config.center and context.card.config.center.pools and context.card.config.center.pools.Bulgoe then
+                        context.card:set_edition("e_crp_really_negative")
+                        return true
+                    end
+                    return true
+                end
+            }))
         end
     end,
     crp_credits = {
