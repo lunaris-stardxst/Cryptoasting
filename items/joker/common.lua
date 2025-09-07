@@ -9,6 +9,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 0 },
 	cost = 1,
 	pools = { Bulgoe = true },
+	pronouns = "bulgoe",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.chips) } }
 	end,
@@ -189,6 +190,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	pools = { Bulgoe = true },
+	pronouns = "bulgoe",
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.j_crp_bulgoe
 		return { vars = { lenient_bignum(card.ability.extra.create) } }
@@ -430,6 +432,7 @@ SMODS.Joker {
 	pos = { x = 6, y = 9 },
 	blueprint_compat = true,
 	demicoloncompat = true,
+	pronouns = "bulgoe",
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = { set = "Other", key = "bulgoe-themed_joker" }
 		local bulgoe_jokers = lenient_bignum(0)

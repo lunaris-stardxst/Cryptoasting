@@ -303,6 +303,7 @@ SMODS.Joker {
 	pools = { Bulgoe = true },
 	soul_pos = { x = 7, y = 1, extra = { x = 6, y = 1 } },
 	cost = 200,
+	pronouns = "bulgoe",
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
