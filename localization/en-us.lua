@@ -968,9 +968,9 @@ return {
 			j_crp_victoriam = {
 				name = "Victoriam",
 				text = {
-					"{C:white,X:dark_edition}^0.1{} Chip for every {C:edition,X:grey}win{} on this profile",
+					"{C:white,X:dark_edition}^#1#{} Chip for every {C:edition,X:grey}win{} on this profile",
 					"{C:inactive,s:0.8}(Excludes seeded runs and Challenge runs)",
-					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Chip#<s>1#)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Chip#<s>2#)",
 				}
 			},
 			j_crp_waldo_quaerere = {
