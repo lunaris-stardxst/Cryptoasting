@@ -165,7 +165,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "victoriam",
 	name = "Victoriam",
-	config = { extra = { echips = 0.1 } },
+	config = { extra = { echip_base = 0.1, echips = lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(0.1)) } },
 	rarity = "cry_exotic",
 	atlas = "crp_joker2",
 	pos = { x = 6, y = 0 },
@@ -174,7 +174,10 @@ SMODS.Joker {
 	blueprint_compat = true,
 	demicoloncompat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.echips)) } }
+		return { vars = { card.ability.extra.echip_base, card.ability.extra.echips } }
+	end,
+	update = function(self,card)
+		card.ability.extra.echips = lenient_bignum(1 + G.PROFILES[G.SETTINGS.profile].career_stats.c_wins * lenient_bignum(card.ability.extra.echip_base))
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -191,7 +194,7 @@ SMODS.Joker {
 	crp_credits = {
 		idea = { "Poker The Poker", "Glitchkat10" },
 		art = { "Grahkon" },
-		code = { "wilfredlam0418", "Glitchkat10" }
+		code = { "wilfredlam0418", "_poken" }
 	}
 }
 
