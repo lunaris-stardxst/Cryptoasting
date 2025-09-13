@@ -28,7 +28,7 @@ SMODS.Joker {
 	}
 }
 
-SMODS.Joker {
+SMODS.Joker { -- SOMEBODY FIX PILLARING JOKER PRETTY PLEASE
 	key = "pillaring",
 	name = "Pillaring Joker",
 	pos = { x = 7, y = 2 },
@@ -42,8 +42,10 @@ SMODS.Joker {
 		return { vars = { lenient_bignum(card.ability.extra.mult) } }
 	end,
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play and context.other_card.ability.played_this_ante then
-			return { mult = lenient_bignum(card.ability.extra.mult) }
+		if (context.individual and context.cardarea == G.play and context.other_card.ability.played_this_ante) or context.forcetrigger then
+			return {
+				mult = lenient_bignum(card.ability.extra.mult)
+			}
 		end
 	end,
 	crp_credits = {
@@ -86,7 +88,7 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-	key = "apple", -- right now doesn't do anything that good but will be for THE HORSE.
+	key = "apple",
 	name = "Apple",
 	config = { extra = { mult = 1, rounds_remaining = 10 } },
 	rarity = 1,
@@ -105,18 +107,9 @@ SMODS.Joker {
 				mult = lenient_bignum(card.ability.extra.mult)
 			}
 		end
-		if
-			(context.end_of_round
-			and not context.blueprint
-			and not context.individual
-			and not context.repetition
-			and not context.retrigger_joker)
-			or context.forcetrigger
-		then
+		if (context.end_of_round and not context.blueprint and context.main_eval and not context.retrigger_joker) or context.forcetrigger then
 			card.ability.extra.rounds_remaining = lenient_bignum(lenient_bignum(card.ability.extra.rounds_remaining) - 1)
-			if
-				lenient_bignum(card.ability.extra.rounds_remaining) <= 0
-			then
+			if lenient_bignum(card.ability.extra.rounds_remaining) <= 0 then
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						play_sound("crp_eat")
@@ -143,6 +136,10 @@ SMODS.Joker {
 					colour = G.C.FILTER,
 				}
 			end
+			return {
+				message = "-" .. (lenient_bignum(card.ability.extra.rounds_remaining)) .. " Round",
+				colour = G.C.FILTER
+			}
 		end
 	end,
 	crp_credits = {

@@ -87,7 +87,8 @@ SMODS.Joker {
 			if to_big(pseudorandom("quetta_m")) <= to_big(lenient_bignum(card.ability.immutable.numerator) / lenient_bignum(card.ability.immutable.denominator)) then
 				card.ability.extra.operator = lenient_bignum(card.ability.extra.operator) + lenient_bignum(card.ability.extra.operator_increase)
 				return {
-					message = "Upgraded!"
+					message = "Upgraded!",
+					colour = G.C.EDITION
 				}
 			end
 		end
@@ -176,6 +177,17 @@ SMODS.Joker {
 			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_scale)
 			if to_big(card.ability.extra.arrows) > to_big(100) then
 				card.ability.extra.mult = lenient_bignum(1e300)
+			end
+			if card.ability.extra.arrows_scale == 1 then
+				return {
+					message = "+" .. (lenient_bignum(card.ability.extra.arrows_scale)) .. " Arrow",
+					colour = G.C.EDITION
+				}
+			else
+				return {
+					message = "+" .. (lenient_bignum(card.ability.extra.arrows_scale)) .. " Arrows",
+					colour = G.C.EDITION
+				}
 			end
 		end
 	end,

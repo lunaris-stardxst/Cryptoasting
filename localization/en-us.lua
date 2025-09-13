@@ -370,6 +370,7 @@ return {
 				text = {
 					"Cards already played this",
 					"{C:attention}Ante{} give {C:mult}+#1#{} Mult when scored",
+					"{C:inactive,s:0.8}kinda broken rn every card gives +4 mult :("
 				},
 			},
 			j_crp_participation_trophy = {
@@ -1443,6 +1444,14 @@ return {
 					"{C:attention}+#3# Joker{} slot#<s>3#, {C:attention}+#4# consumable{} slot#<s>4#",
 					"{C:attention}+#5#{} hand size",
 					"{C:attention}#6#% Blind{} size"
+				}
+			},
+			b_crp_glyphic = {
+				name = "Glyphic Deck",
+				text = {
+					"Start on {C:attention}Ante #1#",
+					"{C:inactive,s:0.8}kinda bugged right now but still",
+					"{C:inactive,s:0.8}mostly works correctly"
 				}
 			}
 		},

@@ -90,9 +90,9 @@ SMODS.Joker {
 				}
 			elseif to_big(arrow_number_cards) == to_big(3) then
 				return {
-					eechips = lenient_bignum(card.ability.extra.chipsmult),
+					eeechips = lenient_bignum(card.ability.extra.chipsmult),
 					EEEmult_mod = lenient_bignum(card.ability.extra.chipsmult),
-					eechip_message = {
+					eeechip_message = {
 						message = "^^^" .. number_format(lenient_bignum(card.ability.extra.chipsmult)) .. " Chips & Mult",
 						colour = G.C.EDITION,
 						sound = "crp_pentationalchipsmult"

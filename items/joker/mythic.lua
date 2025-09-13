@@ -3,8 +3,9 @@ SMODS.Joker {
 	name = "Weather Machine",
 	config = { extra = { mult_mod = 1e76, death_prevention_enabled = true, mult = 0 } },
 	rarity = "crp_mythic",
-	atlas = "crp_placeholder",
-	pos = { x = 8, y = 0 },
+	atlas = "crp_joker2",
+	pos = { x = 0, y = 2 },
+	soul_pos = { x = 2, y = 2, extra = { x = 1, y = 2 } },
 	cost = 100,
 	blueprint_compat = true,
 	demicoloncompat = true,
@@ -53,6 +54,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker" },
+		art = { "candycanearter" },
 		code = { "Rainstar" }
 	}
 }

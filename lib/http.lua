@@ -16,10 +16,10 @@ local function apply_discord_member_count(code, body, headers)
 end
 
 function Cryptposting.update_member_count()
-    if
-    -- cryptposting_config and cryptposting_config.HTTPS ~= 0 and
-    https
-    and https.asyncRequest then
+    -- prevent multiple updates by checking if we already have a member count
+    if Cryptposting.member_count ~= member_fallback then return end
+    
+    if https and https.asyncRequest then
         https.asyncRequest(
             "https://discord.com/api/v10/invites/Jk9Q9usrNy?with_counts=true", -- this is all you guys; thisispeam :bulgoe:
             apply_discord_member_count

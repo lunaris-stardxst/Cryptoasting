@@ -640,6 +640,10 @@ SMODS.Joker {
 					colour = G.C.FILTER,
 				}
 			end
+			return {
+				message = "-" .. (lenient_bignum(card.ability.extra.mult)) .. " Mult",
+				colour = G.C.RED
+			}
 		end
 	end,
 	crp_credits = {

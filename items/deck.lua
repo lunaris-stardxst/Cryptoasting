@@ -113,3 +113,22 @@ SMODS.Back {
 		code = { "Glitchkat10" }
 	}
 }
+
+SMODS.Back {
+    key = "glyphic",
+	name = "Glyphic Deck",
+    config = { ante = 0 },
+	atlas = "crp_placeholder",
+    pos = { x = 4, y = 2 },
+    loc_vars = function(self, info_queue)
+        return { vars = { lenient_bignum(self.config.ante) } }
+    end,
+    apply = function(self, back)
+		G.GAME.round_resets.ante = self.config.ante
+		G.GAME.round_resets.blind_ante = G.GAME.round_resets.ante
+	end,
+    crp_credits = {
+        idea = { "Glitchkat10" },
+        code = { "Glitchkat10" }
+    }
+}
